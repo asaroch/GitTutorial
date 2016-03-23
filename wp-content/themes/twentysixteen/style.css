@@ -1537,7 +1537,7 @@ blockquote:after,
  */
 
 .site-header {
-	padding: 2.625em 7.6923%;
+	/* padding: 2.625em 7.6923%; */
 }
 
 .site-header-main {
@@ -2723,7 +2723,7 @@ p > video {
 	}
 
 	.site-header {
-		padding: 3.9375em 7.6923%;
+		/* padding: 3.9375em 7.6923%; */
 	}
 
 	.site-branding {
@@ -3346,7 +3346,7 @@ p > video {
 	}
 
 	.site-header {
-		padding: 5.25em 4.5455%;
+		/* padding: 5.25em 4.5455%; */
 	}
 
 	.site-branding,
@@ -3916,4 +3916,216 @@ p > video {
 	.widecolumn {
 		padding: 0;
 	}
+}
+
+div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
+	margin: 0px;
+	padding: 0px;
+}
+section, nav, header, footer{
+	display: block;
+}
+.container-fluid > section:before, .container-fluid > section:after {
+	content: '';
+	clear:both;
+	display: block;
+}
+a{
+	color: #444;
+}
+ul li{
+	list-style: none;
+}
+
+body{
+	font-size: 12px;
+	color: #000;
+	text-align: left;
+}
+
+#utilityNavigation .navbar{
+	margin-bottom: 0px;
+	padding-right: 15px;
+}
+
+#utilityNavigation ul {
+	width: 323px;
+}
+.navbar{
+	font-size: 12px;
+	color: #444;
+	height: auto;
+	min-height: auto;
+	margin-bottom: 0px;
+}
+#utilityNavigation  .navbar-nav > li > a{
+	padding-top:5px;
+	padding-bottom: 5px; 
+}
+.apply-btn{
+	padding: 10px 30px;
+	display: inline-block;
+	margin: 10px 0px;
+}
+
+.apply-btn:hover{
+	text-decoration: none;
+	color: #fff;
+}
+
+.section-heading {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+ #heroBanner {
+ 	text-align: left;
+ }
+
+.hero-image{
+	text-align: center;
+	font-size: 12px;
+}
+
+.financial-product-item {
+	padding: 15px 20px;
+	border: 1px solid #444;
+}
+
+.learn-more-btn {
+	display: block;
+}
+
+.financial-item-title {
+	font-weight: bold;
+	font-size: 12px;
+	margin: 5px 0px;
+}
+
+.financial-item-description {
+	font-size: 12px;
+}
+
+#imageBadgesGrid {
+	border-top: 1px solid #444;
+	text-align: center;
+}
+
+#fanancialProduct, #testimonial, #imageBadgesGrid, #featuredPost, #awardsGrid {
+	padding: 20px 0;
+}
+
+#featuredPost {
+	border-top: 1px solid #444;
+}
+
+.jumbotron {
+	margin-bottom: 0px;
+}
+
+.testimonial-avatar {
+	width: 60px;
+	height: 60px;
+	border-radius: 50px;
+	overflow: hidden;
+	float: left;
+}
+.testimonial-content {
+	float: left;
+	text-align: left;
+	margin-left: 20px;
+}
+.feature-description {
+	text-align: left;
+	padding: 5px;
+	padding-bottom: 10px;
+}
+
+.feature-description span {
+	display: block;
+	width: 100%;
+	height: 100px;
+	border: 1px solid #444;
+	text-align: center;
+}
+.grid-image-item {
+	width: 90px;
+	margin: 0px 8px;
+	height: 60px;
+	display: inline-block;
+}
+.award-list-item {
+	width: 100%;
+	height: 60px;
+	padding: 10px 20px;
+	border: 1px solid #444;
+	text-align: center;
+}
+
+.cta-text{
+	display: inline-block;
+	text-align: left;
+	margin-right: 30px;
+}
+#CTASection {
+	background: #444;
+	color: #fff;
+}
+
+#CTASection .apply-btn{
+	background: #fff;
+	color: #000;
+}
+footer {
+	text-align: left;
+	padding: 10px 0px;
+}
+footer li{
+	list-style: none;
+}
+
+.footer-navigation  li a  {
+	font-weight: bold;
+	font-size: 14px;
+	color: #444;
+	text-transform: uppercase;
+}
+
+.footer-navigation  li > ul >  {
+	font-weight: normal;
+	font-size: 15px;
+}
+.footer-sub-navigation li {
+	font-weight: normal;
+	margin-left: 10px;
+}
+
+footer .award-list-item {
+	height: auto;
+	color: #444;
+}
+.link-list-btns{
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.social-media {
+	text-align: center;
+}
+
+.social-badges li {
+	display: inline-block;
+}
+.social-badges a{
+	display: block;
+	border: 1px solid #444;
+}
+
+.social-badges .badges-img{
+	width: 60px;
+	height: 30px;
+	margin-bottom: 25px;
+
+}
+#copyright{
+	text-align: left;
 }

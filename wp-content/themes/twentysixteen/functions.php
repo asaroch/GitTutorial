@@ -405,3 +405,153 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+// Demo widgets
+class Financial_Products extends WP_Widget {
+
+	/**
+	 * Sets up the widgets name etc
+	 */
+	public function __construct() {
+		$widget_ops = array( 
+			'classname'   => 'financial_products',
+			'description' => 'Financial Products Widget',
+		);
+		parent::__construct( 'financial_products', 'Financial Products', $widget_ops );
+	}
+
+	/**
+	 * Outputs the content of the widget
+	 *
+	 * @param array $args
+	 * @param array $instance
+	 */
+	public function widget( $args, $instance ) {
+		// The Query
+		$query_args = array('post_type' => 'financial-products');
+		query_posts( $query_args );
+
+		$response = "<section  id='fanancialProduct'>
+			<h4 class='section-heading'> Financial Products </h4>
+			<div class='container-carousel-items'>";
+				// The Loop
+					while ( have_posts() ) : the_post();
+						$response .= "<div class='col-md-4 col-sm-4'>
+							<div class='row'>
+								<div class='financial-product-item'>
+									<h5 class='financial-item-title'>". get_the_title() ."</h5>
+									<p  class='financial-item-description'>" . get_the_excerpt() . "</p>
+									<a href='#' class='apply-btn'> Apply Now </a>
+									<a href='".get_the_permalink()."' class='learn-more-btn'> Learn more </a>
+								</div>
+							</div>
+						</div>";
+					endwhile;
+			$response .= "</div>
+		</section>";
+		
+		// Reset Query
+		wp_reset_query();
+		
+		// outputs the content of the widget
+		echo $response;
+	}
+
+	/**
+	 * Outputs the options form on admin
+	 *
+	 * @param array $instance The widget options
+	 */
+	public function form( $instance ) {
+		// outputs the options form on admin
+	}
+
+	/**
+	 * Processing widget options on save
+	 *
+	 * @param array $new_instance The new options
+	 * @param array $old_instance The previous options
+	 */
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+	}
+}
+
+class HOME_PAGE_HERO_SLIDER extends WP_Widget {
+
+	/**
+	 * Sets up the widgets name etc
+	 */
+	public function __construct() {
+		$widget_ops = array( 
+			'classname'   => 'home_page_hero_area',
+			'description' => 'HOME PAGE HERO AREA',
+		);
+		parent::__construct( 'home_page_hero_area', 'HOME PAGE HERO AREA', $widget_ops );
+	}
+
+	/**
+	 * Outputs the content of the widget
+	 *
+	 * @param array $args
+	 * @param array $instance
+	 */
+	public function widget( $args, $instance ) {
+		$response = "<section id='heroBanner' class='jumbotron'><!-- hero banner -->
+			<div class='row'>
+				<div class='col-sm-6'>
+					<div class='row'>
+						<h4 class='section-heading'> [Messaging... funding for your small business in as little as two business days... rem ipsum] </h4>
+						<a href='#' class='apply-btn'> Apply Now </a>
+					</div>
+				</div>
+				<div class='col-sm-6'>
+					<div class='row'>
+						<div class='hero-image'>
+							<p> Photo of merchant </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>";
+		// outputs the content of the widget
+		echo $response;
+	}
+
+	/**
+	 * Outputs the options form on admin
+	 *
+	 * @param array $instance The widget options
+	 */
+	public function form( $instance ) {
+		// outputs the options form on admin
+	}
+
+	/**
+	 * Processing widget options on save
+	 *
+	 * @param array $new_instance The new options
+	 * @param array $old_instance The previous options
+	 */
+	public function update( $new_instance, $old_instance ) {
+		// processes widget options to be saved
+	}
+}
+
+add_action( 'widgets_init', 'load_widgets' );
+
+function load_widgets() {
+    register_widget( 'Financial_Products' );
+    register_widget( 'HOME_PAGE_HERO_SLIDER' );
+}
+
+if (function_exists('register_sidebar')) {
+	register_sidebar(array(
+		'name'=> 'Home Page',
+		'id' => 'home_page_widget',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
+	));
+}
