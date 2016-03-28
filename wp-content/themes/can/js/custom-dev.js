@@ -27,7 +27,7 @@ $(function () {
 //	jQuery.post(var_object.ajax_url, data, function(response) {
 //		alert('Got this from the server: ' + response);
 //	});
-        //$("#filter_by_business_type").submit();
+        $("#filter_by_business_type").submit();
     });
 
 
