@@ -199,6 +199,12 @@
 		/*/2-23*/
 }
 @media (max-width:767px) {	
+	#user_rettings_slider .owl-prev {
+		left: -46px;
+	}
+	#user_rettings_slider .owl-next {
+		right: -46px;
+	}
 	/* INDEX PAgE   */
 	.primary-nav .nav .dropdown-menu,
 	.primary-nav .nav .open {
