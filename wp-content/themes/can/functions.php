@@ -774,16 +774,6 @@ function custom_resource_column($column, $post_id) {
             echo $order;
             break;
         }
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'applyNow_widget'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id('url'); ?>"><?php _e('URL:', 'applyNow_widget'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" type="text" value="<?php echo $url; ?>" />
-        </p>
-        <?php
     }
 
 function excerpt_count_js() {

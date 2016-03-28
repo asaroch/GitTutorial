@@ -264,9 +264,7 @@ header{
     color: #6b2976;
 }
 .get-Quote-form{
-    margin-bottom: 34px;
     margin-top: 0px;
-    padding: 25px 0px 42px;
     background: rgba(107, 40, 117, 0.5);
     position: relative;
 }
@@ -284,6 +282,10 @@ header{
     border: 1px solid #fff;	
     height: 50px;
     border: none;
+}
+.get-quote-style {
+    box-shadow: 1px 6px 6px -3px #333;
+    background-color: rgba(107, 40, 117, 1);
 }
 .border-left {
     border-left: 1px solid #8D4996;

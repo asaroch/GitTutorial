@@ -13,7 +13,7 @@ $(function () {
         $(".resource-container .row:gt(2)").hide();
         $(".show-more-articles").show();
         $(".show-less-articles").hide();
-        $('html, body').animate({scrollTop: $('.resource-container').offset().top}, 'slow');
+        $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'fast');
         //$('.resource-container').focus();
     });
 

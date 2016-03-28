@@ -34,6 +34,7 @@
 		    padding: 16px 15px;
 	}
 }
+
 @media (max-width:1199px) and (min-width:768px) {
 	.testimonial-heading  {
 		font-size: 34px;
@@ -58,6 +59,12 @@
 	}
 	.social-links ul li {
 		margin-right: 5px;
+	}
+}
+@media (min-width:992px) {
+
+	#post-article {
+		padding-right: 63px;
 	}
 }
 @media (max-width: 991px) {
@@ -121,14 +128,21 @@
 		background-size: 46px 46px;
 		background-position: 0px 9px;
 	}
-	.get-Quote-form {
+	/*.get-Quote-form {
 		padding: 25px 0px 42px;
-	}
+	}*/
 	.top-heading {
 		font-size: 30px;
 		margin:0 0 15px;
 	}
-	
+	.mob-grey-bg {
+		background-color: #eee;
+	}
+	/*2-23*/
+	.inner-page-arrow {
+		bottom: -48px; 
+	}
+	/*/2-23*/
 }
 @media (min-width: 768px){	
 		.navbar-collapse2.collapse {
@@ -170,10 +184,19 @@
 		.get-Quote-form .container {
 			position: relative;
 		}
+		/*2-23*/
 		.get-Quote-form .container .down-arrow {
 		    left: 44px;
-		    top: -25px;
+		    top: -15px;
 		}
+		.get-Quote-form .section-heading {
+			font-size: 26px;
+			margin-bottom: 6px;
+		}
+		.get-Quote-form {
+			padding: 10px 0px 20px;
+		}
+		/*/2-23*/
 }
 @media (max-width:767px) {	
 	/* INDEX PAgE   */
