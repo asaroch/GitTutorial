@@ -37,9 +37,6 @@ $args = array(
     'order'   => 'ASC'
 );
 $featured_resources = query_posts($args);
-
-// Fetch all tools 
-$tools = $wpdb->get_results("SELECT id,image,external_link,name FROM wp_tools", ARRAY_A);
 ?>
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
@@ -306,9 +303,15 @@ $resources = query_posts($args);
 
                 wp_reset_postdata();
                 ?>
-                <div class="show-more-terms show-more-articles">
-                    <a href="javascript:void(0)" title="Show More"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
-                </div>
+                <?php 
+                if ( count($resources) > $show_more_limit ) {
+                    ?>
+                    <div class="show-more-terms show-more-articles">
+                        <a href="javascript:void(0)" title="Show More"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
+                    </div>
+                    <?php 
+                }
+                ?>
                 <div class="show-less-articles show-more-terms">
                     <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-down"></i> </a>
                 </div>
@@ -318,26 +321,6 @@ $resources = query_posts($args);
                     <?php
                     // Call resources right sidebar widget area
                     if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
-                    endif;
-
-                    if (!empty($tools)) :
-                        ?>
-                        <div class="col-xs-12 post-section tools-block">
-                            <h2 class="section-heading">Tools</h2>
-                            <?php
-                            foreach ($tools as $tool) {
-                                ?>
-                                <div class="col-xs-12 post-information">
-                                    <div class="post-image">
-                                        <img src="<?php echo $tool['image']; ?>" width="66" height="66">
-                                    </div>	
-                                    <p class="post-content"><a href="<?php echo esc_url($tool['external_link']); ?>"><?php echo $tool['name']; ?></a></p>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                        <?php
                     endif;
                     ?>
                     <div class="col-xs-12 post-section">

@@ -176,7 +176,6 @@ class Featured_Video_Plus {
 		$attr
 	) {
 		$size = self::get_size();
-
 		$options = get_option( 'fvp-settings' );
 		$mode       = ! empty( $options['mode'] ) ? $options['mode'] : null;
 		$conditions = ! empty( $options['conditions'] ) ?

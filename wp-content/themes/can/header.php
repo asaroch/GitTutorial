@@ -20,7 +20,17 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
+        <?php 
+        global $show_more_limit;
+        $show_more_limit = get_option('posts_per_page'); ?>
         <div class="wrapper">
+            <?php
+            if (is_front_page()) {
+                ?>
+                <div class="water-mark-image"></div>
+                <?php
+            }
+            ?>
             <nav class="navbar" role="navigation">
                 <div class="utility-navigation hidden-xs">
                     <div class="container">
@@ -69,38 +79,47 @@
                         </div><!-- /.navbar-collapse -->
                     </div>
                 </div>
+                <?php 
+               $top_headline = get_post_meta($post->ID,'wpcf-page-headline-title', true);
+                ?>
                 <div class="container">
-                    <div class="top-heading">Resources<button class="glyphicon glyphicon-search search-btn visible-xs"></button>
+                    <div class="top-heading"><?php echo $top_headline; ?><button class="glyphicon glyphicon-search search-btn visible-xs"></button>
                     </div>	
                 </div><!-- /.container-fluid -->		  
             </nav>
-            <div id="get_quote">
-                <div id="form_box" class="gradient-one get-Quote-form">
-                    <div class="container">	
-                        <span class="down-arrow"></span>
-                       <h2 class="section-heading"> Get Your Quote </h2>
-                        <form class="" role="form">
-                            <div class="row">
-                                <div class="col-sm-10">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <input type="email" class="form-control" placeholder="Email ID">
+            <?php
+            if (!is_front_page()) {
+                ?>
+                <div id="get_quote">
+                    <div id="form_box" class="gradient-one get-Quote-form">
+                        <div class="container">	
+                            <span class="down-arrow"></span>
+                            <h2 class="section-heading"> Get Your Quote </h2>
+                            <form class="" role="form">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <input type="email" class="form-control" placeholder="Email ID">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="email" class="form-control" placeholder="Email ID">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <input type="email" class="form-control" placeholder="Email ID">
+                                            </div>
                                         </div>
-                                        <div class="col-sm-4">
-                                            <input type="email" class="form-control" placeholder="Email ID">
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <input type="email" class="form-control" placeholder="Email ID">
-                                        </div>
+                                    </div>	
+                                    <div class="col-sm-2 border-left">
+                                        <button type="submit" class="btn btn-blue-bg action-btn"> GET STARTED 
+                                            <i class="glyphicon glyphicon-play"></i>
+                                        </button>					    
                                     </div>
-                                </div>	
-                                <div class="col-sm-2 border-left">
-                                    <button type="submit" class="btn btn-blue-bg action-btn"> GET STARTED 
-                                        <i class="glyphicon glyphicon-play"></i>
-                                    </button>					    
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <?php
+            }
+            ?>

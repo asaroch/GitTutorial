@@ -299,6 +299,9 @@ function can_scripts() {
     wp_enqueue_script('owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js');
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
+     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
+    wp_localize_script( 'custom-dev', 'var_object',
+        array( 'ajax_url' => admin_url( 'admin-ajax.php' ) , 'show_more_limit' => get_option('posts_per_page')) );
 }
 
 add_action('wp_enqueue_scripts', 'can_scripts');
@@ -872,3 +875,18 @@ function excerpt_count_js() {
 
 add_action('admin_head-post.php', 'excerpt_count_js');
 add_action('admin_head-post-new.php', 'excerpt_count_js');
+
+// ajax hooks
+add_action( 'wp_ajax_nopriv_resource_filter_callback', 'resource_filter_callback' );
+
+function resource_filter_callback() {
+	global $wpdb; // this is how you get access to the database
+
+	$whatever = intval( $_POST['whatever'] );
+
+	$whatever += 10;
+
+        echo $whatever;
+
+	wp_die(); // this is required to terminate immediately and return a proper response
+}

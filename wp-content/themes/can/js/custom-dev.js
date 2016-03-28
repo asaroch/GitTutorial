@@ -1,24 +1,33 @@
 $(function () {
-    $(".resource-container .row:gt(2)").hide();
+    $(".resource-container .row:gt("+var_object.show_more_limit+")").hide();
 
     $('.show-more-articles').click(function (e) {
         e.preventDefault();
-        $(".resource-container .row:gt(2)").show();
+        $(".resource-container .row:gt("+var_object.show_more_limit+")").show();
         $(".show-more-articles").hide();
         $(".show-less-articles").show();
     });
 
     $('.show-less-articles').click(function (e) {
         e.preventDefault();
-        $(".resource-container .row:gt(2)").hide();
+        $(".resource-container .row:gt("+var_object.show_more_limit+")").hide();
         $(".show-more-articles").show();
         $(".show-less-articles").hide();
-        $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'fast');
+        $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
         //$('.resource-container').focus();
     });
 
-    $('#filter_by_business_type select').change(function () {
-        $("#filter_by_business_type").submit();
+    $('#filter_by_business_type select').change(function (e) {
+        //e.preventDefault();
+//        var data = {
+//		'action' : 'resource_filter_callback',
+//		'data'   : {}
+//	};
+	// We can also pass the url value separately from ajaxurl for front end AJAX implementations
+//	jQuery.post(var_object.ajax_url, data, function(response) {
+//		alert('Got this from the server: ' + response);
+//	});
+        //$("#filter_by_business_type").submit();
     });
 
 

@@ -4,6 +4,84 @@
  * Plugin Name: Tools
  * Description: This plugin add tools
  */
+class TOOLS_Widget extends WP_Widget {
+
+    /**
+     * Sets up the widgets name etc
+     */
+    public function __construct() {
+        $widget_ops = array(
+            'classname' => 'tools_widget',
+            'description' => 'Display tools on resource right sidebar',
+        );
+        parent::__construct('tools_widget', 'Tools Widget', $widget_ops);
+    }
+
+    /**
+     * Outputs the content of the widget
+     *
+     * @param array $args
+     * @param array $instance
+     */
+    public function widget($args, $instance) {
+        // outputs the content of the widget
+        global $wpdb;
+
+        $tools = $wpdb->get_results("SELECT id,image,external_link,name FROM wp_tools", ARRAY_A);
+        $title = apply_filters('widget_title', $instance['title']);
+      
+        if (!empty($tools)) :
+            $string = '<div class = "col-xs-12 post-section tools-block">
+                            <h2 class = "section-heading">'.$title.'</h2>';
+            foreach ($tools as $tool) {
+                $string .= ' <div class = "col-xs-12 post-information">
+                                                <div class = "post-image">
+                                                     <img src = "' . $tool['image'] . '" width="66" height="66" >
+                                                 </div>
+                                                 <p class = "featured-title"><a href="' . $tool['external_link'] . '">' . $tool['name'] . '</a></p>
+                                            </div>';
+            }
+            $string .= '</div>';
+
+        endif;
+        echo $string;
+    }
+
+    /**
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
+    public function form($instance) {
+        // outputs the options form on admin
+        if ($instance) {
+            $title = esc_attr($instance['title']);
+        } else {
+            $title = 'Tools';
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'applyNow_widget'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+        <?php
+    }
+
+    /**
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     */
+    function update($new_instance, $old_instance) {
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['url'] = strip_tags($new_instance['url']);
+        return $instance;
+    }
+
+}
+
 // Function to create the DB / Options / Defaults					
 function tools_plugin_options_install() {
     global $wpdb;
@@ -56,7 +134,7 @@ function toolsCallbackFunction() {
                 foreach ($badges as $badge) {
                     ?>
                     <tr>
-                       <td><?php echo $badge['name']; ?></td>
+                        <td><?php echo $badge['name']; ?></td>
                         <td><img src="<?php echo $badge['image']; ?>" width="50" height="50" /></td>
                         <td><?php echo $badge['external_link']; ?></td>
                         <td>
@@ -97,7 +175,7 @@ function addNewTool() {
             $wpdb->update(
                     'wp_tools', array(
                 'image' => $_POST['badgeImage'],
-                'name'          => $_POST['name'],
+                'name' => $_POST['name'],
                 'external_link' => $_POST['externalLink']
                     ), array('ID' => $badge_id), array(
                 '%s', // value1
@@ -111,7 +189,7 @@ function addNewTool() {
                     'wp_tools', array(
                 'image' => $_POST['badgeImage'],
                 'external_link' => $_POST['externalLink'],
-                'name'          => $_POST['name'],
+                'name' => $_POST['name'],
                 'created' => date("Y-m-d H:i:s")
                     ), array(
                 '%s',
@@ -146,7 +224,7 @@ function addNewTool() {
     <div class="row">
         <div class="col-md-8">
             <form role="form" method="post" >
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" placeholder="Name" name="name" required value="<?php echo $badegeName; ?>" />
                 </div>
@@ -172,5 +250,9 @@ function addNewTool() {
     </div>
     <?php
 }
+
+add_action('widgets_init', function() {
+    register_widget('TOOLS_Widget');
+});
 
 add_action('admin_menu', 'tools_add_pages');
