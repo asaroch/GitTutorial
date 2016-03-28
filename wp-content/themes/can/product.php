@@ -3,7 +3,14 @@
   Template Name: Product
  */
 get_header();
-$meta = get_post_meta(get_the_ID());
+$meta = get_post_meta(get_the_ID()); 
+/*
+ * Fetch testimonials respective to merchant category
+ */
+
+global $post;
+$listings = new WP_Query();
+$listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC');
 ?>
 <!--Financial Products -->
 <section  id="financial_product" class="gradient-one">
@@ -99,24 +106,23 @@ $meta = get_post_meta(get_the_ID());
 <section id="success_community">
     <div class="container">
         <h1 class="section-heading"> Community of Success </h1>
+        <!--Display testimonials for merchants-->
+        <?php
+        if ($listings->found_posts > 0){
+            while ($listings->have_posts()) {
+                $listings->the_post();
+        ?>
+        <!--Testimonials ends here-->
         <div class="col-md-6 col-sm-6">
             <div class="video-player">
-                <img src="assets/images/termsloan/video_link.jpg" alt="community success video">
+                <?php echo get_the_post_thumbnail($post->ID); ?>
             </div>
-            <p class="marchent-name"> Merchent Name </p>
-            <p class="business-label"> Business Name </p>
-            <p class="business-name"> Marketing </p>
-            <p class="success-description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>					
+            <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
+            <p class="business-label"> <?php echo get_post_meta($post->ID,'wpcf-business_name',true); ?> </p>
+            <p class="business-name"> <?php echo get_post_meta($post->ID,'wpcf-topic',true); ?> </p>
+            <p class="success-description"> <?php echo get_the_content(); ?> </p>					
         </div>
-        <div class="col-md-6 col-sm-6">
-            <div class="video-player">
-                <img src="assets/images/termsloan/video2_link.jpg" alt="community success video">
-            </div>
-            <p class="marchent-name"> Merchent Name </p>
-            <p class="business-label"> Business Name </p>
-            <p class="business-name"> Marketing </p>
-            <p class="success-description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>					
-        </div>
+        <?php } } ?>
     </div>			
 </section>
 <!-- community of success -->
@@ -124,27 +130,18 @@ $meta = get_post_meta(get_the_ID());
 <section id="member_benefit">
     <h1 class="section-heading"> Community of Success </h1>
     <div class="container">
+        <?php if ($listings->found_posts > 0){
+            while ($listings->have_posts()) {
+                $listings->the_post();
+        ?>
         <div class="col-md-4 col-sm-4">
             <div class="category-icon">
-                <img alt="installation icon image" src="assets/images/home/termloan_icon.png">
+               <?php echo get_the_post_thumbnail($post->ID,'thumbnail'); ?>
             </div>
-            <p class="benefit-name"> Merchent Name </p>
-            <p class="success-description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>					
+            <p class="benefit-name"> <?php echo get_the_title(); ?> </p>
+            <p class="success-description"> <?php echo get_the_content(); ?> </p>					
         </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="category-icon">
-                <img alt="installation icon image" src="assets/images/home/termloan_icon.png">
-            </div>
-            <p class="benefit-name"> Merchent Name </p>
-            <p class="success-description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>					
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="category-icon">
-                <img alt="installation icon image" src="assets/images/home/termloan_icon.png">
-            </div>
-            <p class="benefit-name"> Merchent Name </p>
-            <p class="success-description"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>					
-        </div>
+        <?php } } ?>
     </div>
 </section>
 <!-- member benefit -->	
