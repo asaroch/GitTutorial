@@ -209,6 +209,16 @@ function twentysixteen_widgets_init() {
         'before_title' => '<h2 class="section-heading">',
         'after_title' => '</h2>',
     ));
+    
+    register_sidebar( array(
+		'name'          => __( 'ApplyNow', 'twentysixteen' ),
+		'id'            => 'applynow',
+		'description'   => __( 'Appears on the center of the pages where its required to display apply now button.', 'twentysixteen' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -677,11 +687,10 @@ class Testimonial_Widget extends WP_Widget {
         $listings = new WP_Query();
         $listings->query('post_type=testimonial&testimonial-category=' . $type . '&posts_per_page=' . $numberOfListings);
         if ($listings->found_posts > 0) {
-            echo '<section id="testimonial">			
-			<div class="tranp-div-two">
-			</div>
+            echo '<section  id="testimonial">
+			<div class="tranp-div-two"></div>
 			<div class="tranp-div gradient-one"></div>
-			<div class="container-fluid">
+			<div class="container">
 				<div id="slider_testimonial" class="owl-carousel owl-theme">';
             while ($listings->have_posts()) {
                 $listings->the_post();
@@ -696,7 +705,7 @@ class Testimonial_Widget extends WP_Widget {
 									<div class="col-sm-8">
 										<div class="testimonial-content">
 											<h3 class="testimonial-heading">' . get_the_content() . '</h3>
-											<h3 class="customer-info">- ' . get_the_title() . '</h3>
+											<h3 class="customer-info">- ' . get_the_title() . ', '.get_post_meta($post->ID,'wpcf-business_name',true).'</h3>
 										</div>
 									</div>
 								</div>
@@ -722,6 +731,74 @@ class Testimonial_Widget extends WP_Widget {
 
 //end class Realty_Widget
 register_widget('Testimonial_Widget');
+
+
+/***********************************************************
+ * Widget to display global block for apply now button
+ * Parameters : $title, URL for the button
+ * Return : $title and URL
+ * ****************************************************/
+
+class ApplyNow_Widget extends WP_Widget{
+function __construct() {
+	parent::__construct(
+		'applyNow_widget', // Base ID
+		'ApplyNow Widget', // Name
+		array('description' => __( 'Apply now button to open a global link provided by admin.'))
+	   );
+}
+function update($new_instance, $old_instance) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['url'] = strip_tags($new_instance['url']);
+		return $instance;
+}
+
+function form($instance) {
+	if( $instance) {
+		$title            = esc_attr($instance['title']);
+		$url = esc_attr($instance['url']);
+	} else {
+		$title = 'APPLY NOW';
+		$url = '#';
+	}
+	?>
+		<p>
+		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'applyNow_widget'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+		</p>
+		<p>
+		<label for="<?php echo $this->get_field_id('url'); ?>"><?php _e('URL:', 'applyNow_widget'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" type="text" value="<?php echo $url; ?>" />
+		</p>
+	<?php
+	}
+	
+	function widget($args, $instance) {
+	extract( $args );
+	$title = apply_filters('widget_title', $instance['title']);
+	$url = $instance['url'];
+	echo $before_widget;
+	if ( $title ) {
+		//echo $before_title . $title . $after_title;
+	}
+	$this->getUrlforApplyNow($url,$title);
+	echo $after_widget;
+}
+
+/***********************************************************
+ * Function to generate a button with dynamic title
+ * Parameters : $url, $title
+ * Return : Html view with title and url to be opened.
+ * ****************************************************/
+ 
+function getUrlforApplyNow($url,$title) { //html
+	echo '<a href="'.$url.'" title="'.$title.'" class="btn btn-blue-bg"> '.$title.' <i class="glyphicon glyphicon-play"></i></a>';
+}
+
+
+} //end class Realty_Widget
+register_widget('ApplyNow_Widget');
 
 /* * ****************************************************
   Description : Hook to add data toggle attributes if menu item has children
