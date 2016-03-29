@@ -59,7 +59,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  */
 
 /* import font style with external style css files */		
-@import url("font-style.css");
+@import url("css/font-style.css");
 
 /*style*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
@@ -195,7 +195,7 @@ ul.dropdown-menu li{
  .primary-nav li:hover .dropdown-menu {
 	display: block;
 } 
-.primary-nav ul.nav li  a.active {
+.primary-nav ul.nav li.current-menu-item  a {
 	border-bottom: 5px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown:hover a:hover {

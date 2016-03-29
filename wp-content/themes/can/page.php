@@ -11,24 +11,22 @@
  * @since Twenty Sixteen 1.0
  */
 get_header(); ?>
-
-<div id="primary" class="">
-	<main id="main" class="site-main" role="main">
-		<?php
-		// Start the loop.
-		while ( have_posts() ) : the_post();
-
-			// Include the page content template.
-			get_template_part( 'template-parts/content', 'page' );
-			// End of the loop.
-		endwhile;
-		?>
-
-	</main><!-- .site-main -->
-
-	<?php //get_sidebar( 'content-bottom' ); ?>
-
-</div><!-- .content-area -->
+<div id="all_resources_block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 resource-container">						
+                    <div class="row">
+                        <div class="col-sm-12 resource-list" id="post-article">								
+                            <div class="resource-content">
+                               
+                                <p class="static-design-content">Yet to receive designs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>				
+        </div>
+    </div>
 
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
