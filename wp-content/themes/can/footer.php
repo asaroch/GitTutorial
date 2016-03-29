@@ -80,7 +80,7 @@
             </div>
             <div class="col-sm-12">
                 <div class="footer-note">
-                    <p>* The CAN Capital Installment Loan is not available in the following states: CA, CT, DE, MI, MT, ND, NV, NJ, NY, RI, SD, TN, AND VT.</p>
+                    <p><sup>&#8224;</sup> The CAN Capital Installment Loan is not available in the following states: CA, CT, DE, MI, MT, ND, NV, NJ, NY, RI, SD, TN, AND VT.</p>
                     <p>CAN Capital, Inc. makes capital available to businesses through business loans made by WebBank, a Utah chartered Industrial Bank, member FDIC, and through CAN Capital’s subsidiaries: Merchant Cash Advances by CAN Capital Merchant Services, Inc., and business loans by CAN Capital Asset Servicing, Inc. ©2016 CAN Capital. All rights reserved.</p>
                 </div>	
             </div>
