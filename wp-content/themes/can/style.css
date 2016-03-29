@@ -195,7 +195,7 @@ ul.dropdown-menu li{
  .primary-nav li:hover .dropdown-menu {
 	display: block;
 } 
-ul.nav li.current-menu-item  a {
+.primary-nav ul.nav li.current-menu-item  a {
 	border-bottom: 5px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown:hover a:hover {
@@ -467,9 +467,9 @@ sup {
 }
 
 .utility-navigation .btn-blue-bg {
-    background-color: #01AEF0;
+    background: none;
 	color: #fff;
-        border: none;
+    border: none;
 }
 
 .btn-blue-bg:hover, .btn-blue-bg:focus, #getStartedForm button:hover, .utility-navigation .btn-blue-bg a:hover {
@@ -1116,22 +1116,18 @@ footer .badges-container {
 	display: inline-block;
 	color: #444;
 }
-
 .custom-prev-btn, .custom-next-btn {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
-
 }
-
 .get-hover-form {
 	position: absolute;
 	left: 0;
 	right: 0;
 	z-index: 9;
 	display: none;
-
 }
 #form_box{
 	position: absolute;
@@ -1173,7 +1169,6 @@ footer .badges-container {
 	clear: both;
 }
 /*post page*/
-
 #post-article,
 #all_resources_block #post-article .resource-content {
 	height: auto;
@@ -1213,13 +1208,13 @@ footer .badges-container {
 .rating-heading {
 	margin: 14px 0px 16px;
 	color: #000;
-	font-size: 20px;
-	font-weight: bold;
+	font-size: 16px;
 }
 .ratting-description {
 	color: #000;
 }
 .ratting-user{
+	font-size: 12px;
 	margin-top: 28px;
 	color: #000;
 }
