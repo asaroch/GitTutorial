@@ -43,7 +43,7 @@ $featured_resources = query_posts($args);
             <div class="row"> 
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="s">
+                        <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="s">
                     </div>
                 </div>
                 <?php
@@ -55,7 +55,7 @@ $featured_resources = query_posts($args);
                     <div class="col-sm-3 hidden-xs">
                         <div class="select-topic">
                             <select class="form-control">
-                                <option value="">Business Type</option>
+                                <option value="">Filter by Topic</option>
                                 <?php
                                 foreach ($business_types as $business_type) {
                                     ?>
@@ -72,7 +72,7 @@ $featured_resources = query_posts($args);
                 ?>
                 <div class="col-sm-2 hidden-xs">
                     <div class="form-group">
-                        <button class="btn btn-blue-bg btn-go field-style">Go</button>
+                        <button class="btn btn-blue-bg btn-go field-style">Go <i class="glyphicon glyphicon-play"></i></button>
                     </div>
                 </div>
             </div>
@@ -242,7 +242,7 @@ $resources = query_posts($args);
                         <div class="select-topic">
                             <form method="get" id="filter_by_business_type">
                                 <select class="form-control" name="search">
-                                    <option value="">Business Type</option>
+                                    <option value="">Filter by Topic</option>
                                     <?php
                                     foreach ($business_types as $business_type) {
                                         ?>
