@@ -301,7 +301,7 @@ function can_scripts() {
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
      // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
     wp_localize_script( 'custom-dev', 'var_object',
-        array( 'ajax_url' => admin_url( 'admin-ajax.php' ) , 'show_more_limit' => get_option('posts_per_page')) );
+        array( 'ajax_url' => admin_url( 'admin-ajax.php' ) , 'show_more_limit' => get_option('posts_per_page'), 'image_url' => get_template_directory_uri()) );
 }
 
 add_action('wp_enqueue_scripts', 'can_scripts');
