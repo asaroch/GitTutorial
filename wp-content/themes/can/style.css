@@ -3,7 +3,7 @@ Theme Name: CAN
 Theme URI: https://wordpress.org/themes/twentysixteen/
 Author: Trantor Team
 Author URI: https://wordpress.org/
-Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout â€” the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
 Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -58,26 +58,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
  */
 
-/*font - Fort*/
-@font-face {
-    font-family: 'Fort-Extrabold';
-    src: url('fonts_ext/Fort-Extrabold_0.eot');
-    src: local('☺'), url('fonts_ext/Fort-Extrabold_0.woff') format('woff'), 
-        url('fonts_ext/Fort-Extrabold_0.ttf') format('truetype'), 
-        url('fonts_ext/Fort-Extrabold_0.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Fort-Light';
-    src: url('fonts_ext/Fort-Light_0.eot');
-    src: local('☺'), url('fonts_ext/Fort-Light_0.woff') format('woff'), 
-        url('fonts_ext/Fort-Light_0.ttf') format('truetype'), 
-        url('fonts_ext/Fort-Light_0.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+/* import font style with external style css files */		
+@import url("font-style.css");
 
 /*style*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
@@ -101,7 +83,7 @@ ul li{
 body {
 	font-size: 14px;
 	color: #6d6e71;
-	font-family:'Fort-Light',sans-serif;
+	font-family: 'Fort-Book';
 }
 header{
 	background: rgba(255, 255, 255, .7);
@@ -180,20 +162,48 @@ header{
 	font-size: 14px;
 	margin-left: 5px;
 }
-.primary-nav .nav .open > a, .primary-nav .nav .open>a:focus {
+.primary-nav .nav > li a{
+	margin: 0px;
+	padding: 0px;
+}
+.primary-nav ul.nav > li {
+	padding: 0px 16px;
+}
+.primary-nav ul.nav > li.dropdown,  
+ul.dropdown-menu li{
+	padding: 0px;
+}
+.primary-nav .nav  li a{
+	padding: 10px 0px;
+}
+.primary-nav .nav  li.dropdown a{
+	padding: 10px 16px;
+}
+.primary-nav .nav > li a, 
+.primary-nav .nav > li a:focus {
+    border-color: #d7d7d7;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 0px;     
+}
+.primary-nav ul.nav li.dropdown:hover > a, 
+.primary-nav .nav li.dropdown:hover > a:focus {
     background-color: #fff;
     border-color: #d7d7d7;
     border: 1px solid #d7d7d7;
-    border-bottom: 0;
+    box-shadow:3px 2px 0px rgba(0, 0, 0, 0.2);
+ } 
+ .primary-nav li:hover .dropdown-menu {
+	display: block;
+} 
+.primary-nav ul.nav li  a.active {
+	border-bottom: 5px solid #00B0EB;
 }
-.primary-nav .nav .open>a:hover {
+.primary-nav .nav li.dropdown:hover a:hover {
 	 background-color: #f5f5f5;
 }
+
 .primary-nav .glyphicon-menu-down {
 	 color: #00aeef;
-}
-.primary-nav .nav .open {
-	box-shadow:3px 2px 0px rgba(0, 0, 0, 0.2);
 }
 .primary-nav .nav .dropdown-menu {
 	width:100%;
@@ -226,10 +236,29 @@ header{
 	padding-bottom: 5px;
 	font-size: 14px;
 }
+#main_navigationbar  .navbar-nav > li > a, 		
+.top-heading strong,		
+.section-heading,		
+.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,		
+.financial-product-item h5,		
+.learn-more-btn,		
+.testimonial-heading,		
+#about_us p b,		
+.featured-title a,		
+.read-date b,		
+.featured-tag,		
+.post-content,		
+.show-more-terms a,		
+.sub-heading,		
+.marchent-name,		
+.business-name,		
+.benefit-name {		
+	font-family: 'Fort-Bold';		
+}
 .btn-blue-bg {
 	background: #01AEF0;
 	color: #fff;
-	font-weight: 600;
+	font-family: 'Fort-Medium';
 }
 .navbar-collapse2 {
     padding-right: 15px;
@@ -245,7 +274,7 @@ header{
 	color: #6a2875;
 	margin-top: 23px;
 	margin-bottom: 27px;
-	font-weight: bold;
+	font-family: 'Fort-Light';
 	position: relative;
 }
 .down-arrow{
@@ -266,8 +295,6 @@ header{
 	margin-bottom: 20px;
 	font-size: 36px;
 	text-align: center;
-	font-family: Arial;
-	font-weight: bold;
 	color: #6b2976;
 }
 .get-Quote-form{
@@ -280,11 +307,10 @@ header{
 .get-Quote-form .section-heading {
     color: #fff;
 }
-.get-Quote-form input, #search_resource input, .select-topic select {
+.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input {
 	font-size: 16px;
-	color: #999;
-	font-weight: bold;
-	font-family: Arial;
+	color: #6d6e71;
+	/*color: #999;*/
 }
 .get-Quote-form input, #search_resource input {
 	border-radius: 25px;
@@ -327,7 +353,6 @@ header{
 	text-transform: uppercase;
 	color: #fff;
 	margin-top: 20px;
-	font-weight: 600;
 }
 .learn-more-btn .glyphicon {
 	color:#00aeef;
@@ -372,18 +397,20 @@ header{
 .testimonial-heading {
 	font-size: 36px;
 	color: #6a2875;
-	font-family:'Fort-Extrabold',sans-serif;
 	margin-bottom: 25px;
 }
 .customer-info {
 	color: #6d6e71;
 	font-size: 20px;
 }
+.customer-info span {		
+	font-family: 'Fort-BookItalic';		
+}
 .tranp-div {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 35px;
+    height: 45px;
     z-index: -1;
 }
  .tranp-div-two {
@@ -392,7 +419,7 @@ header{
     width: 100%;
     z-index: 1;
     background: rgba(255, 255, 255, .7);
-    top: 34px;
+    top: 45px;
     bottom: 0;
 }
 	#home_resource_list {
@@ -428,7 +455,6 @@ header{
 .btn-blue-bg, .utility-navigation .btn-blue-bg a{
 	background-color: #01AEF0;
 	color: #fff;
-	font-weight: 600;
 	border-radius: 25px;
 	border: 2px solid #fff;
 }
@@ -464,8 +490,9 @@ i.glyphicon-play {
     padding-bottom: 57px;
 }
 #about_us p {
-width:506px;
-margin: 0 auto 34px;
+	width:506px;
+	margin: 0 auto 34px;
+	font-family: 'Fort-Light';
 }
 
 .btn-purple-style:hover, .btn-purple-style:focus {
@@ -481,12 +508,10 @@ margin: 0 auto 34px;
 }
 #about_us p, .get-funded h1, .get-funded h3{
 	font-size: 36px;
-}						
-.get-funded h1{
-	font-weight: bold;
 }
 .get-funded h3 {
 	margin: 10px 0 36px;
+	font-family: 'Fort-Light';
 }
 .icon-bar{
 	background: #01aeef;	
@@ -518,7 +543,7 @@ margin: 0 auto 34px;
 	position: relative;
 	background-size: cover;
 }
-#resource_list_container .resource-content, #resource_hero .resource-content {
+#resource_list_container .resource-content, #resource_hero .resource-content, #home_resource_list .resource-content {
 	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
 	width: 100%;
 }
@@ -568,17 +593,15 @@ margin: 0 auto 34px;
 .featured-title a{
 	line-height: 30px;
 	color: #01AEF0;
-	font-family: Arial;
-	font-weight: bold;
 	font-size: 26px;	
 	text-decoration: none;
 }
 .featured-tag {
 	width: 116px;
+	font-size: 13px;
 	color: #fff;
 	padding: 5px;
 	text-align: center;
-	font-family: 'Fort-Light',sans-serif;
 	margin-bottom: 18px;
 }
 .read-time, .read-date{
@@ -587,10 +610,10 @@ margin: 0 auto 34px;
 }
 .read-time{
 	background: url(images/home/time_icon.png) no-repeat left top;
+	font-family: 'Fort-Medium';
 	padding-left: 28px;
 	margin-top: 40px;
 	line-height: 25px;
-	font-weight: bold;
 	position: absolute;
     bottom: 10px;
 }
@@ -643,7 +666,7 @@ span.select-drop {
 	margin-top: 16px;
 }
 .resource-list {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	height: 200px;
 }
 .sidebar {
@@ -685,8 +708,6 @@ span.select-drop {
 .post-content {
 	color:#00aeef;
 	width:153px;
-	font-family: Arial;
-	font-weight: bold;
 	font-size: 14px;
 }
 .news-letter-field {
@@ -735,10 +756,10 @@ span.select-drop {
     background-color: #c7c7c7;
     bottom: 0px;
     right: 0;
-    font-size: 13px;
-    font-style: italic;
 }
 .sponsored p {
+	font-size: 13px;		
+    font-family: 'Fort-BookItalic';
 	color: #fff;
 	padding: 7px;
 }
@@ -781,12 +802,16 @@ span.select-drop {
 	font-size: 18px;
 	color: #fff;
 }
+	.get-e-book .section-heading {		
+	margin-bottom: 4px;		
+}
 /*resource end*/
 
 /* terms loan */
 .head-titles p {
 	font-size: 16px;
 	margin-top: 20px;
+	font-family: 'Fort-Light';
 }
 .head-titles .top-heading {
 	margin-top:0;
@@ -797,7 +822,6 @@ span.select-drop {
 	padding:20px;
 	text-align: center; 
 	font-size: 22px;
-	font-family: arial;
 	color: #fff;
 	box-shadow: 2px 2px 2px #333;
 }
@@ -830,15 +854,12 @@ span.select-drop {
 .sub-heading{
 	font-size: 22px;
 	color: #6d6e71;
-	font-family: arial;
-	font-weight: bold;
 	margin-bottom: 25px;
 }
 .details-point li {
 	margin-bottom: 12px;
 	font-size: 16px;
 	color: #6d6e71;
-	font-family: arial;
 	line-height: 30px;
 	background: url('images/termsloan/arrow_bullet.png') no-repeat;
 	padding-left: 35px;
@@ -856,7 +877,6 @@ span.select-drop {
 }
 .termloan-use-point li {
 	position: relative;
-	font-family: arial;
     font-size: 26px;
     background:url('images/termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
@@ -882,9 +902,8 @@ span.select-drop {
 }
 .show-more-terms a{
 	font-size: 14px;
-	font-family: arial;
-	font-weight: bold;
 	color: #00aeef;
+	text-decoration: none;
 }
 #loan_calculator{
 	padding: 68px 0;
@@ -915,7 +934,6 @@ span.select-drop {
 .marchent-name{
 	font-size: 26px;
 	color: #00aeef;
-	font-weight: bold;
 	margin-top: 27px;
 }
 
@@ -926,7 +944,7 @@ span.select-drop {
 .business-label{
 	font-size: 20px;
 	color: #6d6e71;
-	font-style: italic;
+	font-family: 'Fort-BookItalic';
     margin-bottom: 10px;
 }
 .business-name,
@@ -934,9 +952,6 @@ span.select-drop {
 	font-size: 14px;
 	color: #6d6e71;
 	margin-bottom: 20px;
-}
-.business-name{
-	font-weight: bold;
 }
 #member_benefit {
 	background: #EEEEEE;
@@ -947,12 +962,12 @@ span.select-drop {
 .benefit-name {
 	font-size: 26px;
 	color: #00aeef;
-	font-weight: bold;
 	margin-top: 27px;
 	margin-bottom: 26px;
 }
 .tools-block p {
 	line-height: 63px;
+	font-size: 18px;
 }
 #details_termsloan .section-heading,
 #use_termloan_for .section-heading,
@@ -997,6 +1012,7 @@ footer .badges-container {
 }
 .footer-note p {
 	margin-bottom: 28px;
+	font-size: 12px;
 }
 
 /* owl next and prev button */
@@ -1220,7 +1236,7 @@ footer .badges-container {
 	margin: 11px auto 15px;
 }
 .icon-sprite{
-	background: url(images/home/can_sprt.png) no-repeat;
+	background: url(images/can_sprt.png) no-repeat;
 }
 .star-overall li {
 	background-position:-16px -310px;
