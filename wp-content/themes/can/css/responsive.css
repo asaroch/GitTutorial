@@ -213,31 +213,57 @@
 	.primary-nav .nav .dropdown-menu li a {
 		border-bottom: 0;
 	}
+
+	.primary-nav li:hover .dropdown-menu {
+		display: none;
+	}
+
+	.primary-nav li.open:hover .dropdown-menu {
+		display: block;
+	}  
+	.primary-nav ul.nav li.dropdown:hover > a, 
+	.primary-nav .nav li.dropdown:hover > a:focus {
+	    border-color: #d7d7d7;
+	    border: 1px solid #d7d7d7;
+	     box-shadow:none;
+	     background: #fff;
+	     color: #00aeef;
+	}
+
+	.primary-nav ul.nav li.dropdown.open > a, 
+	.primary-nav .nav li.dropdown.open > a:focus {
+	    border-color: #d7d7d7;
+	    border: 1px solid #d7d7d7;
+	     box-shadow:none;
+	     background:#fff;
+	     color: #00aeef;
+	}
+
+	.primary-nav .nav .open > a, .primary-nav .nav .open>a:focus {
+	    border: none;
+	    border-bottom: 0;
+	}
+	.nav>li>a:focus, .nav>li>a:hover {
+		background: #fff;
+
+	}
+	.primary-nav ul.nav > li {
+		padding: 0px;
+	}
+	.primary-nav ul.nav > li a{
+		padding-left: 16px;
+		padding-right: 16px;
+
+	}
+	.primary-nav .glyphicon-menu-down {
+		 color: #00aeef;
+	}
+	.primary-nav .nav .open {
+		box-shadow:none;
+	}
 	.navbar a, .primary-nav .nav .dropdown-menu li a {
 		color: #fff;
-               
 	}
-        .navbar a:hover, .primary-nav .nav .dropdown-menu li a:hover {
-		color: #00aeef;
-                background: #fff;
-               
-	}
-        .primary-nav ul.nav li a:hover{
-             background-color: #fff;
-            color:#00aeef;
-        }
-        .primary-nav ul.nav > li {
-            padding: 0px;
-        }
-         .primary-nav ul.nav > li a{
-            padding-left: 16px;
-        }
-        .primary-nav ul.nav li.dropdown:hover > a, 
-        .primary-nav .nav li.dropdown:hover > a:focus {
-            background-color: #fff;
-            color:#00aeef;
-         } 
-        
 	.navbar-nav > li  {
 	   border-bottom: 1px solid #37BEF6;
 	}
@@ -493,13 +519,15 @@
 	}
 	#all_resources_block .resource-image {
 		margin:0 auto;
+		width: 288px;
 	}
 	.resource-list {
 		height: auto;
 	}
 	#all_resources_block .resource-content {
-		padding:0;
+		padding:35px 18px 30px;
 		width:100%;
+		height: auto;
 	}
 	.get-e-book .text-align {
 			text-align: center;
@@ -555,9 +583,6 @@
 	#home_get_quote .down-arrow {
 		border-top: 18px dashed rgb(225,212,228);
 	}
-        #resource_list_container .featured-article {
-            float:left;
-        }
 }
 @media (max-width:480px){
 	.water-mark-image {

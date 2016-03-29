@@ -195,7 +195,7 @@ ul.dropdown-menu li{
  .primary-nav li:hover .dropdown-menu {
 	display: block;
 } 
-.primary-nav ul.nav li.current-menu-item  a {
+ul.nav li.current-menu-item  a {
 	border-bottom: 5px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown:hover a:hover {
