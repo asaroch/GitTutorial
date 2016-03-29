@@ -74,13 +74,13 @@ $(function(){
 			        0:{
 			            items:1,
 			            nav:true,
-			            navText: ["<img src='assets/images/home/blue_arrow_left.png'>","<img src='assets/images/home/blue_arrow_right.png'>"],
+			            navText: ["<img src='images/home/blue_arrow_left.png'>","<img src='images/home/blue_arrow_right.png'>"],
 			            dots: false
 			        },
 			        768:{
 			            items:3,
 			            nav:true,
-			            navText: ["<img src='assets/images/home/blue_arrow_left.png'>","<img src='assets/images/home/blue_arrow_right.png'>"],
+			            navText: ["<img src='images/home/blue_arrow_left.png'>","<img src='images/home/blue_arrow_right.png'>"],
 			            dots: true
 			        }
 			}
@@ -96,7 +96,7 @@ $(function(){
 			        0:{
 			            items:1,
 			            nav:true,
-			            navText: ["<img src='assets/images/home/blue_arrow_left.png'>","<img src='assets/images/home/blue_arrow_right.png'>"],
+			            navText: ["<img src='images/home/blue_arrow_left.png'>","<img src='images/home/blue_arrow_right.png'>"],
 			            dots: false
 			        },
 			        768:{

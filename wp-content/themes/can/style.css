@@ -126,6 +126,13 @@ header{
 	background: linear-gradient(to right,  #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
 	 /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=1 ); IE6-9 */
 }
+.gradient-three {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a416bb+100&0.9+0,0.8+100 */
+	background: -moz-linear-gradient(left,  rgba(108,41,118,0.9) 0%, rgba(164,22,187,0.8) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(108,41,118,0.9) 0%,rgba(164,22,187,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(108,41,118,0.9) 0%,rgba(164,22,187,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e66c2976', endColorstr='#cca416bb',GradientType=1 ); /* IE6-9 */
+}
 .gradient-footer{
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+100,a24f9d+100 */
 	background: #6c2976; /* Old browsers */
@@ -388,6 +395,29 @@ header{
     top: 34px;
     bottom: 0;
 }
+	#home_resource_list {
+		
+		background: url(images/home/gradient-03_Cmark.png) repeat left top;
+	}
+	.resource-list-bg {
+		padding: 36px 0 43px;
+	}
+	#home_resource_list .container:first-child {
+		margin-bottom: 20px;
+	}
+	.inspiration-content {
+		text-align: center;
+	}
+	.inspiration-content .section-heading {
+		text-align: center;
+		color: #fff;
+		margin-top: 74px;
+		font-weight: bold;
+	}
+	.inspiration-content .see-all-resources{
+		background: none;
+		margin-top: 14px;
+	}
 /*buttons*/
 .btn-purple-style {
 	color: #fff;
@@ -517,11 +547,11 @@ margin: 0 auto 34px;
 	width:auto;
 	height: auto;
 }
-#resource_list_container .resource-content {
+#resource_list_container .resource-content,  #home_resource_list .resource-content {
 	padding: 16px 20px;
 	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
 }
-#resource_list_container .resource-content, .featured-story-image {
+#resource_list_container .resource-content, .featured-story-image, #home_resource_list .resource-content {
 	height: 312px;
 }
 .featured-story-image {
@@ -1190,7 +1220,7 @@ footer .badges-container {
 	margin: 11px auto 15px;
 }
 .icon-sprite{
-	background: url(images/can_sprt.png) no-repeat;
+	background: url(images/home/can_sprt.png) no-repeat;
 }
 .star-overall li {
 	background-position:-16px -310px;
