@@ -50,11 +50,10 @@ $featured_resources = query_posts($args);
                 <?php
                 if (!empty($business_types)) {
                     ?>
-                    <div class="col-sm-1 option-text">
+                    <div class="col-sm-1 option-text hidden-xs">
                         <p>and / or</p>
                     </div>
-                    <div
-                        class="col-sm-3">
+                    <div class="col-sm-3 hidden-xs">
                         <div class="select-topic">
                             <select class="form-control">
                                 <option value="">Business Type</option>
@@ -72,7 +71,7 @@ $featured_resources = query_posts($args);
                     <?php
                 }
                 ?>
-                <div class="col-sm-2">
+                <div class="col-sm-2 hidden-xs">
                     <div class="form-group">
                         <button class="btn btn-blue-bg btn-go field-style">Go</button>
                     </div>
@@ -92,7 +91,7 @@ if (!empty($featured_resources)) {
        $topics = ''; 
     }
     // Reading time
-    $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+    $reading_time = get_post_meta($featured_resources[0]->ID, 'wpcf-reading-minutes', true);
     ?>
     <section id="resource_hero"><!-- Resource banner -->
         <div class="container">
@@ -140,6 +139,9 @@ if (!empty($featured_resources)) {
 
                     // Reading time
                     $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+                    
+                    // Sponsored By
+                    $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
                         <div class="col-md-4 featured-article">
@@ -166,7 +168,7 @@ if (!empty($featured_resources)) {
                                     if ( has_post_thumbnail($resource->ID) ) {
                                        ?>
                                         <div class="featured-story-image">
-                                            <?php echo get_the_post_thumbnail($resource->ID, 'thumbnail'); ?> 
+                                            <?php echo get_the_post_thumbnail($resource->ID, 'large'); ?> 
                                         </div>
                                        <?php
                                     }
@@ -183,8 +185,17 @@ if (!empty($featured_resources)) {
                                             <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                             <?php
                                         }
+                                        
+                                        if ( isset($sponsored_by) && $sponsored_by != '' ) {
+                                            ?>
+                                            <div class="sponsored">
+                                                <p>Sponsored By <?php echo $sponsored_by; ?></p>
+                                             </div>
+                                            <?php
+                                        }
                                         ?>
-                                    </div>
+                                    
+                                </div>
                                 </div>
                             </div>						
                         </div>
@@ -226,6 +237,8 @@ $resources = query_posts($args);
                     <div class="col-sm-12">
                         <?php
                         $heading = !empty($resources) ? 'All Resources' : 'No resource found!';
+                        
+                        $selected = isset($_GET['search']) ? $_GET['search'] : '';
                         ?>
                         <h2 class="section-heading"><?php echo $heading; ?></h2>
                         <div class="select-topic">
@@ -235,7 +248,7 @@ $resources = query_posts($args);
                                     <?php
                                     foreach ($business_types as $business_type) {
                                         ?>
-                                        <option value="<?php echo $business_type->term_id; ?>"><?php echo $business_type->name; ?></option>
+                                        <option value="<?php echo $business_type->term_id; ?>" <?php echo ($business_type->term_id == $selected) ? 'selected' : ''; ?>><?php echo $business_type->name; ?></option>
                                         <?php
                                     }
                                     ?>

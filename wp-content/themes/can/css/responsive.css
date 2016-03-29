@@ -533,6 +533,9 @@
 	#home_get_quote .down-arrow {
 		border-top: 18px dashed rgb(225,212,228);
 	}
+        #resource_list_container .featured-article {
+            float:left;
+        }
 }
 @media (max-width:480px){
 	.water-mark-image {
