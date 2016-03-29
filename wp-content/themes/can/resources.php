@@ -72,7 +72,7 @@ $featured_resources = query_posts($args);
                 ?>
                 <div class="col-sm-2 hidden-xs">
                     <div class="form-group">
-                        <button class="btn btn-blue-bg btn-go field-style">Go <i class="glyphicon glyphicon-play"></i></button>
+                        <button class="btn btn-blue-bg btn-go field-style">GO <i class="glyphicon glyphicon-play"></i></button>
                     </div>
                 </div>
             </div>
@@ -339,7 +339,7 @@ $resources = query_posts($args);
                         <div class="col-xs-12 post-information">
                             <p>Stay up to date with the latest financial advice.</p>
                             <div class="news-letter-field">
-                                <input type="text" class="form-control field-style" placeholder="Email">
+                                <input type="text" class="form-control field-style" placeholder="Email Address">
                                 <button type="submit" class="btn btn-blue-bg field-style">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
                             </div>
                         </div>
@@ -349,7 +349,7 @@ $resources = query_posts($args);
                         <div class="col-xs-12 post-information">
                             <p>Smart, simple & fast</p>
                             <div class="get-funded">
-                                <a href="#" class="btn btn-blue-bg field-style">APPLY NOW<i class="glyphicon glyphicon-play"></i></a>
+                                <a href="#" class="btn btn-blue-bg field-style">APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
                             </div>
                         </div>
                     </div>
@@ -405,11 +405,11 @@ if (!empty($popular_topics)) {
             <div class="col-sm-12">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <input type="text" class="form-control field-style" placeholder="Email">
+                        <input type="text" class="form-control field-style" placeholder="Email Address">
                     </div>
                 </div>
                 <div class="col-sm-4 text-left">
-                    <button type="submit" class="btn btn-blue-bg field-style">GET-E-BOOK <i class="glyphicon glyphicon-play"></i></button>
+                    <button type="submit" class="btn btn-blue-bg field-style">GET E-BOOK <i class="glyphicon glyphicon-play"></i></button>
                 </div>						
             </div>
         </div>					
