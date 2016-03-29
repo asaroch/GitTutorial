@@ -19,10 +19,10 @@ get_header();
                                     <input type="text" class="form-control" placeholder="Name">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" placeholder="Last Name">
+                                    <input type="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="email" class="form-control" placeholder="Email ID">
+                                    <input type="text" class="form-control" placeholder="Loan amount">
                                 </div>
                             </div>
                         </div> 

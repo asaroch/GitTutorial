@@ -20,9 +20,10 @@
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>>
-        <?php 
+        <?php
         global $show_more_limit;
-        $show_more_limit = get_option('posts_per_page'); ?>
+        $show_more_limit = get_option('posts_per_page');
+        ?>
         <div class="wrapper">
             <?php
             if (is_front_page()) {
@@ -79,8 +80,8 @@
                         </div><!-- /.navbar-collapse -->
                     </div>
                 </div>
-                <?php 
-               $top_headline = get_post_meta($post->ID,'wpcf-page-headline-title', true);
+                <?php
+                $top_headline = get_post_meta($post->ID, 'wpcf-page-headline-title', true);
                 ?>
                 <div class="container">
                     <div class="top-heading"><?php echo $top_headline; ?><button class="glyphicon glyphicon-search search-btn visible-xs"></button>
@@ -100,13 +101,13 @@
                                     <div class="col-sm-10">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <input type="email" class="form-control" placeholder="Email ID">
+                                                <input type="text" class="form-control" placeholder="Name">
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="email" class="form-control" placeholder="Email ID">
+                                                <input type="email" class="form-control" placeholder="Email">
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="email" class="form-control" placeholder="Email ID">
+                                                <input type="text" class="form-control" placeholder="Loan amount">
                                             </div>
                                         </div>
                                     </div>	
