@@ -16,10 +16,10 @@ get_header();
                         <div class="col-sm-10">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <input type="email" class="form-control" placeholder="Email ID">
+                                    <input type="text" class="form-control" placeholder="Name">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="email" class="form-control" placeholder="Email ID">
+                                    <input type="text" class="form-control" placeholder="Last Name">
                                 </div>
                                 <div class="col-sm-4">
                                     <input type="email" class="form-control" placeholder="Email ID">
@@ -66,6 +66,146 @@ get_header();
         <a href="javascript:void(0);" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
     </div>
 </section>
+
+<section id="ratting_others">
+    <div class="container">
+        <h2 class='section-heading'>See what others are saying</h2>
+        <div class="col-md-3 col-sm-3">
+            <h3 class='overall-ratting'> Great </h3>
+            <div class="star-overall">
+                <ul>
+                    <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                    <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                    <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                    <li class="icon-sprite"> <a href="javascript:void(0)"></a></li>
+                    <li class="icon-sprite"> <a href="javascript:void(0)"></a></li>
+                </ul>
+
+            </div>
+            <p>Lorem ipsum dollar emet</p>
+            <div class="trust-pilot">
+                <img src="assets/images/home/brand_image.jpg" alt="Trustpilot"/>
+            </div>
+        </div>
+        <div class="col-md-9 col-sm-9">
+
+            <div id="user_rettings_slider" class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="user-ratting">  
+                        <ul>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite"> <a href="javascript:void(0)"></a></li>
+                        </ul>
+                        <span class="date-time-label"> 20 Hour's ago</span>
+                    </div>
+                    <h3 class="rating-heading"> Beautiful result non </h3>
+                    <p class="ratting-description"> Lorem ipsum dollar emet Lorem ipsum dollar emet </p>
+                    <p class="ratting-user"> Barbara</p>
+                </div>
+                <div class="item">
+                    <div class="user-ratting">  
+                        <ul>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite"> <a href="javascript:void(0)"></a></li>
+                        </ul>
+                        <span class="date-time-label"> 20 Hour's ago</span>
+                    </div>
+                    <h3 class="rating-heading"> Beautiful result non </h3>
+                    <p class="ratting-description"> Lorem ipsum dollar emet Lorem ipsum dollar emet </p>
+                    <p class="ratting-user"> Barbara</p>
+                </div>
+                <div class="item">
+                    <div class="user-ratting">  
+                        <ul>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite"> <a href="javascript:void(0)"></a></li>
+                        </ul>
+                        <span class="date-time-label"> 20 Hour's ago</span>
+                    </div>
+                    <h3 class="rating-heading"> Beautiful result non </h3>
+                    <p class="ratting-description"> Lorem ipsum dollar emet Lorem ipsum dollar emet </p>
+                    <p class="ratting-user"> Barbara</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="home_resource_list">
+    <div class="resource-list-bg gradient-three">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 clearfix">
+                    <div class="inspiration-content">
+                        <h3 class="section-heading">Insights & <br/> Inspirations</h3>
+                        <a class="btn btn-blue-bg see-all-resources" href=""> SEE ALL RESOURCES </a>
+
+                    </div>
+                </div>
+                <div class="col-md-8 clearfix">
+                    <div class="row">
+                        <div class="col-sm-5 col-5-overide">
+                            <div class="featured-story-image">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/resources/featuredstory_image.jpg">
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-7-overide">
+                            <div class="resource-content">
+                                <p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
+                                <p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
+                                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                                <p class="read-time">8 Min Read</p>
+                                <div class="sponsored">
+                                    <p>Sponsored By Company</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>						
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 clearfix">
+                    <div class="resource-content">
+                        <p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
+                        <p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
+                        <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                        <p class="read-time">8 Min Read</p>
+                    </div>
+                </div>
+                <div class="col-md-8 clearfix">
+                    <div class="row">
+                        <div class="col-sm-5 col-5-overide">
+                            <div class="featured-story-image">
+                                <img src="<?php echo get_template_directory_uri(); ?>/images/resources/featuredstory_image.jpg">
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-7-overide">
+                            <div class="resource-content">
+                                <p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
+                                <p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
+                                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                                <p class="read-time">8 Min Read</p>
+                                <div class="sponsored">
+                                    <p>Sponsored By Company</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>						
+                </div>
+            </div>
+        </div>
+    </div>
+</section>	
 <section  class="get-funded">
     <div class="container text-center">
         <h1 class="section-heading"> Get Funded </h1>
@@ -74,3 +214,4 @@ get_header();
     </div>
 </section>
 <?php get_footer(); ?>
+

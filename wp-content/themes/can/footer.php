@@ -20,8 +20,19 @@
                         </div>						
                     </div>
                     <div class="col-sm-3 col-md-3 badges">
-                        <?php dynamic_sidebar('applynow'); ?>
-                       
+                        <a href="#" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i> </a>
+                        <ul class="badges-container">
+                            <li>
+                                <a href="#" title="Small Business Funding"> 
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/home/TRUSTe_icon.png" alt="TRUSTe link"> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" title="Small Business Funding"> 
+                                    <img src="<?php echo get_template_directory_uri(); ?>/images/home/bbb_icon.png" alt="accredited Business "> 
+                                </a>
+                            </li>
+                        </ul>	
                     </div>
                     <div class="col-sm-6 col-md-5">
                         <div class="row">
