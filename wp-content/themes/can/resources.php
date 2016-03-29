@@ -40,7 +40,6 @@ $featured_resources = query_posts($args);
 ?>
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
-        <form method="get" action="<?php echo esc_url(home_url('/')); ?>">
             <div class="row"> 
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -77,7 +76,6 @@ $featured_resources = query_posts($args);
                     </div>
                 </div>
             </div>
-        </form>
     </div>
 </section><!-- Search Resource -->
 <?php
@@ -220,7 +218,7 @@ $args = array(
     'posts_per_page' => -1
 );
 
-if (isset($search)) {
+if (isset($search) && $search != NULL ) {
     $args['tax_query'] = array(array(
             'taxonomy' => 'business-type',
             'field' => 'id',

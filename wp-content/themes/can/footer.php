@@ -21,11 +21,7 @@
                     </div>
                     <div class="col-sm-3 col-md-3 badges">
                         <?php dynamic_sidebar('applynow'); ?>
-                        <?php if (is_active_sidebar('trust-badge')) : ?>
-                            <div class="widget-area trust-badge" role="complementary">
-                                <?php dynamic_sidebar('trust-badge'); ?>
-                            </div><!-- .widget-area -->
-                        <?php endif; ?>
+                       
                     </div>
                     <div class="col-sm-6 col-md-5">
                         <div class="row">
