@@ -100,10 +100,10 @@
                                     <div class="col-sm-10">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <input type="email" class="form-control" placeholder="Email ID">
+                                                <input type="text" class="form-control" placeholder="Name">
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="email" class="form-control" placeholder="Email ID">
+                                                <input type="text" class="form-control" placeholder="Last Name">
                                             </div>
                                             <div class="col-sm-4">
                                                 <input type="email" class="form-control" placeholder="Email ID">
