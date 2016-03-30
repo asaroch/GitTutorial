@@ -196,7 +196,7 @@ ul.dropdown-menu li{
 	display: block;
 } 
 .primary-nav ul.nav li.current-menu-item  a {
-	border-bottom: 5px solid #00B0EB;
+	border-bottom: 4px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown:hover a:hover {
 	 background-color: #f5f5f5;
@@ -232,29 +232,36 @@ ul.dropdown-menu li{
 	padding: 6px 0;
 }
 .utility-navigation  .navbar-nav > li > a {
-	padding-top:5px;
-	padding-bottom: 5px;
+	padding-top:7px;
+	padding-bottom: 4px;
 	font-size: 14px;
 }
-#main_navigationbar  .navbar-nav > li > a, 		
-.top-heading strong,		
-.section-heading,		
-.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,		
-.financial-product-item h5,		
-.learn-more-btn,		
-.testimonial-heading,		
-#about_us p b,		
-.featured-title a,		
-.read-date b,		
-.featured-tag,		
-.post-content,		
-.show-more-terms a,		
-.sub-heading,		
-.marchent-name,		
-.business-name,		
+.utility-navigation .navbar-nav > li:last-child > a {
+	padding-top:6px;
+	padding-bottom: 4px;
+}
+
+#main_navigationbar  .navbar-nav > li > a, 
+.top-heading strong,
+.section-heading,
+.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,
+.financial-product-item h5,
+.learn-more-btn,
+.testimonial-heading,
+#about_us p b,
+.featured-title a,
+.read-date b,
+.featured-tag,
+.post-content,
+.show-more-terms a,
+.sub-heading,
+.marchent-name,
+.business-name,
 .benefit-name,
 #search_resource,
-.overall-ratting {
+.overall-ratting,
+.rating-heading,
+strong {
 	font-family: 'Fort-Bold';
 }
 #main_navigationbar .navbar-right {
@@ -308,7 +315,6 @@ sup {
 .get-Quote-form{
 	margin-bottom: 34px;
     margin-top: 0px;
-    /*padding: 25px 0px 42px;*/
     background: rgba(107, 40, 117, 0.5);
     position: relative;
 }
@@ -317,8 +323,7 @@ sup {
 }
 .get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input {
 	font-size: 16px;
-	color: #6d6e71;
-	/*color: #999;*/
+	color: #a1a1a1;
 }
 .get-Quote-form input, #search_resource input {
 	border-radius: 25px;
@@ -833,6 +838,13 @@ span.select-drop {
 #term_loan_graph {
 	background: #762F7D;
 }
+#term_loan_graph h2 {
+	font-size: 22px;
+	color:#fff;
+	text-align: center;
+	font-family: 'Fort-Light';
+	padding: 30px 0;
+}
 #term_loan_graph img{
 	width: 100%;
 }
@@ -1206,9 +1218,12 @@ footer .badges-container {
 	position: relative;
 }
 .rating-heading {
-	margin: 14px 0px 16px;
+	margin: 3px 0px 8px;
 	color: #000;
 	font-size: 16px;
+}
+.average-ratting {
+	text-align: center;
 }
 .ratting-description {
 	color: #000;
@@ -1220,15 +1235,16 @@ footer .badges-container {
 }
 .overall-ratting{
 	color: #000;
-    font-size: 36px;
-    margin-bottom: 15px;
-    margin-top: 30px;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Fort-Medium';
 }
 .date-time-label{
 	display: inline-block;
 	position: absolute;
 	right: 10px;
 	top: 0;
+	font-size: 12px;
 }
 .trust-pilot{
 	margin: 11px auto 15px;
@@ -1242,6 +1258,9 @@ footer .badges-container {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+}
+.star-overall p {		
+	text-align: center;		
 }
 .user-ratting li{
 	background-position:-16px -376px;
@@ -1274,3 +1293,16 @@ footer .badges-container {
 	background-position:0 -603px;
 }
 /* home ratting other section */
+
+.feature-left-icon {
+	background-position: 0 -1px;		
+}		
+.feature-right-icon {		
+	background-position:0 -130px;		
+}		
+.feature-left-icon.active {		
+	background-position: 0 -192px;		
+}		
+.feature-right-icon.active {		
+ 	background-position:0 -61px;		
+}

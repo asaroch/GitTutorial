@@ -14,6 +14,7 @@
         <meta charset="<?php bloginfo('charset'); ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="profile" href="http://gmpg.org/xfn/11">
+        <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
         <?php if (is_singular() && pings_open(get_queried_object())) : ?>
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
@@ -84,8 +85,24 @@
                 $top_headline = get_post_meta($post->ID, 'wpcf-page-headline-title', true);
                 ?>
                 <div class="container">
-                    <div class="top-heading"><?php echo $top_headline; ?><button class="glyphicon glyphicon-search search-btn visible-xs"></button>
-                    </div>	
+                    <?php 
+                    if ( is_page('term-loan') ) {
+                        ?>
+                        <div class="head-titles">
+                                <p>Term Loan</p>
+                                <div class="top-heading">Make <strong>low, fixed payments</strong> that fit your business.
+                                        <span class="down-arrow inner-page-arrow"></span>
+                                </div>					
+                        </div>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <div class="top-heading"><?php echo $top_headline; ?><button class="glyphicon glyphicon-search search-btn visible-xs"></button>
+                          </div>	
+                        <?php
+                    }
+                    ?>
                 </div><!-- /.container-fluid -->		  
             </nav>
             <?php
@@ -112,7 +129,7 @@
                                         </div>
                                     </div>	
                                     <div class="col-sm-2 border-left">
-                                        <button type="submit" class="btn btn-blue-bg action-btn"> GET STARTED 
+                                        <button type="submit" class="btn btn-blue-bg action-btn" title="GET STARTED "> GET STARTED 
                                             <i class="glyphicon glyphicon-play"></i>
                                         </button>					    
                                     </div>

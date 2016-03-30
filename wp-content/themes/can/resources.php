@@ -83,7 +83,7 @@ if (!empty($featured_resources)) {
     // Fetch topic of a resource
     $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'business-type', array("fields" => "names"));
     if ( !empty($resource_topics) ) {
-        $topics = 'in '.implode(",", $resource_topics);
+        $topics = 'in '.implode(", ", $resource_topics);
     }
     else {
        $topics = ''; 
@@ -129,7 +129,7 @@ if (!empty($featured_resources)) {
                     // Fetch topic of a resource
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if ( !empty($resource_topics) ) {
-                        $topics = 'in '.implode(",", $resource_topics);
+                        $topics = 'in '.implode(", ", $resource_topics);
                     }
                     else {
                        $topics = ''; 
@@ -236,7 +236,7 @@ $resources = query_posts($args);
                 <div class="row">
                     <div class="col-sm-12">
                         <?php
-                        $heading = !empty($resources) ? 'All Resources' : 'No resource found!';
+                        $heading = !empty($resources) ? 'All Resources' : 'No Resource found!';
                         
                         $selected = isset($_GET['search']) ? $_GET['search'] : '';
                         ?>
@@ -265,7 +265,7 @@ $resources = query_posts($args);
                         // Fetch topic of a resource
                         $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                           if ( !empty($resource_topics) ) {
-                            $topics = 'in '.implode(",", $resource_topics);
+                            $topics = 'in '.implode(", ", $resource_topics);
                         }
                         else {
                            $topics = ''; 
@@ -314,7 +314,7 @@ $resources = query_posts($args);
                     }
                 }
 
-                wp_reset_postdata();
+               wp_reset_query();
                 ?>
                 <?php 
                 if ( count($resources) > $show_more_limit ) {
@@ -400,7 +400,7 @@ if (!empty($popular_topics)) {
         <div class="row">
             <div class="col-sm-12">
                 <h3 class="section-heading">Reach Your Financial Goals With The E-book</h3>
-                <p>The free book comes with a weekly newsletter on business funding</p>
+                <p>The free e-book comes with a weekly newsletter on business funding.</p>
             </div>
         </div>
         <div class="row">

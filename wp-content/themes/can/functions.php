@@ -300,8 +300,16 @@ function can_scripts() {
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
      // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
+    
+    $search = FALSE;
+    if ( isset($_GET['search']) ) {
+        $search = TRUE;
+    }
     wp_localize_script( 'custom-dev', 'var_object',
-        array( 'ajax_url' => admin_url( 'admin-ajax.php' ) , 'show_more_limit' => get_option('posts_per_page'), 'image_url' => get_template_directory_uri()) );
+        array(  'ajax_url'        => admin_url( 'admin-ajax.php' ) , 
+                'show_more_limit' => get_option('posts_per_page'), 
+                'image_url'       => get_template_directory_uri() , 
+                'search'          => $search) );
 }
 
 add_action('wp_enqueue_scripts', 'can_scripts');
@@ -586,12 +594,12 @@ class Financial_Widget extends WP_Widget {
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
                 endif;
                 $listItem = '<div class="item">
-						<div class="financial-product-item">
-							<div class="category-icon"><img src="' . $image[0] . '" ></div>
-							<h5>' . get_the_title() . '</h5>
-							<p>' . get_the_excerpt() . '</p>
-							<a href="' . get_permalink() . '" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
-						</div>
+                                <div class="financial-product-item">
+                                        <div class="category-icon"><img src="' . $image[0] . '" ></div>
+                                        <h5>' . get_the_title() . '</h5>
+                                        <p>' . get_the_excerpt() . '</p>
+                                        <a href="javascript:void(0)" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
+                                </div>
 					</div>';
                 //$listItem .= '<span>Added ' . get_the_date() . '</span></li>';
                 echo $listItem;
@@ -890,3 +898,42 @@ function resource_filter_callback() {
 
 	wp_die(); // this is required to terminate immediately and return a proper response
 }
+
+/*
+* Callback function to filter the MCE settings
+*/
+
+function my_mce_before_init_insert_formats( $init_array ) {  
+
+// Define the style_formats array
+
+	$style_formats = array(  
+		// Each array child is a format with it's own settings
+		array(  
+			'title' => 'Top Heading',  
+			'block' => 'div',  
+			'classes' => 'top-heading',
+			'wrapper' => true,
+			
+		),  
+		array(  
+			'title' => 'Blue Button',  
+			'block' => 'span',  
+			'classes' => 'blue-button',
+			'wrapper' => true,
+		),
+		array(  
+			'title' => 'Red Button',  
+			'block' => 'span',  
+			'classes' => 'red-button',
+			'wrapper' => true,
+		),
+	);  
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );  
+	
+	return $init_array;  
+  
+} 
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 

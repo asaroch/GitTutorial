@@ -1,4 +1,8 @@
 $(function () {
+    
+    if ( var_object.search) {
+       $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
+    }
     $(".resource-container .row:gt("+var_object.show_more_limit+")").hide();
 
     $('.show-more-articles').click(function (e) {

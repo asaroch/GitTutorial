@@ -69,9 +69,9 @@ get_header();
 
 <section id="ratting_others">
     <div class="container">
-        <h2 class='section-heading'>See what others are saying</h2>
-        <div class="col-md-3 col-sm-3">
-            <h3 class='overall-ratting'> Great </h3>
+        <h2 class="section-heading">See what others are saying</h2>
+        <div class="col-md-3 col-sm-3 average-ratting">
+            <h3 class="overall-ratting"> Great </h3>
             <div class="star-overall">
                 <ul>
                     <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
@@ -82,9 +82,9 @@ get_header();
                 </ul>
 
             </div>
-            <p>Lorem ipsum dollar emet</p>
+            <p>Based on <strong>211</strong> reviews<br> See some of the reviews here.</p>
             <div class="trust-pilot">
-                <img src="assets/images/home/brand_image.jpg" alt="Trustpilot"/>
+                <img src="<?php echo get_template_directory_uri(); ?>/images/home/brand_image.jpg" alt="Trustpilot"/>
             </div>
         </div>
         <div class="col-md-9 col-sm-9">
@@ -146,7 +146,7 @@ get_header();
                 <div class="col-md-4 clearfix">
                     <div class="inspiration-content">
                         <h3 class="section-heading">Insights & <br/> Inspiration</h3>
-                        <a class="btn btn-blue-bg see-all-resources" href="<?php echo get_the_permalink(121); ?>"> SEE ALL RESOURCES </a>
+                        <a class="btn btn-blue-bg see-all-resources" href="<?php echo get_the_permalink(121); ?>" title="SEE ALL RESOURCES"> SEE ALL RESOURCES </a>
 
                     </div>
                 </div>

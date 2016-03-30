@@ -6,6 +6,9 @@
 		width: 53.733333%;
    		padding: 0;
 	}
+	.average-ratting {
+		padding-right: 53px;
+	}
 }
 @media (max-width:1199px) and (min-width:992px) {
 	.testimonial-content { 
@@ -34,7 +37,6 @@
 		    padding: 16px 15px;
 	}
 }
-
 @media (max-width:1199px) and (min-width:768px) {
 	.testimonial-heading  {
 		font-size: 34px;
@@ -245,6 +247,7 @@
 	}
 	.nav>li>a:focus, .nav>li>a:hover {
 		background: #fff;
+		color: #00aeef;
 
 	}
 	.primary-nav ul.nav > li {
@@ -305,8 +308,8 @@
 	.mob-main-menu {
 		background: #01AEF0;
 	    position: absolute;
-	    left: 0;
-	    right: 0;
+	    left: 15px;
+	    right: 15px;
 	    z-index: 11;
 	}
 	.btn-close-menu {
@@ -468,11 +471,12 @@
 			outline: none;
 		}
 		#resource_hero {
-			background-position: left top;
+			background-position: 24% top;
 		}
 	#resource_hero .resource-content {
 		width:100%;
 		margin-top: 400px;
+		height: auto;
 	}
 	.resource-content {
 		margin-bottom: 20px;
@@ -512,7 +516,11 @@
 		float: none;
 		margin:0 auto;
 		margin-bottom: 30px;
-
+		padding-bottom: 30px;
+		width: 288px;
+	}
+	#all_resources_block .resource-content {
+		margin-bottom: 0;
 	}
 	.resource-content {
 		float:left;
@@ -520,14 +528,26 @@
 	#all_resources_block .resource-image {
 		margin:0 auto;
 		width: 288px;
+		text-align: center;
 	}
 	.resource-list {
 		height: auto;
+		float:left;
 	}
 	#all_resources_block .resource-content {
 		padding:35px 18px 30px;
 		width:100%;
 		height: auto;
+	}
+	#all_resources_block .resource-content, #all_resources_block .select-topic {
+		border-bottom: 1px solid #e9e9e9;		
+	}
+	/*.resource-content:last-child {
+		border-bottom: 0;
+	}*/
+	#all_resources_block .sponsored {
+		position: static;
+		float: right;
 	}
 	.get-e-book .text-align {
 			text-align: center;
