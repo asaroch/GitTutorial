@@ -11,7 +11,7 @@ get_header();
             <div class="container">
                 <span class="down-arrow"></span>
                 <h2 class="section-heading"> Get Your Quote </h2>
-                <form class="" role="form">
+                
                     <div class="row">
                         <div class="col-sm-10">
                             <div class="row">
@@ -27,12 +27,12 @@ get_header();
                             </div>
                         </div> 
                         <div class="col-sm-2 border-left">
-                            <button type="submit" class="btn btn-blue-bg action-btn"> GET STARTED 
+                            <button type="submit" class="btn btn-blue-bg action-btn" title="GET STARTED "> GET STARTED 
                                 <i class="glyphicon glyphicon-play"></i>
                             </button>         
                         </div>
                     </div>
-                </form>
+               
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ get_header();
 <section  id="about_us" class="gradient-two">
     <div class="container text-center">
         <p>Supporting small business for <b>18 years</b> with over <b>$6 billion</b> in working capital.</p>
-        <a href="javascript:void(0);" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
+        <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
     </div>
 </section>
 
@@ -145,8 +145,8 @@ get_header();
             <div class="row">
                 <div class="col-md-4 clearfix">
                     <div class="inspiration-content">
-                        <h3 class="section-heading">Insights & <br/> Inspirations</h3>
-                        <a class="btn btn-blue-bg see-all-resources" href=""> SEE ALL RESOURCES </a>
+                        <h3 class="section-heading">Insights & <br/> Inspiration</h3>
+                        <a class="btn btn-blue-bg see-all-resources" href="<?php echo get_the_permalink(121); ?>"> SEE ALL RESOURCES </a>
 
                     </div>
                 </div>

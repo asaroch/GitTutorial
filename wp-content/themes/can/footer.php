@@ -55,22 +55,22 @@
                     <div class="social-links">
                         <ul>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="twitter">
+                                <a href="javascript:void(0);" target="_blank" title="Twitter">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/twitter_icon.png" alt="twitter share">
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="facebook">
+                                <a href="javascript:void(0);" target="_blank" title="Facebook">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/facebook_icon.png" alt="facebook share">
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="Linkdin">
+                                <a href="javascript:void(0);" target="_blank" title="LinkedIn">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/linkedin_icon.png" alt="linkdin share">
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="Youtube">
+                                <a href="javascript:void(0);" target="_blank" title="YouTube">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/youtube_icon.png" alt="youtube share">
                                 </a>
                             </li>

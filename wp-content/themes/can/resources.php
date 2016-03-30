@@ -144,7 +144,7 @@ if (!empty($featured_resources)) {
                         ?>
                         <div class="col-md-4 featured-article">
                             <div class="resource-content">
-                                <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?><b><?php echo $topics; ?></b></p>
+                                <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
                                 <p><?php echo $resource->post_excerpt; ?></p>
                                 <?php
@@ -174,7 +174,7 @@ if (!empty($featured_resources)) {
                                 </div>
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
-                                        <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?><b><?php echo $topics; ?></b></p>
+                                        <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
                                         <p><?php echo $resource->post_excerpt; ?></p>
                                         <?php
@@ -213,16 +213,18 @@ wp_reset_postdata();
 $search = isset($_GET['search']) ? $_GET['search'] : NULL;
 
 $args = array(
-    'post_type' => 'resource',
-    'post_status' => 'publish',
-    'posts_per_page' => -1
+    'post_type'      => 'resource',
+    'post_status'    => 'publish',
+    'posts_per_page' => -1,
+    'orderby'        => 'menu_order date',
+    'order'          => 'ASC'
 );
 
 if (isset($search) && $search != NULL ) {
     $args['tax_query'] = array(array(
             'taxonomy' => 'business-type',
-            'field' => 'id',
-            'terms' => $search
+            'field'    => 'id',
+            'terms'    => $search
     ));
 }
 $resources = query_posts($args);
