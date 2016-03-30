@@ -53,6 +53,16 @@ $(function(){
 			    }
 		});
 		
+                /****Code to increment index of slider***/
+                
+                
+                testimonial.on('translated.owl.carousel', onSlideTranslate);
+
+                function onSlideTranslate(event) {
+                    var item = event.item.index + 1;
+                    $('.current-slider').html(item);
+                }
+		 
 		//custom next and prev. events 
 		$(".next").click(function(){
 			testimonial.trigger("next.owl.carousel");
