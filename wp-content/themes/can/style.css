@@ -109,11 +109,11 @@ header{
 	 /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=1 ); IE6-9 */
 }
 .gradient-three {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a416bb+100&0.9+0,0.8+100 */
-	background: -moz-linear-gradient(left,  rgba(108,41,118,0.9) 0%, rgba(164,22,187,0.8) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  rgba(108,41,118,0.9) 0%,rgba(164,22,187,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  rgba(108,41,118,0.9) 0%,rgba(164,22,187,0.8) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e66c2976', endColorstr='#cca416bb',GradientType=1 ); /* IE6-9 */
+ /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a416bb+100&0.95+0,0.95+100 */
+ background: -moz-linear-gradient(left,  rgba(108,41,118,0.97) 0%, rgba(164,22,187,0.9) 100%); /* FF3.6-15 */
+ background: -webkit-linear-gradient(left,  rgba(108,41,118,0.97) 0%,rgba(164,22,187,0.9) 100%); /* Chrome10-25,Safari5.1-6 */
+ background: linear-gradient(to right,  rgba(108,41,118,0.97) 0%,rgba(164,22,187,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+ /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f26c2976', endColorstr='#f2a416bb',GradientType=1 ); / IE6-9 */
 }
 .gradient-footer{
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+100,a24f9d+100 */
@@ -195,7 +195,7 @@ ul.dropdown-menu li{
  .primary-nav li:hover .dropdown-menu {
 	display: block;
 } 
-ul.nav li.current-menu-item  a {
+.primary-nav ul.nav li.current-menu-item  a {
 	border-bottom: 5px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown:hover a:hover {
@@ -252,8 +252,16 @@ ul.nav li.current-menu-item  a {
 .sub-heading,		
 .marchent-name,		
 .business-name,		
-.benefit-name {		
-	font-family: 'Fort-Bold';		
+.benefit-name,
+#search_resource,
+.overall-ratting {
+	font-family: 'Fort-Bold';
+}
+#main_navigationbar .navbar-right {
+		margin-top: 8px;
+}
+sup {
+	font-family: 'Fort-Light';
 }
 .btn-blue-bg {
 	background: #01AEF0;
@@ -422,29 +430,28 @@ ul.nav li.current-menu-item  a {
     top: 45px;
     bottom: 0;
 }
-	#home_resource_list {
-		
-		background: url(images/home/gradient-03_Cmark.png) repeat left top;
-	}
-	.resource-list-bg {
-		padding: 36px 0 43px;
-	}
-	#home_resource_list .container:first-child {
-		margin-bottom: 20px;
-	}
-	.inspiration-content {
-		text-align: center;
-	}
-	.inspiration-content .section-heading {
-		text-align: center;
-		color: #fff;
-		margin-top: 74px;
-		font-weight: bold;
-	}
-	.inspiration-content .see-all-resources{
-		background: none;
-		margin-top: 14px;
-	}
+#home_resource_list {
+	
+	background: url(images/home/gradient-03_Cmark.png) repeat left top;
+}
+.resource-list-bg {
+	padding: 36px 0 43px;
+}
+#home_resource_list .container:first-child {
+	margin-bottom: 20px;
+}
+.inspiration-content {
+	text-align: center;
+}
+.inspiration-content .section-heading {
+	text-align: center;
+	color: #fff;
+	margin-top: 74px;
+}
+.inspiration-content .see-all-resources{
+	background: none;
+	margin-top: 14px;
+}
 /*buttons*/
 .btn-purple-style {
 	color: #fff;
@@ -460,9 +467,9 @@ ul.nav li.current-menu-item  a {
 }
 
 .utility-navigation .btn-blue-bg {
-    background-color: #01AEF0;
+    background: none;
 	color: #fff;
-        border: none;
+    border: none;
 }
 
 .btn-blue-bg:hover, .btn-blue-bg:focus, #getStartedForm button:hover, .utility-navigation .btn-blue-bg a:hover {
@@ -524,8 +531,6 @@ i.glyphicon-play {
 	background-color: #e9e9e9;
 	padding: 22px 0 10px;
 	text-align: center;
-	font-family: Arial, sans-serif;
-	font-weight: bold;
 	font-size: 16px;
 }
 .btn-go {
@@ -838,7 +843,7 @@ span.select-drop {
 	padding: 65px 0;
 	background: #EEEEEE;
 }
-.term-detail-heading, 
+/*.term-detail-heading, 
 .member-benefit-heading {
 	text-align: center;
 	font-size: 36px;
@@ -846,7 +851,7 @@ span.select-drop {
 	color: #6b2976;
 	margin-bottom: 65px;
 	font-weight: bold;
-}
+}*/
 .financial-product-item h5.section-heading {
 	color: #fff;
 	font-size: 36px;
@@ -1111,22 +1116,18 @@ footer .badges-container {
 	display: inline-block;
 	color: #444;
 }
-
 .custom-prev-btn, .custom-next-btn {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
-
 }
-
 .get-hover-form {
 	position: absolute;
 	left: 0;
 	right: 0;
 	z-index: 9;
 	display: none;
-
 }
 #form_box{
 	position: absolute;
@@ -1168,7 +1169,6 @@ footer .badges-container {
 	clear: both;
 }
 /*post page*/
-
 #post-article,
 #all_resources_block #post-article .resource-content {
 	height: auto;
@@ -1208,21 +1208,19 @@ footer .badges-container {
 .rating-heading {
 	margin: 14px 0px 16px;
 	color: #000;
-	font-size: 20px;
-	font-weight: bold;
+	font-size: 16px;
 }
 .ratting-description {
 	color: #000;
 }
 .ratting-user{
+	font-size: 12px;
 	margin-top: 28px;
 	color: #000;
 }
 .overall-ratting{
 	color: #000;
-    font-family: arial;
     font-size: 36px;
-    font-weight: bold;
     margin-bottom: 15px;
     margin-top: 30px;
 }
