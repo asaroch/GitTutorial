@@ -817,7 +817,7 @@ register_widget('ApplyNow_Widget');
   return      : $atts (Returns the updated attributes of an anchor)
  * *************************************************** */
 add_filter('nav_menu_link_attributes', function($atts, $item, $args) {
-    if (in_array('menu-item-has-children', $item->classes)) {
+    if (in_array('menu-item-has-children', $item->classes) && wp_is_mobile()) {
         $atts['data-toggle'] = 'dropdown';
         $atts['class'] = 'dropdown-toggle';
     }
