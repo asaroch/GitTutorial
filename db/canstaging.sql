@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2016 at 10:29 AM
+-- Generation Time: Mar 30, 2016 at 11:16 AM
 -- Server version: 5.5.44
 -- PHP Version: 5.4.45
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Table structure for table `test`
 --
 
-DROP TABLE IF EXISTS `test`;
 CREATE TABLE IF NOT EXISTS `test` (
   `test1` int(11) NOT NULL,
   `test2` int(11) NOT NULL,
@@ -40,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `test` (
 -- Table structure for table `wp_a3_exclude_email_subject`
 --
 
-DROP TABLE IF EXISTS `wp_a3_exclude_email_subject`;
 CREATE TABLE IF NOT EXISTS `wp_a3_exclude_email_subject` (
   `id` bigint(20) NOT NULL,
   `email_sent_by` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -53,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `wp_a3_exclude_email_subject` (
 -- Table structure for table `wp_badges`
 --
 
-DROP TABLE IF EXISTS `wp_badges`;
 CREATE TABLE IF NOT EXISTS `wp_badges` (
   `id` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,
@@ -76,7 +73,6 @@ INSERT INTO `wp_badges` (`id`, `image`, `external_link`, `created`, `updated`) V
 -- Table structure for table `wp_commentmeta`
 --
 
-DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -90,7 +86,6 @@ CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
 -- Table structure for table `wp_comments`
 --
 
-DROP TABLE IF EXISTS `wp_comments`;
 CREATE TABLE IF NOT EXISTS `wp_comments` (
   `comment_ID` bigint(20) unsigned NOT NULL,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -122,7 +117,6 @@ INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `c
 -- Table structure for table `wp_links`
 --
 
-DROP TABLE IF EXISTS `wp_links`;
 CREATE TABLE IF NOT EXISTS `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL,
   `link_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -145,7 +139,6 @@ CREATE TABLE IF NOT EXISTS `wp_links` (
 -- Table structure for table `wp_options`
 --
 
-DROP TABLE IF EXISTS `wp_options`;
 CREATE TABLE IF NOT EXISTS `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL,
   `option_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -160,8 +153,8 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
 (1, 'siteurl', 'http://dgacanweb01.can.com/cancapital/', 'yes'),
 (2, 'home', 'http://dgacanweb01.can.com/cancapital/', 'yes'),
-(3, 'blogname', 'CAN Capital', 'yes'),
-(4, 'blogdescription', 'Just another WordPress site', 'yes'),
+(3, 'blogname', 'CAN Capital  | Small Business Loans &amp; Business Funding', 'yes'),
+(4, 'blogdescription', '', 'yes'),
 (5, 'users_can_register', '0', 'yes'),
 (6, 'admin_email', 'anirudh.sood@trantorinc.com', 'yes'),
 (7, 'start_of_week', '1', 'yes'),
@@ -415,7 +408,6 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 -- Table structure for table `wp_postmeta`
 --
 
-DROP TABLE IF EXISTS `wp_postmeta`;
 CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -942,7 +934,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 -- Table structure for table `wp_posts`
 --
 
-DROP TABLE IF EXISTS `wp_posts`;
 CREATE TABLE IF NOT EXISTS `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1040,7 +1031,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (161, 1, '2016-03-21 14:17:15', '2016-03-21 14:17:15', '', 'Page Header Title', '', 'publish', 'closed', 'closed', '', 'page-header-title', '', '', '2016-03-30 06:12:47', '2016-03-30 06:12:47', '', 0, 'http://localhost/can_capital/local-can/wp-types-group/page-header-title/', 0, 'wp-types-group', '', 0),
 (172, 1, '2016-03-22 12:22:31', '0000-00-00 00:00:00', ' ', '', '', 'draft', 'closed', 'closed', '', '', '', '', '2016-03-22 12:22:31', '0000-00-00 00:00:00', '', 0, 'http://localhost/can_capital/local-can/?p=172', 1, 'nav_menu_item', '', 0),
 (176, 1, '2016-03-23 07:09:15', '2016-03-23 07:09:15', '', 'Testimonial Features', '', 'publish', 'closed', 'closed', '', 'testimonial-features', '', '', '2016-03-23 07:34:31', '2016-03-23 07:34:31', '', 0, 'http://localhost/can_capital/local-can/wp-types-group/testimonial-features/', 0, 'wp-types-group', '', 0),
-(178, 1, '2016-03-23 09:53:24', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2016-03-23 09:53:24', '0000-00-00 00:00:00', '', 0, 'http://localhost/can_capital/local-can/?p=178', 0, 'post', '', 0),
 (181, 1, '2016-03-28 08:02:23', '2016-03-28 08:02:23', '', 'CAN-logo', '', 'inherit', 'open', 'closed', '', 'can-logo-3', '', '', '2016-03-28 08:02:23', '2016-03-28 08:02:23', '', 0, 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/CAN-logo-2.png', 0, 'attachment', 'image/png', 0),
 (182, 1, '2016-03-28 09:42:38', '2016-03-28 09:42:38', '', 'SampleVideo_1280x720_2mb', '', 'inherit', 'open', 'closed', '', 'samplevideo_1280x720_2mb', '', '', '2016-03-28 09:42:38', '2016-03-28 09:42:38', '', 0, 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/SampleVideo_1280x720_2mb.mp4', 0, 'attachment', 'video/mp4', 0),
 (183, 1, '2016-03-28 09:42:39', '2016-03-28 09:42:39', '', 'placeholder.', '', 'inherit', 'open', 'closed', '', 'placeholder', '', '', '2016-03-28 09:42:39', '2016-03-28 09:42:39', '', 0, 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/placeholder..png', 0, 'attachment', 'image/png', 0),
@@ -1054,7 +1044,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (192, 1, '2016-03-28 11:27:47', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'open', 'open', '', '', '', '', '2016-03-28 11:27:47', '0000-00-00 00:00:00', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=192', 0, 'post', '', 0),
 (193, 1, '2016-03-28 12:58:26', '2016-03-28 12:58:26', 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'Installment loans', 't was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'inherit', 'closed', 'closed', '', '64-autosave-v1', '', '', '2016-03-28 12:58:26', '2016-03-28 12:58:26', '', 64, 'http://dgacanweb01.can.com/cancapital/64-autosave-v1/', 0, 'revision', '', 0),
 (194, 1, '2016-03-29 05:24:24', '2016-03-29 05:24:24', '', 'featuredstory_image', '', 'inherit', 'open', 'closed', '', 'featuredstory_image', '', '', '2016-03-29 05:24:24', '2016-03-29 05:24:24', '', 0, 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/featuredstory_image.jpg', 0, 'attachment', 'image/jpeg', 0),
-(195, 1, '2016-03-29 07:57:07', '2016-03-29 07:57:07', '', 'Term Loan', '', 'publish', 'closed', 'closed', '', 'term-loan', '', '', '2016-03-29 07:59:16', '2016-03-29 07:59:16', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=195', 0, 'page', '', 0),
+(195, 1, '2016-03-29 07:57:07', '2016-03-29 07:57:07', '', 'Term Loan', '', 'publish', 'closed', 'closed', '', 'term-loan', '', '', '2016-03-30 08:51:16', '2016-03-30 08:51:16', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=195', 0, 'page', '', 0),
 (196, 1, '2016-03-29 07:56:54', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-03-29 07:56:54', '0000-00-00 00:00:00', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=196', 0, 'page', '', 0),
 (197, 1, '2016-03-29 07:57:07', '2016-03-29 07:57:07', '', 'Term Loan', '', 'inherit', 'closed', 'closed', '', '195-revision-v1', '', '', '2016-03-29 07:57:07', '2016-03-29 07:57:07', '', 195, 'http://dgacanweb01.can.com/cancapital/195-revision-v1/', 0, 'revision', '', 0),
 (198, 1, '2016-03-29 08:05:13', '2016-03-29 08:05:13', ' ', '', 'Term Loan', 'publish', 'closed', 'closed', '', '198', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=198', 2, 'nav_menu_item', '', 0),
@@ -1073,23 +1063,39 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (211, 1, '2016-03-29 09:21:19', '2016-03-29 09:21:19', '', 'Help Center', '', 'inherit', 'closed', 'closed', '', '210-revision-v1', '', '', '2016-03-29 09:21:19', '2016-03-29 09:21:19', '', 210, 'http://dgacanweb01.can.com/cancapital/210-revision-v1/', 0, 'revision', '', 0),
 (212, 1, '2016-03-29 09:21:40', '2016-03-29 09:21:40', '', 'Question? Contact Us', '', 'publish', 'closed', 'closed', '', 'question-contact-us', '', '', '2016-03-29 09:21:40', '2016-03-29 09:21:40', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=212', 0, 'page', '', 0),
 (213, 1, '2016-03-29 09:21:40', '2016-03-29 09:21:40', '', 'Question? Contact Us', '', 'inherit', 'closed', 'closed', '', '212-revision-v1', '', '', '2016-03-29 09:21:40', '2016-03-29 09:21:40', '', 212, 'http://dgacanweb01.can.com/cancapital/212-revision-v1/', 0, 'revision', '', 0),
-(214, 1, '2016-03-29 09:27:39', '2016-03-29 09:27:39', ' ', '', 'Question? Contact Us', 'publish', 'closed', 'closed', '', '214', '', '', '2016-03-30 06:08:57', '2016-03-30 06:08:57', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=214', 2, 'nav_menu_item', '', 0),
-(215, 1, '2016-03-29 09:27:39', '2016-03-29 09:27:39', ' ', '', 'Help Center', 'publish', 'closed', 'closed', '', '215', '', '', '2016-03-30 06:08:56', '2016-03-30 06:08:56', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=215', 1, 'nav_menu_item', '', 0),
+(214, 1, '2016-03-29 09:27:39', '2016-03-29 09:27:39', '', 'Questions? Contact Us', 'Questions? Contact Us', 'publish', 'closed', 'closed', '', '214', '', '', '2016-03-30 09:48:49', '2016-03-30 09:48:49', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=214', 2, 'nav_menu_item', '', 0),
+(215, 1, '2016-03-29 09:27:39', '2016-03-29 09:27:39', ' ', '', 'Help Center', 'publish', 'closed', 'closed', '', '215', '', '', '2016-03-30 09:48:49', '2016-03-30 09:48:49', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=215', 1, 'nav_menu_item', '', 0),
 (216, 1, '2016-03-29 09:30:38', '2016-03-29 09:30:38', ' ', '', 'Installment Loans', 'publish', 'closed', 'closed', '', '216', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=216', 4, 'nav_menu_item', '', 0),
 (217, 1, '2016-03-29 09:30:38', '2016-03-29 09:30:38', '', 'TrakLoan<sup>®</sup>', 'TrakLoan<sup>®</sup>', 'publish', 'closed', 'closed', '', '217', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=217', 3, 'nav_menu_item', '', 0),
 (218, 1, '2016-03-29 09:30:40', '2016-03-29 09:30:40', ' ', '', 'About Us', 'publish', 'closed', 'closed', '', '218', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=218', 8, 'nav_menu_item', '', 0),
 (219, 1, '2016-03-29 09:30:40', '2016-03-29 09:30:40', ' ', '', 'Partners', 'publish', 'closed', 'closed', '', '219', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=219', 7, 'nav_menu_item', '', 0),
 (220, 1, '2016-03-29 09:30:40', '2016-03-29 09:30:40', '', 'How It Works', 'How It Works', 'publish', 'closed', 'closed', '', '220', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=220', 5, 'nav_menu_item', '', 0),
 (224, 1, '2016-03-29 12:40:47', '2016-03-29 12:40:47', 'Payment as percent of sales', 'TrakLoan<sup></sup>', 'Payment as percent of sales', 'inherit', 'closed', 'closed', '', '29-autosave-v1', '', '', '2016-03-29 12:40:47', '2016-03-29 12:40:47', '', 29, 'http://dgacanweb01.can.com/cancapital/29-autosave-v1/', 0, 'revision', '', 0),
-(225, 1, '2016-03-29 13:06:20', '2016-03-29 13:06:20', '', 'Protect Your Bottom Line by Joining The EMV Revolution', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text', 'publish', 'closed', 'closed', '', 'protect-your-bottom-line-by-joining-the-emv-revolution', '', '', '2016-03-29 13:06:20', '2016-03-29 13:06:20', '', 0, 'http://dgacanweb01.can.com/cancapital/?post_type=resource&#038;p=225', 0, 'resource', '', 0),
+(225, 1, '2016-03-29 13:06:20', '2016-03-29 13:06:20', '', 'Protect Your Bottom Line by Joining The EMV Revolution', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text', 'publish', 'closed', 'closed', '', 'protect-your-bottom-line-by-joining-the-emv-revolution', '', '', '2016-03-30 09:19:48', '2016-03-30 09:19:48', '', 0, 'http://dgacanweb01.can.com/cancapital/?post_type=resource&#038;p=225', 2, 'resource', '', 0),
 (226, 1, '2016-03-29 13:05:45', '2016-03-29 13:05:45', 'Daily Fixed Payments', 'Term Loans', '', 'inherit', 'closed', 'closed', '', '199-autosave-v1', '', '', '2016-03-29 13:05:45', '2016-03-29 13:05:45', '', 199, 'http://dgacanweb01.can.com/cancapital/199-autosave-v1/', 0, 'revision', '', 0),
-(227, 1, '2016-03-29 13:07:12', '2016-03-29 13:07:12', '', '5 Tips to Maximize Your Business Presence This Year', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text', 'publish', 'closed', 'closed', '', '5-tips-to-maximize-your-business-presence-this-year', '', '', '2016-03-29 13:08:29', '2016-03-29 13:08:29', '', 0, 'http://dgacanweb01.can.com/cancapital/?post_type=resource&#038;p=227', 1, 'resource', '', 0),
-(228, 1, '2016-03-29 13:08:07', '2016-03-29 13:08:07', '', '6 Steps to Creating a Strategic Plan for the New Year', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text', 'publish', 'closed', 'closed', '', '6-steps-to-creating-a-strategic-plan-for-the-new-year', '', '', '2016-03-29 13:08:33', '2016-03-29 13:08:33', '', 0, 'http://dgacanweb01.can.com/cancapital/?post_type=resource&#038;p=228', 2, 'resource', '', 0),
+(227, 1, '2016-03-29 13:07:12', '2016-03-29 13:07:12', '', '5 Tips to Maximize Your Business Presence This Year', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text', 'publish', 'closed', 'closed', '', '5-tips-to-maximize-your-business-presence-this-year', '', '', '2016-03-30 09:19:34', '2016-03-30 09:19:34', '', 0, 'http://dgacanweb01.can.com/cancapital/?post_type=resource&#038;p=227', 0, 'resource', '', 0),
+(228, 1, '2016-03-29 13:08:07', '2016-03-29 13:08:07', '', '6 Steps to Creating a Strategic Plan for the New Year', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text', 'publish', 'closed', 'closed', '', '6-steps-to-creating-a-strategic-plan-for-the-new-year', '', '', '2016-03-30 09:19:43', '2016-03-30 09:19:43', '', 0, 'http://dgacanweb01.can.com/cancapital/?post_type=resource&#038;p=228', 1, 'resource', '', 0),
 (229, 1, '2016-03-29 13:15:10', '2016-03-29 13:15:10', 'Design is still awaited...', 'Small Business Funding', '', 'publish', 'closed', 'closed', '', 'small-business-funding', '', '', '2016-03-29 13:15:10', '2016-03-29 13:15:10', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=229', 0, 'page', '', 0),
 (230, 1, '2016-03-29 13:15:10', '2016-03-29 13:15:10', 'Design is still awaited...', 'Small Business Funding', '', 'inherit', 'closed', 'closed', '', '229-revision-v1', '', '', '2016-03-29 13:15:10', '2016-03-29 13:15:10', '', 229, 'http://dgacanweb01.can.com/cancapital/229-revision-v1/', 0, 'revision', '', 0),
-(231, 1, '2016-03-29 13:15:54', '2016-03-29 13:15:54', ' ', '', '', 'publish', 'closed', 'closed', '', '231', '', '', '2016-03-29 13:51:11', '2016-03-29 13:51:11', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=231', 1, 'nav_menu_item', '', 0),
+(231, 1, '2016-03-29 13:15:54', '2016-03-29 13:15:54', ' ', '', 'Small Business Funding', 'publish', 'closed', 'closed', '', '231', '', '', '2016-03-30 07:07:49', '2016-03-30 07:07:49', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=231', 1, 'nav_menu_item', '', 0),
 (232, 1, '2016-03-29 13:52:27', '2016-03-29 13:52:27', '', 'Small Business Funding <span class="glyphicon glyphicon-menu-down"></span>', '', 'publish', 'closed', 'closed', '', 'small-business-funding', '', '', '2016-03-30 06:09:46', '2016-03-30 06:09:46', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=232', 1, 'nav_menu_item', '', 0),
-(233, 1, '2016-03-30 05:35:53', '2016-03-30 05:35:53', ' ', '', '', 'publish', 'closed', 'closed', '', '233', '', '', '2016-03-30 05:35:53', '2016-03-30 05:35:53', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=233', 1, 'nav_menu_item', '', 0);
+(233, 1, '2016-03-30 05:35:53', '2016-03-30 05:35:53', ' ', '', '', 'publish', 'closed', 'closed', '', '233', '', '', '2016-03-30 07:12:17', '2016-03-30 07:12:17', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=233', 1, 'nav_menu_item', '', 0),
+(234, 1, '2016-03-30 07:05:42', '2016-03-30 07:05:42', ' ', '', 'Term Loan', 'publish', 'closed', 'closed', '', '234', '', '', '2016-03-30 07:07:49', '2016-03-30 07:07:49', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=234', 2, 'nav_menu_item', '', 0),
+(235, 1, '2016-03-30 07:07:49', '2016-03-30 07:07:49', ' ', '', 'Installment Loans', 'publish', 'closed', 'closed', '', '235', '', '', '2016-03-30 07:07:49', '2016-03-30 07:07:49', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=235', 4, 'nav_menu_item', '', 0),
+(236, 1, '2016-03-30 07:07:49', '2016-03-30 07:07:49', ' ', '', 'Track Loan', 'publish', 'closed', 'closed', '', '236', '', '', '2016-03-30 07:07:49', '2016-03-30 07:07:49', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=236', 3, 'nav_menu_item', '', 0),
+(237, 1, '2016-03-30 07:08:37', '2016-03-30 07:08:37', '', 'Investors', '', 'publish', 'closed', 'closed', '', 'investors', '', '', '2016-03-30 07:08:37', '2016-03-30 07:08:37', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=237', 0, 'page', '', 0),
+(238, 1, '2016-03-30 07:08:37', '2016-03-30 07:08:37', '', 'Investors', '', 'inherit', 'closed', 'closed', '', '237-revision-v1', '', '', '2016-03-30 07:08:37', '2016-03-30 07:08:37', '', 237, 'http://dgacanweb01.can.com/cancapital/237-revision-v1/', 0, 'revision', '', 0),
+(239, 1, '2016-03-30 07:08:52', '2016-03-30 07:08:52', '', 'Career', '', 'publish', 'closed', 'closed', '', 'career', '', '', '2016-03-30 07:08:52', '2016-03-30 07:08:52', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=239', 0, 'page', '', 0),
+(240, 1, '2016-03-30 07:08:52', '2016-03-30 07:08:52', '', 'Career', '', 'inherit', 'closed', 'closed', '', '239-revision-v1', '', '', '2016-03-30 07:08:52', '2016-03-30 07:08:52', '', 239, 'http://dgacanweb01.can.com/cancapital/239-revision-v1/', 0, 'revision', '', 0),
+(241, 1, '2016-03-30 07:09:07', '2016-03-30 07:09:07', '', 'Developer Tool', '', 'publish', 'closed', 'closed', '', 'developer-tool', '', '', '2016-03-30 07:09:07', '2016-03-30 07:09:07', '', 0, 'http://dgacanweb01.can.com/cancapital/?page_id=241', 0, 'page', '', 0),
+(242, 1, '2016-03-30 07:09:07', '2016-03-30 07:09:07', '', 'Developer Tool', '', 'inherit', 'closed', 'closed', '', '241-revision-v1', '', '', '2016-03-30 07:09:07', '2016-03-30 07:09:07', '', 241, 'http://dgacanweb01.can.com/cancapital/241-revision-v1/', 0, 'revision', '', 0),
+(243, 1, '2016-03-30 07:12:18', '2016-03-30 07:12:18', ' ', '', '', 'publish', 'closed', 'closed', '', '243', '', '', '2016-03-30 07:12:18', '2016-03-30 07:12:18', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=243', 3, 'nav_menu_item', '', 0),
+(244, 1, '2016-03-30 07:12:18', '2016-03-30 07:12:18', ' ', '', '', 'publish', 'closed', 'closed', '', '244', '', '', '2016-03-30 07:12:18', '2016-03-30 07:12:18', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=244', 2, 'nav_menu_item', '', 0),
+(245, 1, '2016-03-30 07:12:18', '2016-03-30 07:12:18', '', 'Contact Us', '', 'publish', 'closed', 'closed', '', 'contact-us', '', '', '2016-03-30 07:12:18', '2016-03-30 07:12:18', '', 0, 'http://dgacanweb01.can.com/cancapital/?p=245', 4, 'nav_menu_item', '', 0),
+(246, 1, '2016-03-30 07:14:23', '2016-03-30 07:14:23', '', 'Footer', '', 'publish', 'closed', 'closed', '', 'footer', '', '', '2016-03-30 07:14:23', '2016-03-30 07:14:23', '', 0, 'http://dgacanweb01.can.com/cancapital/wp-types-group/footer/', 0, 'wp-types-group', '', 0),
+(247, 1, '2016-03-30 08:43:55', '2016-03-30 08:43:55', 'Funding time calculation reflects timing from funding approval to initiation of ACH funds transfer. Settlement of funds to business''s bank account may take additional time depending on the receiving bank.\n\nIMPORTANT: The terms reflected in this business loan calculator are hypothetical and for informational purposes only. This business loan calculator generates a rough estimate of the terms for which your business may be eligible based solely on the gross monthly sales or credit cards receipts you input. The actual terms for which your business may qualify will depend on various things about your business and you, including industry type, time in business, verified revenue, credit history, and business report information, among other things. Such factors or others may cause the terms for which your business qualifies, if any, to be different than the information presented here. By moving forward, you acknowledge that you are asking us to determine how much your business may qualify for, rather than requesting a certain business loan amount. This is an invitation to apply (applicants must meet certain eligiblity requirements). The information shown in the business loan calculator does not constitute an offer or commitment to provide access to capital. Restrictions apply.\n\nCAN Capital, Inc. makes loans available to business through business loans made by WebBank, a Utah chartered Industrial Bank, member FDIC, and through CAN Capital''s subsidiary, CAN Capital Asset Servicing, Inc. 2016 CAN Capital. A', 'Term Loan', '', 'inherit', 'closed', 'closed', '', '195-autosave-v1', '', '', '2016-03-30 08:43:55', '2016-03-30 08:43:55', '', 195, 'http://dgacanweb01.can.com/cancapital/195-autosave-v1/', 0, 'revision', '', 0),
+(248, 1, '2016-03-30 08:44:01', '2016-03-30 08:44:01', 'Funding time calculation reflects timing from funding approval to initiation of ACH funds transfer. Settlement of funds to business''s bank account may take additional time depending on the receiving bank.\r\n\r\nIMPORTANT: The terms reflected in this business loan calculator are hypothetical and for informational purposes only. This business loan calculator generates a rough estimate of the terms for which your business may be eligible based solely on the gross monthly sales or credit cards receipts you input. The actual terms for which your business may qualify will depend on various things about your business and you, including industry type, time in business, verified revenue, credit history, and business report information, among other things. Such factors or others may cause the terms for which your business qualifies, if any, to be different than the information presented here. By moving forward, you acknowledge that you are asking us to determine how much your business may qualify for, rather than requesting a certain business loan amount. This is an invitation to apply (applicants must meet certain eligiblity requirements). The information shown in the business loan calculator does not constitute an offer or commitment to provide access to capital. Restrictions apply.\r\n\r\nCAN Capital, Inc. makes loans available to business through business loans made by WebBank, a Utah chartered Industrial Bank, member FDIC, and through CAN Capital''s subsidiary, CAN Capital Asset Servicing, Inc. 2016 CAN Capital. All rights reserved.', 'Term Loan', '', 'inherit', 'closed', 'closed', '', '195-revision-v1', '', '', '2016-03-30 08:44:01', '2016-03-30 08:44:01', '', 195, 'http://dgacanweb01.can.com/cancapital/195-revision-v1/', 0, 'revision', '', 0),
+(249, 1, '2016-03-30 08:44:40', '2016-03-30 08:44:40', '', 'Term Loan', '', 'inherit', 'closed', 'closed', '', '195-revision-v1', '', '', '2016-03-30 08:44:40', '2016-03-30 08:44:40', '', 195, 'http://dgacanweb01.can.com/cancapital/195-revision-v1/', 0, 'revision', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1097,7 +1103,6 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 -- Table structure for table `wp_termmeta`
 --
 
-DROP TABLE IF EXISTS `wp_termmeta`;
 CREATE TABLE IF NOT EXISTS `wp_termmeta` (
   `meta_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1123,7 +1128,6 @@ INSERT INTO `wp_termmeta` (`meta_id`, `term_id`, `meta_key`, `meta_value`) VALUE
 -- Table structure for table `wp_terms`
 --
 
-DROP TABLE IF EXISTS `wp_terms`;
 CREATE TABLE IF NOT EXISTS `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL,
   `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -1156,7 +1160,6 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 -- Table structure for table `wp_term_relationships`
 --
 
-DROP TABLE IF EXISTS `wp_term_relationships`;
 CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1206,7 +1209,6 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 -- Table structure for table `wp_term_taxonomy`
 --
 
-DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) unsigned NOT NULL,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1241,7 +1243,6 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 -- Table structure for table `wp_tools`
 --
 
-DROP TABLE IF EXISTS `wp_tools`;
 CREATE TABLE IF NOT EXISTS `wp_tools` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -1256,6 +1257,8 @@ CREATE TABLE IF NOT EXISTS `wp_tools` (
 --
 
 INSERT INTO `wp_tools` (`id`, `name`, `image`, `external_link`, `created`, `updated`) VALUES
+(1, 'Calculator', 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/installloan_icon.png', 'javascript:void(0)', '2016-03-23 09:20:55', '2016-03-23 09:26:06'),
+(2, 'Glossary', 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/termloan_icon.png', 'javascript:void(0)', '2016-03-23 09:22:50', '2016-03-23 09:28:02');
 
 -- --------------------------------------------------------
 
@@ -1263,7 +1266,6 @@ INSERT INTO `wp_tools` (`id`, `name`, `image`, `external_link`, `created`, `upda
 -- Table structure for table `wp_usermeta`
 --
 
-DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE IF NOT EXISTS `wp_usermeta` (
   `umeta_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1343,7 +1345,6 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 -- Table structure for table `wp_users`
 --
 
-DROP TABLE IF EXISTS `wp_users`;
 CREATE TABLE IF NOT EXISTS `wp_users` (
   `ID` bigint(20) unsigned NOT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
@@ -1561,6 +1562,3 @@ ALTER TABLE `wp_users`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-(1, 'Calculator', 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/installloan_icon.png', 'https://www.google.co.in/?gws_rd=ssl', '2016-03-23 09:20:55', '2016-03-23 09:26:06'),
-(2, 'Glossary', 'http://dgacanweb01.can.com/cancapital/wp-content/uploads/2016/03/termloan_icon.png', 'https://www.google.co.in/?gws_rd=ssl', '2016-03-23 09:22:50', '2016-03-23 09:28:02');
-
