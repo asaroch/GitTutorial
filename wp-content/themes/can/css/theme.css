@@ -1,3 +1,6 @@
 .featured-article{margin-bottom:10px;}
 .show-less-articles{display:none;}
 .static-design-content{font-weight: bold;font-size: 20px;}
+ul.nav li.current-menu-item  a {
+	border-bottom: 5px solid #00B0EB;
+}
