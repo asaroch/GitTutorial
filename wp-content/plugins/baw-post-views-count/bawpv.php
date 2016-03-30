@@ -116,6 +116,7 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
         $order = $instance['order'] == 'ASC' ? 'ASC' : 'DESC';
         $author_id = $instance['author'];
         $meta_key = apply_filters('baw_count_views_meta_key', '_count-views_' . $time . $date, $time, $date);
+	
         $bawpvc_options = bawpvc_get_options();
         $r = new WP_Query(array('posts_per_page' => $number,
             'no_found_rows' => true,
