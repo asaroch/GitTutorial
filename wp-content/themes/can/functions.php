@@ -219,6 +219,16 @@ function twentysixteen_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+    
+    register_sidebar( array(
+		'name'          => __( 'Member Benefits', 'twentysixteen' ),
+		'id'            => 'memberbenefit',
+		'description'   => __( 'Appears on the center of the pages where its required to display member benefits.', 'twentysixteen' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -937,3 +947,112 @@ function my_mce_before_init_insert_formats( $init_array ) {
 } 
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
+
+/* * *********************************************
+ * Adding custom widget for Member Benefits*
+ * ******************************************** */
+
+class MemberBenefit_Widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+                'memberBenefit_widget', // Base ID
+                'Member Benefits Widget', // Name
+                array('description' => __('Displays your member benefits with their title and excerpt.'))
+        );
+    }
+
+    function update($new_instance, $old_instance) {
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['numberOfListings'] = strip_tags($new_instance['numberOfListings']);
+        return $instance;
+    }
+
+    function form($instance) {
+        if ($instance) {
+            $title = esc_attr($instance['title']);
+            $numberOfListings = esc_attr($instance['numberOfListings']);
+        } else {
+            $title = '';
+            $numberOfListings = '';
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'financial_widget'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('numberOfListings'); ?>"><?php _e('Number of Listings:', 'financial_widget'); ?></label>
+            <select id="<?php echo $this->get_field_id('numberOfListings'); ?>"  name="<?php echo $this->get_field_name('numberOfListings'); ?>">
+        <?php for ($x = 1; $x <= 10; $x++): ?>
+                    <option <?php echo $x == $numberOfListings ? 'selected="selected"' : ''; ?> value="<?php echo $x; ?>"><?php echo $x; ?></option>
+        <?php endfor; ?>
+            </select>
+        </p>
+        <?php
+    }
+
+    function widget($args, $instance) {
+        extract($args);
+        $title = apply_filters('widget_title', $instance['title']);
+        $numberOfListings = $instance['numberOfListings'];
+        $type = $instance['type'];
+        echo $before_widget;
+        if ($title) {
+            echo $before_title . $title . $after_title;
+        }
+        $this->getmemberBenefitListings($numberOfListings, $type);
+        echo $after_widget;
+    }
+
+    /***********************************************************
+     * Function to fetch listing of member benefits 
+     * Parameters : $numberOfListings
+     * Return : Html view with listing of items.
+     * **********************************************************/
+
+    function getmemberBenefitListings($numberOfListings, $type) { //html
+        global $post;
+        //add_image_size( 'financial_widget_size', 85, 45, false );
+        $listings = new WP_Query();
+        $args = array(
+        'post_type' => 'member-benefit',
+        'post_status' => 'publish',
+        'posts_per_page' => $numberOfListings,
+        'meta_query' => array(array(
+                'key' => '_is_featured',
+                'value' => 'yes'
+            )),
+        'orderby' => 'menu_order date',
+        'order'   => 'ASC'
+    );
+        //$featured_resources = query_posts($args);
+        $listings->query($args);
+        if ($listings->found_posts > 0) {
+            echo '<section id="member_benefit">
+    <div class="container">';
+            while ($listings->have_posts()) {
+                $listings->the_post();
+                if (has_post_thumbnail($post->ID)):
+                    $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+                endif;
+                $listItem = ' <div class="col-md-4 col-sm-4">
+            <div class="category-icon"> <img src="' . $image[0] . '"> </div>
+									 <p class="benefit-name">'.get_the_title(). '</p>
+            <p class="success-description">'.  get_the_content().'</p>					
+        </div>';
+                echo $listItem;
+            }
+            echo '</div></section>';
+            wp_reset_postdata();
+        } else {
+            echo '<p style="padding:25px;">No listing found</p>';
+        }
+    }
+
+}
+
+//end class Realty_Widget
+register_widget('MemberBenefit_Widget');

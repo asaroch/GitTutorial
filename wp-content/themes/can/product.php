@@ -82,9 +82,11 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
                     <?php foreach (get_post_meta($post->ID, 'wpcf-term_loan_for', false) as $key => $value) { ?>
                         <li class="col-sm-4"><p><?php echo $value; ?></p></li> <?php } ?>
                 </ul>
+                <?php if(count(get_post_meta($post->ID, 'wpcf-term_loan_for', false)) > 6):?>
                 <div class="show-more-terms">
                     <a href="#" title="show more user terms of loan"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -127,23 +129,11 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
 </section>
 <!-- community of success -->
 <!-- member benefit -->
-<section id="member_benefit">
-    <h1 class="section-heading"> Community of Success </h1>
-    <div class="container">
-        <?php if ($listings->found_posts > 0){
-            while ($listings->have_posts()) {
-                $listings->the_post();
-        ?>
-        <div class="col-md-4 col-sm-4">
-            <div class="category-icon">
-               <?php echo get_the_post_thumbnail($post->ID,'thumbnail'); ?>
-            </div>
-            <p class="benefit-name"> <?php echo get_the_title(); ?> </p>
-            <p class="success-description"> <?php echo get_the_content(); ?> </p>					
-        </div>
-        <?php } } ?>
-    </div>
-</section>
+        <?php if ( is_active_sidebar( 'memberbenefit' ) ) : ?>
+                <div class="widget-area memberbenefit" role="complementary">
+                        <?php dynamic_sidebar( 'memberbenefit' ); ?>
+                </div><!-- .widget-area -->
+        <?php endif; ?>	
 <!-- member benefit -->	
 <section  id="about_us" class="gradient-two">
     <div class="container text-center">
