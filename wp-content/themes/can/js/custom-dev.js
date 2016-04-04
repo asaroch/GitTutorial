@@ -20,6 +20,23 @@ $(function () {
         $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
         //$('.resource-container').focus();
     });
+    $('ul.termloan-use-point li:gt(5)').hide();
+    
+    $('.show-more-term-loan').click(function (e) {
+        e.preventDefault();
+        $('ul.termloan-use-point li:gt(5)').show();
+        $(".show-more-term-loan").hide();
+        $(".show-less-term-loan").show();
+    });
+
+    $('.show-less-term-loan').click(function (e) {
+        e.preventDefault();
+        $('ul.termloan-use-point li:gt(5)').hide();
+        $(".show-more-term-loan").show();
+        $(".show-less-term-loan").hide();
+       // $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
+        //$('.resource-container').focus();
+    });
 
     $('#filter_by_business_type select').change(function (e) {
         //e.preventDefault();
