@@ -108,30 +108,33 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
 </section>
 <!-- Loan calculator -->
 <!-- community of success -->
-<?php if(get_the_ID() == 145) : ?>
-<section id="success_community">
-    <div class="container">
-        <h1 class="section-heading"> Community of Success </h1>
-        <!--Display testimonials for merchants-->
-        <?php
-        if ($listings->found_posts > 0) {
-            while ($listings->have_posts()) {
-                $listings->the_post();
+<?php if (get_the_ID() == 145) : ?>
+    <section id="success_community">
+        <div class="container">
+            <h1 class="section-heading"> Community of Success </h1>
+            <div class="owl-carousel owl-theme">
+                <!--Display testimonials for merchants-->
+                <?php
+                if ($listings->found_posts > 0) {
+                    while ($listings->have_posts()) {
+                        $listings->the_post();
+                        ?>
+                        <!--Testimonials ends here-->
+                        <div class="item">
+                            <div class="video-player">
+                                <?php echo get_the_post_thumbnail($post->ID); ?>
+                            </div>
+                            <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
+                            <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business_name', true); ?> </p>
+                            <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-topic', true); ?> </p>
+                            <p class="success-description"> <?php echo get_the_content(); ?> </p>					
+                        </div>
+                    <?php }
+                }
                 ?>
-                <!--Testimonials ends here-->
-                <div class="col-md-6 col-sm-6">
-                    <div class="video-player">
-                        <?php echo get_the_post_thumbnail($post->ID); ?>
-                    </div>
-                    <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
-                    <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business_name', true); ?> </p>
-                    <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-topic', true); ?> </p>
-                    <p class="success-description"> <?php echo get_the_content(); ?> </p>					
-                </div>
-            <?php }
-        } ?>
-    </div>			
-</section>
+            </div>            
+        </div>			
+    </section>
 <?php endif; ?>
 <!-- community of success -->
 <!-- member benefit -->

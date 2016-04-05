@@ -608,7 +608,7 @@ class Financial_Widget extends WP_Widget {
                                         <div class="category-icon"><img src="' . $image[0] . '" ></div>
                                         <h5>' . get_the_title() . '</h5>
                                         <p>' . get_the_excerpt() . '</p>
-                                        <a href="javascript:void(0)" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
+                                        <a href="'.get_the_permalink().'" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
                                 </div>
 					</div>';
                 //$listItem .= '<span>Added ' . get_the_date() . '</span></li>';

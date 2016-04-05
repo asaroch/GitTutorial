@@ -32,7 +32,7 @@ class TRUST_BADGES_Widget extends WP_Widget {
                                 <ul>';
                 
 		foreach ( $badges as $badge ) {
-			$badgesString .= '<li><img src="'.$badge['image'].'" /></li>';
+			$badgesString .= '<li><a href="'.$badge['external_link'].'" target="_blank"><img src="'.$badge['image'].'" /></a></li>';
 		}
 		$badgesString .= '</ul></div></div>';
 		echo $badgesString;

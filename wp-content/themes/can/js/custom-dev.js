@@ -1,27 +1,27 @@
 $(function () {
-    
-    if ( var_object.search) {
-       //$('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
+
+    if (var_object.search) {
+        //$('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
     }
-    $(".resource-container .row:gt("+var_object.show_more_limit+")").hide();
+    $(".resource-container .row:gt(" + var_object.show_more_limit + ")").hide();
 
     $('.show-more-articles').click(function (e) {
         e.preventDefault();
-        $(".resource-container .row:gt("+var_object.show_more_limit+")").show();
+        $(".resource-container .row:gt(" + var_object.show_more_limit + ")").show();
         $(".show-more-articles").hide();
         $(".show-less-articles").show();
     });
 
     $('.show-less-articles').click(function (e) {
         e.preventDefault();
-        $(".resource-container .row:gt("+var_object.show_more_limit+")").hide();
+        $(".resource-container .row:gt(" + var_object.show_more_limit + ")").hide();
         $(".show-more-articles").show();
         $(".show-less-articles").hide();
         $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
         //$('.resource-container').focus();
     });
     $('ul.termloan-use-point li:gt(5)').hide();
-    
+
     $('.show-more-term-loan').click(function (e) {
         e.preventDefault();
         $('ul.termloan-use-point li:gt(5)').show();
@@ -34,7 +34,7 @@ $(function () {
         $('ul.termloan-use-point li:gt(5)').hide();
         $(".show-more-term-loan").show();
         $(".show-less-term-loan").hide();
-       // $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
+        // $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
         //$('.resource-container').focus();
     });
 
@@ -44,12 +44,40 @@ $(function () {
 //		'action' : 'resource_filter_callback',
 //		'data'   : {}
 //	};
-	// We can also pass the url value separately from ajaxurl for front end AJAX implementations
+        // We can also pass the url value separately from ajaxurl for front end AJAX implementations
 //	jQuery.post(var_object.ajax_url, data, function(response) {
 //		alert('Got this from the server: ' + response);
 //	});
         $("#filter_by_business_type").submit();
     });
 
+    //for validating get a quote form
 
+    jQuery(".submit").click(function () {
+        var name = jQuery('#name').val();
+        var email = jQuery('#email').val();
+        var amount = jQuery('#amount').val();
+        var nameReg = /^[a-zA-Z]+$/;
+        var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+
+
+        if (name == '')
+        {
+            jQuery('#name').css({'border': '2px solid #FF0000'});
+            return false;
+        } else if (!nameReg.test(name)) {
+
+            jQuery('#name').css({'border': '2px solid #FF0000'});
+            return false;
+        } else if (email == '' || !emailReg.test(email)) {
+            jQuery('#name').css({'border': '1px solid #ccc'});
+            jQuery('#email').css({'border': '2px solid #FF0000'});
+            return false;
+        } else
+        {
+            jQuery('#name').css({'border': '1px solid #ccc'});
+            jQuery('#email').css({'border': '1px solid #ccc'});
+            return true;
+        }
+    });
 });
