@@ -140,71 +140,7 @@ get_header();
     </div>
 </section>
 <section id="home_resource_list">
-    <div class="resource-list-bg gradient-three">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 clearfix">
-                    <div class="inspiration-content">
-                        <h3 class="section-heading">Insights & <br/> Inspiration</h3>
-                        <a class="btn btn-blue-bg see-all-resources" href="<?php echo get_the_permalink(121); ?>" title="SEE ALL RESOURCES"> SEE ALL RESOURCES </a>
-
-                    </div>
-                </div>
-                <div class="col-md-8 clearfix">
-                    <div class="row">
-                        <div class="col-sm-5 col-5-overide">
-                            <div class="featured-story-image">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/resources/featuredstory_image.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-7 col-7-overide">
-                            <div class="resource-content">
-                                <p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-                                <p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-                                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-                                <p class="read-time">8 Min Read</p>
-                                <div class="sponsored">
-                                    <p>Sponsored By Company</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>						
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 clearfix">
-                    <div class="resource-content">
-                        <p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-                        <p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-                        <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-                        <p class="read-time">8 Min Read</p>
-                    </div>
-                </div>
-                <div class="col-md-8 clearfix">
-                    <div class="row">
-                        <div class="col-sm-5 col-5-overide">
-                            <div class="featured-story-image">
-                                <img src="<?php echo get_template_directory_uri(); ?>/images/resources/featuredstory_image.jpg">
-                            </div>
-                        </div>
-                        <div class="col-sm-7 col-7-overide">
-                            <div class="resource-content">
-                                <p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-                                <p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-                                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-                                <p class="read-time">8 Min Read</p>
-                                <div class="sponsored">
-                                    <p>Sponsored By Company</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>						
-                </div>
-            </div>
-        </div>
-    </div>
+   <?php echo get_template_part( 'resources_all'); ?> 
 </section>	
 <section  class="get-funded">
     <div class="container text-center">

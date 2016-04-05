@@ -1056,3 +1056,9 @@ class MemberBenefit_Widget extends WP_Widget {
 
 //end class Realty_Widget
 register_widget('MemberBenefit_Widget');
+// printing array.
+function prx($array){
+    echo "<pre>";
+    print_r($array);
+    die("=========Array ends========");
+}
