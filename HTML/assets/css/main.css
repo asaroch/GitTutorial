@@ -1627,34 +1627,38 @@ form.form-section p a.know-more {
 /* campaign page  */
 
 
+/* campaign page  */
+
+
 /* Small Business Funding Start Here */
 
 #sbf_hero #slider_testimonial{
-	padding: 65px 0;
+	padding: 26px 0 34px 0;
 }
-
-.content-list-item {
-	padding: 0 100px;
+#sbf_hero #slider_testimonial .user-icon { margin-bottom: 15px;}
+#sbf_hero .content-list-item {
+	padding: 3px 138px 0 0px;
 	text-align: center;
 }
 
-.content-list-item p{
+#sbf_hero .content-list-item p{
 	font-size: 14px;
 	font-family: "Fort-book";
 	color: #fff;
-	margin-bottom: 23px;
+	margin-bottom: 8px;
 }
-.heading-line{
+#sbf_hero .heading-line{
 	font-size: 40px;
 	font-family: "Fort-book";
 	color: #fff;
 	line-height: 52px;
-	margin-bottom: 34px;
+	margin-bottom: 30px;
 
 }
+#sbf_hero .btn-purple-style { padding: 13px 38px;}
 .content-list-item .customer-info {
 	color: #fff;
-	margin-bottom: 32px;
+	margin-bottom: 26px;
 }
 
 .loan-nav {
@@ -1668,12 +1672,12 @@ form.form-section p a.know-more {
     z-index: 6;
 }
 .navigation-item {
-	margin: 10px auto;
 	display: block;
 	font-family: "Fort-book"; 
 	color: #e284e0; 
 	font-size: 26px;
-	 padding: 24px 0;
+	  margin: 17px auto 0;
+    padding: 10px 0;
 }
 .loan-nav .active {
 	color: #fff;
@@ -1685,10 +1689,10 @@ form.form-section p a.know-more {
 	border-right: 1px solid #e284e0;
 }
 /* Block Solution Built*/
-#solution_built { position: relative; padding: 96px 0 105px}
+#solution_built { position: relative; padding: 90px 0 109px}
 #solution_built .tranp-div-two { top: 0px;}
 #solution_built .container { position: relative; z-index: 1;}
-#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 52px;}
+#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 43px;}
 .divtable {
  box-shadow: -1px 4px 0 #efefef;
 }
@@ -1704,7 +1708,7 @@ form.form-section p a.know-more {
   float: left;
   color:#fff;
   font-family: "Fort-bold";
-  height: 118px;
+  height: 110px;
   display: table;
   border-right: 1px solid #e570e7;
 }
@@ -1713,6 +1717,7 @@ form.form-section p a.know-more {
     display: table-cell;
     vertical-align: middle;
 }
+.divtable .th span img, .divtable .td span img { margin-bottom: 4px;}
 .divtable .th span small,
 .divtable .td span small { font-family: "Fort-book"; font-size: 14px;}
 
@@ -1732,8 +1737,8 @@ form.form-section p a.know-more {
 /* Making Payments*/
 #making-payments {
     color: #fff;
-    padding-bottom: 57px;
-    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-top: 57px;
 }
 #making-payments p {
     font-size: 36px;
@@ -1745,7 +1750,7 @@ form.form-section p a.know-more {
 }
 /* Right financing */
 #right-financing { background: none repeat scroll 0 0 #eeeeee;
-    padding: 85px 0 98px;
+    padding: 58px 0 98px;
 } 
 #right-financing .section-heading { text-transform: capitalize;}
 #right-financing .owl-dots {  
@@ -1758,8 +1763,19 @@ form.form-section p a.know-more {
 	}
 #right-financing .owl-theme .owl-controls .owl-dots, #right-financing .owl-theme .owl-controls .owl-dots .owl-dot { float: left; display: block}
 #right-financing .owl-theme .owl-controls .owl-dots .owl-dot.active span {   background: #6a2875; opacity: 0.9;}
+.graph1 {
+    height: 318px;
+    margin: 0 auto;
+    width: 759px;
+}
+.graph2 {
+    height: 318px;
+    margin: 0 auto;
+    width: 759px;
+}
 /* Funding Option */
-#funding-option {   
+#funding-option {
+background-color: #ffffff; 
     padding: 96px 0 105px;
     position: relative;
 }
