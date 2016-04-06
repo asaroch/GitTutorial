@@ -34,15 +34,19 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
             <?php } ?>
         </div>
         <div id="term_loan_graph">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/termsloan/chart.png" alt="Terms loan graph">
+            <?php if (has_post_thumbnail($post->ID)):
+                $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
+                ?>
+                <img src="<?php echo $image[0]; ?>" alt="Terms loan graph">
+<?php endif; ?>
         </div>	
     </div>
     <!---to display trust badges-->
-    <?php if (is_active_sidebar('trust-badge')) : ?>
+        <?php if (is_active_sidebar('trust-badge')) : ?>
         <div class="widget-area trust-badge" role="complementary">
-            <?php dynamic_sidebar('trust-badge'); ?>
+        <?php dynamic_sidebar('trust-badge'); ?>
         </div><!-- .widget-area -->
-    <?php endif; ?>	
+<?php endif; ?>	
     <!--trust badge widget ends here-->
 </section>
 <!--Financial Products -->
@@ -55,7 +59,7 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
             <div class="row">
                 <h3 class='sub-heading'>Terms</h3>
                 <ul class="details-point">
-                    <?php echo get_post_meta($post->ID, 'wpcf-terms', true); ?>
+<?php echo get_post_meta($post->ID, 'wpcf-terms', true); ?>
                 </ul>
             </div>
         </div>
@@ -64,7 +68,7 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
                 <div class="paymment-point">
                     <h3 class='sub-heading'>Payments</h3>
                     <ul class="details-point">
-                        <?php echo get_post_meta($post->ID, 'wpcf-payment', true); ?>
+<?php echo get_post_meta($post->ID, 'wpcf-payment', true); ?>
                     </ul>
                 </div>
             </div>
@@ -79,14 +83,14 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
             <div class="col-sm-12">
                 <h1 class="section-heading"> I Can Use A <?php echo get_the_title($post->ID); ?> For: </h1>
                 <ul class="list-term-use termloan-use-point">
-                    <?php foreach (get_post_meta($post->ID, 'wpcf-term_loan_for', false) as $key => $value) { ?>
+<?php foreach (get_post_meta($post->ID, 'wpcf-term_loan_for', false) as $key => $value) { ?>
                         <li class="col-sm-4"><p><?php echo $value; ?></p></li> <?php } ?>
                 </ul>
-                <?php if (count(get_post_meta($post->ID, 'wpcf-term_loan_for', false)) > 6): ?>
+<?php if (count(get_post_meta($post->ID, 'wpcf-term_loan_for', false)) > 6): ?>
                     <div class="show-more-terms show-more-term-loan">
                         <a href="javascript:void(0)" title="show more user terms of loan"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
                     </div>
-                <?php endif; ?>
+<?php endif; ?>
                 <div class="show-more-terms show-less-term-loan" style="display:none;">
                     <a href="javascript:void(0)" title="show more user terms of loan"> SHOW LESS <i class="glyphicon glyphicon-chevron-down"></i> </a>
                 </div>
@@ -122,14 +126,15 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
                         <!--Testimonials ends here-->
                         <div class="item">
                             <div class="video-player">
-                                <?php echo get_the_post_thumbnail($post->ID); ?>
+            <?php echo get_the_post_thumbnail($post->ID); ?>
                             </div>
                             <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
                             <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business_name', true); ?> </p>
                             <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-topic', true); ?> </p>
                             <p class="success-description"> <?php echo get_the_content(); ?> </p>					
                         </div>
-                    <?php }
+                    <?php
+                    }
                 }
                 ?>
             </div>            
