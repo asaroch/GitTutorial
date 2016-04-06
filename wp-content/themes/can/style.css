@@ -156,7 +156,7 @@ header{
 }
 .primary-nav ul.nav > li.dropdown,  
 ul.dropdown-menu li{
-	padding: 0px;
+	padding: 0px 16px;
 }
 .primary-nav .nav  li a{
 	padding: 10px 0px;
@@ -320,7 +320,7 @@ sup {
 .get-Quote-form .section-heading {
     color: #fff;
 }
-.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
+.get-Quote-form input[type="number"], #search_resource input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
 	font-size: 16px;
 	color: #a1a1a1;
 	box-shadow: none;	
@@ -330,6 +330,15 @@ sup {
 	height: 50px;
 	border: none;
 }
+.get-Quote-form input[type='submit'] {
+	
+	border: 2px solid #fff;
+}
+.get-Quote-form input[type='submit']:hover {
+	
+	border: 2px solid #01aef0;
+}
+
 .border-left {
 	border-left: 1px solid #8D4996;
 }

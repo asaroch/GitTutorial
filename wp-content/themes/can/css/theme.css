@@ -12,3 +12,8 @@ ul.nav li.current-menu-parent > a {
     color: #00aeef;
    
 }
+
+.primary-nav .nav li.current-menu-item > a {
+     border-bottom: 4px solid #00B0EB;
+}
+
