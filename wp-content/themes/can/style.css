@@ -1,20 +1,17 @@
-/*
-Theme Name: CAN
+	/*
+@import url("font-style.css");		Theme Name: CAN
 Theme URI: https://wordpress.org/themes/twentysixteen/
 Author: Trantor Team
 Author URI: https://wordpress.org/
-Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout â€” the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout Ã¢â‚¬â€� the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
 Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
 Text Domain: twentysixteen
-
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
-
 /**
  * Table of Contents
  *
@@ -49,18 +46,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
  *    14.5 - >= 1200px
  * 15.0 - Print
  */
-
-
 /**
  * 1.0 - Normalize
  *
  * Normalizing styles have been helped along thanks to the fine work of
  * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
  */
+/* import font style with external style css files */
 
-/* import font style with external style css files */		
 @import url("css/font-style.css");
-
 /*style*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
 	margin: 0px;
@@ -108,6 +102,7 @@ header{
 	background: linear-gradient(to right,  #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
 	 /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=1 ); IE6-9 */
 }
+
 .gradient-three {
  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a416bb+100&0.95+0,0.95+100 */
  background: -moz-linear-gradient(left,  rgba(108,41,118,0.97) 0%, rgba(164,22,187,0.9) 100%); /* FF3.6-15 */
@@ -115,6 +110,7 @@ header{
  background: linear-gradient(to right,  rgba(108,41,118,0.97) 0%,rgba(164,22,187,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f26c2976', endColorstr='#f2a416bb',GradientType=1 ); / IE6-9 */
 }
+
 .gradient-footer{
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+100,a24f9d+100 */
 	background: #6c2976; /* Old browsers */
@@ -126,14 +122,9 @@ header{
 .navbar-scroll-bg{
 	background: #fff;
 }
-/*--------------------------------------------------------------*/
-/*							new css                             */
-/*--------------------------------------------------------------*/
-
 .wrapper {
 	position: relative;
 }
-
 .water-mark-image {
 	position:absolute;
 	background:url(images/home/Cmark.png) no-repeat right top;
@@ -141,7 +132,7 @@ header{
 	height: 937px;
 }
 .navbar-brand {
-	margin-top: 4px;
+	margin: 4px 0;
 	padding: 10px 0;
 }
 .navbar {
@@ -156,28 +147,26 @@ header{
 .navbar a:hover, .primary-nav .nav .dropdown-menu li a:hover {
 	color: #00aeef;
 }
-
-.label-main-menu{
-	color: #fff;
-	font-size: 14px;
-	margin-left: 5px;
-}
 .primary-nav .nav > li a{
 	margin: 0px;
-	padding: 0px;
+	padding: 10px 0px;
 }
 .primary-nav ul.nav > li {
 	padding: 0px 16px;
 }
-.primary-nav ul.nav > li.dropdown,  
-ul.dropdown-menu li{
-	padding: 0px;
-}
-.primary-nav .nav  li a{
+.primary-nav .nav  li.dropdown a{
 	padding: 10px 0px;
 }
-.primary-nav .nav  li.dropdown a{
-	padding: 10px 16px;
+
+.primary-nav .nav  li.dropdown{
+	padding: 0px 15px;
+	border: 1px solid transparent;
+}
+
+.primary-nav .nav  li.dropdown:hover{
+	border: 1px solid #d7d7d7;
+	border-bottom: 0px;
+	box-shadow:2px 2px 0px rgba(0, 0, 0, 0.2); 
 }
 .primary-nav .nav > li a, 
 .primary-nav .nav > li a:focus {
@@ -185,44 +174,38 @@ ul.dropdown-menu li{
     border: 1px solid rgba(0, 0, 0, 0);
     border-bottom: 0px;     
 }
-.primary-nav ul.nav li.dropdown:hover > a, 
-.primary-nav .nav li.dropdown:hover > a:focus {
-    background-color: #fff;
-    border-color: #d7d7d7;
-    border: 1px solid #d7d7d7;
-    box-shadow:3px 2px 0px rgba(0, 0, 0, 0.2);
- } 
- .primary-nav li:hover .dropdown-menu {
+.primary-nav li.dropdown:hover,
+.primary-nav li.dropdown li:hover {
+	background: #f5f5f5;
+}
+.primary-nav li:hover .dropdown-menu {
 	display: block;
 } 
-.primary-nav ul.nav li.current-menu-item > a {
+.primary-nav ul.nav li  a.active {
 	border-bottom: 4px solid #00B0EB;
 }
-.primary-nav ul.nav li >  ul.dropdown-menu > li.current-menu-item >  a {
-	border-bottom: 1px solid #d7d7d7;
-        color: #00aeef;
-}
-
-.primary-nav .nav li.dropdown:hover a:hover {
-	 background-color: #f5f5f5;
-}
-
 .primary-nav .glyphicon-menu-down {
 	 color: #00aeef;
+	 font-size: 10px;
+	 font-weight: bold;
 }
 .primary-nav .nav .dropdown-menu {
 	width:100%;
 	box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
 	border-radius: 0;
 	margin: -1px 0 0 0;
-	padding: 0;	
+	padding: 0;
+	border-right: 0px;
+}
+.primary-nav .nav .dropdown-menu li {
+	padding: 0px 16px;
+	border-bottom: 1px solid #d7d7d7;
 }
 .primary-nav .nav .dropdown-menu li a {
 	font-size: 14px;
 	color: #a1a1a1;
-	padding: 12px 20px;
-	border-bottom: 1px solid #d7d7d7;
-    font-family:'Fort-Light',sans-serif;
+	padding: 12px 0px;
+    font-family:'Fort-Medium';
 }
 .primary-nav .nav .dropdown-menu li:last-child a {
 	border-bottom: 0 none;
@@ -245,7 +228,6 @@ ul.dropdown-menu li{
 	padding-top:6px;
 	padding-bottom: 4px;
 }
-
 #main_navigationbar  .navbar-nav > li > a, 
 .top-heading strong,
 .section-heading,
@@ -266,19 +248,26 @@ ul.dropdown-menu li{
 #search_resource,
 .overall-ratting,
 .rating-heading,
-strong {
+strong,
+.process-block h4,
+.info-product-item p span, 
+form.form-section .form-control,
+form.form-section h3 {
 	font-family: 'Fort-Bold';
-}
-#main_navigationbar .navbar-right {
-		margin-top: 8px;
 }
 sup {
 	font-family: 'Fort-Light';
+}
+.btn {
+	text-transform: uppercase;
 }
 .btn-blue-bg {
 	background: #01AEF0;
 	color: #fff;
 	font-family: 'Fort-Medium';
+}
+.navbar-collapse {
+	padding: 0;
 }
 .navbar-collapse2 {
     padding-right: 15px;
@@ -315,24 +304,25 @@ sup {
 	margin-bottom: 20px;
 	font-size: 36px;
 	text-align: center;
-	color: #6b2976;
+	color: #6a2875;
 }
 .get-Quote-form{
-	margin-bottom: 34px;
+    margin-bottom: 34px;		
     margin-top: 0px;
+    /*padding: 25px 0px 42px;*/
     background: rgba(107, 40, 117, 0.5);
     position: relative;
 }
 .get-Quote-form .section-heading {
     color: #fff;
 }
-.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input {
+.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
 	font-size: 16px;
 	color: #a1a1a1;
+	box-shadow: none;	
 }
-.get-Quote-form input, #search_resource input {
+.get-Quote-form input, #search_resource input, form.form-section input {
 	border-radius: 25px;
-	border: 1px solid #fff;	
 	height: 50px;
 	border: none;
 }
@@ -393,7 +383,9 @@ sup {
 #user_rettings_slider .owl-prev, 
 #user_rettings_slider .owl-next,  
 #slider_feature_product .owl-prev, 
-#slider_feature_product .owl-next {
+#slider_feature_product .owl-next,
+#infografic_carousel .owl-prev, 
+#infografic_carousel .owl-next {
 	top:52%;
 }
 #testimonial {
@@ -421,8 +413,8 @@ sup {
 	color: #6d6e71;
 	font-size: 20px;
 }
-.customer-info span {		
-	font-family: 'Fort-BookItalic';		
+.customer-info span {
+	font-family: 'Fort-BookItalic';
 }
 .tranp-div {
     position: absolute;
@@ -440,28 +432,34 @@ sup {
     top: 45px;
     bottom: 0;
 }
+
 #home_resource_list {
 	
 	background: url(images/home/gradient-03_Cmark.png) repeat left top;
 }
+
 .resource-list-bg {
 	padding: 36px 0 43px;
 }
 #home_resource_list .container:first-child {
 	margin-bottom: 20px;
 }
+
 .inspiration-content {
 	text-align: center;
 }
+
 .inspiration-content .section-heading {
 	text-align: center;
 	color: #fff;
-	margin-top: 74px;
+	margin: 14px 0 20px;
 }
+
 .inspiration-content .see-all-resources{
 	background: none;
 	margin-top: 14px;
 }
+
 /*buttons*/
 .btn-purple-style {
 	color: #fff;
@@ -469,31 +467,31 @@ sup {
     border: 2px solid #fff;
     padding: 12px 38px;
 }
-.btn-blue-bg, .utility-navigation .btn-blue-bg a{
+/*wordpress change*/
+.btn-blue-bg, .utility-navigation .btn-blue-bg a {
 	background-color: #01AEF0;
 	color: #fff;
 	border-radius: 25px;
 	border: 2px solid #fff;
 }
-
 .utility-navigation .btn-blue-bg {
     background: none;
 	color: #fff;
     border: none;
 }
-
+.utility-navigation .btn-blue-bg:hover {
+    border: none;
+}
 .btn-blue-bg:hover, .btn-blue-bg:focus, #getStartedForm button:hover, .utility-navigation .btn-blue-bg a:hover {
 	color: #01AEF0;
 	background-color: #fff;
 	color: #01AEF0;
 	border: 2px solid #01AEF0;
 }
-.utility-navigation .btn-blue-bg:hover {
-    border: none;
-}
 .utility-navigation .navbar-nav > li.btn-blue-bg > a, footer a.btn-blue-bg {
 	font-size: 12px;
 }
+/*wordpress change*/
 
 /*buttons end*/
 
@@ -511,6 +509,7 @@ i.glyphicon-play {
 	margin: 0 auto 34px;
 	font-family: 'Fort-Light';
 }
+
 
 .btn-purple-style:hover, .btn-purple-style:focus {
 	color: #843A87;
@@ -537,7 +536,7 @@ i.glyphicon-play {
 
 /*------ Resources start ----*/
 
-#search_resource {
+#search_resource, #partner_lead_form {
 	background-color: #e9e9e9;
 	padding: 22px 0 10px;
 	text-align: center;
@@ -558,7 +557,7 @@ i.glyphicon-play {
 	position: relative;
 	background-size: cover;
 }
-#resource_list_container .resource-content, #resource_hero .resource-content, #home_resource_list .resource-content {
+#resource_list_container .resource-content, #resource_hero .resource-content,  #home_resource_list .resource-content {
 	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
 	width: 100%;
 }
@@ -587,11 +586,11 @@ i.glyphicon-play {
 	width:auto;
 	height: auto;
 }
-#resource_list_container .resource-content,  #home_resource_list .resource-content {
+#resource_list_container .resource-content, #home_resource_list .resource-content{
 	padding: 16px 20px;
 	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
 }
-#resource_list_container .resource-content, .featured-story-image, #home_resource_list .resource-content {
+#resource_list_container .resource-content, .featured-story-image,  #home_resource_list .resource-content {
 	height: 312px;
 }
 .featured-story-image {
@@ -667,7 +666,7 @@ span.select-drop {
 }
 #all_resources_block {
 	position: relative;
-	padding-top: 55px; 
+	padding-top: 1px; 
 }
 #all_resources_block .featured-title {
 	margin: 6px 0 10px;
@@ -699,7 +698,7 @@ span.select-drop {
 	font-size: 26px;
 }
 .post-section {
-	padding: 50px 20px 35px;
+	padding: 68px 20px 35px;
 	float:left;
 	border-bottom: 2px solid #fff;
 }
@@ -763,17 +762,17 @@ span.select-drop {
 }
 .resource-container {
 	position: relative;
-	padding: 0 0px 35px 15px; 
+	padding: 55px 0px 35px 15px; 
 }
 .sponsored {
 	position: absolute;
-    width: 169px;
+    min-width: 169px;
     background-color: #c7c7c7;
     bottom: 0px;
     right: 0;
 }
 .sponsored p {
-	font-size: 13px;		
+    font-size: 13px;
     font-family: 'Fort-BookItalic';
 	color: #fff;
 	padding: 7px;
@@ -817,8 +816,11 @@ span.select-drop {
 	font-size: 18px;
 	color: #fff;
 }
-	.get-e-book .section-heading {		
-	margin-bottom: 4px;		
+.get-e-book .section-heading {
+	margin-bottom: 4px;
+}
+.get-e-book .text-align {
+	text-align: left;
 }
 /*resource end*/
 
@@ -826,7 +828,7 @@ span.select-drop {
 .head-titles p {
 	font-size: 16px;
 	margin-top: 20px;
-	font-family: 'Fort-Light';
+	font-family: 'Fort-Medium';
 }
 .head-titles .top-heading {
 	margin-top:0;
@@ -858,17 +860,10 @@ span.select-drop {
 }
 #details_termsloan{
 	padding: 65px 0;
-	background: #EEEEEE;
 }
-/*.term-detail-heading, 
-.member-benefit-heading {
-	text-align: center;
-	font-size: 36px;
-	font-family: Arial;
-	color: #6b2976;
-	margin-bottom: 65px;
-	font-weight: bold;
-}*/
+#details_termsloan, #funding-option{
+	background: #eee;
+}
 .financial-product-item h5.section-heading {
 	color: #fff;
 	font-size: 36px;
@@ -883,7 +878,7 @@ span.select-drop {
 	font-size: 16px;
 	color: #6d6e71;
 	line-height: 30px;
-	background: url('images/termsloan/arrow_bullet.png') no-repeat;
+	background: url(images/termsloan/arrow_bullet.png) no-repeat;
 	padding-left: 35px;
 }
 .paymment-point{
@@ -900,7 +895,7 @@ span.select-drop {
 .termloan-use-point li {
 	position: relative;
     font-size: 26px;
-    background:url('images/termsloan/check_bullet.png') no-repeat;
+    background:url(images/termsloan/check_bullet.png) no-repeat;
     min-height: 67px;
     margin: 0 0px 20px;
     padding: 0 20px 0 80px;
@@ -929,7 +924,7 @@ span.select-drop {
 }
 #loan_calculator{
 	padding: 68px 0;
-	background:#EEEEEE;
+	background:#eee;
 }
 #loan_calculator .term-detail-heading {
 	margin-bottom: 36px;
@@ -976,7 +971,7 @@ span.select-drop {
 	margin-bottom: 20px;
 }
 #member_benefit {
-	background: #EEEEEE;
+	background: #eee;
 	text-align: center;
 	padding-top: 65px;
 	padding-bottom: 80px; 
@@ -1058,12 +1053,13 @@ footer .badges-container {
   right: -45px;
   top: 55px;
 }
-#slider_feature_product .owl-prev{
+
+.owl-prev, #infografic_carousel .owl-prev{
 	position: absolute;
     left: 4px;
     top: 30%;
 }
-#slider_feature_product  .owl-next{
+.owl-next, #infografic_carousel .owl-next{
 	position: absolute;
     right: 4px;
     top: 30%;
@@ -1079,6 +1075,7 @@ footer .badges-container {
 	position: absolute;
 }
 
+/*
 .owl-prev{
 	position: absolute;
     left: -29px;
@@ -1089,6 +1086,7 @@ footer .badges-container {
     right: -29px;
     top: 30%;
 }
+*/
 /*.owl-prev, .owl-next{
 	width: 30px;
     height: 30px;
@@ -1123,10 +1121,10 @@ footer .badges-container {
 	text-align: center;
 	font-size: 25px;
 	position: absolute;
-	left: 30px;
+	left: 20px;
 	right: 30px;
-	bottom: 30px;
-	z-index: 8;
+	bottom: -67px;
+	z-index: 7;
 }
 .current-slider, .total-slider{
 	font-weight: bold;
@@ -1138,25 +1136,26 @@ footer .badges-container {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
+
 }
+
 .get-hover-form {
 	position: absolute;
 	left: 0;
 	right: 0;
 	z-index: 9;
 	display: none;
+
 }
 #form_box{
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 10px;
+	top: 14px;
 	z-index: 99;
 	background: rgba(107, 40, 117, 1);
 }
-.resource-container {
-	padding-right: 0;
-}
+
 .sidebar {
 	position: static;
 }
@@ -1186,6 +1185,7 @@ footer .badges-container {
 	clear: both;
 }
 /*post page*/
+
 #post-article,
 #all_resources_block #post-article .resource-content {
 	height: auto;
@@ -1201,15 +1201,20 @@ footer .badges-container {
 #post-article .read-time {
 	position: static;
 }
-.get-quote-style {
-    box-shadow: 1px 6px 6px -3px #333;
-    background-color: rgba(107, 40, 117, 1);
-}
+
 /*post-page end*/
+
+/*get-quote style on stick*/
+.get-quote-style {
+	box-shadow: 1px 6px 6px -3px #333;
+	background-color: rgba(107, 40, 117, 1);
+}
+
 /*menu changes*/
 .nav>li>a:focus, .nav>li>a:hover {
 	background-color: transparent;
 }
+
 /* home ratting other section */
 #ratting_others{
 	padding: 72px 0px;
@@ -1244,6 +1249,7 @@ footer .badges-container {
     margin-bottom: 10px;
     font-family: 'Fort-Medium';
 }
+
 .date-time-label{
 	display: inline-block;
 	position: absolute;
@@ -1251,9 +1257,11 @@ footer .badges-container {
 	top: 0;
 	font-size: 12px;
 }
+
 .trust-pilot{
 	margin: 11px auto 15px;
 }
+
 .icon-sprite{
 	background: url(images/can_sprt.png) no-repeat;
 }
@@ -1264,9 +1272,10 @@ footer .badges-container {
 	height: 25px;
 	cursor: pointer;
 }
-.star-overall p {		
-	text-align: center;		
+.star-overall p {
+	text-align: center;
 }
+
 .user-ratting li{
 	background-position:-16px -376px;
 	display: inline-block;
@@ -1274,40 +1283,504 @@ footer .badges-container {
 	height: 15px;
 	cursor: pointer;
 }
+
 .user-ratting li.active{
 	background-position:-16px -349px;
 }
+
+
 .star-overall li.active {
 	background-position:-16px -271px;	
 }
-.ratting-left-icon, .ratting-right-icon {
+
+.ratting-left-icon,
+.ratting-right-icon,
+.feature-left-icon,
+.feature-right-icon {
 	display: block;
-	width: 50px;
+	width: 32px;
 	height: 50px;
 }
 .ratting-left-icon {
-	background-position: 0 -403px;
+	background-position: -8px -403px;
 }
 .ratting-left-icon.active {
-	background-position: 0 -471px;
+	background-position: -8px -471px;
 }
 .ratting-right-icon {
-	background-position:0 -536px;
+	background-position:-8px -536px;
 }
 .ratting-right-icon.active {
-	background-position:0 -603px;
+	background-position:-8px -603px;
 }
+.feature-left-icon {
+ background-position: -8px -1px;
+}
+.feature-right-icon {
+ background-position:-8px -130px;
+}
+.feature-left-icon.active {
+ background-position: -8px -192px;
+}
+.feature-right-icon.active {
+ background-position:-8px -61px;
+}
+
 /* home ratting other section */
 
-.feature-left-icon {
-	background-position: 0 -1px;		
-}		
-.feature-right-icon {		
-	background-position:0 -130px;		
-}		
-.feature-left-icon.active {		
-	background-position: 0 -192px;		
-}		
-.feature-right-icon.active {		
- 	background-position:0 -61px;		
+
+/*---- Batch 2 ----*/
+
+/*---- How it works ----*/
+.process-block {
+	padding: 90px 0 80px;
 }
+.process-block .badges-container {
+	margin-bottom: 0;
+}
+.process-block h4 {
+	background-color: #fff;
+	width: 58px;
+	height:58px;
+	border-radius: 50%;
+	text-align: center;
+	margin:0 auto;
+	padding: 15px;
+	font-size: 28px;
+	margin-top:20px;
+}
+.process-block h4, .info-product-item p span {
+	color: #6a2875;
+} 	
+.process-block .financial-product-item {
+	position: relative;
+}
+.process-block .financial-product-item .process-arrow {
+	position: absolute;
+	top: 187px;
+    right: -110px;
+}
+.process-block .financial-product-item .process-arrow span {
+	position: relative;
+      overflow: hidden;
+      display: block;
+      width:220px;
+      height: 17px;
+}
+.process-block .financial-product-item .process-arrow span img{
+	position: absolute;
+	right:0;
+}
+.process-block .financial-product-item,
+.process-block p {
+	font-size: 14px;
+	line-height: 22px;
+	font-family: "Fort-Light";
+}
+
+#infografic_product {
+	padding: 80px 0;
+}
+.info-product-item {		
+	margin-bottom: 20px;		
+}
+.info-product-item p {
+	color: #6d6e71;
+	font-size: 26px;
+	text-align: center;
+	padding: 10px 100px;
+	margin-top:40px;
+}
+.info-product-item p span {
+	font-size: 64px;
+}
+#use_termloan_for {
+	position: relative;
+}
+#infografic_product .category-icon {
+	width: 112px;
+	height:139px;
+}
+.fade-bg {
+	background: rgba(255, 255, 255, .7);
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom: 0;
+}
+/*---- How it works end ----*/
+
+/*---- Partner lean gen ----*/
+#partner_lead_form {
+	text-align: left;
+	padding: 70px 0 60px;
+}
+form.form-section label{
+	font-size: 16px;
+	color: #6d6e71;
+	position: relative;
+	padding-right: 20px;
+	width: 100%;
+}
+#partner_lead_form form.form-section .form-control {
+	margin-bottom: 50px;
+}
+form.form-section textarea {
+	border-radius: 20px;
+	border: none;
+	resize: none;
+	padding: 6px 20px;
+}
+form.form-section h3 {
+	color: #6b2875;
+	font-size: 22px;
+}
+form.form-section h3, #partner_lead_form .partner-type {
+	margin-bottom: 30px;
+
+}
+#partner_lead_form .partner-type .form-group{
+	margin-bottom: 5px;
+}
+#partner_lead_form .partner-type input[type="radio"] {
+	height: 20px;
+	display: inline-block;
+	width: 20px;
+	margin-bottom: 0px;
+	vertical-align: middle;
+	box-shadow: none;
+}
+#partner_lead_form .partner-type input[type="radio"] {
+	display: none;
+}
+#partner_lead_form .partner-type input[type="radio"] + label {
+	cursor: pointer;
+}
+#partner_lead_form .partner-type input[type="radio"] + label span {
+	display:inline-block;
+    width:20px;
+    height:20px;
+    margin:-5px 10px 0 0;
+    vertical-align:middle;
+    cursor:pointer;
+    -moz-border-radius:  50%;
+    border-radius:  50%;
+    background-color: #fff;
+ 	border: 5px solid #fff;
+}
+#partner_lead_form .partner-type input[type="radio"]:checked + label span {	
+     background-color: #6b2875;
+
+}
+form.form-section p a.know-more {
+	font-size: 16px;
+	color: #00aeef;
+	text-decoration: underline;
+}
+.join-us {
+	text-align: center;
+	border-top: 1px solid #c8c8c8;
+	margin-top: 60px;
+}
+.join-us .btn {
+	width:119px;
+	margin-top:35px;
+}
+.question-mark {
+	text-decoration: none;
+	color: #01AEF0;
+	position: absolute;
+	right: 10px;
+	top:0;
+	width:27px;
+	height: 27px;
+	background: url(images/partner/QuestionMarkIcon.png) no-repeat;
+}
+/*---- Partner lean gen end ----*/
+
+
+
+/* batch 2 partner */
+#partnership{
+	color: #fff;
+	text-align: center;
+	font-family: "Fort-Bold";
+}
+
+#partnership .section-heading {
+	color: #fff;
+	padding: 79px 12px 40px;
+}
+.partnership-label {
+	line-height: 30px;
+	margin-bottom: 26px;
+	font-family: "Fort-Bold";
+	font-size: 22px;
+}
+.partnership-description{
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 66px;
+	font-family: "Fort-Book";
+}
+.partnership-item {
+	border: 1px solid rgba(255, 255, 255, .15);
+	padding: 28px 10px 40px;
+	margin: 0 12px 5px;
+	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.15);
+	height: 296px;
+}
+.partnership-item .learn-more-btn {
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	display: block;
+	width: 100%;
+}
+.partnership-item:hover {
+	background: #B352AF;
+} 
+#partnership .badges-container {
+	padding-top: 28px;
+	margin-bottom: 60px;
+}
+#we_bring_you_best{
+	position: relative;
+	padding: 75px auto 104px;
+	text-align: center;
+}
+#we_bring_you_best .section-heading {
+	margin: 76px auto 62px;
+}
+
+#we_bring_you_best .tranp-div-two {
+	top: 0px;
+	z-index: 0;
+}
+
+#we_bring_you_best .container {
+	z-index: 9;
+}
+ .bring-best-item{
+	margin: 0px 22px 124px;
+} 
+ .bring-best-item .category-icon {
+ 	width: auto;
+ 	height: auto;
+ }
+.heading-label {
+	font-family: "Fort-Bold"; 
+	color: #00aeef;
+	margin: 33px auto 20px;
+}
+#we_bring_you_best .description {
+	line-height: 22px;
+}
+#partners, 
+#cta_block {
+	background: #eee;
+	padding-bottom: 110px;
+}
+#partners .section-heading, #cta_block .section-heading{
+	margin: 40px auto 30px;
+}
+.partners-list {
+	text-align: center;
+}
+.partners-list li {
+	margin: 20px auto;
+}
+#email_us {
+	padding-bottom: 70px;
+}
+#email_us .section-heading{
+	margin: 70px auto 48px;
+}
+.call-us{
+	color: #6d6e71;
+	font-size: 18px;
+	margin: 28px auto 17px;
+	font-family: "Fort-Bold";  
+}
+.call-number {
+	color: #6b2976;
+	font-size: 26px;
+	margin-bottom: 30px;
+	font-family: "Fort-Bold"; 
+}
+.divider-line {
+	width: 100px;
+	height: 1px;
+	background: #EEEEEE;
+	margin: 30px auto;
+	display: block;
+}
+#cta_block .section-heading {
+	margin: 70px auto 40px;
+}
+#cta_block {
+	background: #EEEEEE;
+	padding-bottom: 40px;
+}
+/* campaign page  */
+.gray-bg {
+	background: #EEEEEE;
+}
+.badges-offset {
+	margin-bottom: 60px;
+}
+.bottom-border {
+	border-bottom: 2px solid #E9E9E9;
+}
+
+/* campaign page  */
+
+
+/* Small Business Funding Start Here */
+
+#sbf_hero #slider_testimonial{
+	padding: 65px 0;
+}
+
+.content-list-item {
+	padding: 0 100px;
+	text-align: center;
+}
+
+.content-list-item p{
+	font-size: 14px;
+	font-family: "Fort-book";
+	color: #fff;
+	margin-bottom: 23px;
+}
+.heading-line{
+	font-size: 40px;
+	font-family: "Fort-book";
+	color: #fff;
+	line-height: 52px;
+	margin-bottom: 34px;
+
+}
+.content-list-item .customer-info {
+	color: #fff;
+	margin-bottom: 32px;
+}
+
+.loan-nav {
+	text-align: center;
+	background-color: #4c1763;
+    margin: 0;
+    min-height: 92px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: 6;
+}
+.navigation-item {
+	margin: 10px auto;
+	display: block;
+	font-family: "Fort-book"; 
+	color: #e284e0; 
+	font-size: 26px;
+	 padding: 24px 0;
+}
+.loan-nav .active {
+	color: #fff;
+	background: url(images/img-2.png) no-repeat;
+	background-position:center top;  
+}
+
+.nav-right-border {
+	border-right: 1px solid #e284e0;
+}
+/* Block Solution Built*/
+#solution_built { position: relative; padding: 96px 0 105px}
+#solution_built .tranp-div-two { top: 0px;}
+#solution_built .container { position: relative; z-index: 1;}
+#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 52px;}
+.divtable {
+ box-shadow: -1px 4px 0 #efefef;
+}
+.divtable .tr {
+  overflow: hidden;
+  clear: both;
+  border-bottom: 1px solid #ccc;
+}
+.seprate-block .thead { display: none;}
+.divtable .th,
+.divtable .td {
+  padding: 0px 20px;
+  float: left;
+  color:#fff;
+  font-family: "Fort-bold";
+  height: 118px;
+  display: table;
+  border-right: 1px solid #e570e7;
+}
+.divtable .th span,
+.divtable .td span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.divtable .th span small,
+.divtable .td span small { font-family: "Fort-book"; font-size: 14px;}
+
+.divtable .th { font-weight: bold; text-align: center}
+
+.firstname { width: 19%; }
+
+.term-laon { width: 27%; }
+
+.trak-laon { width: 27%; }
+.installment-loan { width: 27%; }
+.seprate-block .firstname  { border-right:  10px solid rgba(107, 40, 117, 0.9);}
+.headings .term-laon,.headings .trak-laon,.headings .installment-loan { border-bottom:  10px solid rgba(107, 40, 117, 0.9);}
+.divtable .seprate-block  .term-laon, .divtable .seprate-block  .trak-laon,.divtable .seprate-block  .installment-loan  { background-color: #fff; border-right: 1px solid #ccc; color: #6d6e71; font-size: 16px; vertical-align: top;}
+.divtable .seprate-block  .term-laon span, .divtable .seprate-block  .trak-laon span,.divtable .seprate-block  .installment-loan span { vertical-align: top; padding-top:25px;}  
+.headings .installment-loan { border-right: none;}
+/* Making Payments*/
+#making-payments {
+    color: #fff;
+    padding-bottom: 57px;
+    padding-top: 60px;
+}
+#making-payments p {
+    font-size: 36px;
+}
+#making-payments p {
+    font-family: "Fort-Light";
+    margin: 0 auto 34px;
+    width: auto;
+}
+/* Right financing */
+#right-financing { background: none repeat scroll 0 0 #eeeeee;
+    padding: 85px 0 98px;
+} 
+#right-financing .section-heading { text-transform: capitalize;}
+#right-financing .owl-dots {  
+    left: 47%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+	margin-top: 20px;
+	}
+#right-financing .owl-theme .owl-controls .owl-dots, #right-financing .owl-theme .owl-controls .owl-dots .owl-dot { float: left; display: block}
+#right-financing .owl-theme .owl-controls .owl-dots .owl-dot.active span {   background: #6a2875; opacity: 0.9;}
+/* Funding Option */
+#funding-option {   
+    padding: 96px 0 105px;
+    position: relative;
+}
+#funding-option .section-heading {
+    margin-bottom: 52px;
+    text-transform: capitalize;
+}
+#funding-option .divtable .seprate-block .term-laon span, #funding-option .divtable .seprate-block .trak-laon span, #funding-option .divtable .seprate-block .installment-loan span { vertical-align: middle; text-align: center; padding: 0px;}
+#funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
+/* Small Business Funding End Here*/
+
+
+
+/*---- Batch 2 ----*/

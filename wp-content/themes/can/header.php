@@ -58,7 +58,7 @@
                         </div>
                         <div class="collapse navbar-collapse mob-main-menu">
                             <div class="row visible-xs">
-                                <div class="col-xs-12">
+                                <div class="col-xs-12 mob-style">
                                     <div class="col-xs-6">
                                         <div class="row">
                                             <p class='label-main-menu'>Main Menu</p>
@@ -98,8 +98,7 @@
                     }
                     else {
                         ?>
-                        <div class="top-heading"><?php echo $top_headline; ?><button class="glyphicon glyphicon-search search-btn visible-xs"></button>
-                          </div>	
+                        <div class="top-heading"><?php echo $top_headline; ?>
                         <?php
                     }
                     ?>
