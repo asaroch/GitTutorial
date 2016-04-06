@@ -238,6 +238,10 @@
 			position: relative;
 		}
 		/*/2-23*/
+		/* Small business funding */
+     #sbf_hero .content-list-item {
+     padding: 3px 15px 0;
+     }
 }
 @media (max-width:767px) {	
 	#user_rettings_slider .owl-prev {
@@ -770,8 +774,35 @@
 	  line-height: 1;
 	  -webkit-font-smoothing: antialiased;
 	}
+	#funding-option { padding: 59px 0 32px; }
 	#funding-option .gradient-one { background: none;}
 	#making-payments p { font-size: 24px; line-height: 32px;}
+    #sbf_hero .heading-line {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 9px;
+   }
+   #funding-option .section-heading {
+    margin-bottom: 40px;
+}
+
+*:after, *:before {
+    box-sizing: border-box;
+}
+*:after, *:before {
+    box-sizing: border-box;
+}
+
+    #sbf_hero .content-list-item {
+    padding: 3px 15px 0;
+   }
+   #cta_block { padding-bottom: 47px; }
+   #cta_block .section-heading {
+    margin: 58px auto 0;
+    }
+	.partners-list li {
+    margin: 0px auto;
+}
 	}
 @media (max-width:480px){
 	.water-mark-image {
