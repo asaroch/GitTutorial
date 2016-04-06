@@ -100,7 +100,7 @@
 	.loan-item {
 		font-size: 20px;
 	}
-	/* Small business funding */
+	/* Small business funding  change on 4-6 batch 2*/
      #sbf_hero .content-list-item {
      padding: 3px 15px 0;
      }
@@ -242,7 +242,6 @@
 			position: relative;
 		}
 		/*/2-23*/
-	
 }
 @media (max-width:767px) {	
 	#user_rettings_slider .owl-prev {
@@ -283,17 +282,18 @@
 	.primary-nav .nav li.dropdown {
 		padding: 0px;
 	}
-	.primary-nav .nav li.dropdown:first-child { 
+	
+	.primary-nav .nav li.dropdown{
 		border:none;
-	}
-	.primary-nav .nav li.dropdown, 
-	.primary-nav .nav li.dropdown:first-child {
 		    border-bottom: 1px solid #37BEF6;
 	}
 	.primary-nav .nav li.dropdown:hover {
 		box-shadow: none;
-	}
-	
+		border-left: none;
+		border-right :none;
+		border-top: none;
+		border-bottom: 1px solid #37BEF6; 
+	}	
 	.primary-nav .glyphicon-menu-down {
 		 color: #fff;
 		 margin-right: 5px;
@@ -302,6 +302,10 @@
 	.primary-nav .nav .open {
 		box-shadow:none;
 	}
+	.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+		border: none;
+	}
+
 	.navbar a, .primary-nav .nav .dropdown-menu li a {
 		color: #fff;
 	}
@@ -315,7 +319,6 @@
 	.primary-nav ul.nav li  a.active {
 		border-bottom: 4px solid #fff;
 	}
-
 	.navbar-nav > li:nth-last-child(2),
 	.navbar-nav > li:last-child {
 	   border-bottom: 0;
@@ -337,6 +340,19 @@
 	.navbar-nav > li.apply-btn {
 		border: 2px solid #fff;
 	}
+	/*wordpress changes*/
+	/*.navbar-nav > li.apply-btn > a {
+		width: 200px;
+		margin:10px auto;
+		border: 2px solid #fff;
+	}
+	.navbar-nav > li.apply-btn > a {
+		border: 2px solid #fff;
+	}
+	#resource_list_container .featured-story-image {
+		float: left;	
+	}
+	*/
 	.navbar-nav > li > a  {
 	   padding-left: 5px;
 	}
@@ -775,35 +791,8 @@
 	  line-height: 1;
 	  -webkit-font-smoothing: antialiased;
 	}
-	#funding-option { padding: 59px 0 32px; }
 	#funding-option .gradient-one { background: none;}
 	#making-payments p { font-size: 24px; line-height: 32px;}
-    #sbf_hero .heading-line {
-    font-size: 28px;
-    line-height: 38px;
-    margin-bottom: 9px;
-   }
-   #funding-option .section-heading {
-    margin-bottom: 40px;
-}
-
-*:after, *:before {
-    box-sizing: border-box;
-}
-*:after, *:before {
-    box-sizing: border-box;
-}
-
-    #sbf_hero .content-list-item {
-    padding: 3px 15px 0;
-   }
-   #cta_block { padding-bottom: 47px; }
-   #cta_block .section-heading {
-    margin: 58px auto 0;
-    }
-	.partners-list li {
-    margin: 0px auto;
-}
 	}
 @media (max-width:480px){
 	.water-mark-image {

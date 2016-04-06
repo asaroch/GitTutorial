@@ -1,7 +1,6 @@
 /* import font style with external style css files */
 @import url("font-style.css");
 
-
 /*style*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
 	margin: 0px;
@@ -1296,7 +1295,7 @@ footer .badges-container {
 /* home ratting other section */
 
 
-/*---- Batch 2 ----*/
+/*---- Batch 2 starts ----*/
 
 /*---- How it works ----*/
 .process-block {
@@ -1352,17 +1351,28 @@ footer .badges-container {
 	margin-bottom: 57px;
 }
 #infografic_product {
-	padding: 80px 0;
+	padding: 85px 0 59px;
+}
+#infografic_product .owl-theme .owl-controls .owl-dots .owl-dot {
+	display: inline-block;
+}
+#infografic_product .owl-theme .owl-controls .owl-dots {
+	text-align: center;
+}
+#infografic_product .owl-theme .owl-controls .owl-dots .owl-dot.active span {
+	    background-color: #6a2875;
+	    opacity: 1;
 }
 .info-product-item {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 .info-product-item p {
 	color: #6d6e71;
 	font-size: 26px;
 	text-align: center;
-	padding: 10px 100px;
-	margin-top:40px;
+	padding: 0px 100px;
+	margin: 51px 0 10px;
+	line-height: 57px;
 }
 .info-product-item p span {
 	font-size: 64px;
@@ -1382,7 +1392,6 @@ footer .badges-container {
 	right:0;
 	bottom: 0;
 }
-/*today changes start 6/4*/
 .process-block .category-icon {
 	height: auto;
 }
@@ -1391,18 +1400,27 @@ footer .badges-container {
 	margin-bottom: 0;
 }
 #termsloan_detail {
-	padding:74px 0 81px;
+	padding: 74px 0 81px;
 	background-color: #eee;
 }
 #termsloan_detail .section-heading {
 	margin-bottom: 40px;
+}
+.inspiration-content .section-heading {
+	margin-top: 52px;
+}
+#home_resource_list .featured-title {
+    margin: 8px 0 13px;
+}
+#home_resource_list .read-time {
+	bottom: 15px;
 }
 /*---- How it works end ----*/
 
 /*---- Partner lean gen ----*/
 #partner_lead_form {
 	text-align: left;
-	padding: 70px 0 60px;
+	padding: 70px 0 65px;
 }
 form.form-section label{
 	font-size: 16px;
@@ -1412,7 +1430,7 @@ form.form-section label{
 	width: 100%;
 }
 #partner_lead_form form.form-section .form-control {
-	margin-bottom: 50px;
+	margin-bottom: 45px;
 }
 form.form-section textarea {
 	border-radius: 20px;
@@ -1424,9 +1442,11 @@ form.form-section h3 {
 	color: #6b2875;
 	font-size: 22px;
 }
-form.form-section h3, #partner_lead_form .partner-type {
-	margin-bottom: 30px;
-
+form.form-section h3 {
+	margin-bottom: 29px;
+}
+#partner_lead_form .partner-type {
+	margin-bottom: 18px;
 }
 #partner_lead_form .partner-type .form-group{
 	margin-bottom: 5px;
@@ -1469,7 +1489,7 @@ form.form-section p a.know-more {
 .join-us {
 	text-align: center;
 	border-top: 1px solid #c8c8c8;
-	margin-top: 60px;
+	margin-top: 55px;
 }
 .join-us .btn {
 	width:119px;
@@ -1485,16 +1505,59 @@ form.form-section p a.know-more {
 	height: 27px;
 	background: url(../images/partner/QuestionMarkIcon.png) no-repeat;
 }
+.margin-top {
+	margin: 12px 0 17px;
+}
+form.form-section h3.heading-parter-type {
+	margin-bottom: 24px;
+}
+form.form-section h3.heading-beacome-partner {
+	margin-bottom: 7px;
+}
+.get-funded {
+	padding-bottom: 65px;
+}
+.get-funded .section-heading {
+	margin-bottom: 12px;
+}
+.get-funded h3 {
+	margin: 10px 0 32px;
+}
 /*---- Partner lean gen end ----*/
+/* Partner Referral*/
+.sales-program {
+	padding: 26px 0 27px;
+}
+.sales-program .section-heading {
+	color: #fff;
+	margin-bottom: 42px;
+}
+.sales-program .category-icon {
+	height: auto;
+	width:auto;
+}	
+.sales-program .financial-product-item h5 {
+	margin: 32px 0 19px;
+	font-size: 22px;
+}
+.sales-program .financial-product-item p {
+	font-size: 14px;
+	padding: 0 32px;
+}
+.sales-program a.btn {
+	margin-top: 34px;
+}
+.btn-purple-style {
+	font-family: "Fort-Medium";
+}
 
-
-/* batch 2 partner */
+/* Partner Referral end*/
+/* partner */
 #partnership{
 	color: #fff;
 	text-align: center;
 	font-family: "Fort-Bold";
 }
-
 #partnership .section-heading {
 	color: #fff;
 	padding: 74px 12px 20px;
@@ -1625,10 +1688,6 @@ form.form-section p a.know-more {
 }
 
 /* campaign page  */
-
-
-/* campaign page  */
-
 
 /* Small Business Funding Start Here */
 
@@ -1776,7 +1835,7 @@ form.form-section p a.know-more {
 /* Funding Option */
 #funding-option {
 background-color: #ffffff; 
-    padding: 96px 0 105px;
+    padding: 80px 0 100px;
     position: relative;
 }
 #funding-option .section-heading {
@@ -1786,6 +1845,7 @@ background-color: #ffffff;
 #funding-option .divtable .seprate-block .term-laon span, #funding-option .divtable .seprate-block .trak-laon span, #funding-option .divtable .seprate-block .installment-loan span { vertical-align: middle; text-align: center; padding: 0px;}
 #funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
 /* Small Business Funding End Here*/
+
 
 
 
