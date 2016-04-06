@@ -11,11 +11,11 @@ RewriteRule . index.php [L]
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /can_capital/cancapital-core-site/
+RewriteBase /cancapital/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /can_capital/cancapital-core-site/index.php [L]
+RewriteRule . /cancapital/index.php [L]
 </IfModule>
 
 # END WordPress
