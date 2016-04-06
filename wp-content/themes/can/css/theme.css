@@ -1,9 +1,14 @@
 .featured-article{margin-bottom:10px;}
 .show-less-articles{display:none;}
 .static-design-content{font-weight: bold;font-size: 20px;}
-ul.nav li.current-menu-item  a {
+/*ul.nav li.current-menu-item  a {
+    border-bottom: 4px solid #00B0EB;
+}*/
+ul.nav li.current-menu-parent > a {
     border-bottom: 4px solid #00B0EB;
 }
-ul.nav li.current-menu-parent  a {
-    border-bottom: 4px solid #00B0EB;
+
+.primary-nav .nav .dropdown-menu li.current-menu-item a {
+    color: #00aeef;
+   
 }

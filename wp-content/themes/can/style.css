@@ -154,7 +154,11 @@ header{
 .primary-nav ul.nav > li {
 	padding: 0px 16px;
 }
-.primary-nav .nav  li.dropdown a{
+.primary-nav ul.nav > li.dropdown,  
+ul.dropdown-menu li{
+	padding: 0px;
+}
+.primary-nav .nav  li a{
 	padding: 10px 0px;
 }
 
