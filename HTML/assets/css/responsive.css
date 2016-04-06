@@ -100,6 +100,10 @@
 	.loan-item {
 		font-size: 20px;
 	}
+	/* Small business funding */
+     #sbf_hero .content-list-item {
+     padding: 3px 15px 0;
+     }
 }
 @media (max-width: 991px) and (min-width: 768px) {
 	.navbar-brand {
@@ -238,10 +242,7 @@
 			position: relative;
 		}
 		/*/2-23*/
-		/* Small business funding */
-     #sbf_hero .content-list-item {
-     padding: 3px 15px 0;
-     }
+	
 }
 @media (max-width:767px) {	
 	#user_rettings_slider .owl-prev {
