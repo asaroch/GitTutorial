@@ -1,6 +1,7 @@
 /* import font style with external style css files */
 @import url("font-style.css");
 
+
 /*style*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
 	margin: 0px;
@@ -430,6 +431,34 @@ sup {
 .utility-navigation .navbar-nav > li > a.btn-blue-bg, footer a.btn-blue-bg {
 	font-size: 12px;
 }
+
+/*wordpress change--
+
+.btn-blue-bg, .utility-navigation .btn-blue-bg a {
+	background-color: #01AEF0;
+	color: #fff;
+	border-radius: 25px;
+	border: 2px solid #fff;
+}
+.utility-navigation .btn-blue-bg {
+    background: none;
+	color: #fff;
+    border: none;
+}
+.utility-navigation .btn-blue-bg:hover {
+    border: none;
+}
+.btn-blue-bg:hover, .btn-blue-bg:focus, #getStartedForm button:hover, .utility-navigation .btn-blue-bg a:hover {
+	color: #01AEF0;
+	background-color: #fff;
+	color: #01AEF0;
+	border: 2px solid #01AEF0;
+}
+.utility-navigation .navbar-nav > li.btn-blue-bg > a, footer a.btn-blue-bg {
+	font-size: 12px;
+}
+
+*/
 
 /*buttons end*/
 
@@ -1271,7 +1300,7 @@ footer .badges-container {
 
 /*---- How it works ----*/
 .process-block {
-	padding: 90px 0 80px;
+	padding: 87px 0 75px;
 }
 .process-block .badges-container {
 	margin-bottom: 0;
@@ -1300,10 +1329,10 @@ footer .badges-container {
 }
 .process-block .financial-product-item .process-arrow span {
 	position: relative;
-      overflow: hidden;
-      display: block;
-      width:220px;
-      height: 17px;
+	overflow: hidden;
+	display: block;
+	width:220px;
+	height: 17px;
 }
 .process-block .financial-product-item .process-arrow span img{
 	position: absolute;
@@ -1315,7 +1344,13 @@ footer .badges-container {
 	line-height: 22px;
 	font-family: "Fort-Light";
 }
-
+#effortless_application {
+	padding: 75px 0 81px;
+	position: relative;
+}
+#effortless_application .section-heading {
+	margin-bottom: 57px;
+}
 #infografic_product {
 	padding: 80px 0;
 }
@@ -1346,6 +1381,21 @@ footer .badges-container {
 	left:0;
 	right:0;
 	bottom: 0;
+}
+/*today changes start 6/4*/
+.process-block .category-icon {
+	height: auto;
+}
+.process-block .financial-product-item {
+	padding: 15px 20px 0;
+	margin-bottom: 0;
+}
+#termsloan_detail {
+	padding:74px 0 81px;
+	background-color: #eee;
+}
+#termsloan_detail .section-heading {
+	margin-bottom: 40px;
 }
 /*---- How it works end ----*/
 
@@ -1438,7 +1488,6 @@ form.form-section p a.know-more {
 /*---- Partner lean gen end ----*/
 
 
-
 /* batch 2 partner */
 #partnership{
 	color: #fff;
@@ -1448,11 +1497,11 @@ form.form-section p a.know-more {
 
 #partnership .section-heading {
 	color: #fff;
-	padding: 79px 12px 40px;
+	padding: 74px 12px 20px;
 }
 .partnership-label {
 	line-height: 30px;
-	margin-bottom: 26px;
+	margin-bottom: 15px;
 	font-family: "Fort-Bold";
 	font-size: 22px;
 }
@@ -1464,7 +1513,7 @@ form.form-section p a.know-more {
 }
 .partnership-item {
 	border: 1px solid rgba(255, 255, 255, .15);
-	padding: 28px 10px 40px;
+	padding: 23px 10px 40px;
 	margin: 0 12px 5px;
 	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.15);
 	height: 296px;
@@ -1489,7 +1538,7 @@ form.form-section p a.know-more {
 	text-align: center;
 }
 #we_bring_you_best .section-heading {
-	margin: 76px auto 62px;
+	margin: 70px auto 52px;
 }
 
 #we_bring_you_best .tranp-div-two {
@@ -1501,7 +1550,7 @@ form.form-section p a.know-more {
 	z-index: 9;
 }
  .bring-best-item{
-	margin: 0px 22px 124px;
+	margin: 0px 22px 120px;
 } 
  .bring-best-item .category-icon {
  	width: auto;
@@ -1510,7 +1559,7 @@ form.form-section p a.know-more {
 .heading-label {
 	font-family: "Fort-Bold"; 
 	color: #00aeef;
-	margin: 33px auto 20px;
+	margin: 30px auto 12px;
 }
 #we_bring_you_best .description {
 	line-height: 22px;
@@ -1521,24 +1570,27 @@ form.form-section p a.know-more {
 	padding-bottom: 110px;
 }
 #partners .section-heading, #cta_block .section-heading{
-	margin: 40px auto 30px;
+	margin: 65px auto 70px ;
 }
+
+
+
 .partners-list {
 	text-align: center;
 }
 .partners-list li {
-	margin: 20px auto;
+	margin: 50px auto 10px;
 }
 #email_us {
 	padding-bottom: 70px;
 }
 #email_us .section-heading{
-	margin: 70px auto 48px;
+	margin: 65px auto 40px;
 }
 .call-us{
 	color: #6d6e71;
 	font-size: 18px;
-	margin: 28px auto 17px;
+	margin: 0px auto 10px;
 	font-family: "Fort-Bold";  
 }
 .call-number {
@@ -1555,7 +1607,7 @@ form.form-section p a.know-more {
 	display: block;
 }
 #cta_block .section-heading {
-	margin: 70px auto 40px;
+	margin: 65px auto 40px;
 }
 #cta_block {
 	background: #EEEEEE;
@@ -1578,32 +1630,31 @@ form.form-section p a.know-more {
 /* Small Business Funding Start Here */
 
 #sbf_hero #slider_testimonial{
-	padding: 26px 0 34px 0;
+	padding: 65px 0;
 }
-#sbf_hero #slider_testimonial .user-icon { margin-bottom: 15px;}
-#sbf_hero .content-list-item {
-	padding: 3px 138px 0 0px;
+
+.content-list-item {
+	padding: 0 100px;
 	text-align: center;
 }
 
-#sbf_hero .content-list-item p{
+.content-list-item p{
 	font-size: 14px;
 	font-family: "Fort-book";
 	color: #fff;
-	margin-bottom: 8px;
+	margin-bottom: 23px;
 }
-#sbf_hero .heading-line{
+.heading-line{
 	font-size: 40px;
 	font-family: "Fort-book";
 	color: #fff;
 	line-height: 52px;
-	margin-bottom: 30px;
+	margin-bottom: 34px;
 
 }
-#sbf_hero .btn-purple-style { padding: 13px 38px;}
 .content-list-item .customer-info {
 	color: #fff;
-	margin-bottom: 26px;
+	margin-bottom: 32px;
 }
 
 .loan-nav {
@@ -1617,12 +1668,12 @@ form.form-section p a.know-more {
     z-index: 6;
 }
 .navigation-item {
+	margin: 10px auto;
 	display: block;
 	font-family: "Fort-book"; 
 	color: #e284e0; 
 	font-size: 26px;
-	  margin: 17px auto 0;
-    padding: 10px 0;
+	 padding: 24px 0;
 }
 .loan-nav .active {
 	color: #fff;
@@ -1634,10 +1685,10 @@ form.form-section p a.know-more {
 	border-right: 1px solid #e284e0;
 }
 /* Block Solution Built*/
-#solution_built { position: relative; padding: 90px 0 109px}
+#solution_built { position: relative; padding: 96px 0 105px}
 #solution_built .tranp-div-two { top: 0px;}
 #solution_built .container { position: relative; z-index: 1;}
-#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 43px;}
+#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 52px;}
 .divtable {
  box-shadow: -1px 4px 0 #efefef;
 }
@@ -1653,7 +1704,7 @@ form.form-section p a.know-more {
   float: left;
   color:#fff;
   font-family: "Fort-bold";
-  height: 110px;
+  height: 118px;
   display: table;
   border-right: 1px solid #e570e7;
 }
@@ -1662,7 +1713,6 @@ form.form-section p a.know-more {
     display: table-cell;
     vertical-align: middle;
 }
-.divtable .th span img, .divtable .td span img { margin-bottom: 4px;}
 .divtable .th span small,
 .divtable .td span small { font-family: "Fort-book"; font-size: 14px;}
 
@@ -1682,8 +1732,8 @@ form.form-section p a.know-more {
 /* Making Payments*/
 #making-payments {
     color: #fff;
-    padding-bottom: 60px;
-    padding-top: 57px;
+    padding-bottom: 57px;
+    padding-top: 60px;
 }
 #making-payments p {
     font-size: 36px;
@@ -1695,7 +1745,7 @@ form.form-section p a.know-more {
 }
 /* Right financing */
 #right-financing { background: none repeat scroll 0 0 #eeeeee;
-    padding: 58px 0 98px;
+    padding: 85px 0 98px;
 } 
 #right-financing .section-heading { text-transform: capitalize;}
 #right-financing .owl-dots {  
@@ -1708,19 +1758,8 @@ form.form-section p a.know-more {
 	}
 #right-financing .owl-theme .owl-controls .owl-dots, #right-financing .owl-theme .owl-controls .owl-dots .owl-dot { float: left; display: block}
 #right-financing .owl-theme .owl-controls .owl-dots .owl-dot.active span {   background: #6a2875; opacity: 0.9;}
-.graph1 {
-    height: 318px;
-    margin: 0 auto;
-    width: 759px;
-}
-.graph2 {
-    height: 318px;
-    margin: 0 auto;
-    width: 759px;
-}
 /* Funding Option */
-#funding-option {
-background-color: #ffffff; 
+#funding-option {   
     padding: 96px 0 105px;
     position: relative;
 }
@@ -1734,4 +1773,4 @@ background-color: #ffffff;
 
 
 
-/*---- Batch 2 ----*/
+/*---- Batch 2 ----
