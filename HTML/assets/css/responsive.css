@@ -102,7 +102,7 @@
 	}
 	/* Small business funding  change on 4-6 batch 2*/
      #sbf_hero .content-list-item {
-     padding: 3px 15px 0;
+     padding: 15px 15px 0;
      }
 }
 @media (max-width: 991px) and (min-width: 768px) {
@@ -713,9 +713,15 @@
 		font-style: normal;
 		line-height: 32px;
 		}
-	 #solution_built { padding: 55px 0 30px;}
-	 #solution_built  .section-heading { width: 90%;font-size: 24px; margin-bottom: 38px; margin-left: auto; margin-right: auto}
+    #sbf_hero .heading-line { font-size: 28px; line-height: 38px; margin-bottom: 15px}
+    #sbf_hero .content-list-item .customer-info { margin-bottom: 26px; }
+	#sbf_hero #slider_testimonial {  padding: 26px 0 30px; }
+	#solution_built { padding: 55px 0 30px;}
+	#solution_built  .section-heading { width: 90%;font-size: 24px; margin-bottom: 38px; margin-left: auto; margin-right: auto}
 	#solution_built .gradient-one { background: none;}
+	#sbf_hero #slider_testimonial .user-icon { margin-top: 3px;}
+	.loan-nav { overflow-x: auto;}
+	.loan-nav ul{ min-width: 768px;}
 	.divtable {
 	    box-shadow:none;
 	}
@@ -803,4 +809,5 @@
 		height: auto;
 		margin: 0 auto;
 	}
+	.graph1, .graph2 { width: auto; height: auto;} 
 }		
