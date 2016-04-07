@@ -26,13 +26,13 @@ class TRUST_BADGES_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		// outputs the content of the widget
 		global $wpdb;
-		$badges = $wpdb->get_results( "SELECT id,image,external_link FROM wp_badges", ARRAY_A );
+		$badges = $wpdb->get_results( "SELECT id,image,external_link,title FROM wp_badges", ARRAY_A );
 		$badgesString = '<div class="container">
 				<div class="badges-container">
                                 <ul>';
                 
 		foreach ( $badges as $badge ) {
-			$badgesString .= '<li><a href="'.$badge['external_link'].'" target="_blank"><img src="'.$badge['image'].'" /></a></li>';
+			$badgesString .= '<li><a href="'.$badge['external_link'].'" target="_blank" title="'.$badge['title'].'"><img src="'.$badge['image'].'" /></a></li>';
 		}
 		$badgesString .= '</ul></div></div>';
 		echo $badgesString;
@@ -151,12 +151,14 @@ function addNewBadge() {
 				'wp_badges', 
 				array( 
 					'image'         => $_POST['badgeImage'], 
-					'external_link' => $_POST['externalLink']
+					'external_link' => $_POST['externalLink'],
+                                        'title'         => $_POST['title']
 				), 
 				array( 'ID' => $badge_id ), 
 				array( 
 					'%s',	// value1
-					'%s'	// value2
+					'%s',	// value2
+                                        '%s'
 				), 
 				array( '%d' ) 
 			);
@@ -169,11 +171,13 @@ function addNewBadge() {
 				array( 
 					'image'         => $_POST['badgeImage'], 
 					'external_link' => $_POST['externalLink'],
+                                        'title'         => $_POST['title'],
 					'created'       => date("Y-m-d H:i:s")
 				), 
 				array( 
 					'%s', 
 					'%s' ,
+                                        '%s',
 					'%s'
 				) 
 			);
@@ -185,9 +189,10 @@ function addNewBadge() {
 	$badgeData  = array();
 	$badgeImage =  $badegeExternalLink = '';
 	if ( isset( $badge_id ) ) {
-		$badgeData          = $wpdb->get_results( "SELECT id,image,external_link FROM wp_badges WHERE id = ".$badge_id, ARRAY_A );
+		$badgeData          = $wpdb->get_results( "SELECT id,image,external_link,title FROM wp_badges WHERE id = ".$badge_id, ARRAY_A );
 		$badgeImage         = $badgeData[0]['image'];
 		$badegeExternalLink = $badgeData[0]['external_link'];
+                $badegeTitle = $badgeData[0]['title'];
 		
 	}
 	?>
@@ -205,8 +210,12 @@ function addNewBadge() {
 		<div class="col-md-8">
 			<form role="form" method="post" >
 				<div class="form-group">
-					<label for="email">External Link:</label>
-					<input type="text" class="form-control" id="externalLink" placeholder="External Link" name="externalLink" required value="<?php echo $badegeExternalLink; ?>" />
+                                    <label for="email">External Link:</label>
+                                    <input type="text" class="form-control" id="externalLink" placeholder="External Link" name="externalLink" required value="<?php echo $badegeExternalLink; ?>" />
+				</div>
+                                 <div class="form-group">
+                                    <label for="title">Title:</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Title" name="title" required value="<?php echo $badegeTitle; ?>" />
 				</div>
 				<div class="form-group image-data">
 					<?php 

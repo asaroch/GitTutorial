@@ -1069,3 +1069,14 @@ function prx($array){
     print_r($array);
     die("=========Array ends========");
 }
+
+// replace cf7 form submit with button
+function fowl_wpcf7_submit_button() {
+        if(function_exists('wpcf7_remove_shortcode')) {
+                wpcf7_remove_shortcode('submit');
+                remove_action( 'admin_init', 'wpcf7_add_tag_generator_submit', 55 );
+                //$fowl_cf7_module = TEMPLATEPATH . '/cf7/submit-button.php';
+              //  require_once $fowl_cf7_module;
+        }
+}
+add_action('init','fowl_wpcf7_submit_button');

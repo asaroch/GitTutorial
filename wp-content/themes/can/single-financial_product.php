@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_header(); 
 $meta = get_post_meta(get_the_ID());
 /*
  * Fetch testimonials respective to merchant category
