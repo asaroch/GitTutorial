@@ -29,7 +29,7 @@ class TRUST_BADGES_Widget extends WP_Widget {
 		$badges = $wpdb->get_results( "SELECT id,image,external_link,title FROM wp_badges", ARRAY_A );
               
 		$badgesString = '<div class="container">
-				<div class="badges-container">
+				<div class="badges-container bottom-margin-80">
                                 <ul>';
                 
 		foreach ( $badges as $badge ) {
