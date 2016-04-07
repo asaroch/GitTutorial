@@ -37,6 +37,30 @@ $(function(){
 	$(window).bind('resize', onResize);
 
 
+	function activeSliders (prev, next, currentIndex, totalSlides) {
+
+			if (currentIndex == 0) {
+		    	prev.removeClass("active"); 
+		    } else  {
+		    	 var isACtive = prev.hasClass("active")
+		    	 if (!isACtive) {
+		    	 	prev.addClass("active"); 
+		    	 };
+
+		    }
+
+		     if (currentIndex == (totalSlides - 1) ) {
+		    	next.removeClass("active"); 
+		    } else  {
+		    	 var isACtive = next.hasClass("active")
+		    	 if (!isACtive) {
+		    	 	next.addClass("active"); 
+		    	 };
+		    }
+
+		}
+
+
 	var testimonial  = $("#slider_testimonial");
 		testimonial.owlCarousel({
 			loop:false,
@@ -51,7 +75,18 @@ $(function(){
 			        }
 
 			    }
+			 
 		});
+
+		testimonial.on('changed.owl.carousel',function(property){
+			var totalSlides = $("#slider_testimonial .owl-item ").length;
+		    var current = property.item.index;
+		    activeSliders($(".prev"), $(".next"), current, totalSlides);
+
+		});
+
+	
+
 		
 		//custom next and prev. events 
 		$(".next").click(function(){
@@ -62,10 +97,13 @@ $(function(){
 			testimonial.trigger("prev.owl.carousel");
 		})
 
+	
+
 		//var sliderFeatureProduct = $("#slider_feature_product");
 		//var sliderFeatureProduct = $("#slider_feature_product");
-		$("#slider_feature_product").owlCarousel({
-			loop:true,
+		var featureSlider = $("#slider_feature_product");
+			featureSlider.owlCarousel({
+			loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -74,20 +112,33 @@ $(function(){
 			        0:{
 			            items:1,
 			            nav:true,
-			            navText: ["<span class='icon-sprite feature-left-icon active'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: false
 			        },
 			        768:{
 			            items:3,
 			            nav:true,
-			            navText: ["<span class='icon-sprite feature-left-icon active'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: true
 			        }
+			},
+			onInitialize: function () {
+					
 			}
 
 		});
-		$("#user_rettings_slider").owlCarousel({
-			loop:true,
+
+		featureSlider.on('changed.owl.carousel',function(property){
+			var totalSlides = $("#slider_feature_product .owl-item ").length;
+		    var current = property.item.index;
+		    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, totalSlides);
+
+		});
+		
+
+		var sliderUserRatting = $("#user_rettings_slider");
+			sliderUserRatting.owlCarousel({
+			loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -109,8 +160,17 @@ $(function(){
 
 		});
 
-		$("#success_community .owl-carousel").owlCarousel({
-			loop:true,
+		sliderUserRatting.on('changed.owl.carousel',function(property){
+			var totalSlides = $("#user_rettings_slider .owl-item ").length;
+		    var current = property.item.index;
+		    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, totalSlides);
+
+		});
+
+
+		var communitySlider = $("#success_community .owl-carousel")
+			communitySlider.owlCarousel({
+			loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -132,7 +192,13 @@ $(function(){
 
 		});
 
-		
+	/*	communitySlider.on('changed.owl.carousel',function(property){
+			var totalSlides = $("#success_community .owl-item ").length;
+		    var current = property.item.index;
+		    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, totalSlides);
+
+		});
+*/
 
 
 		$("#infografic_carousel").owlCarousel({
@@ -151,6 +217,44 @@ $(function(){
 			}
 
 		});
+
+		var resourceSlider = $("#resource_slider");
+			resourceSlider.owlCarousel({
+				loop:false,
+			    margin:10,
+			    responsiveClass:true,
+			    pagination : true,
+			    navigation:true,
+				responsive:{
+				        0:{
+				            items:1,
+				            nav:true,
+				            navText: ["<span class='icon-sprite feature-left-icon active'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+				            dots: false
+				        }
+				}
+
+			});
+
+			resourceSlider.on('changed.owl.carousel',function(property){
+				var totalSlides = $("#resource_slider .owl-item ").length;
+			    var current = property.item.index;
+			    activeSliders($(".slide-prev"), $(".slide-next"), current, totalSlides);
+
+			});
+
+
+
+		//resource section on home next and prev. events 
+		$(".slide-next").click(function(){
+			resourceSlider.trigger("next.owl.carousel");
+		})
+
+		$(".slide-prev").click(function(){
+			resourceSlider.trigger("prev.owl.carousel");
+		})
+
+
 
 		//STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
 		var navbar = $("#main_navigationbar"),
