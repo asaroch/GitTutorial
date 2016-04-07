@@ -1711,11 +1711,11 @@ form.form-section h3.heading-beacome-partner {
 /* Small Business Funding Start Here */
 
 #sbf_hero #slider_testimonial{
-	padding: 26px 0 34px 0;
+	padding: 26px 0 21px 0;
 }
-#sbf_hero #slider_testimonial .user-icon { margin-bottom: 15px;}
+#sbf_hero #slider_testimonial .user-icon { margin: 42px 0 0 0;}
 #sbf_hero .content-list-item {
-	padding: 3px 138px 0 0px;
+	padding: 42px 138px 0 0px;
 	text-align: center;
 }
 
@@ -1723,20 +1723,21 @@ form.form-section h3.heading-beacome-partner {
 	font-size: 14px;
 	font-family: "Fort-book";
 	color: #fff;
-	margin-bottom: 8px;
+	margin-bottom: 7px;
 }
 #sbf_hero .heading-line{
 	font-size: 40px;
 	font-family: "Fort-book";
 	color: #fff;
 	line-height: 52px;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 
 }
-#sbf_hero .btn-purple-style { padding: 13px 38px;}
+#sbf_hero .owl-carousel .owl-item img { width: auto; max-width: 100%;}
+#sbf_hero .btn-purple-style { padding: 12px 38px;}
 .content-list-item .customer-info {
 	color: #fff;
-	margin-bottom: 26px;
+	margin-bottom: 28px;
 }
 
 .loan-nav {
@@ -1757,7 +1758,8 @@ form.form-section h3.heading-beacome-partner {
 	  margin: 17px auto 0;
     padding: 10px 0;
 }
-.loan-nav .active {
+.loan-nav .active a {
+font-family: "Fort-bold"; 
 	color: #fff;
 	background: url(../images/img-2.png) no-repeat;
 	background-position:center top;  
