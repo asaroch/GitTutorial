@@ -52,25 +52,31 @@
                             </div>
                         </div>
                     </div>
+                    <?php 
+                    $linkedin_url = get_option( 'linkedin_url');
+                    $facebook_url = get_option( 'facebook_url');
+                    $twitter_url  = get_option( 'twitter_url');
+                    $youtube_url  = get_option( 'youtube_url');
+                     ?>
                     <div class="social-links">
                         <ul>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="Twitter">
+                                <a href="<?php echo isset($twitter_url) && $twitter_url != '' ? $twitter_url : 'javascript:void(0)'; ?>" <?php echo isset($twitter_url) && $twitter_url != '' ? 'target=_blank' : ''; ?> title="Twitter">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/twitter_icon.png" alt="twitter share">
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="Facebook">
+                                <a href="<?php echo isset($facebook_url) && $facebook_url != '' ? $facebook_url : 'javascript:void(0)'; ?>" <?php echo isset($facebook_url) && $facebook_url != '' ? 'target=_blank' : ''; ?> title="Facebook">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/facebook_icon.png" alt="facebook share">
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="LinkedIn">
+                                <a href=<?php echo isset($linkedin_url) && $linkedin_url != '' ? $linkedin_url: 'javascript:void(0)'; ?>" <?php echo isset($linkedin_url)  && $linkedin_url != '' ? 'target=_blank' : ''; ?> title="LinkedIn">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/linkedin_icon.png" alt="linkdin share">
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" target="_blank" title="YouTube">
+                                <a href=<?php echo isset($youtube_url) && $youtube_url != '' ? $youtube_url : 'javascript:void(0)'; ?>" <?php echo isset($youtube_url) && $youtube_url != '' ? 'target=_blank' : ''; ?> title="YouTube">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/youtube_icon.png" alt="youtube share">
                                 </a>
                             </li>

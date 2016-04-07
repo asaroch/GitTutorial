@@ -1,5 +1,11 @@
 $(function () {
     var clickActive = false;
+    if (var_object.financialProductSlider) {
+        financialProductSlider = true;
+    } else {
+        financialProductSlider = false;
+    }
+    console.log(financialProductSlider);
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function () {
         if (clickActive || $(window).width() < 768) {
@@ -39,8 +45,8 @@ $(function () {
         loop: false,
         margin: 10,
         responsiveClass: true,
-        autoplay: true,
-        autoplayTimeout: 8000,
+        //autoplay: true,
+        //autoplayTimeout: 8000,
         navigation: false,
         responsive: {
             0: {
@@ -60,6 +66,13 @@ $(function () {
     function onSlideTranslate(event) {
         var item = event.item.index + 1;
         $('.current-slider').html(item);
+        var current = property.item.index;
+        var shownItems = property.page.size
+        // total number of slides
+        var total = property.relatedTarget.items().length - 1
+        // how many slides to go?
+        var remain = total - (shownItems + current);
+        activeSliders($(".prev"), $(".next"), current, remain);
     }
 
     //custom next and prev. events 
@@ -71,52 +84,110 @@ $(function () {
         testimonial.trigger("prev.owl.carousel");
     })
 
-    //var sliderFeatureProduct = $("#slider_feature_product");
-    //var sliderFeatureProduct = $("#slider_feature_product");
-    $("#slider_feature_product").owlCarousel({
-        loop: true,
+
+    function activeSliders(prev, next, currentIndex, remain) {
+        console.log(currentIndex)
+        if (currentIndex == 0) {
+            prev.removeClass("active");
+        } else {
+            var isACtive = prev.hasClass("active")
+            console.log(isACtive);
+
+            if (!isACtive) {
+                prev.addClass("active");
+            }
+            ;
+
+        }
+
+        if (remain == -1) {
+            next.removeClass("active");
+        } else {
+            var isACtive = next.hasClass("active")
+            if (!isACtive) {
+                next.addClass("active");
+            }
+            ;
+        }
+
+
+
+    }
+
+
+
+    var featureSlider = $("#slider_feature_product");
+    featureSlider.owlCarousel({
+        loop: false,
         margin: 10,
         responsiveClass: true,
         pagination: true,
         navigation: true,
-        autoplay: true,
-        autoplayTimeout: 8000,
         responsive: {
             0: {
                 items: 1,
                 nav: true,
-                navText: ["<span class='icon-sprite feature-left-icon active'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                dots: false
+            },
+            768: {
+                items: 3,
+                nav: financialProductSlider,
+                navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                dots: false
+            }
+        },
+        onInitialize: function () {
+
+        }
+
+    });
+
+    featureSlider.on('changed.owl.carousel', function (property) {
+        var current = property.item.index;
+        var shownItems = property.page.size
+        // total number of slides
+        var total = property.relatedTarget.items().length - 1
+        // how many slides to go?
+        var remain = total - (shownItems + current);
+
+        activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+
+
+    });
+
+    var sliderUserRatting = $("#user_rettings_slider");
+    sliderUserRatting.owlCarousel({
+        loop: false,
+        margin: 10,
+        responsiveClass: true,
+        pagination: true,
+        navigation: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true,
+                navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
                 dots: false
             },
             768: {
                 items: 3,
                 nav: true,
-                navText: ["<span class='icon-sprite feature-left-icon active'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
                 dots: true
             }
         }
 
     });
-    $("#user_rettings_slider").owlCarousel({
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        pagination: true,
-        navigation: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true,
-                navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
-                dots: false
-            },
-            768: {
-                items: 3,
-                nav: true,
-                navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
-                dots: true
-            }
-        }
+
+    sliderUserRatting.on('changed.owl.carousel', function (property) {
+        var current = property.item.index;
+        var shownItems = property.page.size
+        // total number of slides
+        var total = property.relatedTarget.items().length - 1
+        // how many slides to go?
+        var remain = total - (shownItems + current);
+        activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain);
 
     });
 
