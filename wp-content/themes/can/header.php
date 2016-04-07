@@ -96,6 +96,15 @@
                         </div>
                         <?php
                     }
+                    else if(is_page('become-a-partner')){?>
+                    <div class="head-titles">
+					<p>Become a Partner</p>
+					<div class="top-heading">Get <strong>more working capital</strong> for your customers
+						<span class="down-arrow inner-page-arrow visible-xs"></span>
+					</div>					
+				</div>
+                        
+                   <?php }
                     else {
                         ?>
                         <div class="top-heading"><?php echo $top_headline; ?>
