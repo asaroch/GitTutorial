@@ -11,9 +11,7 @@ get_header();
             <div class="container">
                 <span class="down-arrow"></span>
                 <h2 class="section-heading"> Get Your Quote </h2>
-                
                    <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
-               
             </div>
         </div>
     </div>

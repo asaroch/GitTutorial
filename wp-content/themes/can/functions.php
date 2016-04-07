@@ -311,15 +311,23 @@ function can_scripts() {
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
      // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
     
-    $search = FALSE;
+    $search = $financialProductSlider =  FALSE;
+	$count_financial_product = wp_count_posts('financial-products');
+	
+	if ( $count_financial_product->publish > 3 ) {
+		$financialProductSlider = TRUE;
+	}
+	
     if ( isset($_GET['search']) ) {
         $search = TRUE;
     }
     wp_localize_script( 'custom-dev', 'var_object',
-        array(  'ajax_url'        => admin_url( 'admin-ajax.php' ) , 
-                'show_more_limit' => get_option('posts_per_page'), 
-                'image_url'       => get_template_directory_uri() , 
-                'search'          => $search) );
+        array(  'ajax_url'               => admin_url( 'admin-ajax.php' ) , 
+                'show_more_limit'        => get_option('posts_per_page'), 
+                'image_url'              => get_template_directory_uri() , 
+                'search'                 => $search,
+				'financialProductSlider' => $financialProductSlider
+				) );
 }
 
 add_action('wp_enqueue_scripts', 'can_scripts');
@@ -551,7 +559,7 @@ class Financial_Widget extends WP_Widget {
 
     function form($instance) {
         if ($instance) {
-            $title = esc_attr($instance['title']);
+            $title            = esc_attr($instance['title']);
             $numberOfListings = esc_attr($instance['numberOfListings']);
         } else {
             $title = '';
@@ -585,7 +593,7 @@ class Financial_Widget extends WP_Widget {
         echo $after_widget;
     }
 
-    /*     * ****************************************************
+    /* * ****************************************************
      * Function to fetch listing of financial products ****
      * *************************************************** */
 
@@ -593,13 +601,12 @@ class Financial_Widget extends WP_Widget {
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
-        $listings->query('post_type=financial-products&posts_per_page=' . $numberOfListings);
+        $listings->query('post_type=financial_product&posts_per_page=' . $numberOfListings.'&orderby=>menu_order date&order=>ASC');
         if ($listings->found_posts > 0) {
             echo '<div class="container">
 				<div id="slider_feature_product" class="owl-carousel owl-theme">';
             while ($listings->have_posts()) {
                 $listings->the_post();
-                //$image = (has_post_thumbnail($post->ID)) ? get_the_post_thumbnail($post->ID, 'financial_widget_size') : '<div class="noThumb"></div>';
                 if (has_post_thumbnail($post->ID)):
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
                 endif;
@@ -616,7 +623,7 @@ class Financial_Widget extends WP_Widget {
             }
             echo '</div></div>';
             wp_reset_postdata();
-        }else {
+        } else {
             echo '<p style="padding:25px;">No listing found</p>';
         }
     }

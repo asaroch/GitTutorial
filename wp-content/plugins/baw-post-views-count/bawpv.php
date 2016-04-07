@@ -134,7 +134,7 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
         if ($r->have_posts()) :
             ?>
             <?php //echo $before_widget;  ?>
-            <div class="col-xs-12 post-section hidden-xs">
+            <div class="col-xs-12 post-section">
                 <?php if ($title) echo $before_title . $title . $after_title; ?>
 
                 <?php while ($r->have_posts()) : $r->the_post(); ?>

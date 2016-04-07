@@ -1,5 +1,12 @@
 $(function () {
     var clickActive = false;
+	if (var_object.financialProductSlider) {
+		financialProductSlider = true;
+	}
+	else {
+		financialProductSlider = false;
+	}
+	
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function () {
         if (clickActive || $(window).width() < 768) {
@@ -71,8 +78,7 @@ $(function () {
         testimonial.trigger("prev.owl.carousel");
     })
 
-    //var sliderFeatureProduct = $("#slider_feature_product");
-    //var sliderFeatureProduct = $("#slider_feature_product");
+  
     $("#slider_feature_product").owlCarousel({
         loop: true,
         margin: 10,
@@ -81,6 +87,8 @@ $(function () {
         navigation: true,
         autoplay: true,
         autoplayTimeout: 8000,
+		touchDrag : false,
+		mouseDrag :false,
         responsive: {
             0: {
                 items: 1,
@@ -89,12 +97,31 @@ $(function () {
                 dots: false
             },
             768: {
-                items: 3,
-                nav: true,
-                navText: ["<span class='icon-sprite feature-left-icon active'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
-                dots: true
+                items   : 3,
+                nav     : financialProductSlider,
+                navText : ["<span class='icon-sprite feature-left-icon active'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                dots    : true
             }
-        }
+        },
+		afterAction: function(){
+			  if ( this.itemsAmount > this.visibleItems.length ) {
+				$('.next').show();
+				$('.prev').show();
+
+				$('.next').removeClass('disabled');
+				$('.prev').removeClass('disabled');
+				if ( this.currentItem == 0 ) {
+				  $('.prev').addClass('disabled');
+				}
+				if ( this.currentItem == this.maximumItem ) {
+				  $('.next').addClass('disabled');
+				}
+
+			  } else {
+				$('.next').hide();
+				$('.prev').hide();
+			  }
+		}
 
     });
     $("#user_rettings_slider").owlCarousel({
