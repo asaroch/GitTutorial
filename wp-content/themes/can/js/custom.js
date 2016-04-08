@@ -196,7 +196,9 @@ $(function () {
         margin: 10,
         responsiveClass: true,
         pagination: true,
-        navigation: true,
+        navigation: true,        
+        autoplay: true,
+        autoplayTimeout: 8000,
         responsive: {
             0: {
                 items: 1,
