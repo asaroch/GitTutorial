@@ -229,7 +229,6 @@ if (isset($search) && $search != NULL ) {
 }
 $resources = query_posts($args);
 ?>
-<div class="hidden-container" style="display:none;"></div>
 <div id="all_resources_block">
     <div class="container">
         <div class="row">

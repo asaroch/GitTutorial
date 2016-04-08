@@ -902,7 +902,7 @@ span.select-drop {
 	color: #6d6e71;
 }
 #success_community{
-	padding: 70px 0 30px;
+	padding: 64px 0 48px;
 }
 
 #success_community .term-detail-heading {
@@ -1294,8 +1294,8 @@ footer .badges-container {
 
 /* home ratting other section */
 
-
-/*---- Batch 2 starts ----*/
+/*-----------------------------------batch 2 starts--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
 
 /*---- How it works ----*/
 .process-block {
@@ -1406,6 +1406,9 @@ footer .badges-container {
 #termsloan_detail .section-heading {
 	margin-bottom: 40px;
 }
+#termsloan_detail .details-point li {
+	font-size: 14px;
+}
 .inspiration-content .section-heading {
 	margin-top: 52px;
 }
@@ -1515,18 +1518,18 @@ form.form-section h3.heading-beacome-partner {
 	margin-bottom: 7px;
 }
 .get-funded {
-	padding-bottom: 65px;
+	padding-bottom: 63px;
 }
 .get-funded .section-heading {
-	margin-bottom: 12px;
+	margin-bottom: 10px;
 }
 .get-funded h3 {
-	margin: 10px 0 32px;
+	margin: 10px 0 36px;
 }
 /*---- Partner lean gen end ----*/
 /* Partner Referral*/
 .sales-program {
-	padding: 26px 0 27px;
+	padding: 26px 0 30px;
 }
 .sales-program .section-heading {
 	color: #fff;
@@ -1543,12 +1546,29 @@ form.form-section h3.heading-beacome-partner {
 .sales-program .financial-product-item p {
 	font-size: 14px;
 	padding: 0 32px;
+	line-height: 22px;
 }
 .sales-program a.btn {
 	margin-top: 34px;
 }
 .btn-purple-style {
 	font-family: "Fort-Medium";
+}
+.slider-nav-control {
+	bottom: -54px;
+}
+#referal_about_us {
+	padding: 50px 0 54px;
+}
+#referal_about_us p{
+	width: 572px;
+	margin: 0 auto 28px;
+	font-family: 'Fort-Light';
+	font-size: 36px;
+	color: #fff;
+}
+.get-funded .btn-blue-bg {
+	padding:12px 35px;
 }
 
 /* Partner Referral end*/
@@ -1560,7 +1580,7 @@ form.form-section h3.heading-beacome-partner {
 }
 #partnership .section-heading {
 	color: #fff;
-	padding: 74px 12px 20px;
+	padding: 74px 12px 13px;
 }
 .partnership-label {
 	line-height: 30px;
@@ -1635,9 +1655,6 @@ form.form-section h3.heading-beacome-partner {
 #partners .section-heading, #cta_block .section-heading{
 	margin: 65px auto 70px ;
 }
-
-
-
 .partners-list {
 	text-align: center;
 }
@@ -1646,6 +1663,9 @@ form.form-section h3.heading-beacome-partner {
 }
 #email_us {
 	padding-bottom: 70px;
+}
+#email_us .btn{ 
+	padding: 14px 28px; 
 }
 #email_us .section-heading{
 	margin: 65px auto 40px;
@@ -1663,9 +1683,9 @@ form.form-section h3.heading-beacome-partner {
 	font-family: "Fort-Bold"; 
 }
 .divider-line {
-	width: 100px;
+	width: 50px;
 	height: 1px;
-	background: #EEEEEE;
+	background: #c8c8c8;
 	margin: 30px auto;
 	display: block;
 }
@@ -1686,7 +1706,6 @@ form.form-section h3.heading-beacome-partner {
 .bottom-border {
 	border-bottom: 2px solid #E9E9E9;
 }
-
 /* campaign page  */
 
 /* Small Business Funding Start Here */
@@ -1847,8 +1866,65 @@ background-color: #ffffff;
 #funding-option .divtable .seprate-block .term-laon span, #funding-option .divtable .seprate-block .trak-laon span, #funding-option .divtable .seprate-block .installment-loan span { vertical-align: middle; text-align: center; padding: 0px;}
 #funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
 /* Small Business Funding End Here*/
+/* Compaign-BY Yogi */
+	#compaign-header { padding-top: 7px;}
+	#compaign-header .top-heading { margin-bottom: 34px; }
+	#compaign-header .btn-blue-bg {
+    background-color: #01aef0;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+	padding: 6px 12px;
+}
+   #compaign-header a.btn-blue-bg {
+    font-size: 12px;
+}
+  #compaign-header  .primary-nav .nav > li a { padding: 6px 16px; font-family:"Fort-Book" }
+  #financial_product #home_get_quote { height: 161px;}
+  #financial_product  .financial-product-item { padding: 15px 20px 1px;}
+  #financial_product .badges-container { padding: 0 20px;}
+  #compaign-funding-block #funding-option { padding: 78px 0 95px; }
+  #compaign-funding-block #funding-option .section-heading { margin-bottom: 54px; }
+  #success_community .section-heading { margin-bottom: 52px; }
+  #success_community .marchent-name {  margin-top: 18px; }
 
+/*-----------------------------------batch 2 end--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
 
+/*batch 1 insights section carousal for mobile only*/
+#home_resource_list .customNavigation{
+ font-size: 15px;
+ margin: 25px auto 40px;
+ font-family: "Fort-Book";
+}
+#home_resource_list .section-heading {
+ color: #fff;
+}
 
+#home_resource_list .owl-controls{
+ display: none;
+}
+#home_resource_list .customNavigation .slide-prev, 
+#home_resource_list .customNavigation .slide-next, 
+#home_resource_list .customNavigation span {
+ font-size: 26px;
+ color: #6a2875;
+}
 
-/*---- Batch 2 ----
+#home_resource_list .customNavigation span {
+ color: #fff;
+}
+
+#home_resource_list .customNavigation .slide-prev.active, 
+#home_resource_list .customNavigation .slide-next.active {
+ color: #01AEF0;
+}
+
+#home_resource_list .see-all-resources{
+ background-color: transparent;
+}
+#home_resource_list .see-all-resources:hover{
+ color: #fff;
+ border-color: #fff;
+}
+/*batch 1 insights section carousal for mobile only end*/

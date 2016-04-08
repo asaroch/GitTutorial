@@ -9,7 +9,6 @@ ul.nav li.current-menu-parent > a {
 }
 
 .primary-nav .nav .dropdown-menu li.current-menu-item a {
-    border-bottom: none;
     color: #00aeef;
    
 }

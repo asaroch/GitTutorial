@@ -1,7 +1,7 @@
 $(function () {
 
     if (var_object.search) {
-        $('html, body').animate({scrollTop: $('#resource_list_container').offset().top}, 'slow');
+        $('html, body').animate({scrollTop: $('#resource_list_container .featured-content').offset().top}, 'slow');
     }
     $(".resource-container .row:gt(" + var_object.show_more_limit + ")").hide();
 

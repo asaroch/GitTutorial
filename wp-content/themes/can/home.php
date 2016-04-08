@@ -11,7 +11,9 @@ get_header();
             <div class="container">
                 <span class="down-arrow"></span>
                 <h2 class="section-heading"> Get Your Quote </h2>
+                
                    <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
+               
             </div>
         </div>
     </div>
@@ -85,6 +87,21 @@ get_header();
                     <p class="ratting-user"> Barbara</p>
                 </div>
                 <div class="item">
+                    <div class="user-ratting">  
+                        <ul>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
+                            <li class="icon-sprite"> <a href="javascript:void(0)"></a></li>
+                        </ul>
+                        <span class="date-time-label"> 20 Hour's ago</span>
+                    </div>
+                    <h3 class="rating-heading"> Beautiful result non </h3>
+                    <p class="ratting-description"> Lorem ipsum dollar emet Lorem ipsum dollar emet </p>
+                    <p class="ratting-user"> Barbara</p>
+                </div>
+                 <div class="item">
                     <div class="user-ratting">  
                         <ul>
                             <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>

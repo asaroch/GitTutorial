@@ -100,10 +100,14 @@
 	.loan-item {
 		font-size: 20px;
 	}
-	/* Small business funding  change on 4-6 batch 2*/
+	/*-----------------------------------batch 2 start--------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+	/* Small business funding  change on 4-6 batch 2 update*/
      #sbf_hero .content-list-item {
-     padding: 15px 15px 0;
+     	padding: 15px 15px 0;
      }
+     /*-----------------------------------batch 2 end--------------------------------------*/
+	/*------------------------------------------------------------------------------------*/
 }
 @media (max-width: 991px) and (min-width: 768px) {
 	.navbar-brand {
@@ -177,6 +181,8 @@
 	.primary-nav ul.nav > li {
 	    padding: 0px 10px;
 	}
+	/*-----------------------------------batch 2 starts--------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
 	/*how it work process arrow*/
 	.process-block .financial-product-item .process-arrow {
 		right: -63px;
@@ -185,6 +191,8 @@
 		width: 130px;
 	}
 	/*how it work process arrow*/
+	/*-----------------------------------batch 2 end--------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
 }
 @media (min-width: 768px){	
 		.navbar-collapse2.collapse {
@@ -654,9 +662,6 @@
 		padding: 0 15px;
 	}
 	/*terms and laon*/
-	.financial-product-item {
-		padding-top:35px;
-	}
 	.border-right-1 {
 	    border-right:none;
 	}
@@ -683,6 +688,9 @@
 	#home_get_quote .down-arrow {
 		border-top: 18px dashed rgb(225,212,228);
 	}
+
+	/*-----------------------------------batch 2 starts--------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
 	/*how it works*/
 	.info-product-item p {
 		padding: 10px 40px;
@@ -699,6 +707,19 @@
 	.partners-list img {
 		margin:0 auto;
 	}
+	/*update*/
+	.bring-best-item {
+		margin-bottom: 30px;
+	}
+	#partners .section-heading, #cta_block .section-heading {
+		margin: 50px 0;
+	}
+	.partners-list li {
+		margin: 20px auto 20px;
+	}
+	 #partners, #cta_block {
+	 	padding-bottom: 30px;
+	 }
 	/* Block Solution Built*/
 	 #term_loan .loan-nav ul li { float: inherit; border: none}
 	 #term_loan .down-arrow {
@@ -799,7 +820,34 @@
 	}
 	#funding-option .gradient-one { background: none;}
 	#making-payments p { font-size: 24px; line-height: 32px;}
+	 /* Compaign */
+	.navbar-nav > li > a.apply-btn { background-color: #01aef0; padding-bottom: 10px; }
+	/*update 4/7*/
+	#referal_about_us p {
+		width:auto;
+		font-size: 24px;
 	}
+	.sales-program .section-heading {
+		margin-bottom: 10px;
+	}
+	.sales-program .financial-product-item p {
+		padding: 0 5px;
+	}
+	.sales-program .financial-product-item h5 {
+		margin: 20px 0;
+	}
+	/*testimonial*/
+	#testimonial .tranp-div-two , #testimonial .slider-nav-control{
+		position: static;
+	}
+	.financial-product-item {
+		padding: 20px;
+		margin-bottom: 0;
+	}
+	/*update end*/
+	/*-----------------------------------batch 2 end--------------------------------------*/
+	/*-----------------------------------------------------------------------------------*/
+}
 @media (max-width:480px){
 	.water-mark-image {
 		background-size: 60%; 
@@ -809,5 +857,6 @@
 		height: auto;
 		margin: 0 auto;
 	}
+	/*update*/
 	.graph1, .graph2 { width: auto; height: auto;} 
 }		

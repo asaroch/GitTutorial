@@ -85,32 +85,13 @@
                 $top_headline = get_post_meta($post->ID, 'wpcf-page-headline-title', true);
                 ?>
                 <div class="container">
-                    <?php 
-                    if ( is_page('term-loan') ) {
-                        ?>
+                    <div class="container">
                         <div class="head-titles">
-                                <p>Term Loan</p>
-                                <div class="top-heading">Make <strong>low, fixed payments</strong> that fit your business.
+                                    <p><?php echo get_the_title($post->ID); ?></p>
+					<div class="top-heading"><?php echo $top_headline; ?>
                                         <span class="down-arrow inner-page-arrow"></span>
                                 </div>					
                         </div>
-                        <?php
-                    }
-                    else if(is_page('become-a-partner')){?>
-                    <div class="head-titles">
-					<p>Become a Partner</p>
-					<div class="top-heading">Get <strong>more working capital</strong> for your customers
-						<span class="down-arrow inner-page-arrow visible-xs"></span>
-					</div>					
-				</div>
-                        
-                   <?php }
-                    else {
-                        ?>
-                        <div class="top-heading"><?php echo $top_headline; ?>
-                        <?php
-                    }
-                    ?>
                 </div><!-- /.container-fluid -->		  
             </nav>
             <?php
