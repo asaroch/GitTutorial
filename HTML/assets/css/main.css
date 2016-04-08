@@ -1867,6 +1867,7 @@ background-color: #ffffff;
 #funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
 /* Small Business Funding End Here*/
 /* Compaign-BY Yogi */
+.sub-logo { margin: 8px 0 0 20px; padding:0 0 0 15px;  display: inline-block; height: 40px; border-left: 1px solid #ccc;}
 	#compaign-header { padding-top: 7px;}
 	#compaign-header .top-heading { margin-bottom: 34px; }
 	#compaign-header .btn-blue-bg {
@@ -1880,13 +1881,24 @@ background-color: #ffffff;
     font-size: 12px;
 }
   #compaign-header  .primary-nav .nav > li a { padding: 6px 16px; font-family:"Fort-Book" }
-  #financial_product #home_get_quote { height: 161px;}
-  #financial_product  .financial-product-item { padding: 15px 20px 1px;}
-  #financial_product .badges-container { padding: 0 20px;}
-  #compaign-funding-block #funding-option { padding: 78px 0 95px; }
+ #compaign-funding-block  #financial_product #home_get_quote { height: 161px;}
+  #compaign-funding-block  #funding-option .financial-product-item { padding: 15px 20px 1px;}
+  #compaign-funding-block  #funding-option .badges-container { padding: 0 20px;}
+  #compaign-funding-block #funding-option { padding: 78px 0 95px; background:rgba(255,255,255, 0.6);}
   #compaign-funding-block #funding-option .section-heading { margin-bottom: 54px; }
   #success_community .section-heading { margin-bottom: 52px; }
   #success_community .marchent-name {  margin-top: 18px; }
+/* Compaign-boarding-ALT By Yogi */
+  #compaign_boarding_alt  .financial-product-item { padding-top: 7px; position: relative}
+  #compaign_boarding_alt  .category-icon { height: auto;}
+  #compaign_boarding_alt .financial-product-item h5 { margin-top: 13px; font-size: 26px;}
+  #compaign_boarding_alt .financial-product-item p { margin-top: 17px;}
+  #compaign_boarding_alt .loan-item { margin-top: 16px;}
+  #compaign_boarding_alt .badges-container { margin-top: 25px;}
+  #compaign_boarding_alt .bottom-margin-80 { margin-bottom: 45px;}
+  #compaign_boarding_alt .btn-purple-style { position: relative;}
+  .we_bring_you-border-bottom { border-bottom: 5px solid #eeeeee;}
+  .we_bring_you-border-bottom  .bring-best-item { margin-bottom: 80px;}
 
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
