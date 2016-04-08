@@ -196,11 +196,15 @@
 }
 @media (min-width: 768px){	
 		.navbar-collapse2.collapse {
+		    display: block;
+		}
+		/*.navbar-collapse2.collapse {
 		    display: block!important;
 		    height: auto!important;
 		    padding-bottom: 0;
 		    overflow: visible!important;
-		}
+		    
+		}*/
 		.navbar-collapse2 {
 		    width: auto;
 		    border-top: 0;
@@ -249,10 +253,7 @@
 		#testimonial .container {
 			position: relative;
 		}
-                .dropdown .glyphicon-menu-down {
-                    pointer-events: none;
-                }
-                
+		/*/2-23*/
 }
 @media (max-width:767px) {	
 	#user_rettings_slider .owl-prev {
@@ -452,10 +453,10 @@
 		padding-right: 15px;
 	}
 	.owl-prev {
-		left: 8%;
+		left: 1px;
 	}
 	.owl-next {
-		right: 8%;
+		right: 1px;
 	}
 	.water-mark-image {
 		background-size: 85%; 
@@ -823,8 +824,8 @@
 	}
 	#funding-option .gradient-one { background: none;}
 	#making-payments p { font-size: 24px; line-height: 32px;}
-	 /* Compaign */
-	.navbar-nav > li > a.apply-btn { background-color: #01aef0; padding-bottom: 10px; }
+	
+
 	/*update 4/7*/
 	#referal_about_us p {
 		width:auto;
@@ -839,26 +840,23 @@
 	.sales-program .financial-product-item h5 {
 		margin: 20px 0;
 	}
-	.sub-logo { display: none;}
 	/*testimonial*/
-	#testimonial .tranp-div-two , #testimonial .slider-nav-control{
+	#testimonial .tranp-div-two , #testimonial .slider-nav-control {
 		position: static;
 	}
 	.financial-product-item {
 		padding: 20px;
 		margin-bottom: 0;
 	}
-        
-
-
-.primary-nav .nav li.dropdown > a {
-	margin-right: 30px;
-}
-
-        
 	/*update end*/
 	/*-----------------------------------batch 2 end--------------------------------------*/
 	/*-----------------------------------------------------------------------------------*/
+
+
+	/*-----Bugzilla Fixes start*/
+	
+
+
 }
 @media (max-width:480px){
 	.water-mark-image {
