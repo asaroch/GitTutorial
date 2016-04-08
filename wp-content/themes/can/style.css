@@ -1136,7 +1136,7 @@ footer .badges-container {
 	position: absolute;
 	left: 20px;
 	right: 30px;
-	bottom: -67px;
+	bottom: -100px;
 	z-index: 7;
 }
 .current-slider, .total-slider{
@@ -1823,6 +1823,59 @@ form.form-section p a.know-more {
 #home_resource_list .customNavigation .slide-prev.active, 
 #home_resource_list .customNavigation .slide-next.active {
  color: #01AEF0;
+}
+
+#home_resource_list .see-all-resources{
+ background-color: transparent;
+}
+#home_resource_list .see-all-resources:hover{
+ color: #fff;
+ border-color: #fff;
+}
+/*batch 1 insights section carousal for mobile only*/
+#home_resource_list .customNavigation, #testimonial .customNavigation{
+ font-size: 15px;
+ margin: 25px auto 40px;
+ font-family: "Fort-Book";
+}
+#home_resource_list .section-heading {
+ color: #fff;
+}
+
+#home_resource_list .owl-controls{
+ display: none;
+}
+
+#home_resource_list .customNavigation .slide-prev, 
+#home_resource_list .customNavigation .slide-next, 
+#home_resource_list .customNavigation span, #testimonial .customNavigation .prev, #testimonial .customNavigation .next,  #testimonial .customNavigation span {
+ font-size: 26px;
+ @import "css/responsive.css";
+ color: #6a2875;
+ cursor: pointer;
+}
+
+#testimonial .customNavigation .prev i, #testimonial .customNavigation .next i {
+    position: relative;
+    top: 4px;
+}
+
+
+#home_resource_list .customNavigation span {
+ color: #fff;
+}
+
+#testimonial .customNavigation span {
+ color:#6f6f71;
+}
+#testimonial .customNavigation .prev, #testimonial .customNavigation .next {
+    color:#C8C8C8;
+}
+
+#home_resource_list .customNavigation .slide-prev.active, 
+#home_resource_list .customNavigation .slide-next.active, #testimonial .customNavigation .next.active, #testimonial .customNavigation .prev.active  {
+ color: #01AEF0;
+
 }
 
 #home_resource_list .see-all-resources{

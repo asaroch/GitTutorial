@@ -184,10 +184,7 @@
 }
 @media (min-width: 768px){	
 		.navbar-collapse2.collapse {
-		    display: block!important;
-		    height: auto!important;
-		    padding-bottom: 0;
-		    overflow: visible!important;
+		    display: block;
 		}
 		.navbar-collapse2 {
 		    width: auto;

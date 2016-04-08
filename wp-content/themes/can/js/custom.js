@@ -5,7 +5,6 @@ $(function () {
     } else {
         financialProductSlider = false;
     }
-    console.log(financialProductSlider);
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function () {
         if (clickActive || $(window).width() < 768) {
@@ -48,6 +47,8 @@ $(function () {
         //autoplay: true,
         //autoplayTimeout: 8000,
         navigation: false,
+         mouseDrag : false,
+        touchDrag : false,
         responsive: {
             0: {
                 items: 1,
@@ -66,10 +67,10 @@ $(function () {
     function onSlideTranslate(event) {
         var item = event.item.index + 1;
         $('.current-slider').html(item);
-        var current = property.item.index;
-        var shownItems = property.page.size
+        var current = event.item.index;
+        var shownItems = event.page.size
         // total number of slides
-        var total = property.relatedTarget.items().length - 1
+        var total = event.relatedTarget.items().length - 1
         // how many slides to go?
         var remain = total - (shownItems + current);
         activeSliders($(".prev"), $(".next"), current, remain);
@@ -86,7 +87,6 @@ $(function () {
 
 
     function activeSliders(prev, next, currentIndex, remain) {
-        console.log(currentIndex)
         if (currentIndex == 0) {
             prev.removeClass("active");
         } else {
@@ -123,6 +123,8 @@ $(function () {
         responsiveClass: true,
         pagination: true,
         navigation: true,
+        mouseDrag : false,
+        touchDrag : false,
         responsive: {
             0: {
                 items: 1,

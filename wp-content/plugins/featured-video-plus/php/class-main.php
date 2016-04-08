@@ -184,8 +184,8 @@ class Featured_Video_Plus {
 			! empty( $options['single_replace'] ) && $options['single_replace'];
 
 		// Check admin has choosed image or video as featured
-		$featured_image_or_video = 	get_post_meta( $post_id, 'wpcf-featured_image_video' , true );
-			
+		$featured_image_or_video = get_post_meta( $post_id, 'wpcf-featured_image_video' , true );
+		$featured_image_or_video = isset($featured_image_or_video) && $featured_image_or_video != '' ? $featured_image_or_video : 'image';
 		// Don't show a video.
 		if ( ( 'manual' === $mode ) ||
 		     ( ! self::check_conditions( $conditions ) ) ||
