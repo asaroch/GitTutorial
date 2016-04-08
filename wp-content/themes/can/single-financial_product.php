@@ -117,8 +117,8 @@ if (has_post_thumbnail($post->ID)):
                         <a href="javascript:void(0)" title="show more user terms of loan"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
                     </div>
 <?php endif; ?>
-                <div class="show-more-terms show-less-term-loan" style="display:none;">
-                    <a href="javascript:void(0)" title="show more user terms of loan"> SHOW LESS <i class="glyphicon glyphicon-chevron-down"></i> </a>
+                <div class="show-more-terms show-less-term-loan">
+                    <a href="javascript:void(0)" title="show more user terms of loan"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
                 </div>
             </div>
         </div>
@@ -130,10 +130,6 @@ if (has_post_thumbnail($post->ID)):
     <div class="container">
         <h1 class="section-heading"> <?php echo get_the_title($post->ID); ?> Calculator </h1>
         <p class="loan-calculator-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>
-
-        <div class="show-more-terms">
-
-        </div>
     </div>
 </section>
 <!-- Loan calculator -->
@@ -173,12 +169,6 @@ if (has_post_thumbnail($post->ID)):
     </div><!-- .widget-area -->
 <?php endif; ?>	
 <!-- member benefit -->	
-<section  id="about_us" class="gradient-two">
-    <div class="container text-center">
-        <p>Supporting small business for <b>18 years</b> with over <b>$6 billion</b> in working capital.</p>
-        <a href="javascript:void(0);" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
-    </div>
-</section>
 <section  class="get-funded">
     <div class="container text-center">
         <h2 class="section-heading"> Get Funded </h2>

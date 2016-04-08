@@ -600,7 +600,7 @@ class Financial_Widget extends WP_Widget {
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
-        $listings->query('post_type=financial_product&posts_per_page=' . $numberOfListings.'&orderby=>menu_order date&order=>ASC');
+        $listings->query('post_type=financial_product&posts_per_page=' . $numberOfListings.'&orderby=menu_order date&order=ASC');
         if ($listings->found_posts > 0) {
             echo '<div class="container">
 				<div id="slider_feature_product" class="owl-carousel owl-theme">';
@@ -741,11 +741,11 @@ class Testimonial_Widget extends WP_Widget {
             }
             echo '</div><div class="row slider-nav-control customNavigation">
 					<div class="col-md-4">
-						<a title="prev" class="btn prev"><i class="glyphicon glyphicon-menu-left"></i></a>
+						<a title="prev" class=" prev"><i class="glyphicon glyphicon-menu-left"></i></a>
 						<span class="current-slider"> 1 </span>
 						<span class="slider-ratio">/</span> 
 						<span class="total-slider"> ' . $numberOfListings . ' </span>
-						<a title="next" class="btn next"><i class="glyphicon glyphicon-menu-right"></i></a>
+						<a title="next" class=" next active"><i class="glyphicon glyphicon-menu-right"></i></a>
 					</div>
 				</div></div></section>';
             wp_reset_postdata();

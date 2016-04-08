@@ -87,10 +87,22 @@
                 <div class="container">
                     <div class="container">
                         <div class="head-titles">
-                                    <p><?php echo get_the_title($post->ID); ?></p>
-					<div class="top-heading"><?php echo $top_headline; ?>
-                                        <span class="down-arrow inner-page-arrow"></span>
-                                </div>					
+                                    <?php 
+                                    if ( !is_front_page() && !is_page('resources') ) {
+                                        ?>
+                                        <p><?php echo get_the_title($post->ID); ?></p>
+                                        <?php
+                                    }
+                                    ?>
+                                    <div class="top-heading"><?php echo $top_headline; ?>
+                                        <?php 
+                                        if ( !is_page('resources') && !is_front_page() ) {
+                                            ?>
+                                            <span class="down-arrow inner-page-arrow"></span>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>					
                         </div>
                 </div><!-- /.container-fluid -->		  
             </nav>

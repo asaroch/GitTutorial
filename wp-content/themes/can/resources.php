@@ -90,6 +90,8 @@ if (!empty($featured_resources)) {
     }
     // Reading time
     $reading_time = get_post_meta($featured_resources[0]->ID, 'wpcf-reading-minutes', true);
+    // Sponsored By
+    $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
     ?>
     <section id="resource_hero"><!-- Resource banner -->
         <div class="container">
@@ -106,6 +108,14 @@ if (!empty($featured_resources)) {
                         if (isset($reading_time) && $reading_time != '') {
                             ?>
                             <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                            <?php
+                        }
+                        
+                        if ( isset($sponsored_by) && $sponsored_by != '' ) {
+                            ?>
+                            <div class="sponsored">
+                                <p>Sponsored By <?php echo $sponsored_by; ?></p>
+                             </div>
                             <?php
                         }
                         ?> 
@@ -153,6 +163,15 @@ if (!empty($featured_resources)) {
                                     <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                     <?php
                                 }
+                                
+                                if ( isset($sponsored_by) && $sponsored_by != '' ) {
+                                    ?>
+                                    <div class="sponsored">
+                                        <p>Sponsored By <?php echo $sponsored_by; ?></p>
+                                     </div>
+                                    <?php
+                                }
+                                ?>
                                 ?>
                             </div>
                         </div>
@@ -283,7 +302,9 @@ $resources = query_posts($args);
                                 if ( has_post_thumbnail($resource->ID) ) {
                                     ?>
                                     <div class="resource-image">
-                                        <?php echo get_the_post_thumbnail($resource->ID); ?> 
+                                     
+                                            <?php echo get_the_post_thumbnail($resource->ID); ?>
+                                     
                                     </div>
                                     <?php
                                 }
@@ -326,7 +347,7 @@ $resources = query_posts($args);
                 }
                 ?>
                 <div class="show-less-articles show-more-terms">
-                    <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-down"></i> </a>
+                    <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
                 </div>
             </div>
             <div class="col-sm-12 col-md-3">
