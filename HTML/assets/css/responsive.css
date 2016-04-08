@@ -249,7 +249,10 @@
 		#testimonial .container {
 			position: relative;
 		}
-		/*/2-23*/
+                .dropdown .glyphicon-menu-down {
+                    pointer-events: none;
+                }
+                
 }
 @media (max-width:767px) {	
 	#user_rettings_slider .owl-prev {
@@ -845,6 +848,14 @@
 		padding: 20px;
 		margin-bottom: 0;
 	}
+        
+
+
+.primary-nav .nav li.dropdown > a {
+	margin-right: 30px;
+}
+
+        
 	/*update end*/
 	/*-----------------------------------batch 2 end--------------------------------------*/
 	/*-----------------------------------------------------------------------------------*/
