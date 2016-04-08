@@ -902,7 +902,7 @@ span.select-drop {
 	color: #6d6e71;
 }
 #success_community{
-	padding: 70px 0 30px;
+	padding: 64px 0 48px;
 }
 
 #success_community .term-detail-heading {
@@ -1518,13 +1518,13 @@ form.form-section h3.heading-beacome-partner {
 	margin-bottom: 7px;
 }
 .get-funded {
-	padding-bottom: 65px;
+	padding-bottom: 63px;
 }
 .get-funded .section-heading {
-	margin-bottom: 12px;
+	margin-bottom: 10px;
 }
 .get-funded h3 {
-	margin: 10px 0 32px;
+	margin: 10px 0 36px;
 }
 /*---- Partner lean gen end ----*/
 /* Partner Referral*/
@@ -1866,7 +1866,7 @@ background-color: #ffffff;
 #funding-option .divtable .seprate-block .term-laon span, #funding-option .divtable .seprate-block .trak-laon span, #funding-option .divtable .seprate-block .installment-loan span { vertical-align: middle; text-align: center; padding: 0px;}
 #funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
 /* Small Business Funding End Here*/
-/* Compaign */
+/* Compaign-BY Yogi */
 	#compaign-header { padding-top: 7px;}
 	#compaign-header .top-heading { margin-bottom: 34px; }
 	#compaign-header .btn-blue-bg {
@@ -1883,6 +1883,10 @@ background-color: #ffffff;
   #financial_product #home_get_quote { height: 161px;}
   #financial_product  .financial-product-item { padding: 15px 20px 1px;}
   #financial_product .badges-container { padding: 0 20px;}
+  #compaign-funding-block #funding-option { padding: 78px 0 95px; }
+  #compaign-funding-block #funding-option .section-heading { margin-bottom: 54px; }
+  #success_community .section-heading { margin-bottom: 52px; }
+  #success_community .marchent-name {  margin-top: 18px; }
 
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
