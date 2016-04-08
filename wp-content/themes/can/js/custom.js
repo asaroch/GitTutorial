@@ -214,6 +214,42 @@ $(function () {
 
     });
 
+    var resourceSlider = $("#resource_slider");
+    resourceSlider.owlCarousel({
+        loop: false,
+        margin: 10,
+        responsiveClass: true,
+        pagination: true,
+        navigation: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true,
+                navText: ["<span class='icon-sprite resource-left-icon active'></span>", "<span class='icon-sprite resource-right-icon active'></span>"],
+                dots: false
+            }
+        }
+
+    });
+
+    resourceSlider.on('changed.owl.carousel', function (property) {
+        var current = property.item.index;
+        var shownItems = property.page.size
+        // total number of slides
+        var total = property.relatedTarget.items().length - 1
+        // how many slides to go?
+        var remain = total - (shownItems + current);
+        activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
+    });
+    
+    //resource section on home next and prev. events 
+    $(".slide-next").click(function(){
+            resourceSlider.trigger("next.owl.carousel");
+    })
+
+    $(".slide-prev").click(function(){
+            resourceSlider.trigger("prev.owl.carousel");
+    })
 
 
 
@@ -283,4 +319,4 @@ $(function () {
      
      });*/
 
-}) 
+}); 

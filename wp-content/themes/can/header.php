@@ -102,28 +102,7 @@
                         <div class="container">	
                             <span class="down-arrow"></span>
                             <h2 class="section-heading"> Get Your Quote </h2>
-                            <form class="" role="form">
-                                <div class="row">
-                                    <div class="col-sm-10">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control" placeholder="Name">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="email" class="form-control" placeholder="Email">
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control" placeholder="Loan amount">
-                                            </div>
-                                        </div>
-                                    </div>	
-                                    <div class="col-sm-2 border-left">
-                                        <button type="submit" class="btn btn-blue-bg action-btn" title="GET STARTED "> GET STARTED 
-                                            <i class="glyphicon glyphicon-play"></i>
-                                        </button>					    
-                                    </div>
-                                </div>
-                            </form>
+                             <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
                         </div>
                     </div>
                 </div>

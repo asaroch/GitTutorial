@@ -13,7 +13,7 @@ $args = array(
 );
 $featured_resources = query_posts($args);
 ?>
-<div class="resource-list-bg gradient-three">
+<div class="resource-list-bg gradient-three ">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 clearfix">
