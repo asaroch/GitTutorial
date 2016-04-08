@@ -53,31 +53,22 @@ $(function () {
 
     //for validating get a quote form
 
-    jQuery(".submit").click(function () {
+    jQuery(".submitButton").click(function () {
         var name = jQuery('#name').val();
-        var email = jQuery('#email').val();
-        var amount = jQuery('#amount').val();
+        var strLenght = name.length;
+        //var email = jQuery('#email').val();
+        //var amount = jQuery('#amount').val();
         var nameReg = /^[a-zA-Z]+$/;
-        var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-
-
-        if (name == '')
-        {
-            jQuery('#name').css({'border': '2px solid #FF0000'});
-            return false;
-        } else if (!nameReg.test(name)) {
-
-            jQuery('#name').css({'border': '2px solid #FF0000'});
-            return false;
-        } else if (email == '' || !emailReg.test(email)) {
-            jQuery('#name').css({'border': '1px solid #ccc'});
-            jQuery('#email').css({'border': '2px solid #FF0000'});
-            return false;
-        } else
-        {
-            jQuery('#name').css({'border': '1px solid #ccc'});
-            jQuery('#email').css({'border': '1px solid #ccc'});
-            return true;
+        //var emailReg = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        if (strLenght != 0) {
+            if ((strLenght < 2) || !nameReg.test(name)) {
+                jQuery('.name').find('span').remove();
+                jQuery('.name').append('<span class="wpcf7-not-valid-tip" role="alert">Please enter a valid name.</span>');
+                return false;
+            } else
+            {
+                $( ".wpcf7-form" ).submit();
+            }
         }
     });
 });

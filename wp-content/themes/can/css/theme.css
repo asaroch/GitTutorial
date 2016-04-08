@@ -17,3 +17,4 @@ ul.nav li.current-menu-parent > a {
 .primary-nav .nav li.current-menu-item > a {
      border-bottom: 4px solid #00B0EB;
 }
+.show-less-term-loan{display:none;}
