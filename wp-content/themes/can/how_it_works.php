@@ -3,30 +3,37 @@
 Template Name: how it works
 */
 get_header();
-// Partner Benefits The Query
+// How it work processes queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how-it-work-process',
 				'orderby'     => 'menu_order date',
 				'order'       => 'ASC'
 			);
 $howItWorksProcess = new WP_Query( $args );
+// How it work effortless application queries The Query
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'how-it-work-effortle',
+				'orderby'     => 'menu_order date',
+				'order'       => 'ASC'
+			);
+$howItWorksEffort = new WP_Query( $args );
 if ( $howItWorksProcess->have_posts() ) :
     ?>
-		<section class="process-block gradient-one">
-			<div class="container">
-				<div class="row">
-                                  <?php  
-                                    $cnt = 0;
-                                    $post_count = $listings->found_posts;
-                                    while ( $howItWorksProcess->have_posts() ) : $howItWorksProcess->the_post();
-                                    $cnt++;
-                                  ?>
-					<div class="col-md-4 col-sm-4">
-						<div class="row">
-						<div class="financial-product-item">
-							<div class="category-icon"> 
-                                       <?php
-                                                if (has_post_thumbnail(get_the_ID())):
+        <section class="process-block gradient-one">
+        <div class="container">
+            <div class="row">
+                <?php
+                $cnt = 0;
+                $post_count = $howItWorksProcess->found_posts;
+                while ($howItWorksProcess->have_posts()) : $howItWorksProcess->the_post();
+                    $cnt++;
+                    ?>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="row">
+                            <div class="financial-product-item">
+                                <div class="category-icon"> 
+                                    <?php
+                                    if (has_post_thumbnail(get_the_ID())):
                                         ?>
                                         <div class="category-icon"> 
                                             <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
@@ -34,31 +41,31 @@ if ( $howItWorksProcess->have_posts() ) :
                                         <?php
                                     endif;
                                     ?>
-                                                          </div>
-							<h4>1</h4>			
-							<h5><?php echo get_the_title(); ?></h5>
-                                                        <p><?php echo get_the_content(); ?></p>
-                                                        <?php if($post_count > $cnt){ ?>
-							<div class="process-arrow">
-								<span>
-									<img src="<?php echo get_bloginfo('template_directory'); ?>/images/how-it-works/process_arrow.png" alt="Get Started Icon">
-								</span>
-							</div>
-                                                        <?php } ?>
-						</div>
-						</div>
-					</div>
+                                </div>
+                                <h4>1</h4>			
+                                <h5><?php echo get_the_title(); ?></h5>
+                                <p><?php echo get_the_content(); ?></p>
+                                <?php if ($post_count > $cnt) {
+                                    ?>
+                                    <div class="process-arrow">
+                                        <span>
+                                            <img src="<?php echo get_bloginfo('template_directory'); ?>/images/how-it-works/process_arrow.png" alt="Get Started Icon">
+                                        </span>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
                 <?php endwhile; ?>
 
-			<div class="container">
-				<div class="badges-container bottom-margin-80">
-					<ul>
-						<li><a href="#"  title="TRUST E BADGES"> <img src="assets/images/home/TRUSTe_icon.png" alt="TRUST E"> </a></li>
-						<li><a href="#" title="Accredited business"> <img src="assets/images/home/bbb_icon.png" alt="accredited Business"> </a></li>
-					</ul>
-				</div>
-			</div>
-		</section>
+                <!---to display trust badges-->
+    <?php if (is_active_sidebar('trust-badge')) : ?>
+        <div class="widget-area trust-badge" role="complementary">
+            <?php dynamic_sidebar('trust-badge'); ?>
+        </div><!-- .widget-area -->
+    <?php endif; ?>	
+    <!--trust badge widget ends here-->
+                </section>
     <?php
 endif;
 ?>
@@ -72,9 +79,13 @@ endif;
 					<div class="col-sm-12">
 						<h1 class="section-heading"> Effortless Application </h1>
 						<ul class="list-term-use termloan-use-point">
-							<li class="col-sm-4"><p>Free to apply</p></li>
-							<li class="col-sm-4"><p>Information is secure</p></li>
-							<li class="col-sm-4"><p>No obligation upfront</p></li>
+                                                    <?php
+                                                    if ( $howItWorksEffort->have_posts() ) :
+                                                        while ($howItWorksEffort->have_posts()) : $howItWorksEffort->the_post(); ?>
+							<li class="col-sm-4"><p><?php echo get_the_title(); ?></p></li>
+                                                         <?php endwhile;
+                                                            endif;
+                                                         ?>
 						</ul>
 					</div>
 				</div>
