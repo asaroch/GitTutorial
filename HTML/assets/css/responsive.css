@@ -836,6 +836,7 @@
 	.sales-program .financial-product-item h5 {
 		margin: 20px 0;
 	}
+	.sub-logo { display: none;}
 	/*testimonial*/
 	#testimonial .tranp-div-two , #testimonial .slider-nav-control{
 		position: static;
