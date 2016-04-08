@@ -1570,7 +1570,7 @@ form.form-section h3.heading-beacome-partner {
 	color: #fff;
 }
 .get-funded .btn-blue-bg {
-	padding:12px 35px;
+	padding:12px 30px;
 }
 
 /* Partner Referral end*/
@@ -1955,7 +1955,7 @@ background-color: #ffffff;
 }
 /*batch 1 insights section carousal for mobile only end*/
 
-
+/* navigation dropdown  */
 .dropdown .glyphicon-menu-down {
 	position: absolute;
     right: 0;
@@ -1969,4 +1969,9 @@ background-color: #ffffff;
 
 .primary-nav .nav li.dropdown > a {
 	margin-right: 13px;
+}
+/* navigation dropdown  */
+
+.details-point li {
+    font-size: 14px;
 }
