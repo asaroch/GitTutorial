@@ -3,72 +3,53 @@
 Template Name: how it works
 */
 get_header();
-
-
-global $post;
-        //add_image_size( 'financial_widget_size', 85, 45, false );
-        $listings = new WP_Query();
-        $args = array(
-        'post_type' => 'how-it-work-process',
-        'post_status' => 'publish',
-        'orderby' => 'menu_order date',
-        'order'   => 'ASC'
-    );
-        //$featured_resources = query_posts($args);
-        $data = $listings->query($args);
-       // echo "<pre>";
-        while ($listings->have_posts()) {
-                print_r($data);
-        }
-        
-?>
+// Partner Benefits The Query
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'how-it-work-process',
+				'orderby'     => 'menu_order date',
+				'order'       => 'ASC'
+			);
+$howItWorksProcess = new WP_Query( $args );
+if ( $howItWorksProcess->have_posts() ) :
+    ?>
 		<section class="process-block gradient-one">
 			<div class="container">
 				<div class="row">
+                                  <?php  
+                                    $cnt = 0;
+                                    $post_count = $listings->found_posts;
+                                    while ( $howItWorksProcess->have_posts() ) : $howItWorksProcess->the_post();
+                                    $cnt++;
+                                  ?>
 					<div class="col-md-4 col-sm-4">
 						<div class="row">
 						<div class="financial-product-item">
 							<div class="category-icon"> 
-                                                            <?php //echo get_the_post_thumbnail(get_the_ID(), 'small'); ?>
-                                                            <img src="<?php echo get_post_meta(get_the_ID(), 'wpcf-first_process_image', true); ?>" alt="<?php echo $attachmentArr[0]; ?>"> </div>
+                                       <?php
+                                                if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                        <div class="category-icon"> 
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+                                        </div>
+                                        <?php
+                                    endif;
+                                    ?>
+                                                          </div>
 							<h4>1</h4>			
-							<h5><?php echo get_post_meta(get_the_ID(), 'wpcf-first_process_title', true); ?></h5>
-							<p><?php echo get_post_meta(get_the_ID(), 'wpcf-first_process_descri', true); ?></p>
+							<h5><?php echo get_the_title(); ?></h5>
+                                                        <p><?php echo get_the_content(); ?></p>
+                                                        <?php if($post_count > $cnt){ ?>
 							<div class="process-arrow">
 								<span>
 									<img src="<?php echo get_bloginfo('template_directory'); ?>/images/how-it-works/process_arrow.png" alt="Get Started Icon">
 								</span>
 							</div>
+                                                        <?php } ?>
 						</div>
 						</div>
 					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="row">
-						<div class="financial-product-item">
-							<div class="category-icon"> <img src="<?php echo get_post_meta(get_the_ID(), 'wpcf-third_process_image', true); ?>" alt="<?php echo $attachmentArr[1]; ?>"> </div>
-							<h4>2</h4>
-							<h5><?php echo get_post_meta(get_the_ID(), 'wpcf-second_process_title', true); ?></h5>
-							<p><?php echo get_post_meta(get_the_ID(), 'wpcf-second_process_descr', true); ?></p>
-							<div class="process-arrow">
-								<span>
-									<img src="<?php echo get_bloginfo('template_directory'); ?>/images/how-it-works/process_arrow.png" alt="Get Started Icon">
-								</span>
-							</div>
-						</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4">
-						<div class="row">
-						<div class="financial-product-item">
-							<div class="category-icon"> <img src="<?php echo get_post_meta(get_the_ID(), 'wpcf-third_process_image', true); ?>" alt="<?php echo $attachmentArr[2]; ?>"> </div>
-							<h4>3</h4>
-							<h5><?php echo get_post_meta(get_the_ID(), 'wpcf-third_process_title', true); ?></h5>
-							<p><?php echo get_post_meta(get_the_ID(), 'wpcf-third_process_descri', true); ?></p>
-						</div>
-						</div>
-					</div>
-				</div>	
-			</div>
+                <?php endwhile; ?>
+
 			<div class="container">
 				<div class="badges-container bottom-margin-80">
 					<ul>
@@ -78,6 +59,10 @@ global $post;
 				</div>
 			</div>
 		</section>
+    <?php
+endif;
+?>
+
 		<!--Process Block -->
 		<!-- Effortless application -->
 		<section id="use_termloan_for">
