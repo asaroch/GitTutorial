@@ -1713,11 +1713,11 @@ form.form-section h3.heading-beacome-partner {
 /* Small Business Funding Start Here */
 
 #sbf_hero #slider_testimonial{
-	padding: 26px 0 34px 0;
+	padding: 26px 0 21px 0;
 }
-#sbf_hero #slider_testimonial .user-icon { margin-bottom: 15px;}
+#sbf_hero #slider_testimonial .user-icon { margin: 42px 0 0 0;}
 #sbf_hero .content-list-item {
-	padding: 3px 138px 0 0px;
+	padding: 42px 138px 0 0px;
 	text-align: center;
 }
 
@@ -1725,20 +1725,21 @@ form.form-section h3.heading-beacome-partner {
 	font-size: 14px;
 	font-family: "Fort-book";
 	color: #fff;
-	margin-bottom: 8px;
+	margin-bottom: 7px;
 }
 #sbf_hero .heading-line{
 	font-size: 40px;
 	font-family: "Fort-book";
 	color: #fff;
 	line-height: 52px;
-	margin-bottom: 30px;
+	margin-bottom: 26px;
 
 }
-#sbf_hero .btn-purple-style { padding: 13px 38px;}
+#sbf_hero .owl-carousel .owl-item img { width: auto; max-width: 100%;}
+#sbf_hero .btn-purple-style { padding: 12px 38px;}
 .content-list-item .customer-info {
 	color: #fff;
-	margin-bottom: 26px;
+	margin-bottom: 28px;
 }
 
 .loan-nav {
@@ -1759,7 +1760,8 @@ form.form-section h3.heading-beacome-partner {
 	  margin: 17px auto 0;
     padding: 10px 0;
 }
-.loan-nav .active {
+.loan-nav .active a {
+font-family: "Fort-bold"; 
 	color: #fff;
 	background: url(../images/img-2.png) no-repeat;
 	background-position:center top;  
@@ -1866,6 +1868,39 @@ background-color: #ffffff;
 #funding-option .divtable .seprate-block .term-laon span, #funding-option .divtable .seprate-block .trak-laon span, #funding-option .divtable .seprate-block .installment-loan span { vertical-align: middle; text-align: center; padding: 0px;}
 #funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
 /* Small Business Funding End Here*/
+/* Compaign-BY Yogi */
+.sub-logo { margin: 8px 0 0 20px; padding:0 0 0 15px;  display: inline-block; height: 40px; border-left: 1px solid #ccc;}
+	#compaign-header { padding-top: 7px;}
+	#compaign-header .top-heading { margin-bottom: 34px; }
+	#compaign-header .btn-blue-bg {
+    background-color: #01aef0;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+	padding: 6px 12px;
+}
+   #compaign-header a.btn-blue-bg {
+    font-size: 12px;
+}
+  #compaign-header  .primary-nav .nav > li a { padding: 6px 16px; font-family:"Fort-Book" }
+ #compaign-funding-block  #financial_product #home_get_quote { height: 161px;}
+  #compaign-funding-block  #funding-option .financial-product-item { padding: 15px 20px 1px;}
+  #compaign-funding-block  #funding-option .badges-container { padding: 0 20px;}
+  #compaign-funding-block #funding-option { padding: 78px 0 95px; background:rgba(255,255,255, 0.6);}
+  #compaign-funding-block #funding-option .section-heading { margin-bottom: 54px; }
+  #success_community .section-heading { margin-bottom: 52px; }
+  #success_community .marchent-name {  margin-top: 18px; }
+/* Compaign-boarding-ALT By Yogi */
+  #compaign_boarding_alt  .financial-product-item { padding-top: 7px; position: relative}
+  #compaign_boarding_alt  .category-icon { height: auto;}
+  #compaign_boarding_alt .financial-product-item h5 { margin-top: 13px; font-size: 26px;}
+  #compaign_boarding_alt .financial-product-item p { margin-top: 17px;}
+  #compaign_boarding_alt .loan-item { margin-top: 16px;}
+  #compaign_boarding_alt .badges-container { margin-top: 25px;}
+  #compaign_boarding_alt .bottom-margin-80 { margin-bottom: 45px;}
+  #compaign_boarding_alt .btn-purple-style { position: relative;}
+  .we_bring_you-border-bottom { border-bottom: 5px solid #eeeeee;}
+  .we_bring_you-border-bottom  .bring-best-item { margin-bottom: 80px;}
 
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
@@ -1919,3 +1954,19 @@ background-color: #ffffff;
  border-color: #fff;
 }
 /*batch 1 insights section carousal for mobile only end*/
+
+
+.dropdown .glyphicon-menu-down {
+	position: absolute;
+    right: 0;
+    top: 12px;
+    width: 30px;
+    text-align: center;
+    line-height: 19px;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.primary-nav .nav li.dropdown > a {
+	margin-right: 13px;
+}
