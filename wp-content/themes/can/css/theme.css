@@ -10,6 +10,7 @@ ul.nav li.current-menu-parent > a {
 
 .primary-nav .nav .dropdown-menu li.current-menu-item a {
     color: #00aeef;
+    border-bottom: none;
    
 }
 
