@@ -1982,3 +1982,8 @@ background-color: #ffffff;
   #slider_feature_product .owl-next {
        right: -14px;
   }
+  .dropdown.open .glyphicon-menu-down{
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+  }
