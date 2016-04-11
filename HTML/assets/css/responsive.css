@@ -159,7 +159,7 @@
 		background-size: 46px 46px;
 		background-position: 0px 9px;
 	}
-	.top-heading {
+	h1 {
 		font-size: 30px;
 		margin:0 0 15px;
 	}
@@ -496,7 +496,7 @@
 	.tranp-div-two {
 		top:70px;
 	}
-	#about_us p, .get-funded h1, .get-funded h3 {
+	#about_us p, .get-funded h2, .get-funded h3 {
 		font-size: 24px;
 	}
 	#about_us p {
@@ -546,10 +546,10 @@
 		font-size: 16px;
 	}
 	/*resources*/
-	.section-heading, .top-heading {
+	.section-heading, h1 {
 		font-size: 22px;
 	}
-	.top-heading {
+	h1 {
 		margin-bottom: 12px;
 	}
 	.search-btn {
