@@ -600,6 +600,7 @@
 		position: static;
 		margin: 0;
 		background-color: none;
+                padding:0;
 	}
 	.sidebar .section-heading {
 		text-align: center;
