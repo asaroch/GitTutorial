@@ -1975,3 +1975,10 @@ background-color: #ffffff;
 .details-point li {
     font-size: 14px;
 }
+
+  #slider_feature_product .owl-prev {
+       left: -14px;
+  }
+  #slider_feature_product .owl-next {
+       right: -14px;
+  }

@@ -255,7 +255,9 @@
 		}
 		/*/2-23*/
 }
-@media (max-width:767px) {	
+@media (max-width:767px) {
+    
+             
 	#user_rettings_slider .owl-prev {
 		left: -29px;
 	}
