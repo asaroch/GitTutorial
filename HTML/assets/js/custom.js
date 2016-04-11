@@ -229,7 +229,7 @@ $(function(){
 				        0:{
 				            items:1,
 				            nav:true,
-				            navText: ["<span class='icon-sprite feature-left-icon active'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+				            navText: ["<span class='icon-sprite resource-left-icon active'></span>","<span class='icon-sprite resource-right-icon active'></span>"],
 				            dots: false
 				        }
 				}
