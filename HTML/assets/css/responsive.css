@@ -695,7 +695,25 @@
 
 	/*-----------------------------------batch 2 starts--------------------------------------*/
 	/*-----------------------------------------------------------------------------------*/
-	/*how it works*/
+	/*latest change*/
+        .navbar-fixed-top {
+            bottom: 0;
+            left: 0;
+            overflow: scroll;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1030;
+        }
+        .navbar-fixed-bottom, .navbar-fixed-top {
+            bottom: 0;
+            left: 0;
+            overflow: scroll;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1030;
+        }
         .average-ratting {
             border-bottom: 1px solid #e9e9e9;
             margin-bottom: 20px;
@@ -712,7 +730,8 @@
         }
         .news-letter-field button[type="submit"] {
             width: 227px;
-        }        
+        }   
+        /*how it works*/
 	.info-product-item p {
 		padding: 10px 40px;
 		font-size: 18px;
