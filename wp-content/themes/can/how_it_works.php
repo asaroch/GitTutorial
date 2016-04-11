@@ -17,6 +17,21 @@ $args = array(	'post_status' => 'publish' ,
 				'order'       => 'ASC'
 			);
 $howItWorksEffort = new WP_Query( $args );
+// How it work gather application queries The Query
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'how-it-work-gather',
+				'orderby'     => 'menu_order date',
+				'order'       => 'ASC'
+			);
+$howItWorksGather = new WP_Query( $args );
+// How it work direct deposit queries The Query
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'how_getting_fund',
+				'orderby'     => 'menu_order date',
+				'order'       => 'ASC'
+			);
+$how_getting_fund = new WP_Query( $args );
+
 if ( $howItWorksProcess->have_posts() ) :
     ?>
         <section class="process-block gradient-one">
@@ -99,10 +114,14 @@ endif;
 				<div class="col-sm-offset-4 col-sm-6">
 					<div class="row">
 						<ul class="details-point">
-							<li>Tax return information</li>
-							<li>Bank statements</li>
-							<li>Business employer ID or tax ID</li>
-							<li>Business owner’s social security number</li>
+                                                    <?php
+                                                    if ( $howItWorksGather->have_posts() ) :
+                                                    while ($howItWorksGather->have_posts()) : $howItWorksGather->the_post(); ?>
+							<li><?php echo get_the_title(); ?></li>
+                                                    <?php 
+                                                    endwhile;
+                                                    endif; 
+                                                    ?>
 						</ul>
 					</div>
 				</div>
@@ -114,24 +133,19 @@ endif;
 			<div class="container">
 				<h2 class="section-heading"> Getting Funds and Making Payments </h2>
 				<div id="infografic_carousel" class="owl-carousel owl-theme">
-					<div class="item">
+				 <?php
+                                                    if ( $how_getting_fund->have_posts() ) :
+                                                    while ($how_getting_fund->have_posts()) : $how_getting_fund->the_post(); ?>
+							<div class="item">
 						<div class="info-product-item">
-							<p>Funds are<br><span>directly deposited</span><br> into your business account.</p>
+							<p><?php echo get_the_content(); ?></p>
 							<div class="category-icon"> <img src="assets/images/how-it-works/directly_deposite_icon.png" alt="installation icon image"> </div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="info-product-item">
-							<p>Funds are<br><span>directly deposited</span><br> into your business account.</p>
-							<div class="category-icon"> <img src="assets/images/how-it-works/directly_deposite_icon.png" alt="installation icon image"> </div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="info-product-item">
-							<p>Funds are<br><span>directly deposited</span><br> into your business account.</p>
-							<div class="category-icon"> <img src="assets/images/how-it-works/directly_deposite_icon.png" alt="installation icon image"> </div>
-						</div>
-					</div>
+                                                    <?php 
+                                                    endwhile;
+                                                    endif; 
+                                                    ?>	
 				</div>
 			</div>
 		</section>
