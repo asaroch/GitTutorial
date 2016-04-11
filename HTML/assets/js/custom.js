@@ -80,7 +80,7 @@ $(function(){
 
 		testimonial.on('changed.owl.carousel',function(property){
 			var totalSlides = $("#slider_testimonial .owl-item ").length;
-		    var current = property.item.index;
+                        var current = property.item.index;
 		    activeSliders($(".prev"), $(".next"), current, totalSlides);
 
 		});
