@@ -80,7 +80,7 @@ $(function(){
 
 		testimonial.on('changed.owl.carousel',function(property){
 			var totalSlides = $("#slider_testimonial .owl-item ").length;
-		    var current = property.item.index;
+                        var current = property.item.index;
 		    activeSliders($(".prev"), $(".next"), current, totalSlides);
 
 		});
@@ -229,7 +229,7 @@ $(function(){
 				        0:{
 				            items:1,
 				            nav:true,
-				            navText: ["<span class='icon-sprite feature-left-icon active'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+				            navText: ["<span class='icon-sprite resource-left-icon active'></span>","<span class='icon-sprite resource-right-icon active'></span>"],
 				            dots: false
 				        }
 				}
