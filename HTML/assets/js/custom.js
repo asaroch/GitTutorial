@@ -257,15 +257,20 @@ $(function(){
 
 
 		//STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
-		var navbar = $("#main_navigationbar"),
-		main_navigation_height = 30;
+		var navbar = $("#main_navigationbar");
+                if($(window).width() < 768 ){
+                    
+                    main_navigation_height = 0;
+                } else {
+                    main_navigation_height = 30;
+                }
 		$window = $(window),
 		isSlider = 160,
 		isHomePage =   $("#home_get_quote");
 
 		$window.scroll(function() {
 			//console.log($window.scrollTop() +' ---   '+isSlider+ '   ' +isHomePage.length )
-			 var isFixedMainNav = navbar.hasClass("navbar-fixed-top");
+                    var isFixedMainNav = navbar.hasClass("navbar-fixed-top");
 		    if ($window.scrollTop() >= main_navigation_height &&  isFixedMainNav != true) {
 		        navbar.removeClass('navbar-fixed-top').addClass('navbar-fixed-top').addClass("navbar-scroll-bg");
 		        $(".top-heading").css("padding-top", "60px");
@@ -289,7 +294,7 @@ $(function(){
 	        		 $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style').css({"position":"relative","top":"0px"});
 	       			//console.log("home 2");
 	        	}
-	        }
+                    }
 
 		});
 

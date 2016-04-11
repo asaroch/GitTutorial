@@ -1988,3 +1988,9 @@ background-color: #ffffff;
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
   }
+  
+  .mob-main-menu.collapse.in {
+      height: 100vh;
+      overflow: scroll;
+      
+  }
