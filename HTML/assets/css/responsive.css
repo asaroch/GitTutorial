@@ -873,6 +873,8 @@
        }
        .entrepreneur {font-family:"Fort-Bold"; display: block; text-align: right; text-transform: uppercase; color: rgb(102, 102, 102);}
        .sub-logo { display: none}
+       #home_get_quote .get-quote-style .down-arrow { border-top-color: #fff;}
+       
 	/*update end*/
 	/*-----------------------------------batch 2 end--------------------------------------*/
 	/*-----------------------------------------------------------------------------------*/
