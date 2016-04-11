@@ -703,10 +703,9 @@
             width:272px;
             margin: 0 auto;  
         }
-        .news-letter-field .btn {
+        .news-letter-field button[type="submit"] {
             width: 227px;
-        }
-        
+        }        
 	.info-product-item p {
 		padding: 10px 40px;
 		font-size: 18px;
