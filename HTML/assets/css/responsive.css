@@ -509,9 +509,6 @@
 	.inspiration-content .see-all-resources {
 		margin-bottom: 20px;
 	}
-	.get-e-book input[type="text"] { 
-		width: 100%;
-	}
 	.foot-logo {
 	    margin-bottom: 38px;
 	}
@@ -645,10 +642,10 @@
 		float: right;
 	}
 	.get-e-book .text-align {
-			text-align: center;
+            text-align: center;
 	}
 	.get-e-book button {
-	    width: 90%;
+	    width: 164px;
 	    margin: 0 auto;
 	}
 	.popular-topics {
@@ -699,6 +696,17 @@
 	/*-----------------------------------batch 2 starts--------------------------------------*/
 	/*-----------------------------------------------------------------------------------*/
 	/*how it works*/
+        .news-letter-field {
+            text-align: center;
+        }
+        .news-letter-field input, .get-e-book input[type="text"] {
+            width:272px;
+            margin: 0 auto;  
+        }
+        .news-letter-field btn {
+            width: 227px;
+        }
+        
 	.info-product-item p {
 		padding: 10px 40px;
 		font-size: 18px;
