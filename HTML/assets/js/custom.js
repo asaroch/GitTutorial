@@ -257,13 +257,10 @@ $(function(){
 
 
 		//STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
-		var navbar = $("#main_navigationbar");
-                if($(window).width() < 768 ){
-                    
-                    main_navigation_height = 0;
-                } else {
-                    main_navigation_height = 30;
-                }
+		var navbar = $("#main_navigationbar"),
+                           
+                main_navigation_height = 30;
+               
 		$window = $(window),
 		isSlider = 160,
 		isHomePage =   $("#home_get_quote");
