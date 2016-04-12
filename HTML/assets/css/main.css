@@ -230,7 +230,7 @@ sup {
 }
 h1 {
 	font-size: 36px;
-	color: #6b2976;
+	color: #6a2875;
 	margin-top: 23px;
 	margin-bottom: 27px;
 	font-family: 'Fort-Light';
@@ -415,7 +415,7 @@ h1 {
 	color: #fff;
     border-radius: 25px;
     border: 2px solid #fff;
-    padding: 12.3px 39px;
+    padding: 12px 38px;
 }
 .btn-blue-bg, .utility-navigation .btn-blue-bg {
 	background-color: #01AEF0;
@@ -469,8 +469,8 @@ i.glyphicon-play {
 }
 #about_us {
 	color: #fff;
-     padding-top: 62px;
-     padding-bottom: 59px;
+	padding-top: 60px;
+    padding-bottom: 57px;
 }
 #about_us p {
 	width:506px;
@@ -1353,7 +1353,7 @@ footer .badges-container {
 	margin-bottom: 57px;
 }
 #infografic_product {
-	padding: 85px 0 57px;
+	padding: 85px 0 59px;
 }
 #infografic_product .owl-theme .owl-controls .owl-dots .owl-dot {
 	display: inline-block;
@@ -1384,7 +1384,7 @@ footer .badges-container {
 }
 #infografic_product .category-icon {
 	width: 112px;
-	height:134px;
+	height:139px;
 }
 .fade-bg {
 	background: rgba(255, 255, 255, .7);
@@ -1517,7 +1517,7 @@ form.form-section h3.heading-parter-type {
 	margin-bottom: 24px;
 }
 form.form-section h3.heading-beacome-partner {
-	margin-bottom: 12px;
+	margin-bottom: 7px;
 }
 .get-funded {
 	padding-bottom: 65px;
@@ -1579,11 +1579,10 @@ form.form-section h3.heading-beacome-partner {
 	color: #fff;
 	text-align: center;
 	font-family: "Fort-Bold";
-        /*margin-top: 13px;*/
 }
 #partnership .section-heading {
 	color: #fff;
-	padding: 74px 12px 20px;
+	padding: 74px 12px 13px;
 }
 .partnership-label {
 	line-height: 30px;
@@ -1624,7 +1623,7 @@ form.form-section h3.heading-beacome-partner {
 	text-align: center;
 }
 #we_bring_you_best .section-heading {
-	margin: 70px auto 36px;
+	margin: 70px auto 52px;
 }
 
 #we_bring_you_best .tranp-div-two {
@@ -1903,7 +1902,6 @@ background-color: #ffffff;
   .we_bring_you-border-bottom { border-bottom: 5px solid #eeeeee;}
   .we_bring_you-border-bottom  .bring-best-item { margin-bottom: 80px;}
   .entrepreneur { display: none}
-  .head-titles h1 { margin-bottom: 40px;}
 
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
@@ -1951,7 +1949,6 @@ background-color: #ffffff;
 
 #home_resource_list .see-all-resources{
  background-color: transparent;
- min-width: 220px; min-height: 48px; line-height: 32px; 
 }
 #home_resource_list .see-all-resources:hover{
  color: #fff;
@@ -1993,7 +1990,14 @@ background-color: #ffffff;
   }
   
   .mob-main-menu.collapse.in {
-      height: 100vh;
+     /* height: 100vh;
       overflow: scroll;
-      
+      margin-top: 0px;
+      */
+  }
+  
+ .nav-cover{
+      height: 15vh;
+      width:100%;
+      background:rgba(0, 0, 0,.5);
   }

@@ -383,14 +383,23 @@
 		font-size: 14px;
 	}
 	.mob-main-menu {
-		top: 0px;
-		padding: 0 20px;
-		background: #01AEF0;
+            top: 0px;
+            padding: 0px;
 	    position: absolute;
 	    left: 15px;
 	    right: 15px;
 	    z-index: 11;
 	}
+        
+        .responsive-bg{
+            background: #01AEF0;
+            height: 85vh;
+            overflow: scroll;
+            overflow-y: scroll;
+            overflow-x: hidden; 
+            padding: 0 20px;
+        } 
+        
 	.mob-style {
 		margin-top: 20px;
 	}
@@ -398,10 +407,12 @@
 	.navbar-fixed-top .navbar-collapse {
 		max-height: none;
 	}
+        .navbar-collapse.mob-main-menu {
+            border-top: none;
+        }
 	.navbar-nav {
 		margin:0;
-	}
-	
+	}	
 	.btn-close-menu {
 		background: transparent;
 		border: none;
