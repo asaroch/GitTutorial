@@ -229,6 +229,16 @@ function twentysixteen_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+    
+     register_sidebar( array(
+		'name'          => __( 'Can capital comparison chart', 'can' ),
+		'id'            => 'can_capital_comparison_chart',
+		'description'   => __( 'Appears can capital details', 'can' ),
+		//'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		//'after_widget'  => '</section>',
+		//'before_title'  => '<h2 class="widget-title">',
+		//'after_title'   => '</h2>',
+	) );
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -1068,3 +1078,77 @@ function prx($array){
     print_r($array);
     die("=========Array ends========");
 }
+
+
+/* * *********************************************
+ * Adding custom widget for can capital comparison chart
+ * ******************************************** */
+
+class CanCapitalComparison_Widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+                'can_capital_comparsion_chart', // Base ID
+                'Can Comparison Chart', // Name
+                array('description' => __('Display comparsion chart for CAN'))
+        );
+    }
+
+    function widget($args, $instance) {
+        $this->get_can_comparison_chart_data();
+      //  echo $after_widget;
+    }
+
+    /***********************************************************
+     * Function to fetch listing of member benefits 
+     * Parameters : $numberOfListings
+     * Return : Html view with listing of items.
+     * **********************************************************/
+
+    function get_can_comparison_chart_data() { //html
+        // How it work direct deposit queries The Query
+        $args = array(	'post_status' => 'publish' , 
+                                        'post_type'   => 'can-comparison-chart',
+                                        'orderby'     => 'menu_order date',
+                                        'order'       => 'ASC'
+                                );
+        $can_capital_chart = new WP_Query( $args );
+        //prx($can_capital_chart);
+        
+        
+        $return = '<section id="funding-option">
+			<div class="container">
+                            <h2 class="section-heading">Experience a better funding option</h2>
+				<div class="divtable accordion-xs gradient-one">';
+	$return .= '    		<div class="tr headings">
+                                            <div class="th firstname"><span></span></div>
+                                            <div class="th term-laon">
+                                                <span><img alt="" src="assets/images/home/CAN_logo_footer.png" width="140" height="20"></span></div>
+						<div class="th trak-laon"><span>Bank Loan</span></div>
+						<div class="th installment-loan"><span>Credit card</span></div>
+					</div>';
+        if ( $can_capital_chart->have_posts() ) : 	
+            while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
+       echo $resource_topics = wp_get_post_terms($can_capital_chart->ID, 'comparison-chart', array("fields" => "names"));
+		$return .= '			<div class="tr seprate-block">
+						<div class="td firstname accordion-xs-toggle"><span>'.get_the_title().'</span></div>
+						<div class="accordion-xs-collapse" aria-expanded="false">
+							<div class="inner">
+								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
+								<div class="td trak-laon"></div>
+								<div class="td installment-loan"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
+							</div>
+						</div>
+					</div>';
+            endwhile;
+         endif;	
+	$return .= ' 		</div>
+			</div>
+		</section>';
+        echo $return;
+    }
+
+}
+
+//end class Realty_Widget
+register_widget('CanCapitalComparison_Widget');

@@ -10,6 +10,7 @@ $args = array(	'post_status' => 'publish' ,
 				'order'       => 'ASC'
 			);
 $howItWorksProcess = new WP_Query( $args );
+
 // How it work effortless application queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how-it-work-effortle',
@@ -17,6 +18,7 @@ $args = array(	'post_status' => 'publish' ,
 				'order'       => 'ASC'
 			);
 $howItWorksEffort = new WP_Query( $args );
+
 // How it work gather application queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how-it-work-gather',
@@ -24,6 +26,7 @@ $args = array(	'post_status' => 'publish' ,
 				'order'       => 'ASC'
 			);
 $howItWorksGather = new WP_Query( $args );
+
 // How it work direct deposit queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how_getting_fund',
@@ -171,6 +174,13 @@ endif;
 			</div>
 		</section>
 		<!--funding option-->
+                
+                <?php if (is_active_sidebar('can_capital_comparison_chart')) : ?>
+                <div class="widget-area trust-badge" role="complementary">
+                    <?php dynamic_sidebar('can_capital_comparison_chart'); ?>
+                </div><!-- .widget-area -->
+            <?php endif; ?>	
+    <!--trust badge widget ends here-->
 		<section id="funding-option">
 			<div class="container">
 				<h2 class="section-heading">Experience a better funding option</h2>
@@ -181,63 +191,8 @@ endif;
 						<div class="th trak-laon"><span>Bank Loan</span></div>
 						<div class="th installment-loan"><span>Credit card</span></div>
 					</div>
-					<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>Expert in small business</span></div>
-						<div class="accordion-xs-collapse" aria-expanded="false">
-							<div class="inner">
-								<div class="thead">
-									<div class="th term-laon"><span><img alt="" src="assets/images/CAN-logo.png" class="img-responsive" width="130" height="25"></span></div>
-									<div class="th trak-laon"><span>TrakLoan</span></div>
-									<div class="th installment-loan"><span>Installment Loans</span></div>
-								</div>
-								<div class="tbody">
-									<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/><span></div>
-									<div class="td trak-laon"></div>
-									<div class="td installment-loan"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>Fund Sent in As Littel As 2 Days'</span></div>
-						<div class="accordion-xs-collapse" aria-expanded="false">
-							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"></div>
-								<div class="td installment-loan"></div>
-							</div>
-						</div>
-					</div>
-					<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>Minmal Paperwork</span></div>
-						<div class="accordion-xs-collapse" aria-expanded="false">
-							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"></div>
-								<div class="td installment-loan"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-							</div>
-						</div>
-					</div>
-					<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>Consider More Than Owner's Credit Score</span></div>
-						<div class="accordion-xs-collapse" aria-expanded="false">
-							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td installment-loan"></div>
-							</div>
-						</div>
-					</div>
-					<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>Multiple Payment Option</span></div>
-						<div class="accordion-xs-collapse" aria-expanded="false">
-							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"></div>
-								<div class="td installment-loan"></div>
-							</div>
-						</div>
-					</div>
+			
+			
 					<div class="tr seprate-block">
 						<div class="td firstname accordion-xs-toggle"><span>Repeat Customer Benefits</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
