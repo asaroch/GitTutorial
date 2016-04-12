@@ -230,7 +230,7 @@ sup {
 }
 h1 {
 	font-size: 36px;
-	color: #6b2976;
+	color: #6a2875;
 	margin-top: 23px;
 	margin-bottom: 27px;
 	font-family: 'Fort-Light';
@@ -488,7 +488,7 @@ i.glyphicon-play {
 	color: #6E2577;
 }
 .get-funded .btn-blue-bg {
-	padding: 12px 41px;
+	padding: 12px 35px;
 }
 #about_us p, .get-funded h2, .get-funded h3{
 	font-size: 36px;
@@ -614,7 +614,7 @@ i.glyphicon-play {
   border: none;
 }
 span.select-drop {
-	position: absolute;
+    position: absolute;
     right: 0px;
     width: 46px;
     height: 45px;
@@ -1293,7 +1293,6 @@ footer .badges-container {
 .feature-right-icon.active {
  background-position:-8px -61px;
 }
-
 /* home ratting other section */
 
 /*-----------------------------------batch 2 starts--------------------------------------*/
@@ -1569,9 +1568,6 @@ form.form-section h3.heading-beacome-partner {
 	font-size: 36px;
 	color: #fff;
 }
-.get-funded .btn-blue-bg {
-	padding:12px 30px;
-}
 
 /* Partner Referral end*/
 /* partner */
@@ -1579,11 +1575,10 @@ form.form-section h3.heading-beacome-partner {
 	color: #fff;
 	text-align: center;
 	font-family: "Fort-Bold";
-        /*margin-top: 13px;*/
 }
 #partnership .section-heading {
 	color: #fff;
-	padding: 74px 12px 20px;
+	padding: 74px 12px 13px;
 }
 .partnership-label {
 	line-height: 30px;
@@ -1624,7 +1619,7 @@ form.form-section h3.heading-beacome-partner {
 	text-align: center;
 }
 #we_bring_you_best .section-heading {
-	margin: 70px auto 36px;
+	margin: 70px auto 52px;
 }
 
 #we_bring_you_best .tranp-div-two {
@@ -1903,7 +1898,6 @@ background-color: #ffffff;
   .we_bring_you-border-bottom { border-bottom: 5px solid #eeeeee;}
   .we_bring_you-border-bottom  .bring-best-item { margin-bottom: 80px;}
   .entrepreneur { display: none}
-  .head-titles h1 { margin-bottom: 40px;}
 
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
@@ -1924,10 +1918,12 @@ background-color: #ffffff;
 
 #home_resource_list .customNavigation .slide-prev, 
 #home_resource_list .customNavigation .slide-next, 
-#home_resource_list .customNavigation span, #testimonial .customNavigation span, #testimonial .customNavigation .prev, #testimonial .customNavigation .next {
+#home_resource_list .customNavigation span, 
+#testimonial .customNavigation span, 
+#testimonial .customNavigation .prev, 
+#testimonial .customNavigation .next {
  font-size: 26px;
  color: #6a2875;
- cursor: pointer;
 }
 #testimonial .customNavigation .prev i, #testimonial .customNavigation .next i {
 	position: relative;
@@ -1944,9 +1940,33 @@ background-color: #ffffff;
 }
 
 #home_resource_list .customNavigation .slide-prev.active, 
-#home_resource_list .customNavigation .slide-next.active, #testimonial .customNavigation .next.active, #testimonial .customNavigation .prev.active  {
+#home_resource_list .customNavigation .slide-next.active, 
+#testimonial .customNavigation .next.active, 
+#testimonial .customNavigation .prev.active  {
  color: #01AEF0;
-
+}
+/*Cursor active inactive state*/
+#home_resource_list .customNavigation .slide-prev, 
+#home_resource_list .customNavigation .slide-next, 
+#home_resource_list .customNavigation span, 
+#testimonial .customNavigation span, 
+#testimonial .customNavigation .prev, 
+#testimonial .customNavigation .next, 
+.ratting-left-icon,
+.ratting-right-icon,
+.feature-left-icon,
+.feature-right-icon {
+    cursor: default;
+}
+.feature-right-icon.active,
+.feature-left-icon.active, 
+.ratting-right-icon.active,
+.ratting-left-icon.active, 
+#home_resource_list .customNavigation .slide-prev.active, 
+#home_resource_list .customNavigation .slide-next.active, 
+#testimonial .customNavigation .next.active, 
+#testimonial .customNavigation .prev.active {
+ cursor: pointer;   
 }
 
 #home_resource_list .see-all-resources{
@@ -1961,7 +1981,7 @@ background-color: #ffffff;
 
 /* navigation dropdown  */
 .dropdown .glyphicon-menu-down {
-	position: absolute;
+    position: absolute;
     right: 0;
     top: 12px;
     width: 30px;
@@ -1975,11 +1995,6 @@ background-color: #ffffff;
 	margin-right: 13px;
 }
 /* navigation dropdown  */
-
-.details-point li {
-    font-size: 14px;
-}
-
   #slider_feature_product .owl-prev {
        left: -14px;
   }
@@ -1991,7 +2006,6 @@ background-color: #ffffff;
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
   }
-  
   .mob-main-menu.collapse.in {
       height: 100vh;
       overflow: scroll;
