@@ -405,6 +405,7 @@ h1 {
 	margin-top: 20px;
 }
 
+
 .inspiration-content .see-all-resources{
 	background: none;
 	margin: 14px 0 20px;
@@ -1949,6 +1950,7 @@ background-color: #ffffff;
 
 #home_resource_list .see-all-resources{
  background-color: transparent;
+ min-width: 220px; min-height: 48px; line-height: 32px; 
 }
 #home_resource_list .see-all-resources:hover{
  color: #fff;
