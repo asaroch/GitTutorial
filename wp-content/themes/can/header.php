@@ -94,7 +94,7 @@
                                         <?php
                                     }
                                     ?>
-                                    <div class="top-heading"><?php echo $top_headline; ?>
+                                    <h1><?php echo $top_headline; ?>
                                         <?php 
                                         if ( !is_page('resources') && !is_front_page() ) {
                                             ?>
@@ -102,7 +102,7 @@
                                             <?php
                                         }
                                         ?>
-                                    </div>					
+                                    </h1>					
                         </div>
                 </div><!-- /.container-fluid -->		  
             </nav>

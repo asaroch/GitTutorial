@@ -7,14 +7,14 @@ $(function () {
 
     $('.show-more-articles').click(function (e) {
         e.preventDefault();
-        $(".resource-container .row:gt(" + var_object.show_more_limit + ")").show();
+        $(".resource-container .row:gt(" + var_object.show_more_limit + ")").show('slow');
         $(".show-more-articles").hide();
         $(".show-less-articles").show();
     });
 
     $('.show-less-articles').click(function (e) {
         e.preventDefault();
-        $(".resource-container .row:gt(" + var_object.show_more_limit + ")").hide();
+        $(".resource-container .row:gt(" + var_object.show_more_limit + ")").hide('slow');
         $(".show-more-articles").show();
         $(".show-less-articles").hide();
         $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
@@ -24,18 +24,36 @@ $(function () {
 
     $('.show-more-term-loan').click(function (e) {
         e.preventDefault();
-        $('ul.termloan-use-point li:gt(5)').show();
+        $('ul.termloan-use-point li:gt(5)').show('slow');
         $(".show-more-term-loan").hide();
         $(".show-less-term-loan").show();
+        $('html, body').animate({scrollTop: $('#use_termloan_for').offset().top}, slow);
     });
 
     $('.show-less-term-loan').click(function (e) {
         e.preventDefault();
-        $('ul.termloan-use-point li:gt(5)').hide();
+        $('ul.termloan-use-point li:gt(5)').hide('slow');
         $(".show-more-term-loan").show();
         $(".show-less-term-loan").hide();
-        // $('html, body').animate({scrollTop: $('#all_resources_block').offset().top}, 'slow');
-        //$('.resource-container').focus();
+        $('html, body').animate({scrollTop: $('#use_termloan_for').offset().top}, slow);
+    });
+    
+    //show more and show hide for terms and payments section.
+    $('ul.details-point').find('li:gt(3)').hide();
+    $('.show-more-termDetail-loan').click(function (e) {
+        e.preventDefault();
+        $('ul.details-point').find('li:gt(3)').show('slow');
+        $(".show-more-termDetail-loan").hide();
+        $(".show-less-termDetail-loan").show();
+        //$('html, body').animate({scrollTop: $('#details_termsloan').offset().top}, 1000);
+    });
+
+    $('.show-less-termDetail-loan').click(function (e) {
+        e.preventDefault();
+        $('ul.details-point').find('li:gt(3)').hide('slow');
+        $(".show-more-termDetail-loan").show();
+        $(".show-less-termDetail-loan").hide();
+       // $('html, body').animate({scrollTop: $('#details_termsloan').offset().top}, slow);
     });
 
     $('#filter_by_business_type select').change(function (e) {

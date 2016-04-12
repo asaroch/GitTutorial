@@ -256,7 +256,6 @@
 		/*/2-23*/
 }
 @media (max-width:767px) {
-    
              
 	#user_rettings_slider .owl-prev {
 		left: -29px;
@@ -383,14 +382,23 @@
 		font-size: 14px;
 	}
 	.mob-main-menu {
-		top: 0px;
-		padding: 0 20px;
-		background: #01AEF0;
+            top: 0px;
+            padding: 0px;
 	    position: absolute;
 	    left: 15px;
 	    right: 15px;
 	    z-index: 11;
 	}
+        
+        .responsive-bg{
+            background: #01AEF0;
+            height: 85vh;
+            overflow: scroll;
+            overflow-y: scroll;
+            overflow-x: hidden; 
+            padding: 0 20px;
+        } 
+        
 	.mob-style {
 		margin-top: 20px;
 	}
@@ -398,10 +406,12 @@
 	.navbar-fixed-top .navbar-collapse {
 		max-height: none;
 	}
+        .navbar-collapse.mob-main-menu {
+            border-top: none;
+        }
 	.navbar-nav {
 		margin:0;
-	}
-	
+	}	
 	.btn-close-menu {
 		background: transparent;
 		border: none;
@@ -417,6 +427,7 @@
 	    border-left: 22px solid transparent;
             transform: translateX(-50%);
             left: 50%;
+            top: 0px;
 	}
 	.inner-page-arrow {
 	    bottom: -29px; 
@@ -879,8 +890,29 @@
 
 
 	/*-----Bugzilla Fixes start*/
-	
-
+        
+        #get_quote_home form{
+            display: none;
+        }
+       #get_quote_home.activeGetQuote form {
+            display: block;
+        }
+        #get_quote_home{
+            overflow: scroll;
+        }
+        #get_quote_home.activeGetQuote {
+           position: absolute;
+           top: 141px;
+           bottom: 0px;
+           margin-bottom: 0px;
+           overflow-y: auto;
+           overflow-x: hidden;
+        }
+        #get_quote_home.navbar-fixed-top{
+            position: fixed;
+            top: 58px;
+            bottom: none;
+        }
 
 }
 @media (max-width:480px){
