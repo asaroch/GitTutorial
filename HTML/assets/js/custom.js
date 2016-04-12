@@ -2,13 +2,21 @@ $(function(){
 	var clickActive=false;
 //var getQuoteHieght = $(window).innerWidth();
 	$('.get-Quote-form .section-heading').on('click', function(){
-		if(clickActive || $(window).width() < 768){
+            
+            if($(window).width() < 768 ) {
+                
+                 $(this).parents("div#get_quote_home").toggleClass("activeGetQuote");
+            }
+            
+               
+	/*	if(clickActive || $(window).width() < 768){
 
 			$(".get-Quote-form form").slideToggle("slow");
 		}
 		else{
 			$(".get-Quote-form form").show();
 		}
+            */
 	})
 	 $(".search-btn").click(function(){
 	 	if(clickActive || $(window).width() < 768){
@@ -260,7 +268,13 @@ $(function(){
 		var navbar = $("#main_navigationbar"),
                 main_navigation_height = 30;
                 $window = $(window),
-		isSlider = 160,
+                isSlider = 0;
+                if($(window).width() > 768 ) {
+                    isSlider = 85;
+                } else {
+                     isSlider = 30;
+                }
+	
 		isHomePage =   $("#home_get_quote");
 
 		$window.scroll(function() {
@@ -283,10 +297,10 @@ $(function(){
 		     if ( isHomePage )  {
 		     	var isGetQuoteFixed = $("#get_quote_home").hasClass("navbar-fixed-top");
 	        	if ($window.scrollTop() >= isSlider   && isGetQuoteFixed != true ) {
-	       			$("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style').css({"position":"fixed","top":"58px"});
+	       			$("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
 	        		//console.log("home 1");
 	        	} else if ($window.scrollTop() < isSlider && isGetQuoteFixed == true) {
-	        		 $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style').css({"position":"relative","top":"0px"});
+	        		 $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style');
 	       			//console.log("home 2");
 	        	}
                     }
