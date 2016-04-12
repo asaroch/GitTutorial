@@ -350,7 +350,7 @@ $resources = query_posts($args);
                     <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3">
+            <div class="col-sm-12 col-md-3 mob-grey-bg">
                 <div class="row sidebar">
                     <?php
                     // Call resources right sidebar widget area
@@ -411,7 +411,7 @@ if (!empty($popular_topics)) {
 ?>
 <section class="get-funded">
     <div class="container text-center">
-        <h1 class="section-heading"> Get Funded </h1>
+        <h2 class="section-heading"> Get Funded </h2>
         <h3> Smart, Simple & Fast. </h3>
         <a href="javascript:void(0);" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
     </div>
