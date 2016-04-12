@@ -256,7 +256,6 @@
 		/*/2-23*/
 }
 @media (max-width:767px) {
-    
              
 	#user_rettings_slider .owl-prev {
 		left: -29px;
@@ -891,8 +890,29 @@
 
 
 	/*-----Bugzilla Fixes start*/
-	
-
+        
+        #get_quote_home form{
+            display: none;
+        }
+       #get_quote_home.activeGetQuote form {
+            display: block;
+        }
+        #get_quote_home{
+            overflow: scroll;
+        }
+        #get_quote_home.activeGetQuote {
+           position: absolute;
+           top: 141px;
+           bottom: 0px;
+           margin-bottom: 0px;
+           overflow-y: auto;
+           overflow-x: hidden;
+        }
+        #get_quote_home.navbar-fixed-top{
+            position: fixed;
+            top: 58px;
+            bottom: none;
+        }
 
 }
 @media (max-width:480px){
