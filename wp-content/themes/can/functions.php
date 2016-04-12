@@ -209,26 +209,26 @@ function twentysixteen_widgets_init() {
         'before_title' => '<h2 class="section-heading">',
         'after_title' => '</h2>',
     ));
-    
-    register_sidebar( array(
-		'name'          => __( 'ApplyNow', 'twentysixteen' ),
-		'id'            => 'applynow',
-		'description'   => __( 'Appears on the center of the pages where its required to display apply now button.', 'twentysixteen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    
-    register_sidebar( array(
-		'name'          => __( 'Member Benefits', 'twentysixteen' ),
-		'id'            => 'memberbenefit',
-		'description'   => __( 'Appears on the center of the pages where its required to display member benefits.', 'twentysixteen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+
+    register_sidebar(array(
+        'name' => __('ApplyNow', 'twentysixteen'),
+        'id' => 'applynow',
+        'description' => __('Appears on the center of the pages where its required to display apply now button.', 'twentysixteen'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Member Benefits', 'twentysixteen'),
+        'id' => 'memberbenefit',
+        'description' => __('Appears on the center of the pages where its required to display member benefits.', 'twentysixteen'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>',
+    ));
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -309,24 +309,28 @@ function can_scripts() {
     wp_enqueue_script('owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js');
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
-     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
-    
-    $search = $financialProductSlider =  FALSE;
-	$count_financial_product = wp_count_posts('financial_product');
-	
-	if ( $count_financial_product->publish > 3 ) {
-		$financialProductSlider = TRUE;
-        }
-    if ( isset($_GET['search']) ) {
+    // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
+
+    $search = $financialProductSlider = $testimonialSlider = FALSE;
+    $count_financial_product = wp_count_posts('financial_product');
+    $count_video_testimonial = wp_count_posts('video-tutorial');
+
+    if ($count_financial_product->publish > 3) {
+        $financialProductSlider = TRUE;
+    }
+    if ($count_video_testimonial->publish > 2) {
+        $testimonialSlider = TRUE;
+    }
+    if (isset($_GET['search'])) {
         $search = TRUE;
     }
-    wp_localize_script( 'custom-dev', 'var_object',
-        array(  'ajax_url'               => admin_url( 'admin-ajax.php' ) , 
-                'show_more_limit'        => get_option('posts_per_page'), 
-                'image_url'              => get_template_directory_uri() , 
-                'search'                 => $search,
-				'financialProductSlider' => $financialProductSlider
-				) );
+    wp_localize_script('custom-dev', 'var_object', array('ajax_url' => admin_url('admin-ajax.php'),
+        'show_more_limit' => get_option('posts_per_page'),
+        'image_url' => get_template_directory_uri(),
+        'search' => $search,
+        'financialProductSlider' => $financialProductSlider,
+        'testimonialSlider' => $testimonialSlider
+    ));
 }
 
 add_action('wp_enqueue_scripts', 'can_scripts');
@@ -558,7 +562,7 @@ class Financial_Widget extends WP_Widget {
 
     function form($instance) {
         if ($instance) {
-            $title            = esc_attr($instance['title']);
+            $title = esc_attr($instance['title']);
             $numberOfListings = esc_attr($instance['numberOfListings']);
         } else {
             $title = '';
@@ -572,9 +576,9 @@ class Financial_Widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id('numberOfListings'); ?>"><?php _e('Number of Listings:', 'financial_widget'); ?></label>
             <select id="<?php echo $this->get_field_id('numberOfListings'); ?>"  name="<?php echo $this->get_field_name('numberOfListings'); ?>">
-        <?php for ($x = 1; $x <= 10; $x++): ?>
+                <?php for ($x = 1; $x <= 10; $x++): ?>
                     <option <?php echo $x == $numberOfListings ? 'selected="selected"' : ''; ?> value="<?php echo $x; ?>"><?php echo $x; ?></option>
-        <?php endfor; ?>
+                <?php endfor; ?>
             </select>
         </p>
         <?php
@@ -592,7 +596,7 @@ class Financial_Widget extends WP_Widget {
         echo $after_widget;
     }
 
-    /* * ****************************************************
+    /*     * ****************************************************
      * Function to fetch listing of financial products ****
      * *************************************************** */
 
@@ -600,7 +604,7 @@ class Financial_Widget extends WP_Widget {
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
-        $listings->query('post_type=financial_product&posts_per_page=' . $numberOfListings.'&orderby=menu_order date&order=ASC');
+        $listings->query('post_type=financial_product&posts_per_page=' . $numberOfListings . '&orderby=menu_order date&order=ASC');
         if ($listings->found_posts > 0) {
             echo '<div class="container">
 				<div id="slider_feature_product" class="owl-carousel owl-theme">';
@@ -614,7 +618,7 @@ class Financial_Widget extends WP_Widget {
                                         <div class="category-icon"><img src="' . $image[0] . '" ></div>
                                         <h5>' . get_the_title() . '</h5>
                                         <p>' . get_the_excerpt() . '</p>
-                                        <a href="'.get_the_permalink().'" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
+                                        <a href="' . get_the_permalink() . '" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
                                 </div>
 					</div>';
                 //$listItem .= '<span>Added ' . get_the_date() . '</span></li>';
@@ -673,9 +677,9 @@ class Testimonial_Widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id('numberOfListings'); ?>"><?php _e('Number of Listings:', 'financial_widget'); ?></label>
             <select id="<?php echo $this->get_field_id('numberOfListings'); ?>"  name="<?php echo $this->get_field_name('numberOfListings'); ?>">
-        <?php for ($x = 1; $x <= 10; $x++): ?>
+                <?php for ($x = 1; $x <= 10; $x++): ?>
                     <option <?php echo $x == $numberOfListings ? 'selected="selected"' : ''; ?> value="<?php echo $x; ?>"><?php echo $x; ?></option>
-        <?php endfor; ?>
+                <?php endfor; ?>
             </select>
         </p>
         <p>
@@ -732,7 +736,7 @@ class Testimonial_Widget extends WP_Widget {
 									<div class="col-sm-8">
 										<div class="testimonial-content">
 											<h3 class="testimonial-heading">' . get_the_content() . '</h3>
-											<h3 class="customer-info">- ' . get_the_title() . ', '.get_post_meta($post->ID,'wpcf-business_name',true).'</h3>
+											<h3 class="customer-info">- ' . get_the_title() . ', ' . get_post_meta($post->ID, 'wpcf-business_name', true) . '</h3>
 										</div>
 									</div>
 								</div>
@@ -760,71 +764,74 @@ class Testimonial_Widget extends WP_Widget {
 register_widget('Testimonial_Widget');
 
 
-/***********************************************************
+/* * *********************************************************
  * Widget to display global block for apply now button
  * Parameters : $title, URL for the button
  * Return : $title and URL
- * ****************************************************/
+ * *************************************************** */
 
-class ApplyNow_Widget extends WP_Widget{
-function __construct() {
-	parent::__construct(
-		'applyNow_widget', // Base ID
-		'ApplyNow Widget', // Name
-		array('description' => __( 'Apply now button to open a global link provided by admin.'))
-	   );
+class ApplyNow_Widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+                'applyNow_widget', // Base ID
+                'ApplyNow Widget', // Name
+                array('description' => __('Apply now button to open a global link provided by admin.'))
+        );
+    }
+
+    function update($new_instance, $old_instance) {
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['url'] = strip_tags($new_instance['url']);
+        return $instance;
+    }
+
+    function form($instance) {
+        if ($instance) {
+            $title = esc_attr($instance['title']);
+            $url = esc_attr($instance['url']);
+        } else {
+            $title = 'APPLY NOW';
+            $url = '#';
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'applyNow_widget'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id('url'); ?>"><?php _e('URL:', 'applyNow_widget'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" type="text" value="<?php echo $url; ?>" />
+        </p>
+        <?php
+    }
+
+    function widget($args, $instance) {
+        extract($args);
+        $title = apply_filters('widget_title', $instance['title']);
+        $url = $instance['url'];
+        echo $before_widget;
+        if ($title) {
+            //echo $before_title . $title . $after_title;
+        }
+        $this->getUrlforApplyNow($url, $title);
+        echo $after_widget;
+    }
+
+    /*     * *********************************************************
+     * Function to generate a button with dynamic title
+     * Parameters : $url, $title
+     * Return : Html view with title and url to be opened.
+     * *************************************************** */
+
+    function getUrlforApplyNow($url, $title) { //html
+        echo '<a href="' . $url . '" title="' . $title . '" class="btn btn-blue-bg"> ' . $title . ' <i class="glyphicon glyphicon-play"></i></a>';
+    }
+
 }
-function update($new_instance, $old_instance) {
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['url'] = strip_tags($new_instance['url']);
-		return $instance;
-}
 
-function form($instance) {
-	if( $instance) {
-		$title            = esc_attr($instance['title']);
-		$url = esc_attr($instance['url']);
-	} else {
-		$title = 'APPLY NOW';
-		$url = '#';
-	}
-	?>
-		<p>
-		<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'applyNow_widget'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-		</p>
-		<p>
-		<label for="<?php echo $this->get_field_id('url'); ?>"><?php _e('URL:', 'applyNow_widget'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('url'); ?>" name="<?php echo $this->get_field_name('url'); ?>" type="text" value="<?php echo $url; ?>" />
-		</p>
-	<?php
-	}
-	
-	function widget($args, $instance) {
-	extract( $args );
-	$title = apply_filters('widget_title', $instance['title']);
-	$url = $instance['url'];
-	echo $before_widget;
-	if ( $title ) {
-		//echo $before_title . $title . $after_title;
-	}
-	$this->getUrlforApplyNow($url,$title);
-	echo $after_widget;
-}
-
-/***********************************************************
- * Function to generate a button with dynamic title
- * Parameters : $url, $title
- * Return : Html view with title and url to be opened.
- * ****************************************************/
- 
-function getUrlforApplyNow($url,$title) { //html
-	echo '<a href="'.$url.'" title="'.$title.'" class="btn btn-blue-bg"> '.$title.' <i class="glyphicon glyphicon-play"></i></a>';
-}
-
-
-} //end class Realty_Widget
+//end class Realty_Widget
 register_widget('ApplyNow_Widget');
 
 /* * ****************************************************
@@ -863,7 +870,7 @@ add_action('manage_resource_posts_custom_column', 'custom_resource_column', 10, 
 function set_custom_edit_resource_columns($columns) {
     $columns['menu_order'] = __('Order', 'menu_order');
     return $columns;
-    }
+}
 
 /* * ****************************************************
   Description : Callback function of hook to add custom column to resource post type
@@ -877,8 +884,8 @@ function custom_resource_column($column, $post_id) {
             $order = $post->menu_order;
             echo $order;
             break;
-        }
     }
+}
 
 function excerpt_count_js() {
 
@@ -894,65 +901,64 @@ function excerpt_count_js() {
 			 jQuery("span#excerpt_counter").text(jQuery("#excerpt").val().length);
 		   });
 		});</script>';
-}
+    }
 }
 
 add_action('admin_head-post.php', 'excerpt_count_js');
 add_action('admin_head-post-new.php', 'excerpt_count_js');
 
 // ajax hooks
-add_action( 'wp_ajax_nopriv_resource_filter_callback', 'resource_filter_callback' );
+add_action('wp_ajax_nopriv_resource_filter_callback', 'resource_filter_callback');
 
 function resource_filter_callback() {
-	global $wpdb; // this is how you get access to the database
+    global $wpdb; // this is how you get access to the database
 
-	$whatever = intval( $_POST['whatever'] );
+    $whatever = intval($_POST['whatever']);
 
-	$whatever += 10;
+    $whatever += 10;
 
-        echo $whatever;
+    echo $whatever;
 
-	wp_die(); // this is required to terminate immediately and return a proper response
+    wp_die(); // this is required to terminate immediately and return a proper response
 }
 
 /*
-* Callback function to filter the MCE settings
-*/
+ * Callback function to filter the MCE settings
+ */
 
-function my_mce_before_init_insert_formats( $init_array ) {  
+function my_mce_before_init_insert_formats($init_array) {
 
 // Define the style_formats array
 
-	$style_formats = array(  
-		// Each array child is a format with it's own settings
-		array(  
-			'title' => 'Top Heading',  
-			'block' => 'div',  
-			'classes' => 'top-heading',
-			'wrapper' => true,
-			
-		),  
-		array(  
-			'title' => 'Blue Button',  
-			'block' => 'span',  
-			'classes' => 'blue-button',
-			'wrapper' => true,
-		),
-		array(  
-			'title' => 'Red Button',  
-			'block' => 'span',  
-			'classes' => 'red-button',
-			'wrapper' => true,
-		),
-	);  
-	// Insert the array, JSON ENCODED, into 'style_formats'
-	$init_array['style_formats'] = json_encode( $style_formats );  
-	
-	return $init_array;  
-  
-} 
+    $style_formats = array(
+        // Each array child is a format with it's own settings
+        array(
+            'title' => 'Top Heading',
+            'block' => 'div',
+            'classes' => 'top-heading',
+            'wrapper' => true,
+        ),
+        array(
+            'title' => 'Blue Button',
+            'block' => 'span',
+            'classes' => 'blue-button',
+            'wrapper' => true,
+        ),
+        array(
+            'title' => 'Red Button',
+            'block' => 'span',
+            'classes' => 'red-button',
+            'wrapper' => true,
+        ),
+    );
+    // Insert the array, JSON ENCODED, into 'style_formats'
+    $init_array['style_formats'] = json_encode($style_formats);
+
+    return $init_array;
+}
+
 // Attach callback to 'tiny_mce_before_init' 
-add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+add_filter('tiny_mce_before_init', 'my_mce_before_init_insert_formats');
 
 
 /* * *********************************************
@@ -992,7 +998,7 @@ class MemberBenefit_Widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id('numberOfListings'); ?>"><?php _e('Number of Listings:', 'financial_widget'); ?></label>
             <select id="<?php echo $this->get_field_id('numberOfListings'); ?>"  name="<?php echo $this->get_field_name('numberOfListings'); ?>">
-        <?php for ($x = 1; $x <= 10; $x++): ?>
+                <?php for ($x = 1; $x <= 10; $x++): ?>
                     <option <?php echo $x == $numberOfListings ? 'selected="selected"' : ''; ?> value="<?php echo $x; ?>"><?php echo $x; ?></option>
         <?php endfor; ?>
             </select>
@@ -1013,27 +1019,27 @@ class MemberBenefit_Widget extends WP_Widget {
         echo $after_widget;
     }
 
-    /***********************************************************
+    /*     * *********************************************************
      * Function to fetch listing of member benefits 
      * Parameters : $numberOfListings
      * Return : Html view with listing of items.
-     * **********************************************************/
+     * ********************************************************* */
 
     function getmemberBenefitListings($numberOfListings, $type) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
         $args = array(
-        'post_type' => 'member-benefit',
-        'post_status' => 'publish',
-        'posts_per_page' => $numberOfListings,
-        'meta_query' => array(array(
-                'key' => '_is_featured',
-                'value' => 'yes'
-            )),
-        'orderby' => 'menu_order date',
-        'order'   => 'ASC'
-    );
+            'post_type' => 'member-benefit',
+            'post_status' => 'publish',
+            'posts_per_page' => $numberOfListings,
+            'meta_query' => array(array(
+                    'key' => '_is_featured',
+                    'value' => 'yes'
+                )),
+            'orderby' => 'menu_order date',
+            'order' => 'ASC'
+        );
         //$featured_resources = query_posts($args);
         $listings->query($args);
         if ($listings->found_posts > 0) {
@@ -1046,8 +1052,8 @@ class MemberBenefit_Widget extends WP_Widget {
                 endif;
                 $listItem = ' <div class="col-md-4 col-sm-4">
             <div class="category-icon"> <img src="' . $image[0] . '"> </div>
-									 <p class="benefit-name">'.get_the_title(). '</p>
-            <p class="success-description">'.  get_the_content().'</p>					
+									 <p class="benefit-name">' . get_the_title() . '</p>
+            <p class="success-description">' . get_the_content() . '</p>					
         </div>';
                 echo $listItem;
             }
@@ -1062,8 +1068,9 @@ class MemberBenefit_Widget extends WP_Widget {
 
 //end class Realty_Widget
 register_widget('MemberBenefit_Widget');
+
 // printing array.
-function prx($array){
+function prx($array) {
     echo "<pre>";
     print_r($array);
     die("=========Array ends========");

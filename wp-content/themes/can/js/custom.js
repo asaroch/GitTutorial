@@ -5,6 +5,12 @@ $(function () {
     } else {
         financialProductSlider = false;
     }
+    if(var_object.testimonialSlider){
+        testimonialSlider = true;
+    }
+    else{
+        testimonialSlider = false;
+    }
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function () {
         if (clickActive || $(window).width() < 768) {
@@ -47,8 +53,8 @@ $(function () {
         //autoplay: true,
         //autoplayTimeout: 8000,
         navigation: false,
-         mouseDrag : false,
-        touchDrag : false,
+        mouseDrag : true,
+        touchDrag : true,
         responsive: {
             0: {
                 items: 1,
@@ -199,7 +205,7 @@ $(function () {
         responsiveClass: true,
         pagination: true,
         navigation: true,        
-        autoplay: true,
+        autoplay: testimonialSlider,
         autoplayTimeout: 8000,
         responsive: {
             0: {
@@ -210,9 +216,9 @@ $(function () {
             },
             768: {
                 items: 2,
-                nav: true,
+                nav: testimonialSlider,
                 navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
-                dots: true
+                dots: false
             }
         }
 

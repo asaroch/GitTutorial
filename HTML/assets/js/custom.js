@@ -258,10 +258,8 @@ $(function(){
 
 		//STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
 		var navbar = $("#main_navigationbar"),
-                           
                 main_navigation_height = 30;
-               
-		$window = $(window),
+                $window = $(window),
 		isSlider = 160,
 		isHomePage =   $("#home_get_quote");
 

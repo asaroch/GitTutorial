@@ -72,7 +72,8 @@ if ( $howItWorksProcess->have_posts() ) :
                         </div>
                     </div>
                 <?php endwhile; ?>
-
+            </div>
+        </div>
                 <!---to display trust badges-->
     <?php if (is_active_sidebar('trust-badge')) : ?>
         <div class="widget-area trust-badge" role="complementary">
@@ -129,26 +130,38 @@ endif;
 		</section>
 		<!-- Terms loan details -->
 		<!-- Infoegrafic carousel -->
-		<section id="infografic_product">
-			<div class="container">
-				<h2 class="section-heading"> Getting Funds and Making Payments </h2>
-				<div id="infografic_carousel" class="owl-carousel owl-theme">
-				 <?php
-                                                    if ( $how_getting_fund->have_posts() ) :
-                                                    while ($how_getting_fund->have_posts()) : $how_getting_fund->the_post(); ?>
-							<div class="item">
-						<div class="info-product-item">
-							<p><?php echo get_the_content(); ?></p>
-							<div class="category-icon"> <img src="assets/images/how-it-works/directly_deposite_icon.png" alt="installation icon image"> </div>
-						</div>
-					</div>
-                                                    <?php 
-                                                    endwhile;
-                                                    endif; 
-                                                    ?>	
-				</div>
-			</div>
-		</section>
+                <section id="infografic_product">
+                    <div class="container">
+                        <h2 class="section-heading"> Getting Funds and Making Payments </h2>
+                        <div id="infografic_carousel" class="owl-carousel owl-theme">
+                            <?php
+                            if ($how_getting_fund->have_posts()) :
+                                while ($how_getting_fund->have_posts()) : $how_getting_fund->the_post();
+                                    ?>
+                                    <div class="item">
+                                        <div class="info-product-item">
+                                            <p><?php echo get_the_content(); ?></p>
+                                            <div class="category-icon"> 
+                                                <?php
+                                                if (has_post_thumbnail(get_the_ID())):
+                                                    ?>
+                                                    <div class="category-icon"> 
+                                                    <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+                                                    </div>
+                                                    <?php
+                                                endif;
+                                                ?>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                endwhile;
+                            endif;
+                            ?>	
+                        </div>
+                    </div>
+                </section>
 		<!-- Infoegrafic carousel -->
 		<!-- About us -->
 		<section  id="about_us" class="gradient-two">
@@ -239,77 +252,14 @@ endif;
 			</div>
 		</section>
 		<!--funding option-->
-		<section id="home_resource_list">
-			<div class="resource-list-bg gradient-three">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 clearfix">
-							<div class="inspiration-content">
-								<h3 class="section-heading">Insights & <br/> Inspiration</h3>
-								<a class="btn btn-blue-bg see-all-resources" href=""> SEE ALL RESOURCES </a>								
-							</div>
-						</div>
-						<div class="col-md-8 clearfix">
-							<div class="row">
-								<div class="col-sm-5 col-5-overide">
-									<div class="featured-story-image">
-										<img src="assets/images/resources/featuredstory_image.jpg">
-									</div>
-								</div>
-								<div class="col-sm-7 col-7-overide">
-									<div class="resource-content">
-										<p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-										<p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-										<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-										<p class="read-time">8 Min Read</p>
-										<div class="sponsored">
-											<p>Sponsored By Company</p>
-										</div>
-									</div>
-								</div>
-							</div>						
-						</div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-md-4 clearfix">
-							<div class="resource-content">
-								<p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-								<p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-								<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-								<p class="read-time">8 Min Read</p>
-							</div>
-						</div>
-						<div class="col-md-8 clearfix">
-							<div class="row">
-								<div class="col-sm-5 col-5-overide">
-									<div class="featured-story-image">
-										<img src="assets/images/resources/featuredstory_image.jpg">
-									</div>
-								</div>
-								<div class="col-sm-7 col-7-overide">
-									<div class="resource-content">
-										<p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-										<p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-										<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-										<p class="read-time">8 Min Read</p>
-										<div class="sponsored">
-											<p>Sponsored By Company</p>
-										</div>
-									</div>
-								</div>
-							</div>						
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<section id="home_resource_list" class="hidden-xs">
+                    <?php echo get_template_part( 'resources_all'); ?> 
+                </section>
 		<section  class="get-funded">
 			<div class="container text-center">
 				<h2 class="section-heading"> Get Funded </h2>
 				<h3> Smart, Simple & Fast. </h3>
-				<a href="javascript:void(0);" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
+				<?php dynamic_sidebar('applynow'); ?>
 			</div>
 		</section>
 

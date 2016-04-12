@@ -7,7 +7,7 @@ $meta = get_post_meta(get_the_ID());
 
 global $post;
 $listings = new WP_Query();
-$listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC');
+$listings->query('post_type=video-tutorial&order=ASC');
 
 /*
  * Fetch loan keypoints
@@ -76,7 +76,7 @@ if (has_post_thumbnail($post->ID)):
 <!-- Terms loan details -->
 <section id="details_termsloan">
     <div class="container">
-        <h1 class="section-heading"> <?php echo get_the_title($post->ID); ?> Details </h1>
+        <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-loan-detail-headline',true); ?> </h1>
         <div class="col-md-6 col-sm-6 border-right-1">
             <div class="row">
                 <h3 class='sub-heading'>Terms</h3>
@@ -107,7 +107,7 @@ if (has_post_thumbnail($post->ID)):
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1 class="section-heading"> I Can Use A <?php echo get_the_title($post->ID); ?> For: </h1>
+                <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-term-loan-use-headli',true); ?> </h1>
                 <ul class="list-term-use termloan-use-point">
 <?php foreach ($loan_uses as $key => $value) { ?>
                         <li class="col-sm-4"><p><?php echo $value; ?></p></li> <?php } ?>
@@ -128,7 +128,7 @@ if (has_post_thumbnail($post->ID)):
 <!-- Loan calculator -->
 <section id="loan_calculator">
     <div class="container">
-        <h1 class="section-heading"> <?php echo get_the_title($post->ID); ?> Calculator </h1>
+        <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-calculator-headline',true); ?> </h1>
         <p class="loan-calculator-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>
     </div>
 </section>
@@ -136,7 +136,7 @@ if (has_post_thumbnail($post->ID)):
 <!-- community of success -->
     <section id="success_community">
         <div class="container">
-            <h1 class="section-heading"> Community of Success </h1>
+            <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-community-headline',true); ?> </h1>
             <div class="owl-carousel owl-theme">
                 <!--Display testimonials for merchants-->
                 <?php
@@ -147,11 +147,11 @@ if (has_post_thumbnail($post->ID)):
                         <!--Testimonials ends here-->
                         <div class="item">
                             <div class="video-player">
-            <?php echo get_the_post_thumbnail($post->ID); ?>
+                                <?php echo get_the_post_thumbnail($post->ID); ?>
                             </div>
                             <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
-                            <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business_name', true); ?> </p>
-                            <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-topic', true); ?> </p>
+                            <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business', true); ?> </p>
+                            <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-video_topic', true); ?> </p>
                             <p class="success-description"> <?php echo get_the_content(); ?> </p>					
                         </div>
                     <?php
