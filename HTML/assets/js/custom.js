@@ -7,16 +7,6 @@ $(function(){
                 
                  $(this).parents("div#get_quote_home").toggleClass("activeGetQuote");
             }
-            
-               
-	/*	if(clickActive || $(window).width() < 768){
-
-			$(".get-Quote-form form").slideToggle("slow");
-		}
-		else{
-			$(".get-Quote-form form").show();
-		}
-            */
 	})
 	 $(".search-btn").click(function(){
 	 	if(clickActive || $(window).width() < 768){
