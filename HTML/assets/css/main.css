@@ -1995,6 +1995,5 @@ background-color: #ffffff;
   .mob-main-menu.collapse.in {
       height: 100vh;
       overflow: scroll;
-      margin-top: 0px;
       
   }
