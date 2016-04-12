@@ -179,7 +179,7 @@ background: linear-gradient(to bottom, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, 
 	padding-bottom: 4px;
 }
 #main_navigationbar  .navbar-nav > li > a, 
-.top-heading strong,
+h1 strong,
 .section-heading,
 .get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,
 .financial-product-item h5,
@@ -228,7 +228,7 @@ sup {
     -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
 }
-.top-heading {
+h1 {
 	font-size: 36px;
 	color: #6a2875;
 	margin-top: 23px;
@@ -490,7 +490,7 @@ i.glyphicon-play {
 .get-funded .btn-blue-bg {
 	padding: 12px 41px;
 }
-#about_us p, .get-funded h1, .get-funded h3{
+#about_us p, .get-funded h2, .get-funded h3{
 	font-size: 36px;
 }
 .get-funded h3 {
@@ -798,7 +798,7 @@ span.select-drop {
 	margin-top: 20px;
 	font-family: 'Fort-Medium';
 }
-.head-titles .top-heading {
+.head-titles h1 {
 	margin-top:0;
 }
 .loan-item {
@@ -1342,8 +1342,8 @@ footer .badges-container {
 .process-block .financial-product-item,
 .process-block p {
 	font-size: 14px;
-	line-height: 22px;
-	font-family: "Fort-Light";
+	line-height: 24px;
+	font-family: "Fort-book";
 }
 #effortless_application {
 	padding: 75px 0 81px;
@@ -1370,7 +1370,7 @@ footer .badges-container {
 }
 .info-product-item p {
 	color: #6d6e71;
-	font-size: 26px;
+	font-size: 24px;
 	text-align: center;
 	padding: 0px 100px;
 	margin: 51px 0 10px;
@@ -1871,7 +1871,7 @@ background-color: #ffffff;
 /* Compaign-BY Yogi */
 .sub-logo { margin: 8px 0 0 20px; padding:0 0 0 15px;  display: inline-block; height: 40px; border-left: 1px solid #ccc;}
 	#compaign-header { padding-top: 7px;}
-	#compaign-header .top-heading { margin-bottom: 34px; }
+	#compaign-header h1 { margin-bottom: 34px; }
 	#compaign-header .btn-blue-bg {
     background-color: #01aef0;
     border: 2px solid #fff;
@@ -1987,4 +1987,10 @@ background-color: #ffffff;
     -webkit-transform:rotate(180deg);
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
+  }
+  
+  .mob-main-menu.collapse.in {
+      height: 100vh;
+      overflow: scroll;
+      
   }
