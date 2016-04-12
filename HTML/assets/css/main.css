@@ -2005,14 +2005,12 @@ background-color: #ffffff;
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
   }
-  .mob-main-menu.collapse.in {
-     /* height: 100vh;
-      overflow: scroll;
-      margin-top: 0px;
-      */
-  }  
  .nav-cover{
       height: 15vh;
       width:100%;
       background:rgba(0, 0, 0,.5);
   }
+ #slider_feature_product.owl-carousel .owl-stage-outer {
+    margin-left: 30px;
+    margin-right: 30px;
+}
