@@ -96,7 +96,7 @@ endif;
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h1 class="section-heading"> Effortless Application </h1>
+						<h2 class="section-heading"> Effortless Application </h2>
 						<ul class="list-term-use termloan-use-point">
                                                     <?php
                                                     if ( $howItWorksEffort->have_posts() ) :
@@ -114,7 +114,7 @@ endif;
 		<!-- Terms loan details -->
 		<section id="details_termsloan">
 			<div class="container">
-				<h1 class="section-heading"> Gather Before You Start </h1>
+				<h2 class="section-heading"> Gather Before You Start </h2>
 				<div class="col-sm-offset-4 col-sm-6">
 					<div class="row">
 						<ul class="details-point">
