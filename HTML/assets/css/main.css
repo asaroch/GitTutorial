@@ -1342,8 +1342,8 @@ footer .badges-container {
 .process-block .financial-product-item,
 .process-block p {
 	font-size: 14px;
-	line-height: 22px;
-	font-family: "Fort-Light";
+	line-height: 24px;
+	font-family: "Fort-book";
 }
 #effortless_application {
 	padding: 75px 0 81px;
@@ -1370,7 +1370,7 @@ footer .badges-container {
 }
 .info-product-item p {
 	color: #6d6e71;
-	font-size: 26px;
+	font-size: 24px;
 	text-align: center;
 	padding: 0px 100px;
 	margin: 51px 0 10px;
@@ -1987,4 +1987,11 @@ background-color: #ffffff;
     -webkit-transform:rotate(180deg);
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
+  }
+  
+  .mob-main-menu.collapse.in {
+      height: 100vh;
+      overflow: scroll;
+      margin-top: 0px;
+      
   }

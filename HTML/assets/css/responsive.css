@@ -412,12 +412,11 @@
 		float: right;
 	}
 	.down-arrow {
-		/*border-top: 18px dashed rgb(225,212,228);*/
-		border-top: 18px dashed #fff;
+            border-top: 18px solid #fff;
 	    border-right: 22px solid transparent;
 	    border-left: 22px solid transparent;
-		transform: translateX(-50%);
-    	left: 50%;
+            transform: translateX(-50%);
+            left: 50%;
 	}
 	.inner-page-arrow {
 	    bottom: -29px; 
@@ -690,7 +689,7 @@
 		z-index: 8;
 	}
 	#home_get_quote .down-arrow {
-		border-top: 18px dashed rgb(225,212,228);
+		border-top: 18px solid rgb(225,212,228);
 	}
 
 	/*-----------------------------------batch 2 starts--------------------------------------*/
@@ -747,7 +746,7 @@
 	 #term_loan .down-arrow {
 	    left: 43%;
 	    top: 16px;
-		border-top: 18px dashed rgb(225,212,228)
+		border-top: 18px solid rgb(225,212,228)
 	}
 	#term_loan p { font-size: 28px; line-height: 38px;}
 	#term_loan .person-name {
