@@ -1579,7 +1579,7 @@ form.form-section h3.heading-beacome-partner {
 	color: #fff;
 	text-align: center;
 	font-family: "Fort-Bold";
-        margin-top: 13px;
+        /*margin-top: 13px;*/
 }
 #partnership .section-heading {
 	color: #fff;
@@ -1903,6 +1903,7 @@ background-color: #ffffff;
   .we_bring_you-border-bottom { border-bottom: 5px solid #eeeeee;}
   .we_bring_you-border-bottom  .bring-best-item { margin-bottom: 80px;}
   .entrepreneur { display: none}
+  .head-titles h1 { margin-bottom: 40px;}
 
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
