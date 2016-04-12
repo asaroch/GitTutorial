@@ -610,7 +610,7 @@ class Financial_Widget extends WP_Widget {
      * Function to fetch listing of financial products ****
      * *************************************************** */
 
-    function getfinancialListings($numberOfListings) { //html
+      function getfinancialListings($numberOfListings) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
@@ -620,13 +620,14 @@ class Financial_Widget extends WP_Widget {
 				<div id="slider_feature_product" class="owl-carousel owl-theme">';
             while ($listings->have_posts()) {
                 $listings->the_post();
-                if (has_post_thumbnail($post->ID)):
-                    $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
-                endif;
+               
                 $listItem = '<div class="item">
-                                <div class="financial-product-item">
-                                        <div class="category-icon"><img src="' . $image[0] . '" ></div>
-                                        <h5>' . get_the_title() . '</h5>
+                                <div class="financial-product-item">';
+                                       
+                                            if (has_post_thumbnail($post->ID)):
+                                                 $listItem .= '<div class="category-icon">'.get_the_post_thumbnail($post->ID).'</div>';
+                                            endif;
+                $listItem .= ' <h5>' . get_the_title() . '</h5>
                                         <p>' . get_the_excerpt() . '</p>
                                         <a href="' . get_the_permalink() . '" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
                                 </div>
@@ -722,7 +723,7 @@ class Testimonial_Widget extends WP_Widget {
      * Return : Html view with listing of items.
      * ********************************************************* */
 
-    function gettestimonialListings($numberOfListings, $type) { //html
+      function gettestimonialListings($numberOfListings, $type) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
@@ -740,9 +741,12 @@ class Testimonial_Widget extends WP_Widget {
                 endif;
                 $listItem = '<div class="item">
 								<div class="row">	
-									<div class="col-sm-4">
-										<div class="user-icon"> <img src="' . $image[0] . '"> </div>
-									</div>
+									<div class="col-sm-4">';
+                                                                            if (has_post_thumbnail($post->ID)):
+                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail') .'</div>';
+                                                                            endif;
+										
+									$listItem .= '</div>
 									<div class="col-sm-8">
 										<div class="testimonial-content">
 											<h3 class="testimonial-heading">' . get_the_content() . '</h3>
@@ -1034,8 +1038,7 @@ class MemberBenefit_Widget extends WP_Widget {
      * Parameters : $numberOfListings
      * Return : Html view with listing of items.
      * ********************************************************* */
-
-    function getmemberBenefitListings($numberOfListings, $type) { //html
+  function getmemberBenefitListings($numberOfListings, $type) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();

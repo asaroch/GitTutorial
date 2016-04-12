@@ -84,6 +84,7 @@ if (!empty($featured_resources)) {
     $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'business-type', array("fields" => "names"));
     if ( !empty($resource_topics) ) {
         $topics = 'in '.implode(", ", $resource_topics);
+        $topics = strlen($topics) >= 120 ? substr($topics,0,120).' ...' : $topics;
     }
     else {
        $topics = ''; 
@@ -140,6 +141,7 @@ if (!empty($featured_resources)) {
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if ( !empty($resource_topics) ) {
                         $topics = 'in '.implode(", ", $resource_topics);
+                        $topics = strlen($topics) >= 80 ? substr($topics,0,80).' ...' : $topics;
                     }
                     else {
                        $topics = ''; 
@@ -156,7 +158,7 @@ if (!empty($featured_resources)) {
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
-                                <p><?php echo $resource->post_excerpt; ?></p>
+                                <p class="featured-content"><?php echo $resource->post_excerpt; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
@@ -171,7 +173,6 @@ if (!empty($featured_resources)) {
                                      </div>
                                     <?php
                                 }
-                                ?>
                                 ?>
                             </div>
                         </div>
@@ -285,6 +286,7 @@ $resources = query_posts($args);
                         $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                           if ( !empty($resource_topics) ) {
                             $topics = 'in '.implode(", ", $resource_topics);
+                            $topics = strlen($topics) >= 80 ? substr($topics,0,80).' ...' : $topics;
                         }
                         else {
                            $topics = ''; 
@@ -350,7 +352,7 @@ $resources = query_posts($args);
                     <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3 mob-grey-bg">
+            <div class="col-sm-12 col-md-3">
                 <div class="row sidebar">
                     <?php
                     // Call resources right sidebar widget area
@@ -411,7 +413,7 @@ if (!empty($popular_topics)) {
 ?>
 <section class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> Get Funded </h2>
+        <h1 class="section-heading"> Get Funded </h1>
         <h3> Smart, Simple & Fast. </h3>
         <a href="javascript:void(0);" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
     </div>

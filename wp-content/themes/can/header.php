@@ -54,30 +54,22 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="navbar-brand"><img src="<?php echo get_header_image(); ?>" /></a>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="navbar-brand" title="CAN CAPITAL"><img src="<?php echo get_header_image(); ?>" /></a>
                         </div>
                         <div class="collapse navbar-collapse mob-main-menu">
-                            <div class="row visible-xs">
-                                <div class="col-xs-12 mob-style">
-                                    <div class="col-xs-6">
-                                        <div class="row">
-                                            <p class='label-main-menu'>Main Menu</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="row">
-                                            <button class="btn-close-menu pull-right"  data-toggle="collapse" data-target=".navbar-collapse, .navbar-collapse2">
-                                                <span class="glyphicon glyphicon-remove"></span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>		    	  
-                            <?php
+                            <div class='responsive-bg'> 
+                                 <?php
                             // Call header main menu
                             $args = array('menu' => 'header menu', 'menu_class' => 'nav navbar-nav navbar-right', 'container' => false, 'submenu_class' => 'dropdown-menu');
                             wp_nav_menu($args);
                             ?>	
+                            </div>
+                             <div class="nav-cover visible-xs" data-toggle="collapse" data-target=".navbar-collapse, .navbar-collapse2">
+                                            
+                                            
+                                        </div>
+                                       
+                          
                         </div><!-- /.navbar-collapse -->
                     </div>
                 </div>
@@ -85,7 +77,7 @@
                 $top_headline = get_post_meta($post->ID, 'wpcf-page-headline-title', true);
                 ?>
                 <div class="container">
-                    <div class="container">
+                   
                         <div class="head-titles">
                                     <?php 
                                     if ( !is_front_page() && !is_page('resources') ) {
@@ -103,8 +95,8 @@
                                         }
                                         ?>
                                     </h1>					
-                        </div>
-                </div><!-- /.container-fluid -->		  
+                        </div></div>
+               <!-- /.container-fluid -->		  
             </nav>
             <?php
             if (!is_front_page()) {

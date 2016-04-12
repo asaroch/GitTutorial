@@ -20,7 +20,7 @@ if ( $partnerTypes->have_posts() ) :
 		<div class="container">
 			<div class="col-md-12">
 				<div class="row">
-					<h2 class="section-heading"> Which Partnership Is Right For You </h2>
+                                    <h2 class="section-heading"> Which Partnership Is Right For You </h2>
 				</div>
 			</div>	
 			<div class="col-md-12">
@@ -33,7 +33,7 @@ if ( $partnerTypes->have_posts() ) :
 								<div class="partnership-item">
 									<h3 class="partnership-label"><?php echo get_the_title(); ?></h3>
 									<p class="partnership-description"> <?php  echo get_the_content(); ?> </p>
-									<a href="" class="learn-more-btn"> LEARN MORE</a>
+									<a href="<?php echo esc_url(get_permalink($post->ID)); ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>"> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
 								</div>
 							</div>
 						</div>
@@ -156,25 +156,53 @@ endif;
     </div>
 </section>
 <!-- Email Us -->	
-<!-- CTA -->	
-<section id="cta_block">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                <h2 class="section-heading"> Industry Recognition </h2>
+<!-- CTA -->
+<?php
+// Partner Benefits The Query
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'industry_recognition',
+				'orderby'     => 'menu_order date',
+				'order'       => 'ASC'
+			);
+$awards = new WP_Query( $args );
+if ( $awards->have_posts() ) :
+    ?>
+    <section id="cta_block">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    <h2 class="section-heading"> Industry Recognition </h2>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12">
-            <div class="row">
-                <ul class="partners-list">
-                    <li class="col-md-3 col-sm-3"> <a href="#"> <img src="<?php echo Get_template_directory_uri(); ?>/images/partner/forbs.png" alt="" class="img-responsive"> </a> </li>
-                    <li class="col-md-3 col-sm-3"> <a href="#"> <img src="<?php echo Get_template_directory_uri(); ?>/images/partner/inc.png" alt="" class="img-responsive"> </a> </li>
-                    <li class="col-md-3 col-sm-3"> <a href="#"> <img src="<?php echo Get_template_directory_uri(); ?>/images/partner/b_insider.png" alt="" class="img-responsive"> </a> </li>
-                    <li class="col-md-3 col-sm-3"> <a href="#"> <img src="<?php echo Get_template_directory_uri(); ?>/images/partner/bbb_ratting.png" alt="" class="img-responsive"> </a> </li>
-                </ul>
+            <div class="col-md-12">
+                <div class="row">
+                    <ul class="partners-list">
+                        <?php 
+                        while ( $awards->have_posts() ) : $awards->the_post();
+							$award_resource_mapping_id = get_post_meta( $post->ID, 'resource_id', true );
+							$external_link             = get_post_meta( $post->ID, 'wpcf-awars-external-link', true );
+							$url = 'javascript:void(0)';
+							if ( $award_resource_mapping_id != '' ) {
+								$url = get_permalink($award_resource_mapping_id);
+							}
+							else if( $external_link != '' ) {
+								$url = get_post_meta( $post->ID, 'wpcf-awars-external-link', true );
+							}
+                            ?>
+                            <li class="col-md-3 col-sm-3">
+                                <a href="<?php echo $url; ?>" title="<?php echo get_the_title(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(), 'awards'); ?> </a>
+                            </li> 
+                            <?php
+                        endwhile;
+                        ?>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>		
-</section>
+        </div>		
+    </section>
+    <?php
+endif;
+?>
+
 <!-- CTA -->
 <?php get_footer(); ?>
