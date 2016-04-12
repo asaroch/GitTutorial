@@ -76,7 +76,7 @@ if (has_post_thumbnail($post->ID)):
 <!-- Terms loan details -->
 <section id="details_termsloan">
     <div class="container">
-        <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-loan-detail-headline',true); ?> </h1>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-loan-detail-headline',true); ?> </h2>
         <div class="col-md-6 col-sm-6 border-right-1">
             <div class="row">
                 <h3 class='sub-heading'>Terms</h3>
@@ -99,6 +99,15 @@ if (has_post_thumbnail($post->ID)):
                 </div>
             </div>
         </div>
+      </div>
+          <?php if ((count($loan_terms) > 4 ) || (count($loan_payments) > 4)): ?>
+                    <div class="show-more-terms show-more-termDetail-loan">
+                        <a href="javascript:void(0)" title="show more user terms of loan"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
+                    </div>
+<?php endif; ?>
+                <div class="show-more-terms show-less-termDetail-loan">
+                    <a href="javascript:void(0)" title="show more user terms of loan"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
+    
     </div>
 </section>
 <!-- Terms loan details -->
@@ -107,7 +116,7 @@ if (has_post_thumbnail($post->ID)):
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-term-loan-use-headli',true); ?> </h1>
+                <h2 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-term-loan-use-headli',true); ?> </h2>
                 <ul class="list-term-use termloan-use-point">
 <?php foreach ($loan_uses as $key => $value) { ?>
                         <li class="col-sm-4"><p><?php echo $value; ?></p></li> <?php } ?>
@@ -128,7 +137,7 @@ if (has_post_thumbnail($post->ID)):
 <!-- Loan calculator -->
 <section id="loan_calculator">
     <div class="container">
-        <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-calculator-headline',true); ?> </h1>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-calculator-headline',true); ?> </h2>
         <p class="loan-calculator-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not </p>
     </div>
 </section>
@@ -136,7 +145,7 @@ if (has_post_thumbnail($post->ID)):
 <!-- community of success -->
     <section id="success_community">
         <div class="container">
-            <h1 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-community-headline',true); ?> </h1>
+            <h2 class="section-heading"> <?php echo get_post_meta($post->ID,'wpcf-community-headline',true); ?> </h2>
             <div class="owl-carousel owl-theme">
                 <!--Display testimonials for merchants-->
                 <?php

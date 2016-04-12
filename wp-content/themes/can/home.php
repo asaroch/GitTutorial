@@ -193,7 +193,7 @@ get_header();
 		</section>
 <section  class="get-funded">
     <div class="container text-center">
-        <h1 class="section-heading"> Get Funded </h1>
+        <h2 class="section-heading"> Get Funded </h2>
         <h3> Smart, Simple & Fast. </h3>
         <?php dynamic_sidebar('applynow'); ?>
     </div>

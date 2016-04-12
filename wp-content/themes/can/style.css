@@ -1886,3 +1886,10 @@ form.form-section p a.know-more {
  border-color: #fff;
 }
 /*batch 1 insights section carousal for mobile only end*/
+
+/* get quote submit button */
+.wpcf7-submit.btn.btn-blue-bg action-btn.submitButton {
+    background:url();
+}
+
+/* get quote submit button */
