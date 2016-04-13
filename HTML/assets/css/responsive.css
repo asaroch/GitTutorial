@@ -436,7 +436,6 @@
 	    border-left: 22px solid transparent;
             transform: translateX(-50%);
             left: 50%;
-            top: 0px;
 	}
 	.inner-page-arrow {
 	    bottom: -27px; 
