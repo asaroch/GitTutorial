@@ -908,14 +908,16 @@
         #get_quote_home{
             overflow: auto;
         }
-        
-        #get_quote_home.activeGetQuote {
+        #get_quote_home.activeGetQuote form {
            position: absolute;
-           top: 141px;
            bottom: 0px;
            margin-bottom: 0px;
            overflow-y: auto;
            overflow-x: hidden;
+        } 
+        
+        #get_quote_home.activeGetQuote{
+            height: 75vh;
         }
          
         
