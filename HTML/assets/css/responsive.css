@@ -916,12 +916,12 @@
 }
 @media (max-width:480px){
 	.water-mark-image {
-		background-size: 60%; 
+            background-size: 60%; 
 	}
 	.user-icon {
-		width: 100%;
-		height: auto;
-		margin: 0 auto;
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
 	}
 	.graph1, .graph2 { width: auto; height: auto;} 
 }		
