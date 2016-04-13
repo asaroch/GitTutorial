@@ -505,6 +505,7 @@
 	}
 	.tranp-div-two {
 		top:70px;
+                z-index: 0;
 	}
 	#about_us p, .get-funded h2, .get-funded h3 {
 		font-size: 24px;
@@ -702,7 +703,6 @@
 	#home_get_quote .down-arrow {
 		border-top: 18px solid rgb(225,212,228);
 	}
-
 	/*-----------------------------------batch 2 starts--------------------------------------*/
 	/*-----------------------------------------------------------------------------------*/
 	/*latest change*/
@@ -869,7 +869,7 @@
 		margin: 20px 0;
 	}
 	/*testimonial*/
-	#testimonial .tranp-div-two , #testimonial .slider-nav-control {
+	 #testimonial .slider-nav-control {
 		position: static;
 	}
 	.financial-product-item {
@@ -913,7 +913,6 @@
             top: 58px;
             bottom: none;
         }
-
 }
 @media (max-width:480px){
 	.water-mark-image {
@@ -924,6 +923,5 @@
 		height: auto;
 		margin: 0 auto;
 	}
-	/*update*/
 	.graph1, .graph2 { width: auto; height: auto;} 
 }		
