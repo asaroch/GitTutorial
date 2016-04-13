@@ -907,7 +907,7 @@
             display: block;
         }
         #get_quote_home{
-            overflow: scroll;
+            overflow: auto;
         }
         #get_quote_home.activeGetQuote {
            position: absolute;
@@ -918,9 +918,9 @@
            overflow-x: hidden;
         }
          
-    #financial_product {
-        padding: 0 20px;
-    }
+        #financial_product {
+            padding: 0 20px;
+        }
     
 }
 @media (max-width:480px){
