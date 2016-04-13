@@ -35,54 +35,68 @@ $(function(){
 	$(window).bind('resize', onResize);
 
 
-	function activeSliders (prev, next, currentIndex, totalSlides) {
+	function activeSliders(prev, next, currentIndex, remain) {
+            if (currentIndex == 0) {
+                prev.removeClass("active");
+            } else {
+                var isACtive = prev.hasClass("active")
+                console.log(isACtive);
 
-			if (currentIndex == 0) {
-		    	prev.removeClass("active"); 
-		    } else  {
-		    	 var isACtive = prev.hasClass("active")
-		    	 if (!isACtive) {
-		    	 	prev.addClass("active"); 
-		    	 };
+                if (!isACtive) {
+                    prev.addClass("active");
+                }
+                ;
 
-		    }
+            }
 
-		     if (currentIndex == (totalSlides - 1) ) {
-		    	next.removeClass("active"); 
-		    } else  {
-		    	 var isACtive = next.hasClass("active")
-		    	 if (!isACtive) {
-		    	 	next.addClass("active"); 
-		    	 };
-		    }
-
-		}
+            if (remain == -1) {
+                next.removeClass("active");
+            } else {
+                var isACtive = next.hasClass("active")
+                if (!isACtive) {
+                    next.addClass("active");
+                }
+                ;
+            }
+        }
 
 
-	var testimonial  = $("#slider_testimonial");
-		testimonial.owlCarousel({
-			loop:false,
-		    margin:10,
-		    responsiveClass:true,
-		    navigation:false,
-			responsive:{
-			        0:{
-			            items:1,
-			            nav:false,
-			            dots: false
-			        }
+	 var testimonial = $("#slider_testimonial");
+            testimonial.owlCarousel({
+                loop: false,
+                margin: 10,
+                responsiveClass: true,
+                //autoplay: true,
+                //autoplayTimeout: 8000,
+                navigation: false,
+                mouseDrag : true,
+                touchDrag : true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false,
+                        dots: false
+                    }
 
-			    }
-			 
-		});
+                }
+            });
 
-		testimonial.on('changed.owl.carousel',function(property){
-			var totalSlides = $("#slider_testimonial .owl-item ").length;
-                        var current = property.item.index;
-		    activeSliders($(".prev"), $(".next"), current, totalSlides);
+            /****Code to increment index of slider***/
 
-		});
 
+            testimonial.on('translated.owl.carousel', onSlideTranslate);
+
+            function onSlideTranslate(event) {
+                var item = event.item.index + 1;
+                $('.current-slider').html(item);
+                var current = event.item.index;
+                var shownItems = event.page.size
+                // total number of slides
+                var total = event.relatedTarget.items().length - 1
+                // how many slides to go?
+                var remain = total - (shownItems + current);
+                activeSliders($(".prev"), $(".next"), current, remain);
+            }
 	
 
 		
@@ -100,38 +114,46 @@ $(function(){
 		//var sliderFeatureProduct = $("#slider_feature_product");
 		//var sliderFeatureProduct = $("#slider_feature_product");
 		var featureSlider = $("#slider_feature_product");
-			featureSlider.owlCarousel({
-			loop:false,
-		    margin:10,
-		    responsiveClass:true,
-		    pagination : true,
-		    navigation:true,
-			responsive:{
-			        0:{
-			            items:1,
-			            nav:true,
-			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
-			            dots: false
-			        },
-			        768:{
-			            items:3,
-			            nav:true,
-			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
-			            dots: true
-			        }
-			},
-			onInitialize: function () {
-					
-			}
+                featureSlider.owlCarousel({
+                    loop: false,
+                    margin: 10,
+                    responsiveClass: true,
+                    pagination: true,
+                    navigation: true,
+                    mouseDrag : false,
+                    touchDrag : false,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: true,
+                            navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                            dots: false
+                        },
+                        768: {
+                            items: 3,
+                            nav: financialProductSlider,
+                            navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                            dots: false
+                        }
+                    },
+                    onInitialize: function () {
 
-		});
+                    }
 
-		featureSlider.on('changed.owl.carousel',function(property){
-			var totalSlides = $("#slider_feature_product .owl-item ").length;
-		    var current = property.item.index;
-		    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, totalSlides);
+                });
 
-		});
+                featureSlider.on('changed.owl.carousel', function (property) {
+                    var current = property.item.index;
+                    var shownItems = property.page.size
+                    // total number of slides
+                    var total = property.relatedTarget.items().length - 1
+                    // how many slides to go?
+                    var remain = total - (shownItems + current);
+
+                    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+
+
+                });
 		
 
 		var sliderUserRatting = $("#user_rettings_slider");
