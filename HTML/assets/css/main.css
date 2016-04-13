@@ -637,7 +637,7 @@ span.select-drop {
 	padding-top: 1px; 
 }
 #all_resources_block .featured-title {
-	margin: 6px 0 10px;
+	margin: 6px 0 1px;
 	line-height: 28px;
 	
 }
@@ -2024,3 +2024,8 @@ background-color: #ffffff;
     margin-left: 30px;
     margin-right: 30px;
 }
+#get_quote_home.navbar-fixed-top{
+        position: fixed;
+        top: 58px;
+        bottom: none;
+    }
