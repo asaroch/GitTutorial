@@ -19,7 +19,7 @@ $(function(){
 		 else {
 		 	$("#search_resource").show();
 		 }
-		 })
+		 });
 	
 
 	onResize = function(){	
