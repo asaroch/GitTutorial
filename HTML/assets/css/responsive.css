@@ -361,8 +361,12 @@
             border: 2px solid #fff;
             border-radius: 25px;
 	}
+        .navbar-nav > li.apply-btn > a:focus {
+           border: 2px solid #fff; 
+        }
 	.navbar-nav > li.apply-btn {
             border: none;
+            box-shadow: none;
         }
         .navbar-nav > li.apply-btn:hover {
             border: none;
