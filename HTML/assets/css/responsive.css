@@ -902,21 +902,21 @@
         #get_quote_home form{
             display: none;
         }
-       #get_quote_home.activeGetQuote form {
+       #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
             display: block;
         }
         #get_quote_home{
             overflow: auto;
         }
-        #get_quote_home.activeGetQuote form {
+        #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
            position: absolute;
-           bottom: 0px;
+           bottom: 10px;
            margin-bottom: 0px;
            overflow-y: auto;
            overflow-x: hidden;
         } 
         
-        #get_quote_home.activeGetQuote{
+        #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
             height: 75vh;
         }
          
