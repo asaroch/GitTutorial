@@ -1,13 +1,17 @@
 $(function(){	
 	var clickActive=false;
-//var getQuoteHieght = $(window).innerWidth();
+        
 	$('.get-Quote-form .section-heading').on('click', function(){
-            
-            if($(window).width() < 768 ) {
-                
-                 $(this).parents("div#get_quote_home").toggleClass("activeGetQuote");
+          var isHomepage =  $("div#get_quote_home").length;
+          if($(window).width() < 768 ) {
+            if(isHomepage){
+                $(this).parents("div#get_quote_home").toggleClass("activeGetQuote");
+            } else {
+                $(this).parents("div#form_box").toggleClass("activeGetQuote");
             }
-	})
+          }
+            
+	});
 	 $(".search-btn").click(function(){
 	 	if(clickActive || $(window).width() < 768){
 		 	$("#search_resource").slideToggle();
@@ -285,8 +289,10 @@ $(function(){
                 }
 	
 		isHomePage =   $("#home_get_quote");
+                isExeptHomerPage =   $("#form_box");
 
 		$window.scroll(function() {
+                    console.log('working');
 			//console.log($window.scrollTop() +' ---   '+isSlider+ '   ' +isHomePage.length )
                     var isFixedMainNav = navbar.hasClass("navbar-fixed-top");
 		    if ($window.scrollTop() >= main_navigation_height &&  isFixedMainNav != true) {
@@ -303,7 +309,7 @@ $(function(){
 		        	$("#get_quote").hide("fast");
 		        };
 		    }
-		     if ( isHomePage )  {
+		    if ( isHomePage )  {
 		     	var isGetQuoteFixed = $("#get_quote_home").hasClass("navbar-fixed-top");
 	        	if ($window.scrollTop() >= isSlider   && isGetQuoteFixed != true ) {
 	       			$("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
@@ -313,8 +319,23 @@ $(function(){
 	       			//console.log("home 2");
 	        	}
                     }
-
+                    
+                    if(isExeptHomerPage){
+                        var isGetQuoteFixed = $("#form_box").hasClass("navbar-fixed-top");
+	        	if ($window.scrollTop() >= isSlider   && isGetQuoteFixed != true ) {
+	       			$("#form_box").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
+	        		//console.log("home 1");
+	        	} else if ($window.scrollTop() < isSlider && isGetQuoteFixed == true) {
+	        		 $("#form_box").removeClass('navbar-fixed-top get-quote-style');
+	       			//console.log("home 2");
+	        	}                     
+                        
+                    }
+                    
 		});
+                
+                
+                
 
 		
 
