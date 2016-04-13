@@ -1418,6 +1418,13 @@ footer .badges-container {
 }
 #home_resource_list .read-time {
 	bottom: 15px;
+        }
+#home_resource_list .read-time, #home_resource_list .read-date { font-size: 15px; }
+.read-time span, .read-date span{
+        font-family: "Fort-bold";
+	color: #01aef0;
+	font-size: 12px;
+        text-transform: uppercase;
 }
 /*---- How it works end ----*/
 
