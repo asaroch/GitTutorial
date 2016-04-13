@@ -11,9 +11,9 @@ get_header();
             <div class="container">
                 <span class="down-arrow"></span>
                 <h2 class="section-heading"> Get Your Quote </h2>
-                
-                   <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
-               
+
+                <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
+
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@ get_header();
                     <p class="ratting-description"> Lorem ipsum dollar emet Lorem ipsum dollar emet </p>
                     <p class="ratting-user"> Barbara</p>
                 </div>
-                 <div class="item">
+                <div class="item">
                     <div class="user-ratting">  
                         <ul>
                             <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
@@ -134,7 +134,7 @@ get_header();
         </div>
     </div>
 </section>
-  <?php echo get_template_part( 'resources_all'); ?> 
+<?php echo get_template_part('resources_all'); ?> 
 
 <section  class="get-funded">
     <div class="container text-center">

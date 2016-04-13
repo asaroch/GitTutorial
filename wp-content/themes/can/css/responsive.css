@@ -1,105 +1,105 @@
 @media (min-width:1199px) {
-	#all_resources_block .resource-content {
-		width: 62.5%;
-	}
-	.col-7-overide {
-		width: 53.733333%;
-   		padding: 0;
-	}
-	.average-ratting {
-		padding-right: 53px;
-	}
-	#user_rettings_slider .owl-prev {
-		left: -39px;
-	}
-	#user_rettings_slider .owl-next {
-		right: -35px;
-	}
-	.primary-nav .nav .dropdown-menu {
-		width: 235px;
-	}
-	#process_block p {
-		font-size: 14px;
-		padding: 0 33px; 
-	}
+    #all_resources_block .resource-content {
+        width: 62.5%;
+    }
+    .col-7-overide {
+        width: 53.733333%;
+        padding: 0;
+    }
+    .average-ratting {
+        padding-right: 53px;
+    }
+    #user_rettings_slider .owl-prev {
+        left: -39px;
+    }
+    #user_rettings_slider .owl-next {
+        right: -35px;
+    }
+    .primary-nav .nav .dropdown-menu {
+        width: 235px;
+    }
+    #process_block p {
+        font-size: 14px;
+        padding: 0 33px; 
+    }
 }
 @media (max-width:1199px) and (min-width:992px) {
-	.testimonial-content { 
-		top: 120px;
-	}
-	#all_resources_block .resource-content {
-		width: 50.5%;
-		padding-right:0;
-	}
-	.read-time {
-		margin-top:10px;
-	}
-	.col-5-overide {    
-			 width: 53.466667%;
-	}
-	.col-7-overide {
-		    width: 44.733333%;
-	}
-	.get-e-book input[type="text"] {
-		width: 595px;
-	}
-	.resource-container {
-		width: 70%;
-	}
-	#resource_list_container .resource-content {
-		    padding: 16px 15px;
-	}
-	#user_rettings_slider .owl-prev {
-		left: -34px;
-	}
-	#user_rettings_slider .owl-next {
-		right: -33px;
-	}
+    .testimonial-content { 
+        top: 120px;
+    }
+    #all_resources_block .resource-content {
+        width: 50.5%;
+        padding-right:0;
+    }
+    .read-time {
+        margin-top:10px;
+    }
+    .col-5-overide {    
+        width: 53.466667%;
+    }
+    .col-7-overide {
+        width: 44.733333%;
+    }
+    .get-e-book input[type="text"] {
+        width: 595px;
+    }
+    .resource-container {
+        width: 70%;
+    }
+    #resource_list_container .resource-content {
+        padding: 16px 15px;
+    }
+    #user_rettings_slider .owl-prev {
+        left: -34px;
+    }
+    #user_rettings_slider .owl-next {
+        right: -33px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
-	.testimonial-heading  {
-		font-size: 34px;
-	}
-	.featured-title {
-		font-size: 24px;
-	   	margin: 8px 0 5px;
-	}
-	#search_resource .select-topic {
-		width: 100%;
-	}
-	.option-text {
-		padding: 0;
-	}
-	.get-e-book input[type="text"] {width: 100%;}
-	footer .badges-container {
-		padding: 25px 0 0;
-	}
-	footer .badges-container a {
-		display: block;
-		margin-bottom: 10px;
-	}
-	.social-links ul li {
-		margin-right: 5px;
-	}
+    .testimonial-heading  {
+        font-size: 34px;
+    }
+    .featured-title {
+        font-size: 24px;
+        margin: 8px 0 5px;
+    }
+    #search_resource .select-topic {
+        width: 100%;
+    }
+    .option-text {
+        padding: 0;
+    }
+    .get-e-book input[type="text"] {width: 100%;}
+    footer .badges-container {
+        padding: 25px 0 0;
+    }
+    footer .badges-container a {
+        display: block;
+        margin-bottom: 10px;
+    }
+    .social-links ul li {
+        margin-right: 5px;
+    }
 }
 @media (min-width:992px) {
-	#post-article {
-		padding-right: 63px;
-	}
-	.process-block p {
-		padding: 0 30px;
-	}
-	#main_navigationbar .navbar-right {
-		margin-top:13px;
-	}
+    #post-article {
+        padding-right: 63px;
+    }
+    .process-block p {
+        padding: 0 30px;
+    }
+    #main_navigationbar .navbar-right {
+        margin-top:13px;
+    }
 }
 @media (max-width: 991px) {
-	.sidebar {
-		width: 100%;
-	}
-	.loan-item {
-		font-size: 20px;
-	}
+    .sidebar {
+        width: 100%;
+    }
+    .loan-item {
+        font-size: 20px;
+    }
 }
 @media (max-width: 991px) and (min-width: 768px) {
 	.navbar-brand {
@@ -181,7 +181,7 @@
 		width: 130px;
 	}
 	/*how it work process arrow*/
-}
+    }
 @media (min-width: 768px){	
 		.navbar-collapse2.collapse {
 		    display: block;
@@ -237,40 +237,40 @@
                 .dropdown .glyphicon-menu-down {
                     pointer-events: none;
                 }
-}
+    }
 @media (max-width:767px) {	
-	#user_rettings_slider .owl-prev {
-		left: -29px;
-	}
-	#user_rettings_slider .owl-next {
-		right: -29px;
-	}
-	/* INDEX PAgE   */
-	.primary-nav .nav .dropdown-menu,
-	.primary-nav .nav .open {
-	    box-shadow: none;
-	}
-	.primary-nav .nav .dropdown-menu li a {
-		border-bottom: 0;
-	}
+    #user_rettings_slider .owl-prev {
+        left: -29px;
+    }
+    #user_rettings_slider .owl-next {
+        right: -29px;
+    }
+    /* INDEX PAgE   */
+    .primary-nav .nav .dropdown-menu,
+    .primary-nav .nav .open {
+        box-shadow: none;
+    }
+    .primary-nav .nav .dropdown-menu li a {
+        border-bottom: 0;
+    }
 
-	.primary-nav li:hover .dropdown-menu {
-		display: none;
-	}
+    .primary-nav li:hover .dropdown-menu {
+        display: none;
+    }
 
-	.primary-nav li.open:hover .dropdown-menu {
-		display: block;
-	}
-	.nav>li>a, .nav>li>a:hover,
-	.primary-nav li.dropdown, 
-	.primary-nav li.dropdown:hover, 
-	.primary-nav li.dropdown li:hover, 
-	.primary-nav .nav .dropdown-menu li a:hover, 
-	.primary-nav .nav .dropdown-menu li a:focus, 
-	.nav .open>a, .nav .open>a:focus, 
-	.nav .open>a:hover {
-		color: #fff;
-		background-color: transparent;
+    .primary-nav li.open:hover .dropdown-menu {
+        display: block;
+    }
+    .nav>li>a, .nav>li>a:hover,
+    .primary-nav li.dropdown, 
+    .primary-nav li.dropdown:hover, 
+    .primary-nav li.dropdown li:hover, 
+    .primary-nav .nav .dropdown-menu li a:hover, 
+    .primary-nav .nav .dropdown-menu li a:focus, 
+    .nav .open>a, .nav .open>a:focus, 
+    .nav .open>a:hover {
+        color: #fff;
+        background-color: transparent;
 
 	}
 	.primary-nav ul.nav > li, 
@@ -797,120 +797,120 @@
 	    vertical-align: middle;
 	}
 
-	.accordion-xs .accordion-xs-toggle {
-	  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,cccccc+100 */
-	background: #efefef; /* Old browsers */
-	background: -moz-linear-gradient(top,  #efefef 0%, #cccccc 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top,  #efefef 0%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom,  #efefef 0%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+    .accordion-xs .accordion-xs-toggle {
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,cccccc+100 */
+        background: #efefef; /* Old browsers */
+        background: -moz-linear-gradient(top,  #efefef 0%, #cccccc 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #efefef 0%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #efefef 0%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 
-	  color: #6a2875;
-	  font-size: 18px;
-	  padding: 10px;
-	  cursor: pointer;
-	 }
-	.divtable .th span, .divtable .td span { 
-	 white-space: nowrap;
-	  overflow: hidden;
-	  text-overflow: ellipsis;
-	  max-width: 250px;
-	}
-	.accordion-xs .accordion-xs-toggle:hover { background-color: #e69500; }
-
-	.accordion-xs .accordion-xs-toggle:after {
-	content: "?";
-	  float: right;
-	   color: rgba(1, 174, 240, 0.9);
-	}
-
-	.accordion-xs .accordion-xs-toggle.collapsed:after {  content: "?"; }
-
-	.accordion-xs-collapse .inner { display: list-item; padding: 0px; list-style: none;}
-
-	.accordion-xs-collapse .td:before { font-weight: bold; }
-
-	.accordion-xs-collapse .lastname:before { content: 'Last Name: '; }
-
-	.accordion-xs-collapse .username:before { content: 'Username: '; }
+        color: #6a2875;
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .divtable .th span, .divtable .td span { 
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 250px;
+    }
+    .accordion-xs .accordion-xs-toggle:hover { background-color: #e69500; }
 
 	.accordion-xs .accordion-xs-toggle:after {
-	  position: relative;
-	  top: 1px;
-	  display: inline-block;
-	  font-family: 'Glyphicons Halflings';
-	  font-style: normal;
-	  font-weight: 400;
-	  line-height: 1;
-	  -webkit-font-smoothing: antialiased;
-	}
-	#funding-option .gradient-one { background: none;}
-	#making-payments p { font-size: 24px; line-height: 32px;}
-	
+        content: "?";
+        float: right;
+        color: rgba(1, 174, 240, 0.9);
+    }
 
-	/*update 4/7*/
-	#referal_about_us p {
-		width:auto;
-		font-size: 24px;
-	}
-	.sales-program .section-heading {
-		margin-bottom: 10px;
-	}
-	.sales-program .financial-product-item p {
-		padding: 0 5px;
-	}
-	.sales-program .financial-product-item h5 {
-		margin: 20px 0;
-	}
-	/*testimonial*/
-	#testimonial .tranp-div-two , #testimonial .slider-nav-control {
-		position: static;
-	}
-	.financial-product-item {
-		padding: 20px;
-		margin-bottom: 0;
-	}
-       .primary-nav .nav > li .btn:focus {
-            border:2px solid #fff;
-            box-shadow: none;
-            color: #fff;
-       }
-       
-       .entrepreneur {font-family:"Fort-Bold"; display: block; text-align: right; text-transform: uppercase; color: rgb(102, 102, 102);}
-       .sub-logo { display: none}
-       #home_get_quote .get-quote-style .down-arrow { border-top-color: #fff;}       
-	/*update end*/
-	/*-----------------------------------batch 2 end--------------------------------------*/
-	/*-----------------------------------------------------------------------------------*/
+    .accordion-xs .accordion-xs-toggle.collapsed:after {  content: "?"; }
+
+    .accordion-xs-collapse .inner { display: list-item; padding: 0px; list-style: none;}
+
+    .accordion-xs-collapse .td:before { font-weight: bold; }
+
+    .accordion-xs-collapse .lastname:before { content: 'Last Name: '; }
+
+    .accordion-xs-collapse .username:before { content: 'Username: '; }
+
+    .accordion-xs .accordion-xs-toggle:after {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+    }
+    #funding-option .gradient-one { background: none;}
+    #making-payments p { font-size: 24px; line-height: 32px;}
 
 
-	/*-----Bugzilla Fixes start*/
-        
-        #get_quote_home form, #form_box form{
-            display: none;
-        }
-       #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
-            display: block;
-        }
-        #get_quote_home{
-            overflow: scroll;
-        }
-        #get_quote_home.activeGetQuote {
-           position: absolute;
-           top: 92px;
-           bottom: 0px;
-           margin-bottom: 0px;
-           overflow-y: auto;
-           overflow-x: hidden;
-        }
-        #get_quote_home.navbar-fixed-top{
-            position: fixed;
-            top: 58px;
-            bottom: none;
-        }
-        
-        
-        
+    /*update 4/7*/
+    #referal_about_us p {
+        width:auto;
+        font-size: 24px;
+    }
+    .sales-program .section-heading {
+        margin-bottom: 10px;
+    }
+    .sales-program .financial-product-item p {
+        padding: 0 5px;
+    }
+    .sales-program .financial-product-item h5 {
+        margin: 20px 0;
+    }
+    /*testimonial*/
+    #testimonial .tranp-div-two , #testimonial .slider-nav-control {
+        position: static;
+    }
+    .financial-product-item {
+        padding: 20px;
+        margin-bottom: 0;
+    }
+    .primary-nav .nav > li .btn:focus {
+        border:2px solid #fff;
+        box-shadow: none;
+        color: #fff;
+    }
+
+    .entrepreneur {font-family:"Fort-Bold"; display: block; text-align: right; text-transform: uppercase; color: rgb(102, 102, 102);}
+    .sub-logo { display: none}
+    #home_get_quote .get-quote-style .down-arrow { border-top-color: #fff;}       
+    /*update end*/
+    /*-----------------------------------batch 2 end--------------------------------------*/
+    /*-----------------------------------------------------------------------------------*/
+
+
+    /*-----Bugzilla Fixes start*/
+
+    #get_quote_home form, #form_box form{
+        display: none;
+    }
+    #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
+        display: block;
+    }
+    #get_quote_home{
+        overflow: scroll;
+    }
+    #get_quote_home.activeGetQuote {
+        position: absolute;
+        top: 92px;
+        bottom: 0px;
+        margin-bottom: 0px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    #get_quote_home.navbar-fixed-top{
+        position: fixed;
+        top: 58px;
+        bottom: none;
+    }
+
+
+
 
 }
 @media (max-width:480px){
@@ -924,4 +924,4 @@
 	}
 	/*update*/
 	.graph1, .graph2 { width: auto; height: auto;} 
-}		
+    }

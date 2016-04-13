@@ -34,48 +34,48 @@ $args = array(
             'value' => 'yes'
         )),
     'orderby' => 'menu_order date',
-    'order'   => 'ASC'
+    'order' => 'ASC'
 );
 $featured_resources = query_posts($args);
 ?>
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
-            <div class="row"> 
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="s">
+        <div class="row"> 
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="s">
+                </div>
+            </div>
+            <?php
+            if (!empty($business_types)) {
+                ?>
+                <div class="col-sm-1 option-text hidden-xs">
+                    <p>and / or</p>
+                </div>
+                <div class="col-sm-3 hidden-xs">
+                    <div class="select-topic">
+                        <select class="form-control">
+                            <option value="">Filter by Topic</option>
+                            <?php
+                            foreach ($business_types as $business_type) {
+                                ?>
+                                <option value="<?php echo $business_type->term_id; ?>"><?php echo $business_type->name; ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        <span class="glyphicon glyphicon-menu-down select-drop"></span>
                     </div>
                 </div>
                 <?php
-                if (!empty($business_types)) {
-                    ?>
-                    <div class="col-sm-1 option-text hidden-xs">
-                        <p>and / or</p>
-                    </div>
-                    <div class="col-sm-3 hidden-xs">
-                        <div class="select-topic">
-                            <select class="form-control">
-                                <option value="">Filter by Topic</option>
-                                <?php
-                                foreach ($business_types as $business_type) {
-                                    ?>
-                                    <option value="<?php echo $business_type->term_id; ?>"><?php echo $business_type->name; ?></option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                            <span class="glyphicon glyphicon-menu-down select-drop"></span>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
-                <div class="col-sm-2 hidden-xs">
-                    <div class="form-group">
-                        <button class="btn btn-blue-bg btn-go field-style">GO <i class="glyphicon glyphicon-play"></i></button>
-                    </div>
+            }
+            ?>
+            <div class="col-sm-2 hidden-xs">
+                <div class="form-group">
+                    <button class="btn btn-blue-bg btn-go field-style">GO <i class="glyphicon glyphicon-play"></i></button>
                 </div>
             </div>
+        </div>
     </div>
 </section><!-- Search Resource -->
 <?php
@@ -111,12 +111,12 @@ if (!empty($featured_resources)) {
                             <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                             <?php
                         }
-                        
-                        if ( isset($sponsored_by) && $sponsored_by != '' ) {
+
+                        if (isset($sponsored_by) && $sponsored_by != '') {
                             ?>
                             <div class="sponsored">
                                 <p>Sponsored By <?php echo $sponsored_by; ?></p>
-                             </div>
+                            </div>
                             <?php
                         }
                         ?> 
@@ -149,7 +149,7 @@ if (!empty($featured_resources)) {
 
                     // Reading time
                     $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
-                    
+
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
                     if (!has_post_thumbnail($resource->ID)) {
@@ -165,62 +165,63 @@ if (!empty($featured_resources)) {
                                     <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                     <?php
                                 }
-                                
-                                if ( isset($sponsored_by) && $sponsored_by != '' ) {
+
+                                if (isset($sponsored_by) && $sponsored_by != '') {
                                     ?>
                                     <div class="sponsored">
                                         <p>Sponsored By <?php echo $sponsored_by; ?></p>
+
                                      </div>
                                     <?php
                                 }
                                 ?>
                             </div>
                         </div>
-                        <?php
-                    } else {
-                        ?>
+            <?php
+        } else {
+            ?>
                         <div class="col-md-8 featured-article">
                             <div class="row">
                                 <div class="col-sm-5 col-5-overide">
-                                    <?php 
-                                    if ( has_post_thumbnail($resource->ID) ) {
-                                       ?>
+            <?php
+            if (has_post_thumbnail($resource->ID)) {
+                ?>
                                         <div class="featured-story-image">
-                                            <?php echo get_the_post_thumbnail($resource->ID, 'large'); ?> 
+                                        <?php echo get_the_post_thumbnail($resource->ID, 'large'); ?> 
                                         </div>
-                                       <?php
-                                    }
-                                    ?>
+                                            <?php
+                                        }
+                                        ?>
                                 </div>
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
                                         <p><?php echo $resource->post_excerpt; ?></p>
-                                        <?php
-                                        if (isset($reading_time) && $reading_time != '') {
-                                            ?>
+            <?php
+            if (isset($reading_time) && $reading_time != '') {
+                ?>
                                             <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                             <?php
                                         }
-                                        
-                                        if ( isset($sponsored_by) && $sponsored_by != '' ) {
+
+                                        if (isset($sponsored_by) && $sponsored_by != '') {
                                             ?>
                                             <div class="sponsored">
                                                 <p>Sponsored By <?php echo $sponsored_by; ?></p>
-                                             </div>
-                                            <?php
-                                        }
-                                        ?>
-                                    
-                                </div>
+                                            </div>
+                <?php
+            }
+            ?>
+
+                                    </div>
                                 </div>
                             </div>						
                         </div>
-                        <?php
-                    }
-                }
-                ?>
+            <?php
+        }
+    }
+    ?>
             </div>
         </div>
     </section>
@@ -233,18 +234,18 @@ wp_reset_postdata();
 $search = isset($_GET['search']) ? $_GET['search'] : NULL;
 
 $args = array(
-    'post_type'      => 'resource',
-    'post_status'    => 'publish',
+    'post_type' => 'resource',
+    'post_status' => 'publish',
     'posts_per_page' => -1,
-    'orderby'        => 'menu_order date',
-    'order'          => 'ASC'
+    'orderby' => 'menu_order date',
+    'order' => 'ASC'
 );
 
-if (isset($search) && $search != NULL ) {
+if (isset($search) && $search != NULL) {
     $args['tax_query'] = array(array(
             'taxonomy' => 'business-type',
-            'field'    => 'id',
-            'terms'    => $search
+            'field' => 'id',
+            'terms' => $search
     ));
 }
 $resources = query_posts($args);
@@ -255,19 +256,19 @@ $resources = query_posts($args);
             <div class="col-md-9 resource-container">						
                 <div class="row">
                     <div class="col-sm-12">
-                        <?php
-                        $heading = !empty($resources) ? 'All Resources' : 'No Resource found!';
-                        
-                        $selected = isset($_GET['search']) ? $_GET['search'] : '';
-                        ?>
+<?php
+$heading = !empty($resources) ? 'All Resources' : 'No Resource found!';
+
+$selected = isset($_GET['search']) ? $_GET['search'] : '';
+?>
                         <h2 class="section-heading"><?php echo $heading; ?></h2>
                         <div class="select-topic">
                             <form method="get" id="filter_by_business_type">
                                 <select class="form-control" name="search">
                                     <option value="">Filter by Topic</option>
-                                    <?php
-                                    foreach ($business_types as $business_type) {
-                                        ?>
+<?php
+foreach ($business_types as $business_type) {
+    ?>
                                         <option value="<?php echo $business_type->term_id; ?>" <?php echo ($business_type->term_id == $selected) ? 'selected' : ''; ?>><?php echo $business_type->name; ?></option>
                                         <?php
                                     }
@@ -278,9 +279,9 @@ $resources = query_posts($args);
                         </div>
                     </div>
                 </div>
-                <?php
-                if (!empty($resources)) {
-                    foreach ($resources as $resource) {
+<?php
+if (!empty($resources)) {
+    foreach ($resources as $resource) {
 
                         // Fetch topic of a resource
                         $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
@@ -292,32 +293,32 @@ $resources = query_posts($args);
                            $topics = ''; 
                         }
 
-                        // Sponsored By
-                        $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
+        // Sponsored By
+        $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
 
-                        // Reading time
-                        $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
-                        ?>
+        // Reading time
+        $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+        ?>
                         <div class="row">
                             <div class="col-sm-12 resource-list">
-                                <?php
-                                if ( has_post_thumbnail($resource->ID) ) {
-                                    ?>
+                        <?php
+                        if (has_post_thumbnail($resource->ID)) {
+                            ?>
                                     <div class="resource-image">
-                                     
-                                            <?php echo get_the_post_thumbnail($resource->ID); ?>
-                                     
+
+                                    <?php echo get_the_post_thumbnail($resource->ID); ?>
+
                                     </div>
-                                    <?php
-                                }
-                                ?>
+                                        <?php
+                                    }
+                                    ?>
                                 <div class="resource-content">
                                     <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                     <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" ><?php echo esc_attr($resource->post_title); ?></a></p>
                                     <p><?php echo $resource->post_excerpt; ?></p>
-                                    <?php
-                                    if ($reading_time) {
-                                        ?>
+        <?php
+        if ($reading_time) {
+            ?>
                                         <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                         <?php
                                     }
@@ -327,38 +328,38 @@ $resources = query_posts($args);
                                         <div class="sponsored">
                                             <p>Sponsored By <?php echo $sponsored_by; ?></p>
                                         </div>
-                                        <?php
-                                    }
-                                    ?>
+            <?php
+        }
+        ?>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                    }
-                }
+        <?php
+    }
+}
 
-               wp_reset_query();
-                ?>
-                <?php 
-                if ( count($resources) > $show_more_limit ) {
+wp_reset_query();
+?>
+                <?php
+                if (count($resources) > $show_more_limit) {
                     ?>
                     <div class="show-more-terms show-more-articles">
                         <a href="javascript:void(0)" title="Show More"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
                     </div>
-                    <?php 
-                }
-                ?>
+    <?php
+}
+?>
                 <div class="show-less-articles show-more-terms">
                     <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
                 </div>
             </div>
             <div class="col-sm-12 col-md-3">
                 <div class="row sidebar">
-                    <?php
-                    // Call resources right sidebar widget area
-                    if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
-                    endif;
-                    ?>
+<?php
+// Call resources right sidebar widget area
+if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
+endif;
+?>
                     <div class="col-xs-12 post-section">
                         <h2 class="section-heading">CAN Capital Newsletter</h2>
                         <div class="col-xs-12 post-information">
@@ -396,15 +397,15 @@ if (!empty($popular_topics)) {
             </div>
             <div class="row">
                 <div class="col-sm-12 topic-list">
-                    <?php
-                    foreach ($popular_topics as $topic) {
-                        ?>
+    <?php
+    foreach ($popular_topics as $topic) {
+        ?>
                         <div class="col-sm-4">						
                             <a href="<?php echo get_term_link($topic->term_id); ?>"><?php echo $topic->name; ?></a>
                         </div>
-                        <?php
-                    }
-                    ?>
+        <?php
+    }
+    ?>
                 </div>
             </div>					
         </div>

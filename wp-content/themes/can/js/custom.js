@@ -203,7 +203,7 @@ $(function () {
         margin: 10,
         responsiveClass: true,
         pagination: true,
-        navigation: true,        
+        navigation: true,
         autoplay: testimonialSlider,
         autoplayTimeout: 8000,
         responsive: {
@@ -252,14 +252,14 @@ $(function () {
         var remain = total - (shownItems + current);
         activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
     });
-    
+
     //resource section on home next and prev. events 
     $(".slide-next").click(function(){
-            resourceSlider.trigger("next.owl.carousel");
+        resourceSlider.trigger("next.owl.carousel");
     })
 
     $(".slide-prev").click(function(){
-            resourceSlider.trigger("prev.owl.carousel");
+        resourceSlider.trigger("prev.owl.carousel");
     })
 
 
@@ -335,4 +335,4 @@ $(function () {
      
      });*/
 
-}); 
+});
