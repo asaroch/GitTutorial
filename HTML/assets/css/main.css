@@ -1537,6 +1537,25 @@ form.form-section h3.heading-beacome-partner {
 .get-funded h3 {
 	margin: 10px 0 32px;
 }
+.partnership-item .partnership-description { margin-bottom: 55px;}
+.lern-more-link {    
+    display: table;
+    height: 64px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+.lern-more-link a{ 
+    display: table-cell; 
+    vertical-align: middle; 
+    color: #fff;
+    text-transform: uppercase;
+}
+.lern-more-link a .glyphicon {
+    color: #00aeef;
+    font-size: 9px;
+    top: -1px;
+}
 /*---- Partner lean gen end ----*/
 /* Partner Referral*/
 .sales-program {
