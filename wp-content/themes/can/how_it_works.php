@@ -3,6 +3,7 @@
 Template Name: how it works
 */
 get_header();
+$how_it_works_id = get_the_ID();
 // How it work processes queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how-it-work-process',
@@ -169,7 +170,8 @@ endif;
 		<!-- About us -->
 		<section  id="about_us" class="gradient-two">
 			<div class="container text-center">
-				<p>Still having questions?<br> <b>Find Out More.</b></p>
+                         <?php   $still_question_text = get_post_meta($how_it_works_id, 'wpcf-still_question', true); ?>
+				<p><?php echo $still_question_text; ?></p>
 				<a href="javascript:void(0);" title="ABOUT US"  class="btn btn-purple-style">HELP CENTER</a>
 			</div>
 		</section>
