@@ -3,6 +3,7 @@
 Template Name: how it works
 */
 get_header();
+$how_it_works_id = get_the_ID();
 // How it work processes queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how-it-work-process',
@@ -169,7 +170,8 @@ endif;
 		<!-- About us -->
 		<section  id="about_us" class="gradient-two">
 			<div class="container text-center">
-				<p>Still having questions?<br> <b>Find Out More.</b></p>
+                         <?php   $still_question_text = get_post_meta($how_it_works_id, 'wpcf-still_question', true); ?>
+				<p><?php echo $still_question_text; ?></p>
 				<a href="javascript:void(0);" title="ABOUT US"  class="btn btn-purple-style">HELP CENTER</a>
 			</div>
 		</section>
@@ -180,32 +182,6 @@ endif;
                     <?php dynamic_sidebar('can_capital_comparison_chart'); ?>
                 </div><!-- .widget-area -->
             <?php endif; ?>	
-    <!--trust badge widget ends here-->
-		<section id="funding-option">
-			<div class="container">
-				<h2 class="section-heading">Experience a better funding option</h2>
-				<div class="divtable accordion-xs gradient-one">
-					<div class="tr headings">
-						<div class="th firstname"><span></span></div>
-						<div class="th term-laon"><span><img alt="" src="assets/images/home/CAN_logo_footer.png" width="140" height="20"></span></div>
-						<div class="th trak-laon"><span>Bank Loan</span></div>
-						<div class="th installment-loan"><span>Credit card</span></div>
-					</div>
-			
-			
-					<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>Repeat Customer Benefits</span></div>
-						<div class="accordion-xs-collapse" aria-expanded="false">
-							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"></div>
-								<div class="td installment-loan"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<!--funding option-->
 		<section id="home_resource_list" class="hidden-xs">
                     <?php echo get_template_part( 'resources_all'); ?> 
