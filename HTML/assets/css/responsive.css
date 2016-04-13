@@ -916,7 +916,12 @@
            margin-bottom: 0px;
            overflow-y: auto;
            overflow-x: hidden;
-        }        
+        }
+         
+    #financial_product {
+        padding: 0 20px;
+    }
+    
 }
 @media (max-width:480px){
 	.water-mark-image {
