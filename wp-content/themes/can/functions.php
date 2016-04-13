@@ -1162,3 +1162,143 @@ class CanCapitalComparison_Widget extends WP_Widget {
 
 //end class Realty_Widget
 register_widget('CanCapitalComparison_Widget');
+
+add_filter( 'walker_nav_menu_start_el', 'wpse_add_arrow',10,4);
+function wpse_add_arrow( $item_output, $item, $depth, $args ){
+   if ( in_array('menu-item-has-children', $item->classes) ) {
+       $item_output .='<span class="glyphicon glyphicon-menu-down dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></span>';
+   }
+    //Only add class to 'top level' items on the 'primary' menu.
+    
+    return $item_output;
+}
+
+/**
+ * Register meta box(es).
+ */
+function wpdocs_register_meta_boxes() {
+    add_meta_box( 'award-resource-mapping', __( 'Select resource', 'textdomain' ), 'award_resource_mapping', 'industry_recognition' );
+}
+add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
+ 
+/**
+ * Meta box display callback.
+ *
+ */
+function award_resource_mapping( $post ) {
+    
+    // The Query
+    $args = array(
+            'post_type'      => 'resource',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'meta_query'    => array(array(
+                    'key'   => 'wpcf-is-resource-award',
+                    'value' => 1
+                )),
+            'orderby' => 'menu_order date',
+            'order'   => 'ASC'
+        );
+    $award_resources = new WP_Query( $args );
+   
+    $selected_id = get_post_meta( $post->ID, 'resource_id', true);
+    $selected    = '';
+    if ( $award_resources->have_posts() ) :
+        $return = '<select name=resource_id><option value="">Select resource</option>';
+        while ( $award_resources->have_posts() ) : $award_resources->the_post();
+            if ( $selected_id == get_the_ID() ) :
+                $selected = 'selected';
+            endif;
+            $return .= '<option '.$selected.' value='.get_the_ID().'>'.get_the_title().'</option>';
+        endwhile;
+        $return .= '</select>';
+    endif;
+}
+
+/**
+ * Save post metadata when a post is saved.
+ *
+ * @param int $post_id The post ID.
+ * @param post $post The post object.
+ * @param bool $update Whether this is an existing post being updated or not.
+ */
+function save_award_meta( $post_id, $post, $update ) {
+
+    /*
+     * In production code, $slug should be set only once in the plugin,
+     * preferably as a class property, rather than in each function that needs it.
+     */
+    $slug = 'industry_recognition';
+
+    // If this isn't a 'book' post, don't update it.
+    if ( $slug != $post->post_type ) {
+        return;
+    }
+
+    // - Update the post's metadata.
+
+    if ( isset( $_REQUEST['resource_id'] ) && $_REQUEST['resource_id'] != ''  ) {
+        update_post_meta( $post_id, 'resource_id', sanitize_text_field( $_REQUEST['resource_id'] ) );
+    }
+}
+add_action( 'save_post', 'save_award_meta', 10, 3 );
+
+add_action('admin_menu', 'partner_add_pages');
+function partner_add_pages() {
+
+   // The first parameter is the Page name(admin-menu), second is the Menu name(menu-name)
+   //and the number(5) is the user level that gets access
+    //add_menu_page("Partners", "Partners", "manage_options", "partners", "partners_callback_function", null, 99);
+    add_menu_page ( 'Partners', 'Partners', 5, 'partners','partners_callback_function','', 5 );
+   add_submenu_page ( 'partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner_type');
+   add_submenu_page ( 'partners', 'Selected Partners', 'Selected Partners', 5, 'edit.php?post_type=selected_partner');
+   add_submenu_page ( 'partners', 'Partner Benefits', 'Partner Benefits', 5, 'edit.php?post_type=partner_benefit');
+}
+
+function partners_callback_function() {
+	?>
+    <div class="wrap">
+        <h1>Partner Options:</h1>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields("partners-section");
+            do_settings_sections("partners");
+            submit_button();
+            ?>          
+        </form>
+    </div>
+	<?php
+}
+
+function partner_types_heading() {
+    ?>
+    <input type="text" name="partner_types_heading" id="partner_types_heading" value="<?php echo get_option('partner_types_heading'); ?>" />
+    <?php
+}
+
+function partner_benefits() {
+    ?>
+    <input type="text" name="partner_benefits" id="partner_benefits" value="<?php echo get_option('partner_benefits'); ?>" />
+    <?php
+}
+
+function selected_partners() {
+    ?>
+    <input type="text" name="selected_partners" id="selected_partners" value="<?php echo get_option('selected_partners'); ?>" />
+    <?php
+}
+
+function display_partner_panel_fields() {
+    add_settings_section("partners-section", "Settings:", null, "partners");
+
+   
+    add_settings_field("Partner Types Heading", "Partner Types Heading", "partner_types_heading", "partners", "partners-section");
+	 add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section");
+	 add_settings_field("Selected Partners", "Selected Partners", "selected_partners", "partners", "partners-section");
+    
+    register_setting("partners-section", "partner_types_heading");
+    register_setting("partners-section", "partner_benefits");
+    register_setting("partners-section", "selected_partners");
+}
+
+add_action("admin_init", "display_partner_panel_fields");

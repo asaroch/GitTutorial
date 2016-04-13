@@ -234,7 +234,9 @@
 		#testimonial .container {
 			position: relative;
 		}
-		/*/2-23*/
+                .dropdown .glyphicon-menu-down {
+                    pointer-events: none;
+                }
 }
 @media (max-width:767px) {	
 	#user_rettings_slider .owl-prev {
@@ -292,6 +294,12 @@
 		 margin-right: 5px;
 		 font-size: 18px;
 	}
+        .primary-nav ul.nav > li.dropdown {
+           padding:0;
+       }
+       .primary-nav .nav > li a, .primary-nav .nav > li a:focus {
+           border: none;
+       }
 	.primary-nav .nav .open {
 		box-shadow:none;
 	}
@@ -413,10 +421,9 @@
 	    border-left: 22px solid transparent;
             transform: translateX(-50%);
             left: 50%;
-            top: 0px;
 	}
 	.inner-page-arrow {
-	    bottom: -29px; 
+	    bottom: -27px; 
 	}
 	.get-Quote-form, .get-Quote-form form, #form_box {
 		background: rgba(1,174,240,.9);		
@@ -488,6 +495,7 @@
 	}
 	.tranp-div {
 		height: 70px;
+                top:-1px;
 	}
 	.tranp-div-two {
 		top:70px;
@@ -546,7 +554,7 @@
 		font-size: 22px;
 	}
 	h1 {
-		margin-bottom: 12px;
+		margin-bottom: 10px;
 	}
 	.search-btn {
 		background-color: #e9e9e9; 
@@ -867,6 +875,7 @@
             box-shadow: none;
             color: #fff;
        }
+       
        .entrepreneur {font-family:"Fort-Bold"; display: block; text-align: right; text-transform: uppercase; color: rgb(102, 102, 102);}
        .sub-logo { display: none}
        #home_get_quote .get-quote-style .down-arrow { border-top-color: #fff;}       
@@ -877,10 +886,10 @@
 
 	/*-----Bugzilla Fixes start*/
         
-        #get_quote_home form{
+        #get_quote_home form, #form_box form{
             display: none;
         }
-       #get_quote_home.activeGetQuote form {
+       #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
             display: block;
         }
         #get_quote_home{
@@ -888,7 +897,7 @@
         }
         #get_quote_home.activeGetQuote {
            position: absolute;
-           top: 141px;
+           top: 92px;
            bottom: 0px;
            margin-bottom: 0px;
            overflow-y: auto;
@@ -899,6 +908,9 @@
             top: 58px;
             bottom: none;
         }
+        
+        
+        
 
 }
 @media (max-width:480px){

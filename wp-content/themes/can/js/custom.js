@@ -16,7 +16,7 @@ $(function () {
             
             if($(window).width() < 768 ) {
                 
-                 $(this).parents("div#get_quote_home").toggleClass("activeGetQuote");
+                 $(this).parents("div#get_quote_home, div#form_box").toggleClass("activeGetQuote");
             }
     })
     $(".search-btn").click(function () {
@@ -242,6 +242,8 @@ $(function () {
     });
 
     resourceSlider.on('changed.owl.carousel', function (property) {
+        var item = property.item.index + 1;
+        $('.current-slider').html(item);
         var current = property.item.index;
         var shownItems = property.page.size
         // total number of slides
@@ -310,9 +312,9 @@ $(function () {
                     $("#get_quote").hide("fast");
                 };
             }
-             if ( isHomePage )  {
+             if ( isHomePage )  { 
                 var isGetQuoteFixed = $("#get_quote_home").hasClass("navbar-fixed-top");
-                if ($window.scrollTop() >= isSlider   && isGetQuoteFixed != true ) {
+                if ($window.scrollTop() >= isSlider  && isGetQuoteFixed != true ) {
                     $("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
                     //console.log("home 1");
                 } else if ($window.scrollTop() < isSlider && isGetQuoteFixed == true) {
