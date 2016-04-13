@@ -36,67 +36,62 @@ $(function(){
 
 
 	function activeSliders(prev, next, currentIndex, remain) {
-            if (currentIndex == 0) {
-                prev.removeClass("active");
-            } else {
-                var isACtive = prev.hasClass("active")
-                console.log(isACtive);
+        if (currentIndex == 0) {
+            prev.removeClass("active");
+        } else {
+            var isACtive = prev.hasClass("active")
+            console.log(isACtive);
 
-                if (!isACtive) {
-                    prev.addClass("active");
-                }
-                ;
-
+            if (!isACtive) {
+                prev.addClass("active");
             }
+            ;
 
-            if (remain == -1) {
-                next.removeClass("active");
-            } else {
-                var isACtive = next.hasClass("active")
-                if (!isACtive) {
-                    next.addClass("active");
-                }
-                ;
+        }
+
+        if (remain == -1) {
+            next.removeClass("active");
+        } else {
+            var isACtive = next.hasClass("active")
+            if (!isACtive) {
+                next.addClass("active");
             }
+            ;
         }
 
 
-	 var testimonial = $("#slider_testimonial");
-            testimonial.owlCarousel({
-                loop: false,
-                margin: 10,
-                responsiveClass: true,
-                //autoplay: true,
-                //autoplayTimeout: 8000,
-                navigation: false,
-                mouseDrag : true,
-                touchDrag : true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: false,
-                        dots: false
-                    }
 
-                }
-            });
-
-            /****Code to increment index of slider***/
+    }
 
 
-            testimonial.on('translated.owl.carousel', onSlideTranslate);
+	var testimonial  = $("#slider_testimonial");
+		testimonial.owlCarousel({
+			loop:false,
+		    margin:10,
+		    responsiveClass:true,
+		    navigation:false,
+			responsive:{
+			        0:{
+			            items:1,
+			            nav:false,
+			            dots: false
+			        }
 
-            function onSlideTranslate(event) {
-                var item = event.item.index + 1;
-                $('.current-slider').html(item);
-                var current = event.item.index;
-                var shownItems = event.page.size
-                // total number of slides
-                var total = event.relatedTarget.items().length - 1
-                // how many slides to go?
-                var remain = total - (shownItems + current);
-                activeSliders($(".prev"), $(".next"), current, remain);
-            }
+			    }
+			 
+		});
+
+		testimonial.on('changed.owl.carousel',function(property){
+
+                    var current = property.item.index;
+                    var shownItems = property.page.size            
+                    // total number of slides
+                    var total = property.relatedTarget.items().length - 1
+                    // how many slides to go?
+                    var remain = total - (shownItems + current);
+                    activeSliders($(".prev"), $(".next"), current, remain);
+                });
+
 	
 
 		
@@ -114,48 +109,43 @@ $(function(){
 		//var sliderFeatureProduct = $("#slider_feature_product");
 		//var sliderFeatureProduct = $("#slider_feature_product");
 		var featureSlider = $("#slider_feature_product");
-                featureSlider.owlCarousel({
-                    loop: false,
-                    margin: 10,
-                    responsiveClass: true,
-                    pagination: true,
-                    navigation: true,
-                    mouseDrag : false,
-                    touchDrag : false,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: true,
-                            navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
-                            dots: false
-                        },
-                        768: {
-                            items: 3,
-                            nav: financialProductSlider,
-                            navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
-                            dots: false
-                        }
-                    },
-                    onInitialize: function () {
+			featureSlider.owlCarousel({
+			loop:false,
+		    margin:10,
+		    responsiveClass:true,
+		    pagination : true,
+		    navigation:true,
+			responsive:{
+			        0:{
+			            items:1,
+			            nav:true,
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            dots: false
+			        },
+			        768:{
+			            items:3,
+			            nav:true,
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            dots: true
+			        }
+			},
+			onInitialize: function () {
+					
+			}
 
-                    }
+		});
 
-                });
+		featureSlider.on('changed.owl.carousel', function (property) {
+                var current = property.item.index;
+                var shownItems = property.page.size
+                // total number of slides
+                var total = property.relatedTarget.items().length - 1
+                // how many slides to go?
+                var remain = total - (shownItems + current);
 
-                featureSlider.on('changed.owl.carousel', function (property) {
-                    var current = property.item.index;
-                    var shownItems = property.page.size
-                    // total number of slides
-                    var total = property.relatedTarget.items().length - 1
-                    // how many slides to go?
-                    var remain = total - (shownItems + current);
-
-                    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
-
-
-                });
-		
-
+                activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+            });
+            
 		var sliderUserRatting = $("#user_rettings_slider");
 			sliderUserRatting.owlCarousel({
 			loop:false,
@@ -181,9 +171,13 @@ $(function(){
 		});
 
 		sliderUserRatting.on('changed.owl.carousel',function(property){
-			var totalSlides = $("#user_rettings_slider .owl-item ").length;
-		    var current = property.item.index;
-		    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, totalSlides);
+                    var current = property.item.index;
+                    var shownItems = property.page.size            
+                    // total number of slides
+                    var total = property.relatedTarget.items().length - 1
+                    // how many slides to go?
+                    var remain = total - (shownItems + current);
+                    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain);
 
 		});
 
@@ -211,15 +205,18 @@ $(function(){
 			}
 
 		});
-
-	/*	communitySlider.on('changed.owl.carousel',function(property){
-			var totalSlides = $("#success_community .owl-item ").length;
-		    var current = property.item.index;
-		    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, totalSlides);
-
-		});
-*/
-
+                communitySlider.on('changed.owl.carousel',function(property){
+                    var current = property.item.index;
+                    var shownItems = property.page.size            
+                    // total number of slides
+                    var total = property.relatedTarget.items().length - 1
+                    // how many slides to go?
+                    var remain = total - (shownItems + current);
+                    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain);
+                    
+                })
+                
+                   
 
 		$("#infografic_carousel").owlCarousel({
 			loop:true,
