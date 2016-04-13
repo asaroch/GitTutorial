@@ -1,3 +1,57 @@
+/*
+Theme Name: CAN
+Theme URI: https://wordpress.org/themes/twentysixteen/
+Author: Trantor Team
+Author URI: https://wordpress.org/
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout ï¿½? the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: twentysixteen
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+/**
+ * Table of Contents
+ *
+ * 1.0 - Normalize
+ * 2.0 - Genericons
+ * 3.0 - Typography
+ * 4.0 - Elements
+ * 5.0 - Forms
+ * 6.0 - Navigation
+ *   6.1 - Links
+ *   6.2 - Menus
+ * 7.0 - Accessibility
+ * 8.0 - Alignments
+ * 9.0 - Clearings
+ * 10.0 - Widgets
+ * 11.0 - Content
+ *    11.1 - Header
+ *    11.2 - Posts and pages
+ *    11.3 - Post Formats
+ *    11.4 - Comments
+ *    11.5 - Sidebar
+ *    11.6 - Footer
+ * 12.0 - Media
+ *    12.1 - Captions
+ *    12.2 - Galleries
+ * 13.0 - Multisite
+ * 14.0 - Media Queries
+ *    14.1 - >= 710px
+ *    14.2 - >= 783px
+ *    14.3 - >= 910px
+ *    14.4 - >= 985px
+ *    14.5 - >= 1200px
+ * 15.0 - Print
+ */
+/**
+ * 1.0 - Normalize
+ *
+ * Normalizing styles have been helped along thanks to the fine work of
+ * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+ */
 /* import font style with external style css files */
 @import url("font-style.css");
 
@@ -108,7 +162,7 @@ background: linear-gradient(to bottom, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, 
 }
 
 .primary-nav .nav  li.dropdown{
-	padding: 0px 15px;
+	/*padding: 0px 15px;*/
 	border: 1px solid transparent;
 }
 
@@ -266,7 +320,7 @@ h1 {
 .get-Quote-form .section-heading {
     color: #fff;
 }
-.get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
+.get-Quote-form input, .get-Quote-form input[type="number"], #search_resource input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
 	font-size: 16px;
 	color: #a1a1a1;
 	box-shadow: none;	
@@ -275,6 +329,12 @@ h1 {
 	border-radius: 25px;
 	height: 50px;
 	border: none;
+}
+.get-Quote-form input[type="submit"] {			
+	border: 2px solid #fff;		
+}		
+.get-Quote-form input[type="submit"]:hover {			
+	border: 2px solid #01aef0;		
 }
 .border-left {
 	border-left: 1px solid #8D4996;
@@ -417,24 +477,8 @@ h1 {
     border: 2px solid #fff;
     padding: 12px 38px;
 }
-.btn-blue-bg, .utility-navigation .btn-blue-bg {
-	background-color: #01AEF0;
-	color: #fff;
-	border-radius: 25px;
-	border: 2px solid #fff;
-}
-.btn-blue-bg:hover, .btn-blue-bg:focus, #getStartedForm button:hover, .utility-navigation .btn-blue-bg:hover {
-	color: #01AEF0;
-	background-color: #fff;
-	color: #01AEF0;
-	border: 2px solid #01AEF0;
-}
-.utility-navigation .navbar-nav > li > a.btn-blue-bg, footer a.btn-blue-bg {
-	font-size: 12px;
-}
 
-/*wordpress change--
-
+/*wordpress change*/
 .btn-blue-bg, .utility-navigation .btn-blue-bg a {
 	background-color: #01AEF0;
 	color: #fff;
@@ -458,9 +502,6 @@ h1 {
 .utility-navigation .navbar-nav > li.btn-blue-bg > a, footer a.btn-blue-bg {
 	font-size: 12px;
 }
-
-*/
-
 /*buttons end*/
 
 i.glyphicon-play {
@@ -478,13 +519,12 @@ i.glyphicon-play {
 	font-family: 'Fort-Light';
 }
 
-
 .btn-purple-style:hover, .btn-purple-style:focus {
 	color: #843A87;
 	background-color: #fff;
 }
 .get-funded {
-	padding: 55px 0px;
+	padding: 55px 0px 65px;
 	color: #6E2577;
 }
 .get-funded .btn-blue-bg {
@@ -494,7 +534,7 @@ i.glyphicon-play {
 	font-size: 36px;
 }
 .get-funded h3 {
-	margin: 10px 0 36px;
+	margin: 10px 0 32px;
 	font-family: 'Fort-Light';
 }
 .icon-bar{
@@ -1528,14 +1568,8 @@ form.form-section h3.heading-parter-type {
 form.form-section h3.heading-beacome-partner {
 	margin-bottom: 7px;
 }
-.get-funded {
-	padding-bottom: 65px;
-}
 .get-funded .section-heading {
 	margin-bottom: 12px;
-}
-.get-funded h3 {
-	margin: 10px 0 32px;
 }
 .partnership-item .partnership-description { margin-bottom: 55px;}
 .lern-more-link {    
@@ -1674,8 +1708,7 @@ form.form-section h3.heading-beacome-partner {
 #we_bring_you_best .description {
 	line-height: 22px;
 }
-#partners, 
-#cta_block {
+#partners {
 	background: #eee;
 	padding-bottom: 134px;
 }
@@ -1734,7 +1767,7 @@ form.form-section h3.heading-beacome-partner {
 .bottom-border {
 	border-bottom: 2px solid #E9E9E9;
 }
-/* campaign page  */
+/* campaign page  end*/
 
 /* Small Business Funding Start Here */
 
