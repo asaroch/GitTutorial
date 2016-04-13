@@ -11,9 +11,9 @@ get_header();
             <div class="container">
                 <span class="down-arrow"></span>
                 <h2 class="section-heading"> Get Your Quote </h2>
-                
-                   <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
-               
+
+                <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
+
             </div>
         </div>
     </div>
@@ -47,7 +47,6 @@ get_header();
         <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
     </div>
 </section>
-
 <section id="ratting_others">
     <div class="container">
         <h2 class="section-heading">See what others are saying</h2>
@@ -101,7 +100,7 @@ get_header();
                     <p class="ratting-description"> Lorem ipsum dollar emet Lorem ipsum dollar emet </p>
                     <p class="ratting-user"> Barbara</p>
                 </div>
-                 <div class="item">
+                <div class="item">
                     <div class="user-ratting">  
                         <ul>
                             <li class="icon-sprite active"> <a href="javascript:void(0)"></a></li>
@@ -135,62 +134,8 @@ get_header();
         </div>
     </div>
 </section>
-<section id="home_resource_list" class="hidden-xs">
-   <?php echo get_template_part( 'resources_all'); ?> 
-</section>	
-	<section id="home_resource_list" class="visible-xs">
-			<div class="resource-list-bg gradient-three">
-				<div class="container">
-					<div>
-						<h3 class="section-heading">Insights & <br/> Inspiration</h3>
-					</div>
-					<div id="resource_slider" class="owl-carousel owl-theme">
-						<div class="item">
-							<div class="resource-content">
-								<p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-								<p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-								<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-								<p class="read-time">8 Min Read</p>
-								<div class="sponsored">
-									<p>Sponsored By Company</p>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="resource-content">
-								<p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-								<p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-								<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-								<p class="read-time">8 Min Read</p>
-							</div>
-						</div>
-						<div class="item">
-							<div class="resource-content">
-								<p class="read-date">Feb 10, 2016 in <b>Topic</b></p>
-								<p class="featured-title"><a href="javascript:void(0);">Protect Your Bottom Line by Joining the EMV Revolution</a></p>
-								<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
-								<p class="read-time">8 Min Read</p>
-								<div class="sponsored">
-									<p>Sponsored By Company</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="customNavigation">
-						<div class="text-center">
-							<a title="prev" class="btn slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
-							<span class="current-slider"> 1 </span>
-							<span class="slider-ratio">/</span> 
-							<span class="total-slider"> 16 </span>
-							<a title="next" class="btn slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
-						</div>
-					</div>	
-					<div class="text-center">
-						<a class="btn btn-blue-bg see-all-resources" href=""> SEE ALL RESOURCES </a>
-					</div>
-				</div>
-			</div>
-		</section>
+<?php echo get_template_part('resources_all'); ?> 
+
 <section  class="get-funded">
     <div class="container text-center">
         <h2 class="section-heading"> Get Funded </h2>
