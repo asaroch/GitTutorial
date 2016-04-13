@@ -5,19 +5,18 @@ $(function () {
     } else {
         financialProductSlider = false;
     }
-    if(var_object.testimonialSlider){
+    if (var_object.testimonialSlider) {
         testimonialSlider = true;
     }
-    else{
+    else {
         testimonialSlider = false;
     }
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function () {
-        if (clickActive || $(window).width() < 768) {
 
-            $(".get-Quote-form form").slideToggle("slow");
-        } else {
-            $(".get-Quote-form form").show();
+        if ($(window).width() < 768) {
+
+            $(this).parents("div#get_quote_home, div#form_box").toggleClass("activeGetQuote");
         }
     })
     $(".search-btn").click(function () {
@@ -53,8 +52,8 @@ $(function () {
         //autoplay: true,
         //autoplayTimeout: 8000,
         navigation: false,
-        mouseDrag : true,
-        touchDrag : true,
+        mouseDrag: true,
+        touchDrag: true,
         responsive: {
             0: {
                 items: 1,
@@ -129,8 +128,8 @@ $(function () {
         responsiveClass: true,
         pagination: true,
         navigation: true,
-        mouseDrag : false,
-        touchDrag : false,
+        mouseDrag: false,
+        touchDrag: false,
         responsive: {
             0: {
                 items: 1,
@@ -204,7 +203,7 @@ $(function () {
         margin: 10,
         responsiveClass: true,
         pagination: true,
-        navigation: true,        
+        navigation: true,
         autoplay: testimonialSlider,
         autoplayTimeout: 8000,
         responsive: {
@@ -243,6 +242,8 @@ $(function () {
     });
 
     resourceSlider.on('changed.owl.carousel', function (property) {
+        var item = property.item.index + 1;
+        $('.current-slider').html(item);
         var current = property.item.index;
         var shownItems = property.page.size
         // total number of slides
@@ -251,14 +252,14 @@ $(function () {
         var remain = total - (shownItems + current);
         activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
     });
-    
+
     //resource section on home next and prev. events 
-    $(".slide-next").click(function(){
-            resourceSlider.trigger("next.owl.carousel");
+    $(".slide-next").click(function () {
+        resourceSlider.trigger("next.owl.carousel");
     })
 
-    $(".slide-prev").click(function(){
-            resourceSlider.trigger("prev.owl.carousel");
+    $(".slide-prev").click(function () {
+        resourceSlider.trigger("prev.owl.carousel");
     })
 
 
@@ -285,8 +286,14 @@ $(function () {
     var navbar = $("#main_navigationbar"),
             main_navigation_height = 30;
     $window = $(window),
-            isSlider = 160,
-            isHomePage = $("#home_get_quote");
+            isSlider = 0;
+    if ($(window).width() > 768) {
+        isSlider = 85;
+    } else {
+        isSlider = 30;
+    }
+
+    isHomePage = $("#home_get_quote");
 
     $window.scroll(function () {
         //console.log($window.scrollTop() +' ---   '+isSlider+ '   ' +isHomePage.length )
@@ -310,15 +317,16 @@ $(function () {
         if (isHomePage) {
             var isGetQuoteFixed = $("#get_quote_home").hasClass("navbar-fixed-top");
             if ($window.scrollTop() >= isSlider && isGetQuoteFixed != true) {
-                $("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style').css({"position": "fixed", "top": "54px"});
+                $("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
                 //console.log("home 1");
             } else if ($window.scrollTop() < isSlider && isGetQuoteFixed == true) {
-                $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style').css({"position": "relative", "top": "0px"});
+                $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style');
                 //console.log("home 2");
             }
         }
 
     });
+
 
     //CANCAPITAL LOGO HOVER FUNCTIONALITY SHOW THE GET YOUR QUOTE OVERLAY 
     /* $("#form_box, .navbar-brand").hover(function () {
@@ -329,4 +337,4 @@ $(function () {
      
      });*/
 
-}); 
+});
