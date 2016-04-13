@@ -319,7 +319,7 @@ $(function(){
 	       			//console.log("home 2");
 	        	}
                     }
-                    
+                   
                     if(isExeptHomerPage){
                         var isGetQuoteFixed = $("#form_box").hasClass("navbar-fixed-top");
 	        	if ($window.scrollTop() >= isSlider   && isGetQuoteFixed != true ) {
