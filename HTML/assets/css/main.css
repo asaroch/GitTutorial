@@ -2044,3 +2044,4 @@ background-color: #ffffff;
     margin-left: 30px;
     margin-right: 30px;
 }
+.btn.focus, .btn:focus, .btn:hover, a:hover, a:active, a:focus {outline: 0;}
