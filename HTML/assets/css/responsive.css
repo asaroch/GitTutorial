@@ -253,6 +253,9 @@
 		#testimonial .container {
 			position: relative;
 		}
+                 .dropdown .glyphicon-menu-down {
+                    pointer-events: none;
+                }
 		/*/2-23*/
 }
 @media (max-width:767px) {
@@ -312,6 +315,12 @@
 		 margin-right: 5px;
 		 font-size: 18px;
 	}
+          .primary-nav ul.nav > li.dropdown {
+           padding:0;
+       }
+       .primary-nav .nav > li a, .primary-nav .nav > li a:focus {
+           border: none;
+       }
 	.primary-nav .nav .open {
 		box-shadow:none;
 	}
@@ -430,7 +439,7 @@
             top: 0px;
 	}
 	.inner-page-arrow {
-	    bottom: -29px; 
+	    bottom: -27px; 
 	}
 	.get-Quote-form, .get-Quote-form form, #form_box {
 		background: rgba(1,174,240,.9);		
@@ -502,6 +511,7 @@
 	}
 	.tranp-div {
 		height: 70px;
+                top:-1px;
 	}
 	.tranp-div-two {
 		top:70px;
@@ -561,7 +571,7 @@
 		font-size: 22px;
 	}
 	h1 {
-		margin-bottom: 12px;
+		margin-bottom: 10px;
 	}
 	.search-btn {
 		background-color: #e9e9e9; 
@@ -906,12 +916,7 @@
            margin-bottom: 0px;
            overflow-y: auto;
            overflow-x: hidden;
-        }
-        #get_quote_home.navbar-fixed-top{
-            position: fixed;
-            top: 58px;
-            bottom: none;
-        }
+        }        
 }
 @media (max-width:480px){
 	.water-mark-image {
