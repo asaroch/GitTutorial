@@ -1418,6 +1418,13 @@ footer .badges-container {
 }
 #home_resource_list .read-time {
 	bottom: 15px;
+        }
+#home_resource_list .read-time, #home_resource_list .read-date { font-size: 15px; }
+.read-time span, .read-date span{
+        font-family: "Fort-bold";
+	color: #01aef0;
+	font-size: 12px;
+        text-transform: uppercase;
 }
 /*---- How it works end ----*/
 
@@ -1648,7 +1655,7 @@ form.form-section h3.heading-beacome-partner {
 #partners, 
 #cta_block {
 	background: #eee;
-	padding-bottom: 110px;
+	padding-bottom: 134px;
 }
 #partners .section-heading, #cta_block .section-heading{
 	margin: 65px auto 70px ;
@@ -2005,14 +2012,12 @@ background-color: #ffffff;
     -moz-transform:rotate(180deg);
     -o-transform:rotate(180deg);
   }
-  .mob-main-menu.collapse.in {
-     /* height: 100vh;
-      overflow: scroll;
-      margin-top: 0px;
-      */
-  }  
  .nav-cover{
       height: 15vh;
       width:100%;
       background:rgba(0, 0, 0,.5);
   }
+ #slider_feature_product.owl-carousel .owl-stage-outer {
+    margin-left: 30px;
+    margin-right: 30px;
+}

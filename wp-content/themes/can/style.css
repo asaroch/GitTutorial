@@ -1,9 +1,9 @@
-	/*
-@import url("font-style.css");		Theme Name: CAN
+/*
+Theme Name: CAN
 Theme URI: https://wordpress.org/themes/twentysixteen/
 Author: Trantor Team
 Author URI: https://wordpress.org/
-Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout Ã¢â‚¬â€� the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
+Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout ï¿½? the horizontal masthead with an optional right sidebar that works perfectly for blogs and websites. It has custom color options with beautiful default color schemes, a harmonious fluid grid using a mobile-first approach, and impeccable polish in every detail. Twenty Sixteen will make your WordPress look beautiful everywhere.
 Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -110,14 +110,15 @@ header{
  background: linear-gradient(to right,  rgba(108,41,118,0.97) 0%,rgba(164,22,187,0.9) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f26c2976', endColorstr='#f2a416bb',GradientType=1 ); / IE6-9 */
 }
+.gradient-footer
+{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a24f9d+100 */
+background: #6c2976; /* Old browsers */
+background: -moz-linear-gradient(top, #6c2976 0%, #a24f9d 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #6c2976 0%,#a24f9d 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+/*  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=0 ); IE6-9 */
 
-.gradient-footer{
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+100,a24f9d+100 */
-	background: #6c2976; /* Old browsers */
-	background: -moz-linear-gradient(left,  #6c2976 100%, #a24f9d 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  #6c2976 100%,#a24f9d 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  #6c2976 100%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=1 ); /* IE6-9 */
 }
 .navbar-scroll-bg{
 	background: #fff;
@@ -233,7 +234,7 @@ ul.dropdown-menu li{
 	padding-bottom: 4px;
 }
 #main_navigationbar  .navbar-nav > li > a, 
-.top-heading strong,
+h1 strong,
 .section-heading,
 .get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,
 .financial-product-item h5,
@@ -282,7 +283,7 @@ sup {
     -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
 }
-.top-heading {
+h1 {
 	font-size: 36px;
 	color: #6a2875;
 	margin-top: 23px;
@@ -297,7 +298,7 @@ sup {
     position: absolute;
     left: 135px;
 	z-index: 8;
-	top:0px;
+	top:0px
 }
 .inner-page-arrow {
 	bottom: -60px;
@@ -465,12 +466,12 @@ sup {
 .inspiration-content .section-heading {
 	text-align: center;
 	color: #fff;
-	margin: 14px 0 20px;
+	margin: 20px;
 }
 
 .inspiration-content .see-all-resources{
 	background: none;
-	margin-top: 14px;
+	margin-top: 14px 0 20px;
 }
 
 /*buttons*/
@@ -505,7 +506,6 @@ sup {
 	font-size: 12px;
 }
 /*wordpress change*/
-
 /*buttons end*/
 
 i.glyphicon-play {
@@ -535,7 +535,7 @@ i.glyphicon-play {
 .get-funded .btn-blue-bg {
 	padding: 12px 41px;
 }
-#about_us p, .get-funded h1, .get-funded h3{
+#about_us p, .get-funded h2, .get-funded h3{
 	font-size: 36px;
 }
 .get-funded h3 {
@@ -659,7 +659,7 @@ i.glyphicon-play {
   border: none;
 }
 span.select-drop {
-	position: absolute;
+    position: absolute;
     right: 0px;
     width: 46px;
     height: 45px;
@@ -682,7 +682,7 @@ span.select-drop {
 	padding-top: 1px; 
 }
 #all_resources_block .featured-title {
-	margin: 6px 0 10px;
+	margin: 6px 0 1px;
 	line-height: 28px;
 	
 }
@@ -843,7 +843,7 @@ span.select-drop {
 	margin-top: 20px;
 	font-family: 'Fort-Medium';
 }
-.head-titles .top-heading {
+.head-titles h1 {
 	margin-top:0;
 }
 .loan-item {
@@ -891,7 +891,7 @@ span.select-drop {
 	font-size: 16px;
 	color: #6d6e71;
 	line-height: 30px;
-	background: url(images/termsloan/arrow_bullet.png) no-repeat;
+	background: url('images/termsloan/arrow_bullet.png') no-repeat;
 	padding-left: 35px;
 }
 .paymment-point{
@@ -908,7 +908,7 @@ span.select-drop {
 .termloan-use-point li {
 	position: relative;
     font-size: 26px;
-    background:url(images/termsloan/check_bullet.png) no-repeat;
+    background:url('images/termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
     margin: 0 0px 20px;
     padding: 0 20px 0 80px;
@@ -1338,15 +1338,14 @@ footer .badges-container {
 .feature-right-icon.active {
  background-position:-8px -61px;
 }
-
 /* home ratting other section */
 
-
-/*---- Batch 2 ----*/
+/*-----------------------------------batch 2 starts--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
 
 /*---- How it works ----*/
 .process-block {
-	padding: 90px 0 80px;
+	padding: 87px 0 75px;
 }
 .process-block .badges-container {
 	margin-bottom: 0;
@@ -1375,10 +1374,10 @@ footer .badges-container {
 }
 .process-block .financial-product-item .process-arrow span {
 	position: relative;
-      overflow: hidden;
-      display: block;
-      width:220px;
-      height: 17px;
+	overflow: hidden;
+	display: block;
+	width:220px;
+	height: 17px;
 }
 .process-block .financial-product-item .process-arrow span img{
 	position: absolute;
@@ -1387,22 +1386,39 @@ footer .badges-container {
 .process-block .financial-product-item,
 .process-block p {
 	font-size: 14px;
-	line-height: 22px;
-	font-family: "Fort-Light";
+	line-height: 24px;
+	font-family: "Fort-book";
 }
-
+#effortless_application {
+	padding: 75px 0 81px;
+	position: relative;
+}
+#effortless_application .section-heading {
+	margin-bottom: 57px;
+}
 #infografic_product {
-	padding: 80px 0;
+	padding: 85px 0 59px;
 }
-.info-product-item {		
-	margin-bottom: 20px;		
+#infografic_product .owl-theme .owl-controls .owl-dots .owl-dot {
+	display: inline-block;
+}
+#infografic_product .owl-theme .owl-controls .owl-dots {
+	text-align: center;
+}
+#infografic_product .owl-theme .owl-controls .owl-dots .owl-dot.active span {
+	    background-color: #6a2875;
+	    opacity: 1;
+}
+.info-product-item {
+	margin-bottom: 40px;
 }
 .info-product-item p {
 	color: #6d6e71;
-	font-size: 26px;
+	font-size: 24px;
 	text-align: center;
-	padding: 10px 100px;
-	margin-top:40px;
+	padding: 0px 100px;
+	margin: 51px 0 10px;
+	line-height: 57px;
 }
 .info-product-item p span {
 	font-size: 64px;
@@ -1422,12 +1438,38 @@ footer .badges-container {
 	right:0;
 	bottom: 0;
 }
+.process-block .category-icon {
+	height: auto;
+}
+.process-block .financial-product-item {
+	padding: 15px 20px 0;
+	margin-bottom: 0;
+}
+#termsloan_detail {
+	padding: 74px 0 81px;
+	background-color: #eee;
+}
+#termsloan_detail .section-heading {
+	margin-bottom: 40px;
+}
+#termsloan_detail .details-point li {
+	font-size: 14px;
+}
+.inspiration-content .section-heading {
+	margin-top: 52px;
+}
+#home_resource_list .featured-title {
+    margin: 8px 0 13px;
+}
+#home_resource_list .read-time {
+	bottom: 15px;
+}
 /*---- How it works end ----*/
 
 /*---- Partner lean gen ----*/
 #partner_lead_form {
 	text-align: left;
-	padding: 70px 0 60px;
+	padding: 70px 0 65px;
 }
 form.form-section label{
 	font-size: 16px;
@@ -1437,7 +1479,7 @@ form.form-section label{
 	width: 100%;
 }
 #partner_lead_form form.form-section .form-control {
-	margin-bottom: 50px;
+	margin-bottom: 45px;
 }
 form.form-section textarea {
 	border-radius: 20px;
@@ -1449,9 +1491,11 @@ form.form-section h3 {
 	color: #6b2875;
 	font-size: 22px;
 }
-form.form-section h3, #partner_lead_form .partner-type {
-	margin-bottom: 30px;
-
+form.form-section h3 {
+	margin-bottom: 29px;
+}
+#partner_lead_form .partner-type {
+	margin-bottom: 18px;
 }
 #partner_lead_form .partner-type .form-group{
 	margin-bottom: 5px;
@@ -1494,7 +1538,7 @@ form.form-section p a.know-more {
 .join-us {
 	text-align: center;
 	border-top: 1px solid #c8c8c8;
-	margin-top: 60px;
+	margin-top: 55px;
 }
 .join-us .btn {
 	width:119px;
@@ -1510,24 +1554,80 @@ form.form-section p a.know-more {
 	height: 27px;
 	background: url(images/partner/QuestionMarkIcon.png) no-repeat;
 }
+.margin-top {
+	margin: 12px 0 17px;
+}
+form.form-section h3.heading-parter-type {
+	margin-bottom: 24px;
+}
+form.form-section h3.heading-beacome-partner {
+	margin-bottom: 7px;
+}
+.get-funded {
+	padding-bottom: 65px;
+}
+.get-funded .section-heading {
+	margin-bottom: 12px;
+}
+.get-funded h3 {
+	margin: 10px 0 32px;
+}
 /*---- Partner lean gen end ----*/
+/* Partner Referral*/
+.sales-program {
+	padding: 26px 0 30px;
+}
+.sales-program .section-heading {
+	color: #fff;
+	margin-bottom: 42px;
+}
+.sales-program .category-icon {
+	height: auto;
+	width:auto;
+}	
+.sales-program .financial-product-item h5 {
+	margin: 32px 0 19px;
+	font-size: 22px;
+}
+.sales-program .financial-product-item p {
+	font-size: 14px;
+	padding: 0 32px;
+	line-height: 22px;
+}
+.sales-program a.btn {
+	margin-top: 34px;
+}
+.btn-purple-style {
+	font-family: "Fort-Medium";
+}
+/*.slider-nav-control {
+	bottom: -54px;
+}*/
+#referal_about_us {
+	padding: 50px 0 54px;
+}
+#referal_about_us p{
+	width: 572px;
+	margin: 0 auto 28px;
+	font-family: 'Fort-Light';
+	font-size: 36px;
+	color: #fff;
+}
 
-
-
-/* batch 2 partner */
+/* Partner Referral end*/
+/* partner */
 #partnership{
 	color: #fff;
 	text-align: center;
 	font-family: "Fort-Bold";
 }
-
 #partnership .section-heading {
 	color: #fff;
-	padding: 79px 12px 40px;
+	padding: 74px 12px 13px;
 }
 .partnership-label {
 	line-height: 30px;
-	margin-bottom: 26px;
+	margin-bottom: 15px;
 	font-family: "Fort-Bold";
 	font-size: 22px;
 }
@@ -1539,7 +1639,7 @@ form.form-section p a.know-more {
 }
 .partnership-item {
 	border: 1px solid rgba(255, 255, 255, .15);
-	padding: 28px 10px 40px;
+	padding: 23px 10px 40px;
 	margin: 0 12px 5px;
 	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.15);
 	height: 296px;
@@ -1564,7 +1664,7 @@ form.form-section p a.know-more {
 	text-align: center;
 }
 #we_bring_you_best .section-heading {
-	margin: 76px auto 62px;
+	margin: 70px auto 52px;
 }
 
 #we_bring_you_best .tranp-div-two {
@@ -1576,7 +1676,7 @@ form.form-section p a.know-more {
 	z-index: 9;
 }
  .bring-best-item{
-	margin: 0px 22px 124px;
+	margin: 0px 22px 120px;
 } 
  .bring-best-item .category-icon {
  	width: auto;
@@ -1585,7 +1685,7 @@ form.form-section p a.know-more {
 .heading-label {
 	font-family: "Fort-Bold"; 
 	color: #00aeef;
-	margin: 33px auto 20px;
+	margin: 30px auto 12px;
 }
 #we_bring_you_best .description {
 	line-height: 22px;
@@ -1593,27 +1693,30 @@ form.form-section p a.know-more {
 #partners, 
 #cta_block {
 	background: #eee;
-	padding-bottom: 110px;
+	padding-bottom: 134px;
 }
 #partners .section-heading, #cta_block .section-heading{
-	margin: 40px auto 30px;
+	margin: 65px auto 70px ;
 }
 .partners-list {
 	text-align: center;
 }
 .partners-list li {
-	margin: 20px auto;
+	margin: 50px auto 10px;
 }
 #email_us {
 	padding-bottom: 70px;
 }
+#email_us .btn{ 
+	padding: 14px 28px; 
+}
 #email_us .section-heading{
-	margin: 70px auto 48px;
+	margin: 65px auto 40px;
 }
 .call-us{
 	color: #6d6e71;
 	font-size: 18px;
-	margin: 28px auto 17px;
+	margin: 0px auto 10px;
 	font-family: "Fort-Bold";  
 }
 .call-number {
@@ -1623,14 +1726,14 @@ form.form-section p a.know-more {
 	font-family: "Fort-Bold"; 
 }
 .divider-line {
-	width: 100px;
+	width: 50px;
 	height: 1px;
-	background: #EEEEEE;
+	background: #c8c8c8;
 	margin: 30px auto;
 	display: block;
 }
 #cta_block .section-heading {
-	margin: 70px auto 40px;
+	margin: 65px auto 40px;
 }
 #cta_block {
 	background: #EEEEEE;
@@ -1646,38 +1749,38 @@ form.form-section p a.know-more {
 .bottom-border {
 	border-bottom: 2px solid #E9E9E9;
 }
-
 /* campaign page  */
-
 
 /* Small Business Funding Start Here */
 
 #sbf_hero #slider_testimonial{
-	padding: 65px 0;
+	padding: 26px 0 21px 0;
 }
-
-.content-list-item {
-	padding: 0 100px;
+#sbf_hero #slider_testimonial .user-icon { margin: 42px 0 0 0;}
+#sbf_hero .content-list-item {
+	padding: 42px 138px 0 0px;
 	text-align: center;
 }
 
-.content-list-item p{
+#sbf_hero .content-list-item p{
 	font-size: 14px;
 	font-family: "Fort-book";
 	color: #fff;
-	margin-bottom: 23px;
+	margin-bottom: 7px;
 }
-.heading-line{
+#sbf_hero .heading-line{
 	font-size: 40px;
 	font-family: "Fort-book";
 	color: #fff;
 	line-height: 52px;
-	margin-bottom: 34px;
+	margin-bottom: 26px;
 
 }
+#sbf_hero .owl-carousel .owl-item img { width: auto; max-width: 100%;}
+#sbf_hero .btn-purple-style { padding: 12px 38px;}
 .content-list-item .customer-info {
 	color: #fff;
-	margin-bottom: 32px;
+	margin-bottom: 28px;
 }
 
 .loan-nav {
@@ -1691,14 +1794,15 @@ form.form-section p a.know-more {
     z-index: 6;
 }
 .navigation-item {
-	margin: 10px auto;
 	display: block;
 	font-family: "Fort-book"; 
 	color: #e284e0; 
 	font-size: 26px;
-	 padding: 24px 0;
+	  margin: 17px auto 0;
+    padding: 10px 0;
 }
-.loan-nav .active {
+.loan-nav .active a {
+font-family: "Fort-bold"; 
 	color: #fff;
 	background: url(images/img-2.png) no-repeat;
 	background-position:center top;  
@@ -1708,10 +1812,10 @@ form.form-section p a.know-more {
 	border-right: 1px solid #e284e0;
 }
 /* Block Solution Built*/
-#solution_built { position: relative; padding: 96px 0 105px}
+#solution_built { position: relative; padding: 90px 0 109px}
 #solution_built .tranp-div-two { top: 0px;}
 #solution_built .container { position: relative; z-index: 1;}
-#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 52px;}
+#solution_built  .section-heading { text-transform: capitalize; margin-bottom: 43px;}
 .divtable {
  box-shadow: -1px 4px 0 #efefef;
 }
@@ -1727,7 +1831,7 @@ form.form-section p a.know-more {
   float: left;
   color:#fff;
   font-family: "Fort-bold";
-  height: 118px;
+  height: 110px;
   display: table;
   border-right: 1px solid #e570e7;
 }
@@ -1736,6 +1840,7 @@ form.form-section p a.know-more {
     display: table-cell;
     vertical-align: middle;
 }
+.divtable .th span img, .divtable .td span img { margin-bottom: 4px;}
 .divtable .th span small,
 .divtable .td span small { font-family: "Fort-book"; font-size: 14px;}
 
@@ -1755,8 +1860,8 @@ form.form-section p a.know-more {
 /* Making Payments*/
 #making-payments {
     color: #fff;
-    padding-bottom: 57px;
-    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-top: 57px;
 }
 #making-payments p {
     font-size: 36px;
@@ -1768,7 +1873,7 @@ form.form-section p a.know-more {
 }
 /* Right financing */
 #right-financing { background: none repeat scroll 0 0 #eeeeee;
-    padding: 85px 0 98px;
+    padding: 58px 0 98px;
 } 
 #right-financing .section-heading { text-transform: capitalize;}
 #right-financing .owl-dots {  
@@ -1781,9 +1886,20 @@ form.form-section p a.know-more {
 	}
 #right-financing .owl-theme .owl-controls .owl-dots, #right-financing .owl-theme .owl-controls .owl-dots .owl-dot { float: left; display: block}
 #right-financing .owl-theme .owl-controls .owl-dots .owl-dot.active span {   background: #6a2875; opacity: 0.9;}
+.graph1 {
+    height: 318px;
+    margin: 0 auto;
+    width: 759px;
+}
+.graph2 {
+    height: 318px;
+    margin: 0 auto;
+    width: 759px;
+}
 /* Funding Option */
-#funding-option {   
-    padding: 96px 0 105px;
+#funding-option {
+background-color: #ffffff; 
+    padding: 80px 0 100px;
     position: relative;
 }
 #funding-option .section-heading {
@@ -1793,45 +1909,44 @@ form.form-section p a.know-more {
 #funding-option .divtable .seprate-block .term-laon span, #funding-option .divtable .seprate-block .trak-laon span, #funding-option .divtable .seprate-block .installment-loan span { vertical-align: middle; text-align: center; padding: 0px;}
 #funding-option .divtable .seprate-block .term-laon , #funding-option .divtable .seprate-block .trak-laon, #funding-option .divtable .seprate-block .installment-loan { min-width: 142px; text-align: center; padding-top: 16px;}
 /* Small Business Funding End Here*/
+/* Compaign-BY Yogi */
+.sub-logo { margin: 8px 0 0 20px; padding:0 0 0 15px;  display: inline-block; height: 40px; border-left: 1px solid #ccc;}
+	#compaign-header { padding-top: 7px;}
+	#compaign-header h1 { margin-bottom: 34px; }
+	#compaign-header .btn-blue-bg {
+    background-color: #01aef0;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    color: #fff;
+	padding: 6px 12px;
+}
+   #compaign-header a.btn-blue-bg {
+    font-size: 12px;
+}
+  #compaign-header  .primary-nav .nav > li a { padding: 6px 16px; font-family:"Fort-Book" }
+ #compaign-funding-block  #financial_product #home_get_quote { height: 161px;}
+  #compaign-funding-block  #funding-option .financial-product-item { padding: 15px 20px 1px;}
+  #compaign-funding-block  #funding-option .badges-container { padding: 0 20px;}
+  #compaign-funding-block #funding-option { padding: 78px 0 95px; background:rgba(255,255,255, 0.6);}
+  #compaign-funding-block #funding-option .section-heading { margin-bottom: 54px; }
+  #success_community .section-heading { margin-bottom: 52px; }
+  #success_community .marchent-name {  margin-top: 18px; }
+/* Compaign-boarding-ALT By Yogi */
+  #compaign_boarding_alt  .financial-product-item { padding-top: 7px; position: relative}
+  #compaign_boarding_alt  .category-icon { height: auto;}
+  #compaign_boarding_alt .financial-product-item h5 { margin-top: 13px; font-size: 26px;}
+  #compaign_boarding_alt .financial-product-item p { margin-top: 17px;}
+  #compaign_boarding_alt .loan-item { margin-top: 16px;}
+  #compaign_boarding_alt .badges-container { margin-top: 25px;}
+  #compaign_boarding_alt .bottom-margin-80 { margin-bottom: 45px;}
+  #compaign_boarding_alt .btn-purple-style { position: relative;}
+  .we_bring_you-border-bottom { border-bottom: 5px solid #eeeeee;}
+  .we_bring_you-border-bottom  .bring-best-item { margin-bottom: 80px;}
+  .entrepreneur { display: none}
 
-/*---- Batch 2 ----*/
+/*-----------------------------------batch 2 end--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
 
-/*batch 1 insights section carousal for mobile only*/
-#home_resource_list .customNavigation{
- font-size: 15px;
- margin: 25px auto 40px;
- font-family: "Fort-Book";
-}
-#home_resource_list .section-heading {
- color: #fff;
-}
-
-#home_resource_list .owl-controls{
- display: none;
-}
-#home_resource_list .customNavigation .slide-prev, 
-#home_resource_list .customNavigation .slide-next, 
-#home_resource_list .customNavigation span {
- font-size: 26px;
- color: #6a2875;
-}
-
-#home_resource_list .customNavigation span {
- color: #fff;
-}
-
-#home_resource_list .customNavigation .slide-prev.active, 
-#home_resource_list .customNavigation .slide-next.active {
- color: #01AEF0;
-}
-
-#home_resource_list .see-all-resources{
- background-color: transparent;
-}
-#home_resource_list .see-all-resources:hover{
- color: #fff;
- border-color: #fff;
-}
 /*batch 1 insights section carousal for mobile only*/
 #home_resource_list .customNavigation, #testimonial .customNavigation{
  font-size: 15px;
@@ -1848,34 +1963,55 @@ form.form-section p a.know-more {
 
 #home_resource_list .customNavigation .slide-prev, 
 #home_resource_list .customNavigation .slide-next, 
-#home_resource_list .customNavigation span, #testimonial .customNavigation .prev, #testimonial .customNavigation .next,  #testimonial .customNavigation span {
+#home_resource_list .customNavigation span, 
+#testimonial .customNavigation span, 
+#testimonial .customNavigation .prev, 
+#testimonial .customNavigation .next {
  font-size: 26px;
- @import "css/responsive.css";
  color: #6a2875;
- cursor: pointer;
 }
-
 #testimonial .customNavigation .prev i, #testimonial .customNavigation .next i {
-    position: relative;
-    top: 4px;
+	position: relative;
+	top:4px;
 }
-
-
+#testimonial .customNavigation .prev, #testimonial .customNavigation .next {
+	color: #c8c8c8;
+}
 #home_resource_list .customNavigation span {
  color: #fff;
 }
-
 #testimonial .customNavigation span {
- color:#6f6f71;
-}
-#testimonial .customNavigation .prev, #testimonial .customNavigation .next {
-    color:#C8C8C8;
+	color: #6f6f71;
 }
 
 #home_resource_list .customNavigation .slide-prev.active, 
-#home_resource_list .customNavigation .slide-next.active, #testimonial .customNavigation .next.active, #testimonial .customNavigation .prev.active  {
+#home_resource_list .customNavigation .slide-next.active, 
+#testimonial .customNavigation .next.active, 
+#testimonial .customNavigation .prev.active  {
  color: #01AEF0;
-
+}
+/*Cursor active inactive state*/
+#home_resource_list .customNavigation .slide-prev, 
+#home_resource_list .customNavigation .slide-next, 
+#home_resource_list .customNavigation span, 
+#testimonial .customNavigation span, 
+#testimonial .customNavigation .prev, 
+#testimonial .customNavigation .next, 
+.ratting-left-icon,
+.ratting-right-icon,
+.feature-left-icon,
+.feature-right-icon {
+    cursor: default;
+}
+.feature-right-icon.active,
+.feature-left-icon.active, 
+.ratting-right-icon.active,
+.ratting-left-icon.active, 
+#home_resource_list .customNavigation .slide-prev.active, 
+#home_resource_list .customNavigation .slide-next.active, 
+#testimonial .customNavigation .next.active, 
+#testimonial .customNavigation .prev.active {
+ cursor: pointer;   
 }
 
 #home_resource_list .see-all-resources{
@@ -1887,9 +2023,39 @@ form.form-section p a.know-more {
 }
 /*batch 1 insights section carousal for mobile only end*/
 
-/* get quote submit button */
-.wpcf7-submit.btn.btn-blue-bg action-btn.submitButton {
-    background:url();
+/* navigation dropdown  */
+.dropdown .glyphicon-menu-down {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    width: 30px;
+    text-align: center;
+    line-height: 19px;
+    cursor: pointer;
+    z-index: 99;
 }
 
-/* get quote submit button */
+.primary-nav .nav li.dropdown > a {
+	margin-right: 13px;
+}
+/* navigation dropdown  */
+  #slider_feature_product .owl-prev {
+       left: -14px;
+  }
+  #slider_feature_product .owl-next {
+       right: -14px;
+  }
+  .dropdown.open .glyphicon-menu-down{
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+  } 
+ .nav-cover{
+      height: 15vh;
+      width:100%;
+      background:rgba(0, 0, 0,.5);
+  }
+  #slider_feature_product.owl-carousel .owl-stage-outer {
+    margin-left: 30px;
+    margin-right: 30px;
+}
