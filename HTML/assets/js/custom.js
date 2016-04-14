@@ -258,7 +258,7 @@ $(function(){
 			});
 
 			resourceSlider.on('changed.owl.carousel',function(property){
-				var totalSlides = $("#resource_slider .owl-item ").length;
+                            var totalSlides = $("#resource_slider .owl-item ").length;
 			    var current = property.item.index;
 			    activeSliders($(".slide-prev"), $(".slide-next"), current, totalSlides);
 

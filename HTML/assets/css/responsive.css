@@ -15,9 +15,6 @@
     #user_rettings_slider .owl-next {
         right: -35px;
     }
-    .primary-nav .nav .dropdown-menu {
-        width: 235px;
-    }
     #process_block p {
         font-size: 14px;
         padding: 0 33px; 
@@ -240,6 +237,10 @@
     }
     .dropdown .glyphicon-menu-down {
         pointer-events: none;
+    }
+    .primary-nav .nav .dropdown-menu {
+        width: auto;
+        min-width: 235px;
     }
 }
 @media (max-width:767px) {	

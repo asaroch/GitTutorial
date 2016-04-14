@@ -324,10 +324,12 @@ h1 {
 	border: none;
 }
 .get-Quote-form input[type="submit"] {			
-	border: 2px solid #fff;		
+	border: 2px solid #fff;
+        color: #fff;
 }		
 .get-Quote-form input[type="submit"]:hover {			
-	border: 2px solid #01aef0;		
+	border: 2px solid #01aef0;
+        color: #01aef0;
 }
 .border-left {
 	border-left: 1px solid #8D4996;
