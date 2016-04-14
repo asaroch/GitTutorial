@@ -458,34 +458,42 @@ h1 {
 }
 /*buttons*/
 .btn-purple-style {
-	color: #fff;
+    color: #fff;
     border-radius: 25px;
     border: 2px solid #fff;
     padding: 12px 38px;
 }
 /*wordpress change*/
+.btn-blue-bg, 
+.utility-navigation .btn-blue-bg a, 
+.utility-navigation .btn-blue-bg {
+    color: #fff;
+}
 .btn-blue-bg, .utility-navigation .btn-blue-bg a {
-	background-color: #01AEF0;
-	color: #fff;
+	background-color: #01AEF0;	
 	border-radius: 25px;
 	border: 2px solid #fff;
 }
+.utility-navigation .btn-blue-bg, 
+.utility-navigation .btn-blue-bg:hover {
+     border: none;
+}
 .utility-navigation .btn-blue-bg {
-    background: none;
-    color: #fff;
-    border: none;
+    background: none;   
     padding:0;
 }
-.utility-navigation .btn-blue-bg:hover {
-    border: none;
-}
-.btn-blue-bg:hover, .btn-blue-bg:focus, #getStartedForm button:hover, .utility-navigation .btn-blue-bg a:hover {
+.btn-blue-bg:hover, 
+.btn-blue-bg:focus, 
+#getStartedForm button:hover, 
+.utility-navigation .btn-blue-bg a:hover, 
+.utility-navigation .btn-blue-bg a:focus {
 	color: #01AEF0;
 	background-color: #fff;
 	color: #01AEF0;
 	border: 2px solid #01AEF0;
 }
-.utility-navigation .navbar-nav > li.btn-blue-bg > a, footer a.btn-blue-bg {
+.utility-navigation .navbar-nav > li.btn-blue-bg > a,
+footer a.btn-blue-bg {
 	font-size: 12px;
 }
 /*buttons end*/
