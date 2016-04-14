@@ -197,15 +197,16 @@ $(function () {
         activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain);
 
     });
-
-    $("#success_community .owl-carousel").owlCarousel({
-        loop: true,
+    
+    var successCommunity = $("#success_community .owl-carousel");
+        successCommunity.owlCarousel({
+        loop: false,
         margin: 10,
         responsiveClass: true,
         pagination: true,
         navigation: true,
-        autoplay: testimonialSlider,
-        autoplayTimeout: 8000,
+        autoplay: false,
+       // autoplayTimeout: 8000,
         responsive: {
             0: {
                 items: 1,
@@ -216,10 +217,27 @@ $(function () {
             768: {
                 items: 2,
                 nav: testimonialSlider,
-                navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
+                navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
                 dots: false
             }
+        },
+        onInitialize: function () {
+
         }
+
+
+    });
+    
+    successCommunity.on('changed.owl.carousel', function (property) {
+        var current = property.item.index;
+        var shownItems = property.page.size
+        // total number of slides
+        var total = property.relatedTarget.items().length - 1
+        // how many slides to go?
+        var remain = total - (shownItems + current);
+
+        activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+
 
     });
 
