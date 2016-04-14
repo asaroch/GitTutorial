@@ -2138,4 +2138,19 @@ input[type=number] {
 
 #home_resource_list .see-all-resources:hover { 
     background-color: #fff;
-    color: #843a87;}
+    color: #843a87;
+}
+/*To make image and video verticaly align*/
+.featured-story-image, .resource-image {
+    position: relative;
+    display: table;
+}
+.featured-story-image img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.featured-story-image .featured-video-plus {
+    display: table-cell;
+    vertical-align: middle;
+}
