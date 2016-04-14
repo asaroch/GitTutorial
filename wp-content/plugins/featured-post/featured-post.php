@@ -71,12 +71,14 @@ class Featured_Post
         $this->post_types['page'] = 'page';
         ksort($this->post_types);
         foreach ($this->post_types as $key => $val) {
-            add_filter('manage_edit-' . $key . '_columns', array(&$this,
+            if ( $val == 'resource') {
+                add_filter('manage_edit-' . $key . '_columns', array(&$this,
                 'manage_posts_columns'
-            ));
-            add_action('manage_' . $key . '_posts_custom_column', array(&$this,
-                'manage_posts_custom_column'
-            ) , 10, 2);
+                ));
+                add_action('manage_' . $key . '_posts_custom_column', array(&$this,
+                    'manage_posts_custom_column'
+                ) , 10, 2);
+            }
         }
     }
     function add_views_link($views) {

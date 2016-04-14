@@ -876,30 +876,44 @@ add_filter('wp_nav_menu', 'change_submenu_class');
 
 // Add custom image size
 add_image_size('trending-resources', 70, 100);
+add_image_size('partners-expertise', 95, 95);
+add_image_size('selected-partners', 280, 85);
 
-// Add custom column to resource post type
-add_filter('manage_resource_posts_columns', 'set_custom_edit_resource_columns');
-add_action('manage_resource_posts_custom_column', 'custom_resource_column', 10, 2);
+ add_action('admin_init', 'admin_init' );
+ 
+function admin_init() {
+    $post_types = get_post_types(array(
+        '_builtin' => false,
+            ), 'names', 'or');
+  
+    $post_types['post'] = 'post';
+    $post_types['page'] = 'page';
+    ksort($post_types);
+  
+    foreach ($post_types as $key => $val) {
+        add_filter('manage_edit-' . $key . '_columns'        , 'manage_posts_columns');
+        add_action('manage_' . $key . '_posts_custom_column' , 'manage_posts_custom_column', 10, 2);
+      
+    }
+    return $screen;
+}
 
-function set_custom_edit_resource_columns($columns) {
+function manage_posts_columns($columns) {
     $columns['menu_order'] = __('Order', 'menu_order');
     return $columns;
 }
 
-/* * ****************************************************
-  Description : Callback function of hook to add custom column to resource post type
-  Params      : $column , $$post_id
- * *************************************************** */
+function manage_posts_custom_column($column_name, $post) {
 
-function custom_resource_column($column, $post_id) {
     global $post;
-    switch ($column) {
+    switch ($column_name) {
         case 'menu_order' :
-            $order = $post->menu_order;
-            echo $order;
-            break;
+        $order = $post->menu_order;
+        echo $order;
+        break;
     }
 }
+
 
 function excerpt_count_js() {
 
@@ -1250,7 +1264,7 @@ function partner_add_pages() {
    //and the number(5) is the user level that gets access
     //add_menu_page("Partners", "Partners", "manage_options", "partners", "partners_callback_function", null, 99);
     add_menu_page ( 'Partners', 'Partners', 5, 'partners','partners_callback_function','', 5 );
-   add_submenu_page ( 'partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner_type');
+   add_submenu_page ( 'partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner-type');
    add_submenu_page ( 'partners', 'Selected Partners', 'Selected Partners', 5, 'edit.php?post_type=selected_partner');
    add_submenu_page ( 'partners', 'Partner Benefits', 'Partner Benefits', 5, 'edit.php?post_type=partner_benefit');
 }
@@ -1288,17 +1302,48 @@ function selected_partners() {
     <?php
 }
 
+function call_to_action_heading() {
+    ?>
+    <input type="text" name="call_to_action_heading" id="call_to_action_heading" value="<?php echo get_option('call_to_action_heading'); ?>" />
+    <?php
+}
+
+function call_no() {
+    ?>
+    <input type="text" name="call_no" id="call_no" value="<?php echo get_option('call_no'); ?>" />
+    <?php
+}
+
+function call_to_action_email() {
+    ?>
+    <input type="text" name="call_to_action_email" id="call_to_action_email" value="<?php echo get_option('call_to_action_email'); ?>" />
+    <?php
+}
+
+function industry_recognition() {
+    ?>
+    <input type="text" name="industry_recognition" id="industry_recognition" value="<?php echo get_option('industry_recognition'); ?>" />
+    <?php
+}
+
 function display_partner_panel_fields() {
     add_settings_section("partners-section", "Settings:", null, "partners");
-
-   
+    
     add_settings_field("Partner Types Heading", "Partner Types Heading", "partner_types_heading", "partners", "partners-section");
-	 add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section");
-	 add_settings_field("Selected Partners", "Selected Partners", "selected_partners", "partners", "partners-section");
+    add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section"); 
+    add_settings_field("Selected Partners", "Selected Partners", "selected_partners", "partners", "partners-section");
+    add_settings_field("Call to action heading", "Call to action heading", "call_to_action_heading", "partners", "partners-section");
+    add_settings_field("Call No", "Call No", "call_no", "partners", "partners-section");
+    add_settings_field("Email", "Email", "call_to_action_email", "partners", "partners-section");
+    add_settings_field("Industry Recognition", "Industry Recognition", "industry_recognition", "partners", "partners-section");
     
     register_setting("partners-section", "partner_types_heading");
     register_setting("partners-section", "partner_benefits");
     register_setting("partners-section", "selected_partners");
+    register_setting("partners-section", "call_to_action_heading");
+    register_setting("partners-section", "call_no");
+    register_setting("partners-section", "call_to_action_email");
+    register_setting("partners-section", "industry_recognition");
 }
 
 add_action("admin_init", "display_partner_panel_fields");
