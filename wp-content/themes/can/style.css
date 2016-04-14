@@ -2165,16 +2165,16 @@ input[type=number] {
     color: #843a87;
 }
 /*To make image and video verticaly align*/
-.featured-story-image, .resource-image {
+.featured-story-image, .resource-image, .resource-image {
     position: relative;
     display: table;
 }
-.featured-story-image img {
+.featured-story-image img, .resource-image img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
-.featured-story-image .featured-video-plus {
+.featured-story-image .featured-video-plus, .featured-video-plus .fvp-center {
     display: table-cell;
     vertical-align: middle;
 }
