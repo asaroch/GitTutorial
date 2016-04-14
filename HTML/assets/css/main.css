@@ -410,8 +410,10 @@ h1 {
 }
 #user_rettings_slider .owl-prev, 
 #user_rettings_slider .owl-next,  
-#slider_feature_product .owl-prev, 
-#slider_feature_product .owl-next,
+#slider_feature_product .owl-prev,
+#slider_campaign_product .owl-prev, 
+#slider_feature_product .owl-next, 
+#slider_campaign_product .owl-next,
 #infografic_carousel .owl-prev, 
 #infografic_carousel .owl-next {
 	top:52%;
@@ -2125,10 +2127,10 @@ background-color: #ffffff;
 	margin-right: 13px;
 }
 /* navigation dropdown  */
-#slider_feature_product .owl-prev {
+#slider_feature_product .owl-prev, #slider_campaign_product .owl-prev {
    left: -14px;
 }
-#slider_feature_product .owl-next {
+#slider_feature_product .owl-next, #slider_campaign_product .owl-prev {
    right: -14px;
 }
 .dropdown.open .glyphicon-menu-down{
