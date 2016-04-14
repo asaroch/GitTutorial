@@ -246,6 +246,8 @@ if (isset($search) && $search != NULL) {
     ));
 }
 $resources = query_posts($args);
+
+
 ?>
 <div id="all_resources_block">
     <div class="container">
@@ -294,11 +296,14 @@ if (!empty($resources)) {
 
         // Reading time
         $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+        
+        //Fetch value from admin whether a video is selected or not.
+        $featured_image_video = get_post_meta( $resource->ID, 'wpcf-featured_image_video' , true );
         ?>
                         <div class="row">
                             <div class="col-sm-12 resource-list">
                         <?php
-                        if (has_post_thumbnail($resource->ID)) {
+                        if ((has_post_video($resource->ID) && $featured_image_video == 'video') || (has_post_thumbnail($resource->ID) && $featured_image_video == 'image')) {
                             ?>
                                     <div class="resource-image">
 
