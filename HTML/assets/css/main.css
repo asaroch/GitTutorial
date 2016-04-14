@@ -489,7 +489,6 @@ h1 {
 .utility-navigation .btn-blue-bg a:focus {
 	color: #01AEF0;
 	background-color: #fff;
-	color: #01AEF0;
 	border: 2px solid #01AEF0;
 }
 .utility-navigation .navbar-nav > li.btn-blue-bg > a,
