@@ -6,13 +6,13 @@ get_header();
 ?>
 <section id="partner_lead_form"><!-- partner form -->
     <div class="container">
-        <form action="#" method="post" class="form-section">
+        <form novalidate="novalidate" class="form-section wpcf7-form invalid" method="post" action="">
             <div class="row">
                 <div class="col-xs-12">
                     <h3>Partner Info</h3>
                 </div>
             </div>
-            <?php echo do_shortcode('[contact-form-7 id="343" title="Partner Lead Gen"]');?>
+            <?php echo do_shortcode('[contact-form-7 id="343" title="Partner Lead Gen"]'); ?>
         </form>
     </div>
 </section><!-- partner form -->
