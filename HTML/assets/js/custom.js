@@ -331,9 +331,18 @@ $(function(){
                     
 		});
                 
-                
-                
-
+          /* Small business funding slider */      
+            var sbfSlider = $("#slider_testimonial");
+            $("#installment_btn").click(function(){
+                sbfSlider.trigger('to.owl.carousel', [2, 500, true])
+            })
+            $("#trak_loan_btn").click(function(){
+                sbfSlider.trigger('to.owl.carousel', [1, 500, true])
+            })
+            $("#term_loan_btn").click(function(){
+                sbfSlider.trigger('to.owl.carousel', [0, 500, true])
+            })
+               /* Small business funding slider */      
 		
 
 })
