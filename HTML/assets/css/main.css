@@ -2140,6 +2140,10 @@ input[type=number] {
     background-color: #fff;
     color: #843a87;
 }
+.get-Quote-form input[type="submit"]:hover,.get-Quote-form input[type="submit"]:focus {
+    border: 2px solid #01aef0;
+    color: #01aef0;
+}
 /*To make image and video verticaly align*/
 .featured-story-image, .resource-image {
     position: relative;
