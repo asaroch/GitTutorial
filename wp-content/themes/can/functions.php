@@ -323,7 +323,7 @@ function can_scripts() {
 
     $search = $financialProductSlider = $testimonialSlider = FALSE;
     $count_financial_product = wp_count_posts('financial_product');
-    $count_video_testimonial = wp_count_posts('video-tutorial');
+    $count_video_testimonial = wp_count_posts('video-testimonial');
 
     if ($count_financial_product->publish > 3) {
         $financialProductSlider = TRUE;
