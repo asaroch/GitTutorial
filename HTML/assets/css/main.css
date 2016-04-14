@@ -640,6 +640,7 @@ i.glyphicon-play {
   background-color: #fff;
   border-radius: 25px;
   border: none;
+  cursor: pointer;
 }
 span.select-drop {
     position: absolute;
@@ -1672,7 +1673,7 @@ form.form-section h3.heading-beacome-partner {
 	font-family: "Fort-Bold";  
 }
 .call-number {
-	color: #6b2976;
+	color: #6a2875;
 	font-size: 26px;
 	margin-bottom: 30px;
 	font-family: "Fort-Bold"; 
