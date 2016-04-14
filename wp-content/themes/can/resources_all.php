@@ -1,18 +1,18 @@
 <?php
 // Fetured resources
 $args = array(
-    'post_type' => 'resource',
-    'post_status' => 'publish',
+    'post_type'      => 'resource',
+    'post_status'    => 'publish',
     'posts_per_page' => -1,
-    'meta_query' => array(array(
-            'key' => '_is_featured',
-            'value' => 'yes'
+    'meta_query'     => array(array(
+            'key'    => '_is_featured',
+            'value'  => 'yes'
         )),
-    'orderby' => 'menu_order',
-    'order' => 'ASC'
+    'orderby'        => 'menu_order',
+    'order'          => 'ASC'
 );
-$featured_resources = query_posts($args);
-$mobile_featured_resources = array();
+$featured_resources        = query_posts($args);
+$mobile_featured_resources = array(); 
 ?>
 <section id="home_resource_list" class="hidden-xs">
     <div class="resource-list-bg gradient-three ">
@@ -28,7 +28,7 @@ $mobile_featured_resources = array();
                 $top_featured_resource = $featured_resources[0];
                 // Fetch topic of a resource
                 $resource_topics = wp_get_post_terms($top_featured_resource->ID, 'business-type', array("fields" => "names"));
-                if (!empty($resource_topics)) {
+                if ( !empty($resource_topics) ) {
                     $topics = 'in ' . implode(", ", $resource_topics);
                 } else {
                     $topics = '';
@@ -44,7 +44,7 @@ $mobile_featured_resources = array();
                     <div class="row">
                         <div class="col-sm-5 col-5-overide">
                             <?php
-                            if (has_post_thumbnail($top_featured_resource->ID)) {
+                            if ( has_post_thumbnail($top_featured_resource->ID) ) {
                                 ?>
                                 <div class="featured-story-image">
                                     <?php echo get_the_post_thumbnail($top_featured_resource->ID, 'large'); ?> 
@@ -83,7 +83,7 @@ $mobile_featured_resources = array();
         <div class="container">
             <div class="row">
                 <?php
-                array_shift($featured_resources);
+               array_shift($featured_resources);
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
@@ -171,13 +171,14 @@ $mobile_featured_resources = array();
             </div>
             <div id="resource_slider" class="owl-carousel owl-theme">
                 <?php
-                array_unshift($featured_resources, $top_featured_resource);
-
+               array_unshift($featured_resources, $top_featured_resource);
+             
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
+                        
                     } else {
                         $topics = '';
                     }
@@ -217,11 +218,11 @@ $mobile_featured_resources = array();
             </div>
             <div class="customNavigation">
                 <div class="text-center">
-                    <a title="prev" class="btn slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
+                    <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
                     <span class="current-slider"> 1 </span>
                     <span class="slider-ratio">/</span> 
                     <span class="total-slider"> <?php echo count($featured_resources); ?> </span>
-                    <a title="next" class="btn slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+                    <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
                 </div>
             </div>	
             <div class="text-center">

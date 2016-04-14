@@ -15,9 +15,6 @@
     #user_rettings_slider .owl-next {
         right: -35px;
     }
-    .primary-nav .nav .dropdown-menu {
-        width: 235px;
-    }
     #process_block p {
         font-size: 14px;
         padding: 0 33px; 
@@ -70,7 +67,9 @@
     .option-text {
         padding: 0;
     }
-    .get-e-book input[type="text"] {width: 100%;}
+    .get-e-book input[type="text"] {
+        width: 100%;
+    }
     footer .badges-container {
         padding: 25px 0 0;
     }
@@ -99,6 +98,10 @@
     }
     .loan-item {
         font-size: 20px;
+    }
+    /*batch 2*/
+    #sbf_hero .content-list-item {
+        padding: 15px 15px 0;
     }
 }
 @media (max-width: 991px) and (min-width: 768px) {
@@ -180,7 +183,7 @@
     .process-block .financial-product-item .process-arrow span {
         width: 130px;
     }
-    /*how it work process arrow*/
+/*how it work process arrow*/
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -201,7 +204,6 @@
         top: 102px;
         left: 16px;
     }
-
     .footer-navigation {
         padding-left:10px;
     }
@@ -219,7 +221,6 @@
     .get-Quote-form .container {
         position: relative;
     }
-    /*2-23*/
     .get-Quote-form .container .down-arrow {
         left: 44px;
         top: -11px;
@@ -237,6 +238,10 @@
     .dropdown .glyphicon-menu-down {
         pointer-events: none;
     }
+    .primary-nav .nav .dropdown-menu {
+        width: auto;
+        min-width: 235px;
+    }
 }
 @media (max-width:767px) {	
     #user_rettings_slider .owl-prev {
@@ -245,7 +250,6 @@
     #user_rettings_slider .owl-next {
         right: -29px;
     }
-    /* INDEX PAgE   */
     .primary-nav .nav .dropdown-menu,
     .primary-nav .nav .open {
         box-shadow: none;
@@ -253,11 +257,9 @@
     .primary-nav .nav .dropdown-menu li a {
         border-bottom: 0;
     }
-
     .primary-nav li:hover .dropdown-menu {
         display: none;
     }
-
     .primary-nav li.open:hover .dropdown-menu {
         display: block;
     }
@@ -271,13 +273,11 @@
     .nav .open>a:hover {
         color: #fff;
         background-color: transparent;
-
     }
     .primary-nav ul.nav > li, 
     .primary-nav .nav li.dropdown {
         padding: 0px;
     }
-
     .primary-nav .nav li.dropdown{
         border:none;
         border-bottom: 1px solid #37BEF6;
@@ -306,7 +306,6 @@
     .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
         border: none;
     }
-
     .navbar a, .primary-nav .nav .dropdown-menu li a {
         color: #fff;
     }
@@ -333,15 +332,6 @@
         border-bottom: 1px solid #fff;
         padding-bottom: 3px;
     }
-    /*.navbar-nav > li > a.apply-btn {
-            width: 200px;
-            margin:10px auto;
-            border: 2px solid #fff;
-    }
-    .navbar-nav > li.apply-btn {
-            border: 2px solid #fff;
-    }*/
-
     /*wordpress changes*/
     .navbar-nav > li.apply-btn > a {
         width: 200px;
@@ -351,15 +341,19 @@
     }
     .navbar-nav > li.apply-btn {
         border: none;
+        box-shadow: none;
     }
-    .navbar-nav > li.apply-btn:hover {
+    .navbar-nav > li.apply-btn:hover, .navbar-nav > li.apply-btn:focus {
         border: none;
         background-color:transparent;
     }
-    /*wordpress cahnge end*/
+    .navbar-nav > li.apply-btn a:focus {
+        border: 2px solid #fff;
+    }
     #resource_list_container .featured-story-image {
         clear: both;
-    }
+    }    
+    /*wordpress cahnge end*/
     .navbar-nav > li > a  {
         padding-left: 5px;
     }
@@ -383,16 +377,13 @@
         right: 15px;
         z-index: 11;
     }
-
     .responsive-bg{
         background: #01AEF0;
         height: 85vh;
-        overflow: scroll;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden; 
         padding: 0 20px;
-    } 
-
+    }
     .mob-style {
         margin-top: 20px;
     }
@@ -499,6 +490,7 @@
     }
     .tranp-div-two {
         top:70px;
+        z-index: 0;
     }
     #about_us p, .get-funded h2, .get-funded h3 {
         font-size: 24px;
@@ -686,7 +678,6 @@
         font-size: 16px;
         margin-bottom: 5px;
     }
-
     .badges-container li {
         margin: 0px 5px 10px;
     }
@@ -697,9 +688,8 @@
         border-top: 18px solid rgb(225,212,228);
     }
 
-    /*-----------------------------------batch 2 starts--------------------------------------*/
-    /*-----------------------------------------------------------------------------------*/
-    /*latest change*/
+/*-----------------------------------batch 2 starts--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
     .average-ratting {
         border-bottom: 1px solid #e9e9e9;
         margin-bottom: 20px;
@@ -728,12 +718,11 @@
     .process-block .financial-product-item .process-arrow {
         display: none;
     }
-    /*how it works*/
+    /*how it works ends*/
     /*partner*/
     .partners-list img {
         margin:0 auto;
     }
-    /*update*/
     .bring-best-item {
         margin-bottom: 30px;
     }
@@ -751,7 +740,7 @@
     #term_loan .down-arrow {
         left: 43%;
         top: 16px;
-        border-top: 18px solid rgb(225,212,228)
+        border-top: 18px solid rgb(225,212,228);
     }
     #term_loan p { font-size: 28px; line-height: 38px;}
     #term_loan .person-name {
@@ -760,27 +749,81 @@
         font-style: normal;
         line-height: 32px;
     }
-    #sbf_hero .heading-line { font-size: 28px; line-height: 38px; margin-bottom: 15px}
-    #sbf_hero .content-list-item .customer-info { margin-bottom: 26px; }
-    #sbf_hero #slider_testimonial {  padding: 26px 0 30px; }
-    #solution_built { padding: 55px 0 30px;}
-    #solution_built  .section-heading { width: 90%;font-size: 24px; margin-bottom: 38px; margin-left: auto; margin-right: auto}
-    #solution_built .gradient-one { background: none;}
-    #sbf_hero #slider_testimonial .user-icon { margin-top: 3px;}
-    .loan-nav { overflow-x: auto;}
-    .loan-nav ul{ min-width: 768px;}
+    #sbf_hero .heading-line { 
+        font-size: 28px; 
+        line-height: 38px; 
+        margin-bottom: 15px;
+    }
+    #sbf_hero .content-list-item .customer-info { 
+        margin-bottom: 26px; 
+    }
+    #sbf_hero #slider_testimonial { 
+        padding: 26px 0 30px; 
+    }
+    #solution_built { 
+        padding: 55px 0 30px;
+    }
+    #solution_built  .section-heading { 
+        width: 90%;
+        font-size: 24px; 
+        margin-bottom: 38px; 
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    #solution_built .gradient-one { 
+        background: none;
+    }
+    #sbf_hero #slider_testimonial .user-icon { 
+        margin-top: 3px;
+    }
+    .loan-nav { 
+        overflow-x: auto;
+    }
+    .loan-nav ul{ 
+        min-width: 768px;
+    }
     .divtable {
         box-shadow:none;
     }
-    .headings .term-laon,.headings .trak-laon,.headings .installment-loan { border-bottom: none;}
-    .divtable .seprate-block  .term-laon, .divtable .seprate-block  .trak-laon,.divtable .seprate-block  .installment-loan  { min-height: 95px; border-right: none;  border-bottom:  1px solid #ccc;}
-    .divtable .seprate-block  .installment-loan { border-bottom: none;}
-    .divtable .seprate-block  .term-laon span, .divtable .seprate-block  .trak-laon span,.divtable .seprate-block  .installment-loan span { padding-top:18px;}  
-    .accordion-xs .headings { display: none; }
-    .seprate-block .thead { display: block; width: 50%; float: left}
-    .seprate-block .tbody { width: 50%; float: left}
-    .accordion-xs .tr { border-bottom-color: #fff; }
-    .divtable .th span, .divtable .td span { display: inline-block;}
+    .headings .term-laon,
+    .headings .trak-laon,
+    .headings .installment-loan { 
+        border-bottom: none;
+    }
+    .divtable .seprate-block  .term-laon, 
+    .divtable .seprate-block  .trak-laon,
+    .divtable .seprate-block  .installment-loan { 
+        min-height: 95px; 
+        border-right: none; 
+        border-bottom:  1px solid #ccc;
+    }
+    .divtable .seprate-block .installment-loan { 
+        border-bottom: none;
+    }
+    .divtable .seprate-block .term-laon span, 
+    .divtable .seprate-block .trak-laon span,
+    .divtable .seprate-block  .installment-loan span { 
+        padding-top:18px;
+    }  
+    .accordion-xs .headings { 
+        display: none; 
+    }
+    .seprate-block .thead { 
+        display: block; 
+        width: 50%; 
+        float: left;
+    }
+    .seprate-block .tbody { 
+        width: 50%; 
+        float: left;
+    }
+    .accordion-xs .tr { 
+        border-bottom-color: #fff; 
+    }
+    .divtable .th span, 
+    .divtable .td span { 
+        display: inline-block;
+    }
     .accordion-xs .th,
     .accordion-xs .td {
         float: none;
@@ -796,14 +839,13 @@
         display: inhert;
         vertical-align: middle;
     }
-
     .accordion-xs .accordion-xs-toggle {
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#efefef+0,cccccc+100 */
         background: #efefef; /* Old browsers */
         background: -moz-linear-gradient(top,  #efefef 0%, #cccccc 100%); /* FF3.6-15 */
         background: -webkit-linear-gradient(top,  #efefef 0%,#cccccc 100%); /* Chrome10-25,Safari5.1-6 */
         background: linear-gradient(to bottom,  #efefef 0%,#cccccc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+        /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 
         color: #6a2875;
         font-size: 18px;
@@ -816,24 +858,31 @@
         text-overflow: ellipsis;
         max-width: 250px;
     }
-    .accordion-xs .accordion-xs-toggle:hover { background-color: #e69500; }
-
+    .accordion-xs .accordion-xs-toggle:hover { 
+        background-color: #e69500; 
+    }
     .accordion-xs .accordion-xs-toggle:after {
         content: "?";
         float: right;
         color: rgba(1, 174, 240, 0.9);
     }
-
-    .accordion-xs .accordion-xs-toggle.collapsed:after {  content: "?"; }
-
-    .accordion-xs-collapse .inner { display: list-item; padding: 0px; list-style: none;}
-
-    .accordion-xs-collapse .td:before { font-weight: bold; }
-
-    .accordion-xs-collapse .lastname:before { content: 'Last Name: '; }
-
-    .accordion-xs-collapse .username:before { content: 'Username: '; }
-
+    .accordion-xs .accordion-xs-toggle.collapsed:after { 
+        content: "?";
+    }
+    .accordion-xs-collapse .inner { 
+        display: list-item; 
+        padding: 0px; 
+        list-style: none;
+    }
+    .accordion-xs-collapse .td:before { 
+        font-weight: bold; 
+    }
+    .accordion-xs-collapse .lastname:before { 
+        content: 'Last Name: '; 
+    }
+    .accordion-xs-collapse .username:before { 
+        content: 'Username: '; 
+    }
     .accordion-xs .accordion-xs-toggle:after {
         position: relative;
         top: 1px;
@@ -844,11 +893,13 @@
         line-height: 1;
         -webkit-font-smoothing: antialiased;
     }
-    #funding-option .gradient-one { background: none;}
-    #making-payments p { font-size: 24px; line-height: 32px;}
-
-
-    /*update 4/7*/
+    #funding-option .gradient-one {
+        background: none;
+    }
+    #making-payments p { 
+        font-size: 24px; 
+        line-height: 32px;
+    }
     #referal_about_us p {
         width:auto;
         font-size: 24px;
@@ -863,7 +914,7 @@
         margin: 20px 0;
     }
     /*testimonial*/
-    #testimonial .tranp-div-two , #testimonial .slider-nav-control {
+    #testimonial .slider-nav-control {
         position: static;
     }
     .financial-product-item {
@@ -875,43 +926,41 @@
         box-shadow: none;
         color: #fff;
     }
-
-    .entrepreneur {font-family:"Fort-Bold"; display: block; text-align: right; text-transform: uppercase; color: rgb(102, 102, 102);}
-    .sub-logo { display: none}
-    #home_get_quote .get-quote-style .down-arrow { border-top-color: #fff;}       
-    /*update end*/
-    /*-----------------------------------batch 2 end--------------------------------------*/
-    /*-----------------------------------------------------------------------------------*/
-
-
-    /*-----Bugzilla Fixes start*/
-
-    #get_quote_home form, #form_box form{
+    .entrepreneur { 
+        font-family:"Fort-Bold";
+        display: block; 
+        text-align: right; 
+        text-transform: uppercase; 
+        color: rgb(102, 102, 102);
+    }
+    .sub-logo { 
+        display: none
+    }
+    #home_get_quote .get-quote-style .down-arrow { 
+        border-top-color: #fff;
+    }
+/*-----------------------------------batch 2 end--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+/*-----Bugzilla Fixes start*/
+    #get_quote_home form{
         display: none;
     }
     #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
         display: block;
     }
     #get_quote_home{
-        overflow: scroll;
+        overflow: auto;
     }
-    #get_quote_home.activeGetQuote {
+    #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
         position: absolute;
-        top: 92px;
-        bottom: 0px;
+        bottom: 10px;
         margin-bottom: 0px;
         overflow-y: auto;
         overflow-x: hidden;
     }
-    #get_quote_home.navbar-fixed-top{
-        position: fixed;
-        top: 58px;
-        bottom: none;
+    #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
+        height: 75vh;
     }
-
-
-
-
 }
 @media (max-width:480px){
     .water-mark-image {
@@ -922,6 +971,5 @@
         height: auto;
         margin: 0 auto;
     }
-    /*update*/
     .graph1, .graph2 { width: auto; height: auto;} 
-}		
+}       
