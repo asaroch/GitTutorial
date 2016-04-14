@@ -345,9 +345,12 @@
         border: none;
         background-color:transparent;
     }
+    .navbar-nav > li.apply-btn a:focus {
+        border: 2px solid #fff;
+    }
     #resource_list_container .featured-story-image {
         clear: both;
-    }
+    }    
     /*wordpress cahnge end*/
     .navbar-nav > li > a  {
         padding-left: 5px;
