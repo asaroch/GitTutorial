@@ -43,13 +43,10 @@ $(function(){
         if (currentIndex == 0) {
             prev.removeClass("active");
         } else {
-            var isACtive = prev.hasClass("active")
-            console.log(isACtive);
-
+            var isACtive = prev.hasClass("active");
             if (!isACtive) {
                 prev.addClass("active");
-            }
-            ;
+            };
 
         }
 
