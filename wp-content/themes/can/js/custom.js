@@ -5,19 +5,19 @@ $(function () {
     } else {
         financialProductSlider = false;
     }
-    if (var_object.testimonialSlider) {
+    if(var_object.testimonialSlider){
         testimonialSlider = true;
     }
-    else {
+    else{
         testimonialSlider = false;
     }
 //var getQuoteHieght = $(window).innerWidth();
-    $('.get-Quote-form .section-heading').on('click', function () {
-
-        if ($(window).width() < 768) {
-
-            $(this).parents("div#get_quote_home, div#form_box").toggleClass("activeGetQuote");
-        }
+    $('.get-Quote-form .section-heading').on('click', function(){
+            
+            if($(window).width() < 768 ) {
+                
+                 $(this).parents("div#get_quote_home, div#form_box").toggleClass("activeGetQuote");
+            }
     })
     $(".search-btn").click(function () {
         if (clickActive || $(window).width() < 768) {
@@ -52,8 +52,8 @@ $(function () {
         //autoplay: true,
         //autoplayTimeout: 8000,
         navigation: false,
-        mouseDrag: true,
-        touchDrag: true,
+        mouseDrag : true,
+        touchDrag : true,
         responsive: {
             0: {
                 items: 1,
@@ -128,8 +128,8 @@ $(function () {
         responsiveClass: true,
         pagination: true,
         navigation: true,
-        mouseDrag: false,
-        touchDrag: false,
+        mouseDrag : false,
+        touchDrag : false,
         responsive: {
             0: {
                 items: 1,
@@ -272,11 +272,11 @@ $(function () {
     });
 
     //resource section on home next and prev. events 
-    $(".slide-next").click(function () {
+    $(".slide-next").click(function(){
         resourceSlider.trigger("next.owl.carousel");
     })
 
-    $(".slide-prev").click(function () {
+    $(".slide-prev").click(function(){
         resourceSlider.trigger("prev.owl.carousel");
     })
 
@@ -301,49 +301,47 @@ $(function () {
 
 
     //STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
-    var navbar = $("#main_navigationbar"),
-            main_navigation_height = 30;
-    $window = $(window),
-            isSlider = 0;
-    if ($(window).width() > 768) {
-        isSlider = 85;
-    } else {
-        isSlider = 30;
-    }
+        var navbar = $("#main_navigationbar"),
+                main_navigation_height = 30;
+                $window = $(window),
+                isSlider = 0;
+                if($(window).width() > 768 ) {
+                    isSlider = 85;
+                } else {
+                     isSlider = 30;
+                }
+    
+        isHomePage =   $("#home_get_quote");
 
-    isHomePage = $("#home_get_quote");
+        $window.scroll(function() {
+            //console.log($window.scrollTop() +' ---   '+isSlider+ '   ' +isHomePage.length )
+                    var isFixedMainNav = navbar.hasClass("navbar-fixed-top");
+            if ($window.scrollTop() >= main_navigation_height &&  isFixedMainNav != true) {
+                navbar.removeClass('navbar-fixed-top').addClass('navbar-fixed-top').addClass("navbar-scroll-bg");
+                $(".top-heading").css("padding-top", "60px");
+                if (!isHomePage.length) {
+                    $("#get_quote").show("fast");
+                    $("#form_box").addClass("get-quote-style");
+                };
+            } else if ($window.scrollTop() < main_navigation_height && isFixedMainNav == true) {
+                navbar.removeClass('navbar-fixed-top').removeClass("navbar-scroll-bg");
+                $(".top-heading").css("padding-top", "0px");
+                 if (!isHomePage.length) {
+                    $("#get_quote").hide("fast");
+                };
+            }
+             if ( isHomePage )  { 
+                var isGetQuoteFixed = $("#get_quote_home").hasClass("navbar-fixed-top");
+                if ($window.scrollTop() >= isSlider  && isGetQuoteFixed != true ) {
+                    $("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
+                    //console.log("home 1");
+                } else if ($window.scrollTop() < isSlider && isGetQuoteFixed == true) {
+                     $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style');
+                    //console.log("home 2");
+                }
+                    }
 
-    $window.scroll(function () {
-        //console.log($window.scrollTop() +' ---   '+isSlider+ '   ' +isHomePage.length )
-        var isFixedMainNav = navbar.hasClass("navbar-fixed-top");
-        if ($window.scrollTop() >= main_navigation_height && isFixedMainNav != true) {
-            navbar.removeClass('navbar-fixed-top').addClass('navbar-fixed-top').addClass("navbar-scroll-bg");
-            $(".top-heading").css("padding-top", "60px");
-            if (!isHomePage.length) {
-                $("#get_quote").show("fast");
-                $("#form_box").addClass("get-quote-style");
-            }
-            ;
-        } else if ($window.scrollTop() < main_navigation_height && isFixedMainNav == true) {
-            navbar.removeClass('navbar-fixed-top').removeClass("navbar-scroll-bg");
-            $(".top-heading").css("padding-top", "0px");
-            if (!isHomePage.length) {
-                $("#get_quote").hide("fast");
-            }
-            ;
-        }
-        if (isHomePage) {
-            var isGetQuoteFixed = $("#get_quote_home").hasClass("navbar-fixed-top");
-            if ($window.scrollTop() >= isSlider && isGetQuoteFixed != true) {
-                $("#get_quote_home").removeClass('navbar-fixed-top').addClass('navbar-fixed-top get-quote-style');
-                //console.log("home 1");
-            } else if ($window.scrollTop() < isSlider && isGetQuoteFixed == true) {
-                $("#get_quote_home").removeClass('navbar-fixed-top get-quote-style');
-                //console.log("home 2");
-            }
-        }
-
-    });
+        });
 
 
     //CANCAPITAL LOGO HOVER FUNCTIONALITY SHOW THE GET YOUR QUOTE OVERLAY 
