@@ -218,11 +218,11 @@ $mobile_featured_resources = array();
             </div>
             <div class="customNavigation">
                 <div class="text-center">
-                    <a title="prev" class="btn slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
+                    <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
                     <span class="current-slider"> 1 </span>
                     <span class="slider-ratio">/</span> 
                     <span class="total-slider"> <?php echo count($featured_resources); ?> </span>
-                    <a title="next" class="btn slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+                    <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
                 </div>
             </div>	
             <div class="text-center">

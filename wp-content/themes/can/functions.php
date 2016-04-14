@@ -876,8 +876,9 @@ add_filter('wp_nav_menu', 'change_submenu_class');
 
 // Add custom image size
 add_image_size('trending-resources', 70, 100);
-add_image_size('partners-expertise', 95, 95);
+add_image_size('partners-expertise', 92, 92 );
 add_image_size('selected-partners', 280, 85);
+add_image_size('awards', 140, 130);
 
  add_action('admin_init', 'admin_init' );
  
@@ -1107,7 +1108,6 @@ function prx($array) {
 /* * *********************************************
  * Adding custom widget for can capital comparison chart
  * ******************************************** */
-
 class CanCapitalComparison_Widget extends WP_Widget {
 
     function __construct() {

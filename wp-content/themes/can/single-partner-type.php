@@ -4,7 +4,14 @@ get_header();
 <section class="sales-program gradient-one">
     <div class="container">
         <div class="row">
-            <div class="section-heading">Get More From Our Referral Sales Program</div>
+            <?php 
+            $partner_heading = get_post_meta($post->ID, 'wpcf-partner-benefit-head', true);
+            if ( $partner_heading != '' ) {
+                ?>
+                  <div class="section-heading"><?php echo $partner_heading; ?></div>
+                <?php
+            }
+            ?>
             <?php
             $heading = get_post_meta($post->ID, 'wpcf-benefit-1-heading', true);
             $desc = get_post_meta($post->ID, 'wpcf-benefit-1-descriptio', true);
@@ -73,12 +80,19 @@ get_header();
         <?php dynamic_sidebar('testimonial'); ?>
     </div><!-- .widget-area -->
 <?php endif; ?>
-<section id="referal_about_us" class="gradient-two">
-    <div class="container text-center">
-        <p><?php echo get_post_meta($post->ID, 'wpcf-history-of-funding', true); ?></p>
-        <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
-    </div>
-</section>
+<?php 
+$history_funding = get_post_meta($post->ID, 'wpcf-history-of-funding', true); 
+if ( $history_funding != '' ) {
+    ?>
+    <section id="referal_about_us" class="gradient-two">
+        <div class="container text-center">
+            <p><?php echo get_post_meta($post->ID, 'wpcf-history-of-funding', true); ?></p>
+            <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
+        </div>
+    </section>
+    <?php
+}
+?>
 <!-- Email Us -->
 <!-- Email Us -->	
 <section id="email_us"  class="gray-bg">
