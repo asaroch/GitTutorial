@@ -2197,3 +2197,4 @@ input[type=number] {
 	font-size: 15px;
 }
 .select-topic select { padding-right: 54px; }
+.primary-nav .nav li.dropdown > a:hover { border-bottom: none}
