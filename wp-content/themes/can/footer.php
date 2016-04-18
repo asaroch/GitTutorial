@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href=<?php echo isset($linkedin_url) && $linkedin_url != '' ? $linkedin_url: 'javascript:void(0)'; ?>" <?php echo isset($linkedin_url)  && $linkedin_url != '' ? 'target=_blank' : ''; ?> title="LinkedIn">
+                                <a href="<?php echo isset($linkedin_url) && $linkedin_url != '' ? $linkedin_url: 'javascript:void(0)'; ?>" <?php echo isset($linkedin_url)  && $linkedin_url != '' ? 'target=_blank' : ''; ?> title="LinkedIn">
                                     <img src="<?php echo get_template_directory_uri(); ?>/images/home/linkedin_icon.png" alt="linkdin share">
                                 </a>
                             </li>

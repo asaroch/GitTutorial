@@ -1,18 +1,18 @@
 <?php
 // Fetured resources
 $args = array(
-    'post_type'      => 'resource',
-    'post_status'    => 'publish',
+    'post_type' => 'resource',
+    'post_status' => 'publish',
     'posts_per_page' => -1,
-    'meta_query'     => array(array(
-            'key'    => '_is_featured',
-            'value'  => 'yes'
+    'meta_query' => array(array(
+            'key' => '_is_featured',
+            'value' => 'yes'
         )),
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC'
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
 );
-$featured_resources        = query_posts($args);
-$mobile_featured_resources = array(); 
+$featured_resources = query_posts($args);
+$mobile_featured_resources = array();
 ?>
 <section id="home_resource_list" class="hidden-xs">
     <div class="resource-list-bg gradient-three ">
@@ -28,8 +28,9 @@ $mobile_featured_resources = array();
                 $top_featured_resource = $featured_resources[0];
                 // Fetch topic of a resource
                 $resource_topics = wp_get_post_terms($top_featured_resource->ID, 'business-type', array("fields" => "names"));
-                if ( !empty($resource_topics) ) {
+                if (!empty($resource_topics)) {
                     $topics = 'in ' . implode(", ", $resource_topics);
+                    $topics = strlen($topics) >= 50 ? substr($topics, 0, 50) . ' ...' : $topics;
                 } else {
                     $topics = '';
                 }
@@ -39,12 +40,13 @@ $mobile_featured_resources = array();
 
                 // Sponsored By
                 $sponsored_by = get_post_meta($top_featured_resource->ID, 'wpcf-sponsored-by', true);
+                $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
                 ?>
                 <div class="col-md-8 clearfix">
                     <div class="row">
                         <div class="col-sm-5 col-5-overide">
                             <?php
-                            if ( has_post_thumbnail($top_featured_resource->ID) ) {
+                            if (has_post_thumbnail($top_featured_resource->ID)) {
                                 ?>
                                 <div class="featured-story-image">
                                     <?php echo get_the_post_thumbnail($top_featured_resource->ID, 'large'); ?> 
@@ -83,12 +85,13 @@ $mobile_featured_resources = array();
         <div class="container">
             <div class="row voffset-bottom3">
                 <?php
-               array_shift($featured_resources);
+                array_shift($featured_resources);
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
+                        $topics = strlen($topics) >= 50 ? substr($topics, 0, 50) . ' ...' : $topics;
                     } else {
                         $topics = '';
                     }
@@ -98,6 +101,7 @@ $mobile_featured_resources = array();
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
+                    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
                         <div class="col-md-4 clearfix">
@@ -171,14 +175,14 @@ $mobile_featured_resources = array();
             </div>
             <div id="resource_slider" class="owl-carousel owl-theme">
                 <?php
-               array_unshift($featured_resources, $top_featured_resource);
-             
+                array_unshift($featured_resources, $top_featured_resource);
+
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
-                        
+                        $topics = strlen($topics) >= 50 ? substr($topics, 0, 50) . ' ...' : $topics;
                     } else {
                         $topics = '';
                     }
@@ -188,6 +192,7 @@ $mobile_featured_resources = array();
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
+                    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
                     ?>
                     <div class="item">
                         <div class="resource-content">
@@ -195,9 +200,9 @@ $mobile_featured_resources = array();
                             <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo $resource->post_title; ?></a></p>
                             <p><?php echo $resource->post_excerpt; ?></p>
 
-                            <?php
-                            if (isset($reading_time) && $reading_time != '') {
-                                ?>
+    <?php
+    if (isset($reading_time) && $reading_time != '') {
+        ?>
                                 <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                 <?php
                             }
@@ -207,14 +212,14 @@ $mobile_featured_resources = array();
                                 <div class="sponsored">
                                     <p>Sponsored By <?php echo $sponsored_by; ?></p>
                                 </div>
-                                <?php
-                            }
-                            ?>
+        <?php
+    }
+    ?>
                         </div>
                     </div>
-                    <?php
-                }
-                ?>
+    <?php
+}
+?>
             </div>
             <div class="customNavigation">
                 <div class="text-center">
