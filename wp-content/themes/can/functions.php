@@ -224,10 +224,15 @@ function twentysixteen_widgets_init() {
 		'name'          => __( 'Member Benefits', 'twentysixteen' ),
 		'id'            => 'memberbenefit',
 		'description'   => __( 'Appears on the center of the pages where its required to display member benefits.', 'twentysixteen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'before_widget' => '<section id="we_bring_you_best" class="we_bring_you-border-bottom"><div class="tranp-div-two"></div>
+			<div class="container">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<div class="col-md-12">
+					<div class="row">
+						<h2 class="widget-title">',
+		'after_title'   => '</h2>
+					</div>
+				</div>',
 	) );
     
      register_sidebar( array(
@@ -239,8 +244,18 @@ function twentysixteen_widgets_init() {
 		//'before_title'  => '<h2 class="widget-title">',
 		//'after_title'   => '</h2>',
 	) );
+     
+     register_sidebar( array(
+		'name'          => __( 'video_testimonial', 'can' ),
+		'id'            => 'can_capital_video_testimonial',
+		'description'   => __( 'Appears merchant testimonials.', 'can' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section></div></section>',
+		'before_title'  => '<section id="success_community">
+        <div class="container"><h2 class="section-heading">',
+		'after_title'   => '</h2>',
+	) );
 }
-
 add_action('widgets_init', 'twentysixteen_widgets_init');
 
 if (!function_exists('twentysixteen_fonts_url')) :
@@ -321,12 +336,19 @@ function can_scripts() {
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 
-    $search = $financialProductSlider = $testimonialSlider = FALSE;
+    $search = $financialProductSlider = $testimonialSlider = $campaignProductSlider = FALSE;
     $count_financial_product = wp_count_posts('financial_product');
+
+    $count_campaign_product = wp_count_posts('landing-page');
+
     $count_video_testimonial = wp_count_posts('video-testimonial');
+
 
     if ($count_financial_product->publish > 3) {
         $financialProductSlider = TRUE;
+    }
+    if ($count_campaign_product->publish > 3) {
+        $campaignProductSlider = TRUE;
     }
     if ($count_video_testimonial->publish > 2) {
         $testimonialSlider = TRUE;
@@ -339,7 +361,8 @@ function can_scripts() {
         'image_url' => get_template_directory_uri(),
         'search' => $search,
         'financialProductSlider' => $financialProductSlider,
-        'testimonialSlider' => $testimonialSlider
+        'testimonialSlider' => $testimonialSlider,
+        'campaignSlider' => $campaignProductSlider
     ));
 }
 
@@ -1139,28 +1162,69 @@ class CanCapitalComparison_Widget extends WP_Widget {
         $can_capital_chart = new WP_Query( $args );
         //prx($can_capital_chart);
         
-        
+       $data =  get_terms('comparison-chart');
+       $logo = array();
+       $name = array();
+       
+       foreach($data as $key => $value){
+             $name[$key] = $data[$key]->name;   
+             $logo[$key] = get_term_meta($data[$key]->term_id,'wpcf-logo',true);
+        }
         $return = '<section id="funding-option">
 			<div class="container">
                             <h2 class="section-heading">Experience a better funding option</h2>
 				<div class="divtable accordion-xs gradient-one">';
 	$return .= '    		<div class="tr headings">
                                             <div class="th firstname"><span></span></div>
-                                            <div class="th term-laon">
-                                                <span><img alt="" src="assets/images/home/CAN_logo_footer.png" width="140" height="20"></span></div>
-						<div class="th trak-laon"><span>Bank Loan</span></div>
-						<div class="th installment-loan"><span>Credit card</span></div>
-					</div>';
+                                            <div class="th term-laon"><span>';
+                                            if($logo[1] != ""){
+        $return .= '                        <img alt="" src="'.$logo[1].'" width="140" height="20">';
+                                            }else{
+                                            $return .= $name[1];        
+                                            }
+        $return .= '</span></div>';
+        if($logo[0] == ""){
+	$return .= '<div class="th trak-laon"><span>'.$name[0].'</span></div>';
+        }else{
+        $return .= '<div class="th trak-laon"><span><img alt="" src="'.$logo[0].'" width="140" height="20"></span></div>';    
+        }
+        if($logo[2] == ""){
+	$return .= '<div class="th installment-loan"><span>'.$name[2].'</span></div>';
+        }
+        else{
+        $return .= '<div class="th trak-laon"><span><img alt="" src="'.$logo[2].'" width="140" height="20"></span></div>';    
+        }
+	$return .= '</div>';
         if ( $can_capital_chart->have_posts() ) : 	
             while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
-       echo $resource_topics = wp_get_post_terms($can_capital_chart->ID, 'comparison-chart', array("fields" => "names"));
+        
+    $chart_topics = wp_get_post_terms(get_the_ID(), 'comparison-chart', array("fields" => "all"));
+    
+    
+    
+     
+      
+      
 		$return .= '			<div class="tr seprate-block">
 						<div class="td firstname accordion-xs-toggle"><span>'.get_the_title().'</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
 							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"></div>
-								<div class="td installment-loan"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
+								<div class="td term-laon"><span>';
+if(isset($chart_topics[0])){                                                                
+$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
+}
+    $return .= '</span></div>
+<div class="td trak-laon"><span>';
+if(isset($chart_topics[1])){                                                                
+$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
+}
+    $return .= '</span></div>
+<div class="td installment-loan"><span>';
+if(isset($chart_topics[2])){                                                                
+$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
+}
+    $return .= '</span></div>								
+								
 							</div>
 						</div>
 					</div>';
@@ -1347,3 +1411,106 @@ function display_partner_panel_fields() {
 }
 
 add_action("admin_init", "display_partner_panel_fields");
+
+/* * *********************************************
+ * Adding custom widget for video testimonials*
+ * ******************************************** */
+
+class VideoTestimonials_Widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+                'VideoTestimonials_Widget', // Base ID
+                'Video testimonial Widget', // Name
+                array('description' => __('Displays your merchant testimonial with their title.'))
+        );
+    }
+
+    function update($new_instance, $old_instance) {
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        return $instance;
+    }
+
+    function form($instance) {
+        if ($instance) {
+            $title = esc_attr($instance['title']);
+        } else {
+            $title = '';
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'financial_widget'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>        
+        <?php
+    }
+
+    function widget($args, $instance) {
+        extract($args);
+        $title = apply_filters('widget_title', $instance['title']);
+        $type = $instance['type'];
+        echo $before_widget;
+        if ($title) {
+            echo $before_title . $title . $after_title;
+        }
+        $this->getVideoTestimonialListings($type);
+        echo $after_widget;
+    }
+
+    /*     * *********************************************************
+     * Function to fetch listing of member benefits 
+     * Parameters : $numberOfListings
+     * Return : Html view with listing of items.
+     * ********************************************************* */
+
+    function getVideoTestimonialListings($type) { //html
+        global $post;
+        //add_image_size( 'financial_widget_size', 85, 45, false );
+        $listings = new WP_Query();
+        $args = array(
+            'post_type' => 'video-testimonial',
+            'post_status' => 'publish',
+            'order' => 'ASC'
+        );
+        
+        //$featured_resources = query_posts($args);
+        $listings->query($args);
+        
+        if ($listings->found_posts > 0) {
+            $return = '
+            <div class="owl-carousel owl-theme">
+                <!--Display testimonials for merchants-->';
+                
+                if ($listings->found_posts > 0) {
+                    while ($listings->have_posts()) {
+                        
+                        $listings->the_post();
+                        
+                     
+                $return .=  '<div class="item">
+                            <div class="video-player">'. get_the_post_thumbnail($post->ID).'
+                            </div>
+                            <p class="marchent-name">'. get_the_title().' </p>
+                            <p class="business-label">'. get_post_meta($post->ID, 'wpcf-business', true).'</p>
+                            <p class="business-name">'. get_post_meta($post->ID, 'wpcf-video_topic', true).' </p>
+                            <p class="success-description">'. get_the_content().' </p>					
+                        </div>';
+                    
+                    }
+                }
+         $return .= '     
+            </div>            
+        </div>			
+    </section>';
+         echo $return;
+            wp_reset_postdata();
+        } else {
+            echo '<p style="padding:25px;">No listing found</p>';
+        }
+    }
+
+}
+
+//end class Realty_Widget
+register_widget('VideoTestimonials_Widget');

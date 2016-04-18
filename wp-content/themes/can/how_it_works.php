@@ -176,12 +176,13 @@ endif;
 			</div>
 		</section>
 		<!--funding option-->
-                
+                <!-- capital_comparison_chart section -->
                 <?php if (is_active_sidebar('can_capital_comparison_chart')) : ?>
                 <div class="widget-area trust-badge" role="complementary">
                     <?php dynamic_sidebar('can_capital_comparison_chart'); ?>
                 </div><!-- .widget-area -->
             <?php endif; ?>	
+                <!-- capital_comparison_chart section -->
 		<!--funding option-->
 		<section id="home_resource_list" class="hidden-xs">
                     <?php echo get_template_part( 'resources_all'); ?> 
