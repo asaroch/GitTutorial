@@ -2193,3 +2193,7 @@ input[type=number] {
 .sidebar {
         display: inline-block;
 }
+.option-text p {
+	font-size: 15px;
+}
+.select-topic select { padding-right: 54px; }
