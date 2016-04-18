@@ -942,6 +942,9 @@
     #home_get_quote .get-quote-style .down-arrow { 
         border-top-color: #fff;
     }
+    .navigation-item {
+        margin: 13px 0 10px;
+    }
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
 /*-----Bugzilla Fixes start*/
