@@ -17,7 +17,7 @@ $mobile_featured_resources = array();
 <section id="home_resource_list" class="hidden-xs">
     <div class="resource-list-bg gradient-three ">
         <div class="container">
-            <div class="row">
+            <div class="row voffset-bottom3">
                 <div class="col-md-4 clearfix">
                     <div class="inspiration-content">
                         <h3 class="section-heading">Insights & <br/> Inspiration</h3>
@@ -83,7 +83,7 @@ $mobile_featured_resources = array();
             </div>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row voffset-bottom3">
                 <?php
                 array_shift($featured_resources);
                 foreach ($featured_resources as $resource) {
