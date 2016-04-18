@@ -2186,3 +2186,6 @@ input[type=number] {
 	font-size: 15px;
 }
 .select-topic select { padding-right: 54px; }
+ul.nav li.current-menu-parent > a:hover {
+    border-bottom: 2px solid transparent;
+}
