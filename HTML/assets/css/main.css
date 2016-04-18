@@ -316,7 +316,7 @@ h1 {
 	top:0px;
 }
 .inner-page-arrow {
-	bottom: -60px;
+    bottom: -59px;
     top: inherit;
     left: 30px;
 }
@@ -1770,12 +1770,18 @@ form.form-section h3.heading-beacome-partner {
     z-index: 6;
 }
 .navigation-item {
-	display: block;
-	font-family: "Fort-book"; 
-	color: #e284e0; 
-	font-size: 26px;
-	  margin: 17px auto 0;
+    display: block;
+    font-family: "Fort-book"; 
+    color: #e284e0; 
+    font-size: 26px;
+    margin: 17px auto 0;
     padding: 10px 0;
+    text-decoration: none;
+}
+.navigation-item:hover,.navigation-item:focus  {
+    color: #fff; 
+    text-decoration: none;
+    font-family: "Fort-bold";
 }
 .loan-nav .active a {
 	font-family: "Fort-bold"; 
