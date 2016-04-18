@@ -749,6 +749,9 @@
         font-style: normal;
         line-height: 32px;
     }
+    #sbf_hero #slider_testimonial .user-icon, #sbf_hero .owl-carousel .owl-item img {
+        margin: 0 auto;
+    }
     #sbf_hero .heading-line { 
         font-size: 28px; 
         line-height: 38px; 
@@ -862,12 +865,12 @@
         background-color: #e69500; 
     }
     .accordion-xs .accordion-xs-toggle:after {
-        content: "?";
+        content: "";
         float: right;
         color: rgba(1, 174, 240, 0.9);
     }
     .accordion-xs .accordion-xs-toggle.collapsed:after { 
-        content: "?";
+        content: "";
     }
     .accordion-xs-collapse .inner { 
         display: list-item; 
