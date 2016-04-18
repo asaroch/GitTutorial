@@ -327,7 +327,7 @@ h1 {
 	border: 2px solid #fff;	
         color: #fff;
 }		
-.get-Quote-form input[type="submit"]:hover {			
+.get-Quote-form input[type="submit"]:hover, .get-Quote-form input[type="submit"]:focus {			
 	border: 2px solid #01aef0;
         color:#01AEF0;
 }
