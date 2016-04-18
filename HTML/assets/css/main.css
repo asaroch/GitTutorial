@@ -2181,3 +2181,11 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
+/*PDF changes*/
+.sidebar {
+        display: inline-block;
+}
+.option-text p {
+	font-size: 15px;
+}
+.select-topic select { padding-right: 54px; }
