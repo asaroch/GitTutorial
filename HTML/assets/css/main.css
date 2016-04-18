@@ -2189,3 +2189,7 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
+/*PDF changes*/
+.sidebar {
+        display: inline-block;
+}
