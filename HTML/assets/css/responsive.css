@@ -95,21 +95,14 @@
 @media (max-width: 991px) {
     .sidebar {
         width: 100%;
-        position:static;
-        margin:0;
     }
     .loan-item {
         font-size: 20px;
-    }
-    .mob-grey-bg {
-        background-color: #eee;
-        padding:0;
     }
     /*batch 2*/
     #sbf_hero .content-list-item {
         padding: 15px 15px 0;
     }
-    
 }
 @media (max-width: 991px) and (min-width: 768px) {
     .navbar-brand {
@@ -142,6 +135,9 @@
     .col-7-overide {
         width: 53.833333%;
     }
+    .sidebar {
+        position: static;
+    }
     .resource-container {
         padding-right: 15px; 
     }
@@ -162,7 +158,9 @@
         font-size: 30px;
         margin:0 0 15px;
     }
-    
+    .mob-grey-bg {
+        background-color: #eee;
+    }
     .inner-page-arrow {
         bottom: -48px; 
     }
@@ -177,9 +175,6 @@
     }
     .primary-nav ul.nav > li {
         padding: 0px 10px;
-    }
-    .post-content {
-        width: 236px;
     }
     /*how it work process arrow*/
     .process-block .financial-product-item .process-arrow {
@@ -597,10 +592,16 @@
         float:none;
     }
     .sidebar {
+        position: static;
+        margin: 0;
+        background-color: none;
         padding:0;
     }
     .sidebar .section-heading {
         text-align: center;
+    }
+    .mob-grey-bg {
+        background-color: #eee;
     }
     #all_resources_block .select-topic {
         float: none;
