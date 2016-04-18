@@ -710,11 +710,6 @@ span.select-drop {
 }
 .sidebar {
 	width: 278px;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	z-index: 0;
-	right: 0px;
 	background-color: #eee;
 	padding-bottom: 160px;
 }
@@ -1146,9 +1141,6 @@ footer .badges-container {
 	top: 14px;
 	z-index: 99;
 	background: rgba(107, 40, 117, 1);
-}
-.sidebar {
-	position: static;
 }
 /* get quote overlay */ 
 #get_quote,
@@ -2190,11 +2182,7 @@ input[type=number] {
     vertical-align: middle;
 }
 /*PDF changes*/
-.sidebar {
-        display: inline-block;
-}
 .option-text p {
 	font-size: 15px;
 }
 .select-topic select { padding-right: 54px; }
-.primary-nav .nav li.dropdown > a:hover { border-bottom: none}
