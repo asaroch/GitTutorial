@@ -346,6 +346,9 @@ h1 {
 	height: 50px;
 	border: none;
 }
+.form-control {
+    padding:6px 28px;
+}
 .get-Quote-form input[type="submit"] {			
 	border: 2px solid #fff;
         color: #fff;
@@ -612,8 +615,10 @@ i.glyphicon-play {
 	height: auto;
 }
 #resource_list_container .resource-content, #home_resource_list .resource-content{
-	padding: 16px 20px;
-	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+	padding: 16px 20px;	
+}
+.featured-story-image, #resource_list_container .resource-content, #home_resource_list .resource-content {
+    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
 }
 #resource_list_container .resource-content, .featured-story-image,  #home_resource_list .resource-content {
 	height: 312px;
@@ -661,7 +666,7 @@ i.glyphicon-play {
 	width: 267px;
 }
 .select-topic select {
-	height:50px ;
+  height:50px ;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -670,7 +675,8 @@ i.glyphicon-play {
   border-radius: 25px;
   border: none;
   cursor: pointer;
-  padding-right: 54px; 
+  padding-right: 54px;
+  padding-left: 28px;
 }
 span.select-drop {
     position: absolute;
@@ -839,6 +845,7 @@ span.select-drop {
 }
 .get-e-book .section-heading {
 	margin-bottom: 4px;
+        color: #fff;
 }
 .get-e-book .text-align {
 	text-align: left;
@@ -1451,7 +1458,7 @@ form.form-section label.error {
     color: red;
     text-align: right;
     position: absolute;
-    bottom: -40px;
+    bottom: 6px;
     right: 10px;
 }
 form.form-section textarea {
@@ -1670,11 +1677,12 @@ form.form-section h3.heading-beacome-partner {
 	z-index: 9;
 }
  .bring-best-item{
-	margin: 0px 22px 120px;
+	margin: 0px 22px 60px;
+        height: 300px;
 } 
  .bring-best-item .category-icon {
- 	width: auto;
- 	height: auto;
+ 	width: 92px;
+ 	height: 92px;
  }
 .heading-label {
 	font-family: "Fort-Bold"; 
