@@ -574,6 +574,7 @@ i.glyphicon-play {
 }
 .option-text p {
 	color: #999;
+        font-size: 15px;
 }
 #resource_hero {
 	background: url(../images/resources/main_featured_image.jpg) no-repeat center top;
@@ -669,6 +670,7 @@ i.glyphicon-play {
   border-radius: 25px;
   border: none;
   cursor: pointer;
+  padding-right: 54px; 
 }
 span.select-drop {
     position: absolute;
@@ -1439,8 +1441,18 @@ form.form-section label{
 	padding-right: 20px;
 	width: 100%;
 }
-#partner_lead_form form.form-section .form-control {
+form.form-section .form-control {
 	margin-bottom: 45px;
+}
+form.form-section .form-group fieldset {
+    position:relative;
+}
+form.form-section label.error {
+    color: red;
+    text-align: right;
+    position: absolute;
+    bottom: -40px;
+    right: 10px;
 }
 form.form-section textarea {
 	border-radius: 20px;
@@ -1618,6 +1630,7 @@ form.form-section h3.heading-beacome-partner {
 	margin: 0 12px 5px;
 	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.15);
 	height: 296px;
+        position: relative;
 }
 .partnership-item .learn-more-btn {
 	position: absolute;
@@ -1626,9 +1639,17 @@ form.form-section h3.heading-beacome-partner {
 	display: block;
 	width: 100%;
 }
+
 .partnership-item:hover {
 	background: #B352AF;
 } 
+.partnership-item .network-name {
+    position: absolute;
+    bottom:16px;
+    left:0;
+    right:0;
+    font-family: "Fort-Book";
+}
 #partnership .badges-container {
 	padding-top: 28px;
 	margin-bottom: 60px;
@@ -2181,11 +2202,6 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
-/*PDF changes*/
-.option-text p {
-	font-size: 15px;
-}
-.select-topic select { padding-right: 54px; }
 ul.nav li.current-menu-parent > a:hover {
     border-bottom: 2px solid transparent;
 }

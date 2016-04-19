@@ -25,7 +25,7 @@
         global $show_more_limit;
         $show_more_limit = get_option('posts_per_page');
         ?>
-        <div class="wrapper">
+       <div class="wrapper" id="compaign-funding-block">
             <div class="water-mark-image"></div>               
             <nav class="navbar" role="navigation" id="compaign-header">
                 <div id="main_navigationbar" class="primary-nav">
@@ -42,7 +42,7 @@
                                     if (has_post_thumbnail(get_the_ID())):
                                         ?>
                                         <div class="category-icon"> 
-                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), array(189,44)); ?>
                                         </div>
                                         <?php
                                     endif;

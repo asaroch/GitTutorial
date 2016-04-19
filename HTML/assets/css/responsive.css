@@ -187,6 +187,18 @@
     .post-content {
         width: 236px;
     }
+    #testimonial .user-icon img {
+        max-width: 100%;
+	max-height: 100%;
+	width:auto;
+	height: auto;
+    }
+    #testimonial .slider-nav-control {
+            bottom: 10px;
+    }
+    .testimonial-content {
+        top: 100px;
+    }
     /*how it work process arrow*/
     .process-block .financial-product-item .process-arrow {
         right: -63px;
@@ -990,4 +1002,7 @@
         margin: 0 auto;
     }
     .graph1, .graph2 { width: auto; height: auto;} 
+    #all_resources_block .select-topic {
+        width: 240px;
+    }
 }       
