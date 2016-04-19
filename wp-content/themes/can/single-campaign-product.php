@@ -56,6 +56,7 @@ global $post;
     <?php endif; ?>	
     <!--trust badge widget ends here-->
 </section>
+</div>
 <!--Financial Products -->
 <!-- capital_comparison_chart section -->
 <?php if (is_active_sidebar('can_capital_comparison_chart')) : ?>
