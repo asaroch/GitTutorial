@@ -1002,4 +1002,7 @@
         margin: 0 auto;
     }
     .graph1, .graph2 { width: auto; height: auto;} 
+    #all_resources_block .select-topic {
+        width: 240px;
+    }
 }       
