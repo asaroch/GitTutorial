@@ -209,36 +209,36 @@ function twentysixteen_widgets_init() {
         'before_title' => '<h2 class="section-heading">',
         'after_title' => '</h2>',
     ));
-    
-    register_sidebar( array(
-		'name'          => __( 'ApplyNow', 'twentysixteen' ),
-		'id'            => 'applynow',
-		'description'   => __( 'Appears on the center of the pages where its required to display apply now button.', 'twentysixteen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    
-    register_sidebar( array(
-		'name'          => __( 'Member Benefits', 'twentysixteen' ),
-		'id'            => 'memberbenefit',
-		'description'   => __( 'Appears on the center of the pages where its required to display member benefits.', 'twentysixteen' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    
-     register_sidebar( array(
-		'name'          => __( 'Can capital comparison chart', 'can' ),
-		'id'            => 'can_capital_comparison_chart',
-		'description'   => __( 'Appears can capital details', 'can' ),
-		//'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		//'after_widget'  => '</section>',
-		//'before_title'  => '<h2 class="widget-title">',
-		//'after_title'   => '</h2>',
-	) );
+
+    register_sidebar(array(
+        'name' => __('ApplyNow', 'twentysixteen'),
+        'id' => 'applynow',
+        'description' => __('Appears on the center of the pages where its required to display apply now button.', 'twentysixteen'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Member Benefits', 'twentysixteen'),
+        'id' => 'memberbenefit',
+        'description' => __('Appears on the center of the pages where its required to display member benefits.', 'twentysixteen'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h2 class="widget-title">',
+        'after_title' => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name' => __('Can capital comparison chart', 'can'),
+        'id' => 'can_capital_comparison_chart',
+        'description' => __('Appears can capital details', 'can'),
+            //'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            //'after_widget'  => '</section>',
+            //'before_title'  => '<h2 class="widget-title">',
+            //'after_title'   => '</h2>',
+    ));
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -606,11 +606,11 @@ class Financial_Widget extends WP_Widget {
         echo $after_widget;
     }
 
-    /*     * ****************************************************
+    /******************************************************
      * Function to fetch listing of financial products ****
-     * *************************************************** */
+     *****************************************************/
 
-      function getfinancialListings($numberOfListings) { //html
+    function getfinancialListings($numberOfListings) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
@@ -620,13 +620,13 @@ class Financial_Widget extends WP_Widget {
 				<div id="slider_feature_product" class="owl-carousel owl-theme">';
             while ($listings->have_posts()) {
                 $listings->the_post();
-               
+
                 $listItem = '<div class="item">
                                 <div class="financial-product-item">';
-                                       
-                                            if (has_post_thumbnail($post->ID)):
-                                                 $listItem .= '<div class="category-icon">'.get_the_post_thumbnail($post->ID).'</div>';
-                                            endif;
+
+                if (has_post_thumbnail($post->ID)):
+                    $listItem .= '<div class="category-icon">' . get_the_post_thumbnail($post->ID) . '</div>';
+                endif;
                 $listItem .= ' <h5>' . get_the_title() . '</h5>
                                         <p>' . get_the_excerpt() . '</p>
                                         <a href="' . get_the_permalink() . '" title="Learn more" class="learn-more-btn"> Learn more <i class="glyphicon glyphicon-play"></i></a>
@@ -717,13 +717,13 @@ class Testimonial_Widget extends WP_Widget {
         echo $after_widget;
     }
 
-    /*     * *********************************************************
+    /***********************************************************
      * Function to fetch listing of testimonials 
      * Parameters : $numberOfListings, $type(Type of testimonial)
      * Return : Html view with listing of items.
      * ********************************************************* */
 
-      function gettestimonialListings($numberOfListings, $type) { //html
+    function gettestimonialListings($numberOfListings, $type) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
@@ -742,11 +742,11 @@ class Testimonial_Widget extends WP_Widget {
                 $listItem = '<div class="item">
 								<div class="row">	
 									<div class="col-sm-4">';
-                                                                            if (has_post_thumbnail($post->ID)):
-                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail') .'</div>';
-                                                                            endif;
-										
-									$listItem .= '</div>
+                if (has_post_thumbnail($post->ID)):
+                    $listItem .= '<div class="user-icon">' . get_the_post_thumbnail($post->ID, 'single-post-thumbnail') . '</div>';
+                endif;
+
+                $listItem .= '</div>
 									<div class="col-sm-8">
 										<div class="testimonial-content">
 											<h3 class="testimonial-heading">' . get_the_content() . '</h3>
@@ -876,25 +876,24 @@ add_filter('wp_nav_menu', 'change_submenu_class');
 
 // Add custom image size
 add_image_size('trending-resources', 70, 100);
-add_image_size('partners-expertise', 92, 92 );
+add_image_size('partners-expertise', 92, 92);
 add_image_size('selected-partners', 280, 85);
 add_image_size('awards', 140, 130);
 
- add_action('admin_init', 'admin_init' );
- 
+add_action('admin_init', 'admin_init');
+
 function admin_init() {
     $post_types = get_post_types(array(
         '_builtin' => false,
             ), 'names', 'or');
-  
+
     $post_types['post'] = 'post';
     $post_types['page'] = 'page';
     ksort($post_types);
-  
+
     foreach ($post_types as $key => $val) {
-        add_filter('manage_edit-' . $key . '_columns'        , 'manage_posts_columns');
-        add_action('manage_' . $key . '_posts_custom_column' , 'manage_posts_custom_column', 10, 2);
-      
+        add_filter('manage_edit-' . $key . '_columns', 'manage_posts_columns');
+        add_action('manage_' . $key . '_posts_custom_column', 'manage_posts_custom_column', 10, 2);
     }
     return $screen;
 }
@@ -909,12 +908,11 @@ function manage_posts_custom_column($column_name, $post) {
     global $post;
     switch ($column_name) {
         case 'menu_order' :
-        $order = $post->menu_order;
-        echo $order;
-        break;
+            $order = $post->menu_order;
+            echo $order;
+            break;
     }
 }
-
 
 function excerpt_count_js() {
 
@@ -1027,9 +1025,9 @@ class MemberBenefit_Widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id('numberOfListings'); ?>"><?php _e('Number of Listings:', 'financial_widget'); ?></label>
             <select id="<?php echo $this->get_field_id('numberOfListings'); ?>"  name="<?php echo $this->get_field_name('numberOfListings'); ?>">
-                <?php for ($x = 1; $x <= 10; $x++): ?>
+        <?php for ($x = 1; $x <= 10; $x++): ?>
                     <option <?php echo $x == $numberOfListings ? 'selected="selected"' : ''; ?> value="<?php echo $x; ?>"><?php echo $x; ?></option>
-        <?php endfor; ?>
+                <?php endfor; ?>
             </select>
         </p>
         <?php
@@ -1053,7 +1051,8 @@ class MemberBenefit_Widget extends WP_Widget {
      * Parameters : $numberOfListings
      * Return : Html view with listing of items.
      * ********************************************************* */
-  function getmemberBenefitListings($numberOfListings, $type) { //html
+
+    function getmemberBenefitListings($numberOfListings, $type) { //html
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
@@ -1079,7 +1078,7 @@ class MemberBenefit_Widget extends WP_Widget {
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
                 endif;
                 $listItem = ' <div class="col-md-4 col-sm-4">
-            <div class="category-icon"> <img src="' . $image[0] . '"> </div>
+            <div class="category-icon">' . get_the_post_thumbnail($post->ID, 'single-post-thumbnail') . '</div>
 									 <p class="benefit-name">' . get_the_title() . '</p>
             <p class="success-description">' . get_the_content() . '</p>					
         </div>';
@@ -1104,10 +1103,10 @@ function prx($array) {
     die("=========Array ends========");
 }
 
-
 /* * *********************************************
  * Adding custom widget for can capital comparison chart
  * ******************************************** */
+
 class CanCapitalComparison_Widget extends WP_Widget {
 
     function __construct() {
@@ -1120,42 +1119,42 @@ class CanCapitalComparison_Widget extends WP_Widget {
 
     function widget($args, $instance) {
         $this->get_can_comparison_chart_data();
-      //  echo $after_widget;
+        //  echo $after_widget;
     }
 
-    /***********************************************************
+    /*     * *********************************************************
      * Function to fetch listing of member benefits 
      * Parameters : $numberOfListings
      * Return : Html view with listing of items.
-     * **********************************************************/
+     * ********************************************************* */
 
     function get_can_comparison_chart_data() { //html
         // How it work direct deposit queries The Query
-        $args = array(	'post_status' => 'publish' , 
-                                        'post_type'   => 'can-comparison-chart',
-                                        'orderby'     => 'menu_order date',
-                                        'order'       => 'ASC'
-                                );
-        $can_capital_chart = new WP_Query( $args );
+        $args = array('post_status' => 'publish',
+            'post_type' => 'can-comparison-chart',
+            'orderby' => 'menu_order date',
+            'order' => 'ASC'
+        );
+        $can_capital_chart = new WP_Query($args);
         //prx($can_capital_chart);
-        
-        
+
+
         $return = '<section id="funding-option">
 			<div class="container">
                             <h2 class="section-heading">Experience a better funding option</h2>
 				<div class="divtable accordion-xs gradient-one">';
-	$return .= '    		<div class="tr headings">
+        $return .= '    		<div class="tr headings">
                                             <div class="th firstname"><span></span></div>
                                             <div class="th term-laon">
                                                 <span><img alt="" src="assets/images/home/CAN_logo_footer.png" width="140" height="20"></span></div>
 						<div class="th trak-laon"><span>Bank Loan</span></div>
 						<div class="th installment-loan"><span>Credit card</span></div>
 					</div>';
-        if ( $can_capital_chart->have_posts() ) : 	
+        if ($can_capital_chart->have_posts()) :
             while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
-       echo $resource_topics = wp_get_post_terms($can_capital_chart->ID, 'comparison-chart', array("fields" => "names"));
-		$return .= '			<div class="tr seprate-block">
-						<div class="td firstname accordion-xs-toggle"><span>'.get_the_title().'</span></div>
+                echo $resource_topics = wp_get_post_terms($can_capital_chart->ID, 'comparison-chart', array("fields" => "names"));
+                $return .= '			<div class="tr seprate-block">
+						<div class="td firstname accordion-xs-toggle"><span>' . get_the_title() . '</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
 							<div class="inner">
 								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
@@ -1165,8 +1164,8 @@ class CanCapitalComparison_Widget extends WP_Widget {
 						</div>
 					</div>';
             endwhile;
-         endif;	
-	$return .= ' 		</div>
+        endif;
+        $return .= ' 		</div>
 			</div>
 		</section>';
         echo $return;
@@ -1177,13 +1176,14 @@ class CanCapitalComparison_Widget extends WP_Widget {
 //end class Realty_Widget
 register_widget('CanCapitalComparison_Widget');
 
-add_filter( 'walker_nav_menu_start_el', 'wpse_add_arrow',10,4);
-function wpse_add_arrow( $item_output, $item, $depth, $args ){
-   if ( in_array('menu-item-has-children', $item->classes) ) {
-       $item_output .='<span class="glyphicon glyphicon-menu-down dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></span>';
-   }
+add_filter('walker_nav_menu_start_el', 'wpse_add_arrow', 10, 4);
+
+function wpse_add_arrow($item_output, $item, $depth, $args) {
+    if (in_array('menu-item-has-children', $item->classes)) {
+        $item_output .='<span class="glyphicon glyphicon-menu-down dropdown-toggle" data-toggle="dropdown" aria-expanded="false"></span>';
+    }
     //Only add class to 'top level' items on the 'primary' menu.
-    
+
     return $item_output;
 }
 
@@ -1191,39 +1191,40 @@ function wpse_add_arrow( $item_output, $item, $depth, $args ){
  * Register meta box(es).
  */
 function wpdocs_register_meta_boxes() {
-    add_meta_box( 'award-resource-mapping', __( 'Select resource', 'textdomain' ), 'award_resource_mapping', 'industry_recognition' );
+    add_meta_box('award-resource-mapping', __('Select resource', 'textdomain'), 'award_resource_mapping', 'industry_recognition');
 }
-add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
- 
+
+add_action('add_meta_boxes', 'wpdocs_register_meta_boxes');
+
 /**
  * Meta box display callback.
  *
  */
-function award_resource_mapping( $post ) {
-    
+function award_resource_mapping($post) {
+
     // The Query
     $args = array(
-            'post_type'      => 'resource',
-            'post_status'    => 'publish',
-            'posts_per_page' => -1,
-            'meta_query'    => array(array(
-                    'key'   => 'wpcf-is-resource-award',
-                    'value' => 1
-                )),
-            'orderby' => 'menu_order date',
-            'order'   => 'ASC'
-        );
-    $award_resources = new WP_Query( $args );
-   
-    $selected_id = get_post_meta( $post->ID, 'resource_id', true);
-    $selected    = '';
-    if ( $award_resources->have_posts() ) :
+        'post_type' => 'resource',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'meta_query' => array(array(
+                'key' => 'wpcf-is-resource-award',
+                'value' => 1
+            )),
+        'orderby' => 'menu_order date',
+        'order' => 'ASC'
+    );
+    $award_resources = new WP_Query($args);
+
+    $selected_id = get_post_meta($post->ID, 'resource_id', true);
+    $selected = '';
+    if ($award_resources->have_posts()) :
         $return = '<select name=resource_id><option value="">Select resource</option>';
-        while ( $award_resources->have_posts() ) : $award_resources->the_post();
-            if ( $selected_id == get_the_ID() ) :
+        while ($award_resources->have_posts()) : $award_resources->the_post();
+            if ($selected_id == get_the_ID()) :
                 $selected = 'selected';
             endif;
-            $return .= '<option '.$selected.' value='.get_the_ID().'>'.get_the_title().'</option>';
+            $return .= '<option ' . $selected . ' value=' . get_the_ID() . '>' . get_the_title() . '</option>';
         endwhile;
         $return .= '</select>';
     endif;
@@ -1236,7 +1237,7 @@ function award_resource_mapping( $post ) {
  * @param post $post The post object.
  * @param bool $update Whether this is an existing post being updated or not.
  */
-function save_award_meta( $post_id, $post, $update ) {
+function save_award_meta($post_id, $post, $update) {
 
     /*
      * In production code, $slug should be set only once in the plugin,
@@ -1245,32 +1246,34 @@ function save_award_meta( $post_id, $post, $update ) {
     $slug = 'industry_recognition';
 
     // If this isn't a 'book' post, don't update it.
-    if ( $slug != $post->post_type ) {
+    if ($slug != $post->post_type) {
         return;
     }
 
     // - Update the post's metadata.
 
-    if ( isset( $_REQUEST['resource_id'] ) && $_REQUEST['resource_id'] != ''  ) {
-        update_post_meta( $post_id, 'resource_id', sanitize_text_field( $_REQUEST['resource_id'] ) );
+    if (isset($_REQUEST['resource_id']) && $_REQUEST['resource_id'] != '') {
+        update_post_meta($post_id, 'resource_id', sanitize_text_field($_REQUEST['resource_id']));
     }
 }
-add_action( 'save_post', 'save_award_meta', 10, 3 );
+
+add_action('save_post', 'save_award_meta', 10, 3);
 
 add_action('admin_menu', 'partner_add_pages');
+
 function partner_add_pages() {
 
-   // The first parameter is the Page name(admin-menu), second is the Menu name(menu-name)
-   //and the number(5) is the user level that gets access
+    // The first parameter is the Page name(admin-menu), second is the Menu name(menu-name)
+    //and the number(5) is the user level that gets access
     //add_menu_page("Partners", "Partners", "manage_options", "partners", "partners_callback_function", null, 99);
-    add_menu_page ( 'Partners', 'Partners', 5, 'partners','partners_callback_function','', 5 );
-   add_submenu_page ( 'partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner-type');
-   add_submenu_page ( 'partners', 'Selected Partners', 'Selected Partners', 5, 'edit.php?post_type=selected_partner');
-   add_submenu_page ( 'partners', 'Partner Benefits', 'Partner Benefits', 5, 'edit.php?post_type=partner_benefit');
+    add_menu_page('Partners', 'Partners', 5, 'partners', 'partners_callback_function', '', 5);
+    add_submenu_page('partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner-type');
+    add_submenu_page('partners', 'Selected Partners', 'Selected Partners', 5, 'edit.php?post_type=selected_partner');
+    add_submenu_page('partners', 'Partner Benefits', 'Partner Benefits', 5, 'edit.php?post_type=partner_benefit');
 }
 
 function partners_callback_function() {
-	?>
+    ?>
     <div class="wrap">
         <h1>Partner Options:</h1>
         <form method="post" action="options.php">
@@ -1281,7 +1284,7 @@ function partners_callback_function() {
             ?>          
         </form>
     </div>
-	<?php
+    <?php
 }
 
 function partner_types_heading() {
@@ -1328,15 +1331,15 @@ function industry_recognition() {
 
 function display_partner_panel_fields() {
     add_settings_section("partners-section", "Settings:", null, "partners");
-    
+
     add_settings_field("Partner Types Heading", "Partner Types Heading", "partner_types_heading", "partners", "partners-section");
-    add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section"); 
+    add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section");
     add_settings_field("Selected Partners", "Selected Partners", "selected_partners", "partners", "partners-section");
     add_settings_field("Call to action heading", "Call to action heading", "call_to_action_heading", "partners", "partners-section");
     add_settings_field("Call No", "Call No", "call_no", "partners", "partners-section");
     add_settings_field("Email", "Email", "call_to_action_email", "partners", "partners-section");
     add_settings_field("Industry Recognition", "Industry Recognition", "industry_recognition", "partners", "partners-section");
-    
+
     register_setting("partners-section", "partner_types_heading");
     register_setting("partners-section", "partner_benefits");
     register_setting("partners-section", "selected_partners");

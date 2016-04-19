@@ -27,7 +27,7 @@ class TOOLS_Widget extends WP_Widget {
         // outputs the content of the widget
         global $wpdb;
 
-        $tools = $wpdb->get_results("SELECT id,image,external_link,name FROM wp_tools", ARRAY_A);
+        $tools = $wpdb->get_results("SELECT id,image,external_link,name,image_alt_text FROM wp_tools", ARRAY_A);
         $title = apply_filters('widget_title', $instance['title']);
       
         if (!empty($tools)) :
@@ -36,7 +36,7 @@ class TOOLS_Widget extends WP_Widget {
             foreach ($tools as $tool) {
                 $string .= ' <div class = "col-xs-12 post-information">
                                                 <div class = "post-image">
-                                                     <img src = "' . $tool['image'] . '" width="66" height="66" >
+                                                     <img src = "' . $tool['image'] . '" width="66" height="66" alt="' . $tool['image_alt_text'] . '" >
                                                  </div>
                                                  <p class = "featured-title"><a href="' . $tool['external_link'] . '">' . $tool['name'] . '</a></p>
                                             </div>';
@@ -86,7 +86,7 @@ class TOOLS_Widget extends WP_Widget {
 function tools_plugin_options_install() {
     global $wpdb;
     $table_name = $wpdb->prefix . "tools";
-    $sql = "CREATE TABLE " . $table_name . " ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL ,  `image` VARCHAR(100) NOT NULL ,  `external_link` VARCHAR(100) NOT NULL ,  `created` DATETIME NOT NULL ,  `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;";
+    $sql = "CREATE TABLE " . $table_name . " ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL ,  `image` VARCHAR(100) NOT NULL ,  `external_link` VARCHAR(100) NOT NULL , `image_alt_text` VARCHAR(100) NOT NULL , `created` DATETIME NOT NULL ,  `updated` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,    PRIMARY KEY  (`id`)) ENGINE = InnoDB;";
 
     require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
     dbDelta($sql);
@@ -116,7 +116,7 @@ function toolsCallbackFunction() {
         $wpdb->delete('wp_tools', array('id' => $deleteBadgeId), array('%d'));
     }
 
-    $badges = $wpdb->get_results("SELECT id,image,external_link,name FROM wp_tools", ARRAY_A);
+    $badges = $wpdb->get_results("SELECT id,image,external_link,name,image_alt_text FROM wp_tools", ARRAY_A);
     ?>
     <h2>Tools <a href="<?php echo $url; ?>/admin.php?page=add_new_tool" class="page-title-action">Add New</a></h2>
     <table class="wp-list-table widefat fixed striped posts">
@@ -125,6 +125,7 @@ function toolsCallbackFunction() {
                 <th>Name</th>
                 <th>Image</th>
                 <th>Link</th>
+                <th>Image Alt Text</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -137,6 +138,7 @@ function toolsCallbackFunction() {
                         <td><?php echo $badge['name']; ?></td>
                         <td><img src="<?php echo $badge['image']; ?>" width="50" height="50" /></td>
                         <td><?php echo $badge['external_link']; ?></td>
+                        <td><?php echo $badge['image_alt_text']; ?></td>
                         <td>
                             <a href="<?php echo $url; ?>/admin.php?page=add_new_tool&badge_id=<?php echo $badge['id']; ?>">Edit</a> |
                             <a href="<?php echo $url; ?>/admin.php?page=tools&action=delete&tool_id=<?php echo $badge['id']; ?>">Delete</a>
@@ -176,7 +178,8 @@ function addNewTool() {
                     'wp_tools', array(
                 'image' => $_POST['badgeImage'],
                 'name' => $_POST['name'],
-                'external_link' => $_POST['externalLink']
+                'external_link' => $_POST['externalLink'],
+                'image_alt_text' => $_POST['image_alt_text'],      
                     ), array('ID' => $badge_id), array(
                 '%s', // value1
                 '%s' // value2
@@ -190,6 +193,7 @@ function addNewTool() {
                 'image' => $_POST['badgeImage'],
                 'external_link' => $_POST['externalLink'],
                 'name' => $_POST['name'],
+                'image_alt_text' => $_POST['image_alt_text'],
                 'created' => date("Y-m-d H:i:s")
                     ), array(
                 '%s',
@@ -205,10 +209,11 @@ function addNewTool() {
     $badgeData = array();
     $badgeImage = $badegeExternalLink = '';
     if (isset($badge_id)) {
-        $badgeData = $wpdb->get_results("SELECT id,image,external_link,name FROM wp_tools WHERE id = " . $badge_id, ARRAY_A);
+        $badgeData = $wpdb->get_results("SELECT id,image,external_link,name,image_alt_text FROM wp_tools WHERE id = " . $badge_id, ARRAY_A);
         $badgeImage = $badgeData[0]['image'];
         $badegeExternalLink = $badgeData[0]['external_link'];
         $badegeName = $badgeData[0]['name'];
+        $image_alt_text = $badgeData[0]['image_alt_text'];
     }
     ?>
     <h2><?php echo isset($badge_id) ? 'Update' : 'Add New' ?> Tool</h2>
@@ -231,6 +236,10 @@ function addNewTool() {
                 <div class="form-group">
                     <label for="email">Link:</label>
                     <input type="text" class="form-control" id="externalLink" placeholder="External Link" name="externalLink" required value="<?php echo $badegeExternalLink; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Image Alt Text:</label>
+                    <input type="text" class="form-control" id="image_alt_text" placeholder="Image Alt Text" name="image_alt_text" required value="<?php echo $image_alt_text; ?>" />
                 </div>
                 <div class="form-group image-data">
                     <?php

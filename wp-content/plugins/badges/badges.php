@@ -28,14 +28,12 @@ class TRUST_BADGES_Widget extends WP_Widget {
         global $wpdb;
         $badges = $wpdb->get_results("SELECT id,image,external_link,title,image_alt_text FROM wp_badges", ARRAY_A);
 
-        $badgesString = '<div class="container">
-				<div class="badges-container bottom-margin-80">
-                                <ul>';
+        $badgesString = '<ul class="badges-container">';
 
         foreach ($badges as $badge) {
             $badgesString .= '<li><a href="' . $badge['external_link'] . '" target="_blank" title="' . $badge['title'] . '"><img src="' . $badge['image'] . '" alt="' . $badge['image_alt_text'] . '" /></a></li>';
         }
-        $badgesString .= '</ul></div></div>';
+        $badgesString .= '</ul>';
         echo $badgesString;
     }
 

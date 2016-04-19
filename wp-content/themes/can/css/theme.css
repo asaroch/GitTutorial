@@ -19,3 +19,5 @@ ul.nav li.current-menu-parent > a {
 }
 .show-less-term-loan{display:none;}
 .show-less-termDetail-loan{display:none;}
+
+.primary-nav .nav li.dropdown > a:hover { border-bottom: none}

@@ -16,10 +16,10 @@ get_header();
         </form>
     </div>
 </section><!-- partner form -->
-<section  class="get-funded">
+<section class="get-funded">
     <div class="container text-center">
-        <h1 class="section-heading"> Get Funded </h1>
-        <h3> Smart, Simple & Fast. </h3>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
+        <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></h3>
         <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>
