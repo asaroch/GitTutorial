@@ -65,11 +65,6 @@ global $post;
     </div><!-- .widget-area -->
 <?php endif; ?>	
 <!-- capital_comparison_chart section -->
-<?php if (is_active_sidebar('memberbenefit')) : ?>
-    <div class="widget-area memberbenefit" role="complementary">
-        <?php dynamic_sidebar('memberbenefit'); ?>
-    </div><!-- .widget-area -->
-<?php endif; ?>	
 <!-- video tutorial merchant -->	
 <!-- we bring you the best section -->
 <?php if (is_active_sidebar('can_capital_video_testimonial')) : ?>
@@ -77,7 +72,13 @@ global $post;
         <?php dynamic_sidebar('can_capital_video_testimonial'); ?>
     </div><!-- .widget-area -->
 <?php endif; ?>	
-<!-- video tutorial merchant -->	
+<!-- video tutorial merchant -->
+<?php if (is_active_sidebar('memberbenefit')) : ?>
+    <div class="widget-area memberbenefit" role="complementary">
+        <?php dynamic_sidebar('memberbenefit'); ?>
+    </div><!-- .widget-area -->
+<?php endif; ?>	
+	
 <!-- we bring you the best section -->
 <section  class="get-funded">
     <div class="container text-center">
