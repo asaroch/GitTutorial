@@ -95,14 +95,27 @@
 @media (max-width: 991px) {
     .sidebar {
         width: 100%;
+        position:static;
+        margin:0;
+        padding-bottom: 5px;
     }
     .loan-item {
         font-size: 20px;
+    }
+    .mob-grey-bg {
+        background-color: #eee;
+        padding:0;
+    }
+    .popular-topics a {
+        line-height: 35px;
+        font-size: 18px;
     }
     /*batch 2*/
     #sbf_hero .content-list-item {
         padding: 15px 15px 0;
     }
+    
+    
 }
 @media (max-width: 991px) and (min-width: 768px) {
     .navbar-brand {
@@ -135,9 +148,6 @@
     .col-7-overide {
         width: 53.833333%;
     }
-    .sidebar {
-        position: static;
-    }
     .resource-container {
         padding-right: 15px; 
     }
@@ -158,9 +168,7 @@
         font-size: 30px;
         margin:0 0 15px;
     }
-    .mob-grey-bg {
-        background-color: #eee;
-    }
+    
     .inner-page-arrow {
         bottom: -48px; 
     }
@@ -175,6 +183,9 @@
     }
     .primary-nav ul.nav > li {
         padding: 0px 10px;
+    }
+    .post-content {
+        width: 236px;
     }
     /*how it work process arrow*/
     .process-block .financial-product-item .process-arrow {
@@ -592,16 +603,10 @@
         float:none;
     }
     .sidebar {
-        position: static;
-        margin: 0;
-        background-color: none;
         padding:0;
     }
     .sidebar .section-heading {
         text-align: center;
-    }
-    .mob-grey-bg {
-        background-color: #eee;
     }
     #all_resources_block .select-topic {
         float: none;
@@ -749,6 +754,9 @@
         font-style: normal;
         line-height: 32px;
     }
+    #sbf_hero #slider_testimonial .user-icon, #sbf_hero .owl-carousel .owl-item img {
+        margin: 0 auto;
+    }
     #sbf_hero .heading-line { 
         font-size: 28px; 
         line-height: 38px; 
@@ -862,12 +870,12 @@
         background-color: #e69500; 
     }
     .accordion-xs .accordion-xs-toggle:after {
-        content: "?";
+        content: "";
         float: right;
         color: rgba(1, 174, 240, 0.9);
     }
     .accordion-xs .accordion-xs-toggle.collapsed:after { 
-        content: "?";
+        content: "";
     }
     .accordion-xs-collapse .inner { 
         display: list-item; 
@@ -938,6 +946,9 @@
     }
     #home_get_quote .get-quote-style .down-arrow { 
         border-top-color: #fff;
+    }
+    .navigation-item {
+        margin: 13px 0 10px;
     }
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/

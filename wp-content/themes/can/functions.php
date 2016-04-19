@@ -240,7 +240,7 @@ function twentysixteen_widgets_init() {
             //'after_title'   => '</h2>',
     ));
 }
-
+    
 add_action('widgets_init', 'twentysixteen_widgets_init');
 
 if (!function_exists('twentysixteen_fonts_url')) :

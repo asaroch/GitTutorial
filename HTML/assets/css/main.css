@@ -316,7 +316,7 @@ h1 {
 	top:0px;
 }
 .inner-page-arrow {
-	bottom: -60px;
+    bottom: -59px;
     top: inherit;
     left: 30px;
 }
@@ -710,11 +710,6 @@ span.select-drop {
 }
 .sidebar {
 	width: 278px;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	z-index: 0;
-	right: 0px;
 	background-color: #eee;
 	padding-bottom: 160px;
 }
@@ -1147,9 +1142,6 @@ footer .badges-container {
 	z-index: 99;
 	background: rgba(107, 40, 117, 1);
 }
-.sidebar {
-	position: static;
-}
 /* get quote overlay */ 
 #get_quote,
 #get_quote_home{
@@ -1428,7 +1420,6 @@ footer .badges-container {
 #home_resource_list .read-time {
 	bottom: 15px;
         }
-#home_resource_list .read-time, #home_resource_list .read-date { font-size: 15px; }
 .read-time span, .read-date span{
 	font-family: "Fort-bold";
 	color: #01aef0;
@@ -1771,12 +1762,18 @@ form.form-section h3.heading-beacome-partner {
     z-index: 6;
 }
 .navigation-item {
-	display: block;
-	font-family: "Fort-book"; 
-	color: #e284e0; 
-	font-size: 26px;
-	  margin: 17px auto 0;
+    display: block;
+    font-family: "Fort-book"; 
+    color: #e284e0; 
+    font-size: 26px;
+    margin: 17px auto 0;
     padding: 10px 0;
+    text-decoration: none;
+}
+.navigation-item:hover,.navigation-item:focus  {
+    color: #fff; 
+    text-decoration: none;
+    font-family: "Fort-bold";
 }
 .loan-nav .active a {
 	font-family: "Fort-bold"; 
@@ -2174,9 +2171,21 @@ input[type=number] {
 .featured-story-image img, .resource-image img {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
 }
 .featured-story-image .featured-video-plus, .featured-video-plus .fvp-center {
     display: table-cell;
     vertical-align: middle;
+}
+/*PDF changes*/
+.option-text p {
+	font-size: 15px;
+}
+.select-topic select { padding-right: 54px; }
+ul.nav li.current-menu-parent > a:hover {
+    border-bottom: 2px solid transparent;
 }
