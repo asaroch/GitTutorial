@@ -4,6 +4,11 @@ Template Name: how it works
 */
 get_header();
 $how_it_works_id = get_the_ID();
+
+// page heading 
+$effortlessHeading = get_post_meta($how_it_works_id, 'wpcf-effortless-applica', true); 
+$gatherBefore = get_post_meta($how_it_works_id, 'wpcf-gather-start', true); 
+$gettingFunds = get_post_meta($how_it_works_id, 'wpcf-getting-funds', true); 
 // How it work processes queries The Query
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'how-it-work-process',
@@ -97,7 +102,7 @@ endif;
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h2 class="section-heading"> Effortless Application </h2>
+						<h2 class="section-heading"> <?php echo $effortlessHeading; ?> </h2>
 						<ul class="list-term-use termloan-use-point">
                                                     <?php
                                                     if ( $howItWorksEffort->have_posts() ) :
@@ -115,7 +120,7 @@ endif;
 		<!-- Terms loan details -->
 		<section id="details_termsloan">
 			<div class="container">
-				<h2 class="section-heading"> Gather Before You Start </h2>
+				<h2 class="section-heading"> <?php echo $gatherBefore; ?> </h2>
 				<div class="col-sm-offset-4 col-sm-6">
 					<div class="row">
 						<ul class="details-point">
@@ -136,7 +141,7 @@ endif;
 		<!-- Infoegrafic carousel -->
                 <section id="infografic_product">
                     <div class="container">
-                        <h2 class="section-heading"> Getting Funds and Making Payments </h2>
+                        <h2 class="section-heading"> <?php echo $gettingFunds; ?> </h2>
                         <div id="infografic_carousel" class="owl-carousel owl-theme">
                             <?php
                             if ($how_getting_fund->have_posts()) :
