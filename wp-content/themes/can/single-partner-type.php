@@ -97,7 +97,7 @@ if ( $history_funding != '' ) {
 <!-- Email Us -->	
 <section id="email_us"  class="gray-bg">
     <div class="container text-center">
-        <h1 class="section-heading"> <?php echo get_option('call_to_action_heading'); ?></h1>
+        <h2 class="section-heading"> <?php echo get_option('call_to_action_heading'); ?></h2>
         <h5 class="call-us"> Call us: </h5>
         <h3 class='call-number'> <?php echo get_option('call_no'); ?> </h3>
         <span class='divider-line'>  </span>
@@ -109,7 +109,7 @@ if ( $history_funding != '' ) {
     <div class="container text-center">
         <h2> Earn value </h2>
         <h3> <strong>Deliver value</strong> </h3>
-        <a href="<?php echo get_the_permalink(337); ?>" title="APPLY NOW" class="btn btn-blue-bg"> Become a sales partner <i class="glyphicon glyphicon-play"></i></a>
+        <a href="<?php echo esc_url(get_the_permalink(337)); ?>?partner=<?php echo $post->post_name; ?>" title="APPLY NOW" class="btn btn-blue-bg"> Become a sales partner <i class="glyphicon glyphicon-play"></i></a>
     </div>
 </section>
 <?php

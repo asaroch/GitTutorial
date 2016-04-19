@@ -1256,8 +1256,7 @@ function save_award_meta( $post_id, $post, $update ) {
     }
 
     // - Update the post's metadata.
-
-    if ( isset( $_REQUEST['resource_id'] ) && $_REQUEST['resource_id'] != ''  ) {
+    if ( isset( $_REQUEST['resource_id'] )  ) {
         update_post_meta( $post_id, 'resource_id', sanitize_text_field( $_REQUEST['resource_id'] ) );
     }
 }

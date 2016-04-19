@@ -69,44 +69,58 @@ if ( isset($_POST['join']) ) {
             <div class="row"> 
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="first_name">First name</label>
-                        <input type="text" class="form-control" id="first-name" name="first_name" />
+                        <fieldset>
+                            <label for="first_name">First name</label>
+                            <input type="text" class="form-control" id="first-name" name="first_name" />
+                        </fieldset>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="last_name">Last name</label>
-                        <input type="text" class="form-control" id="last-name" name="last_name">
+                        <fieldset>
+                            <label for="last_name">Last name</label>
+                            <input type="text" class="form-control" id="last-name" name="last_name">
+                        </fieldset>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="email_addr">Email address</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <fieldset>
+                            <label for="email_addr">Email address</label>
+                            <input type="text" class="form-control" id="email" name="email">
+                        </fieldset>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="phone_no">Phone number</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
+                        <fieldset>
+                            <label for="phone_no">Phone number</label>
+                            <input type="text" class="form-control" id="phone" name="phone">
+                        <fieldset>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="business_name">Business name</label>
-                        <input type="text" class="form-control" id="business-name" name="business_name">
+                        <fieldset>
+                             <label for="business_name">Business name</label>
+                             <input type="text" class="form-control" id="business-name" name="business_name">
+                        </fieldset>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <fieldset>
+                             <label for="title">Title</label>
+                             <input type="text" class="form-control" id="title" name="title">
+                        </fieldset>
                     </div>
                 </div>
                 <div class="col-sm-12 margin-top">
                     <div class="form-group">
-                        <label for="title">Your message</label>
-                        <textarea class="form-control" rows="10" cols="10" id="message" name="message"></textarea>
+                        <fieldset>
+                            <label for="title">Your message</label>
+                            <textarea class="form-control" rows="10" cols="10" id="message" name="message"></textarea>
+                        </fieldset>
                     </div>
                 </div>
             </div>
@@ -115,22 +129,29 @@ if ( isset($_POST['join']) ) {
                     <h3 class="heading-parter-type">Partner Type</h3>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 partner-type">
-                    <div class="form-group">															
-                        <input type="radio" class="form-control" id="distribution_sales" name="sales" value="distribution" <?php echo $_GET['partner'] && $_GET['partner'] == 'distribution-sales-partner' ? 'checked=checked' : ''; ?>>
-                        <label for="distribution_sales"><span></span>Distribution Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
+                    <div class="form-group">
+                        <fieldset>
+                            <input type="radio" class="form-control" id="distribution_sales" name="sales" value="distribution" <?php echo $_GET['partner'] && $_GET['partner'] == 'distribution-sales-partner' ? 'checked=checked' : ''; ?>>
+                           <label for="distribution_sales"><span></span>Distribution Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
+                        </fieldset>   
                     </div>
                     <div class="form-group">														
-                        <input type="radio" class="form-control" id="referral_sales" name="sales" value="referral" <?php echo $_GET['partner'] && $_GET['partner'] == 'referral-sales-partner' ? 'checked=checked' : ''; ?>>
-                        <label for="referral_sales"><span></span>Referral Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
-
+                        <fieldset>
+                             <input type="radio" class="form-control" id="referral_sales" name="sales" value="referral" <?php echo $_GET['partner'] && $_GET['partner'] == 'referral-sales-partner' ? 'checked=checked' : ''; ?>>
+                             <label for="referral_sales"><span></span>Referral Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
+                        </fieldset>
                     </div>
-                    <div class="form-group">															
-                        <input type="radio" class="form-control" id="financial_platform" name="sales" value="financial" <?php echo $_GET['partner'] && $_GET['partner'] == 'financial-platforms-sales-partner' ? 'checked=checked' : ''; ?>>
-                        <label for="financial_platform"><span></span>Financial Platform Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
+                    <div class="form-group">
+                        <fieldset>
+                            <input type="radio" class="form-control" id="financial_platform" name="sales" value="financial" <?php echo $_GET['partner'] && $_GET['partner'] == 'financial-platforms-sales-partner' ? 'checked=checked' : ''; ?>>
+                             <label for="financial_platform"><span></span>Financial Platform Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
+                        </fieldset>
                     </div>
-                    <div class="form-group">														
-                        <input type="radio" class="form-control" id="not_sure" name="sales" value="none">
-                        <label for="not_sure"><span></span>I'm not sure</label>								
+                    <div class="form-group">
+                        <fieldset>
+                            <input type="radio" class="form-control" id="not_sure" name="sales" value="none">
+                           <label for="not_sure"><span></span>I'm not sure</label>
+                        </fieldset>
                     </div>
                 </div>
             </div>
