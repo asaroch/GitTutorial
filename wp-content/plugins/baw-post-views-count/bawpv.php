@@ -152,7 +152,7 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
                         if (!empty($image_url[0])) {
                             ?>
                             <div class="post-image">
-                                <img src="<?php echo $image_url[0]; ?>" width="70" height="70" />
+                               <?php echo get_the_post_thumbnail( $post->ID, array( 70, 70) ); ?>
                             </div>
                             <?php
                         }

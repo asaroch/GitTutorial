@@ -34,7 +34,8 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
             <?php } ?>
         </div>
         <div id="term_loan_graph">
-            <?php if (has_post_thumbnail($post->ID)):
+            <?php
+            if (has_post_thumbnail($post->ID)):
                 $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
                 ?>
                 <img src="<?php echo $image[0]; ?>" alt="Terms loan graph">
@@ -133,7 +134,7 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
                             <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-topic', true); ?> </p>
                             <p class="success-description"> <?php echo get_the_content(); ?> </p>					
                         </div>
-                    <?php
+                        <?php
                     }
                 }
                 ?>
@@ -155,10 +156,10 @@ $listings->query('post_type=testimonial&testimonial-category=merchant&order=ASC'
         <a href="javascript:void(0);" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
     </div>
 </section>
-<section  class="get-funded">
+<section class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> Get Funded </h2>
-        <h3> Smart, Simple & Fast. </h3>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?> </h2>
+        <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?> </h3>
         <!-- applynow widget section -->
             <?php if (is_active_sidebar('applynow')) : ?>
             <div class="widget-area applynow" role="complementary">

@@ -224,15 +224,10 @@ function twentysixteen_widgets_init() {
 		'name'          => __( 'Member Benefits', 'twentysixteen' ),
 		'id'            => 'memberbenefit',
 		'description'   => __( 'Appears on the center of the pages where its required to display member benefits.', 'twentysixteen' ),
-		'before_widget' => '<section id="we_bring_you_best" class="we_bring_you-border-bottom"><div class="tranp-div-two"></div>
-			<div class="container">',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<div class="col-md-12">
-					<div class="row">
-						<h2 class="widget-title">',
-		'after_title'   => '</h2>
-					</div>
-				</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	) );
     
      register_sidebar( array(
@@ -244,18 +239,8 @@ function twentysixteen_widgets_init() {
 		//'before_title'  => '<h2 class="widget-title">',
 		//'after_title'   => '</h2>',
 	) );
-     
-     register_sidebar( array(
-		'name'          => __( 'video_testimonial', 'can' ),
-		'id'            => 'can_capital_video_testimonial',
-		'description'   => __( 'Appears merchant testimonials.', 'can' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section></div></section>',
-		'before_title'  => '<section id="success_community">
-        <div class="container"><h2 class="section-heading">',
-		'after_title'   => '</h2>',
-	) );
 }
+
 add_action('widgets_init', 'twentysixteen_widgets_init');
 
 if (!function_exists('twentysixteen_fonts_url')) :
@@ -332,23 +317,18 @@ function can_scripts() {
     wp_enqueue_script('jquery.min', get_template_directory_uri() . '/js/jquery.min.js');
     wp_enqueue_script('bootstrap.min', get_template_directory_uri() . '/js/bootstrap.min.js');
     wp_enqueue_script('owl.carousel.min', get_template_directory_uri() . '/js/owl.carousel.min.js');
+    wp_enqueue_script('validate', get_template_directory_uri() . '/js/validate.js');
+    wp_enqueue_script('jquery.maskedinput', get_template_directory_uri() . '/js/jquery.maskedinput.js');
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 
-    $search = $financialProductSlider = $testimonialSlider = $campaignProductSlider = FALSE;
+    $search = $financialProductSlider = $testimonialSlider = FALSE;
     $count_financial_product = wp_count_posts('financial_product');
-
-    $count_campaign_product = wp_count_posts('landing-page');
-
     $count_video_testimonial = wp_count_posts('video-testimonial');
-
 
     if ($count_financial_product->publish > 3) {
         $financialProductSlider = TRUE;
-    }
-    if ($count_campaign_product->publish > 3) {
-        $campaignProductSlider = TRUE;
     }
     if ($count_video_testimonial->publish > 2) {
         $testimonialSlider = TRUE;
@@ -356,14 +336,18 @@ function can_scripts() {
     if (isset($_GET['search'])) {
         $search = TRUE;
     }
+   
+    // Fetch partner lead validation error messages
+    $validationsErrs = get_option('partners_lead_generations_validations_error_msg');
+    
     wp_localize_script('custom-dev', 'var_object', array('ajax_url' => admin_url('admin-ajax.php'),
-        'show_more_limit' => get_option('posts_per_page'),
-        'image_url' => get_template_directory_uri(),
-        'search' => $search,
+        'show_more_limit'        => get_option('posts_per_page'),
+        'image_url'              => get_template_directory_uri(),
+        'search'                 => $search,
         'financialProductSlider' => $financialProductSlider,
-        'testimonialSlider' => $testimonialSlider,
-        'campaignSlider' => $campaignProductSlider
-    ));
+        'testimonialSlider'      => $testimonialSlider,
+        'validationsErrs'        => $validationsErrs
+      ));
 }
 
 add_action('wp_enqueue_scripts', 'can_scripts');
@@ -1162,69 +1146,28 @@ class CanCapitalComparison_Widget extends WP_Widget {
         $can_capital_chart = new WP_Query( $args );
         //prx($can_capital_chart);
         
-       $data =  get_terms('comparison-chart');
-       $logo = array();
-       $name = array();
-       
-       foreach($data as $key => $value){
-             $name[$key] = $data[$key]->name;   
-             $logo[$key] = get_term_meta($data[$key]->term_id,'wpcf-logo',true);
-        }
+        
         $return = '<section id="funding-option">
 			<div class="container">
                             <h2 class="section-heading">Experience a better funding option</h2>
 				<div class="divtable accordion-xs gradient-one">';
 	$return .= '    		<div class="tr headings">
                                             <div class="th firstname"><span></span></div>
-                                            <div class="th term-laon"><span>';
-                                            if($logo[1] != ""){
-        $return .= '                        <img alt="" src="'.$logo[1].'" width="140" height="20">';
-                                            }else{
-                                            $return .= $name[1];        
-                                            }
-        $return .= '</span></div>';
-        if($logo[0] == ""){
-	$return .= '<div class="th trak-laon"><span>'.$name[0].'</span></div>';
-        }else{
-        $return .= '<div class="th trak-laon"><span><img alt="" src="'.$logo[0].'" width="140" height="20"></span></div>';    
-        }
-        if($logo[2] == ""){
-	$return .= '<div class="th installment-loan"><span>'.$name[2].'</span></div>';
-        }
-        else{
-        $return .= '<div class="th trak-laon"><span><img alt="" src="'.$logo[2].'" width="140" height="20"></span></div>';    
-        }
-	$return .= '</div>';
+                                            <div class="th term-laon">
+                                                <span><img alt="" src="assets/images/home/CAN_logo_footer.png" width="140" height="20"></span></div>
+						<div class="th trak-laon"><span>Bank Loan</span></div>
+						<div class="th installment-loan"><span>Credit card</span></div>
+					</div>';
         if ( $can_capital_chart->have_posts() ) : 	
             while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
-        
-    $chart_topics = wp_get_post_terms(get_the_ID(), 'comparison-chart', array("fields" => "all"));
-    
-    
-    
-     
-      
-      
+       echo $resource_topics = wp_get_post_terms($can_capital_chart->ID, 'comparison-chart', array("fields" => "names"));
 		$return .= '			<div class="tr seprate-block">
 						<div class="td firstname accordion-xs-toggle"><span>'.get_the_title().'</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
 							<div class="inner">
-								<div class="td term-laon"><span>';
-if(isset($chart_topics[0])){                                                                
-$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
-}
-    $return .= '</span></div>
-<div class="td trak-laon"><span>';
-if(isset($chart_topics[1])){                                                                
-$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
-}
-    $return .= '</span></div>
-<div class="td installment-loan"><span>';
-if(isset($chart_topics[2])){                                                                
-$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
-}
-    $return .= '</span></div>								
-								
+								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
+								<div class="td trak-laon"></div>
+								<div class="td installment-loan"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
 							</div>
 						</div>
 					</div>';
@@ -1249,48 +1192,6 @@ function wpse_add_arrow( $item_output, $item, $depth, $args ){
     //Only add class to 'top level' items on the 'primary' menu.
     
     return $item_output;
-}
-
-/**
- * Register meta box(es).
- */
-function wpdocs_register_meta_boxes() {
-    add_meta_box( 'award-resource-mapping', __( 'Select resource', 'textdomain' ), 'award_resource_mapping', 'industry_recognition' );
-}
-add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
- 
-/**
- * Meta box display callback.
- *
- */
-function award_resource_mapping( $post ) {
-    
-    // The Query
-    $args = array(
-            'post_type'      => 'resource',
-            'post_status'    => 'publish',
-            'posts_per_page' => -1,
-            'meta_query'    => array(array(
-                    'key'   => 'wpcf-is-resource-award',
-                    'value' => 1
-                )),
-            'orderby' => 'menu_order date',
-            'order'   => 'ASC'
-        );
-    $award_resources = new WP_Query( $args );
-   
-    $selected_id = get_post_meta( $post->ID, 'resource_id', true);
-    $selected    = '';
-    if ( $award_resources->have_posts() ) :
-        $return = '<select name=resource_id><option value="">Select resource</option>';
-        while ( $award_resources->have_posts() ) : $award_resources->the_post();
-            if ( $selected_id == get_the_ID() ) :
-                $selected = 'selected';
-            endif;
-            $return .= '<option '.$selected.' value='.get_the_ID().'>'.get_the_title().'</option>';
-        endwhile;
-        $return .= '</select>';
-    endif;
 }
 
 /**
@@ -1321,196 +1222,47 @@ function save_award_meta( $post_id, $post, $update ) {
 }
 add_action( 'save_post', 'save_award_meta', 10, 3 );
 
-add_action('admin_menu', 'partner_add_pages');
-function partner_add_pages() {
 
-   // The first parameter is the Page name(admin-menu), second is the Menu name(menu-name)
-   //and the number(5) is the user level that gets access
-    //add_menu_page("Partners", "Partners", "manage_options", "partners", "partners_callback_function", null, 99);
-    add_menu_page ( 'Partners', 'Partners', 5, 'partners','partners_callback_function','', 5 );
-   add_submenu_page ( 'partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner-type');
-   add_submenu_page ( 'partners', 'Selected Partners', 'Selected Partners', 5, 'edit.php?post_type=selected_partner');
-   add_submenu_page ( 'partners', 'Partner Benefits', 'Partner Benefits', 5, 'edit.php?post_type=partner_benefit');
+/**
+ * Register meta box(es).
+ */
+function wpdocs_register_meta_boxes() {
+    add_meta_box( 'award-resource-mapping', __( 'Select resource', 'textdomain' ), 'award_resource_mapping', 'industry_recognition' );
 }
-
-function partners_callback_function() {
-	?>
-    <div class="wrap">
-        <h1>Partner Options:</h1>
-        <form method="post" action="options.php">
-            <?php
-            settings_fields("partners-section");
-            do_settings_sections("partners");
-            submit_button();
-            ?>          
-        </form>
-    </div>
-	<?php
-}
-
-function partner_types_heading() {
-    ?>
-    <input type="text" name="partner_types_heading" id="partner_types_heading" value="<?php echo get_option('partner_types_heading'); ?>" />
-    <?php
-}
-
-function partner_benefits() {
-    ?>
-    <input type="text" name="partner_benefits" id="partner_benefits" value="<?php echo get_option('partner_benefits'); ?>" />
-    <?php
-}
-
-function selected_partners() {
-    ?>
-    <input type="text" name="selected_partners" id="selected_partners" value="<?php echo get_option('selected_partners'); ?>" />
-    <?php
-}
-
-function call_to_action_heading() {
-    ?>
-    <input type="text" name="call_to_action_heading" id="call_to_action_heading" value="<?php echo get_option('call_to_action_heading'); ?>" />
-    <?php
-}
-
-function call_no() {
-    ?>
-    <input type="text" name="call_no" id="call_no" value="<?php echo get_option('call_no'); ?>" />
-    <?php
-}
-
-function call_to_action_email() {
-    ?>
-    <input type="text" name="call_to_action_email" id="call_to_action_email" value="<?php echo get_option('call_to_action_email'); ?>" />
-    <?php
-}
-
-function industry_recognition() {
-    ?>
-    <input type="text" name="industry_recognition" id="industry_recognition" value="<?php echo get_option('industry_recognition'); ?>" />
-    <?php
-}
-
-function display_partner_panel_fields() {
-    add_settings_section("partners-section", "Settings:", null, "partners");
-    
-    add_settings_field("Partner Types Heading", "Partner Types Heading", "partner_types_heading", "partners", "partners-section");
-    add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section"); 
-    add_settings_field("Selected Partners", "Selected Partners", "selected_partners", "partners", "partners-section");
-    add_settings_field("Call to action heading", "Call to action heading", "call_to_action_heading", "partners", "partners-section");
-    add_settings_field("Call No", "Call No", "call_no", "partners", "partners-section");
-    add_settings_field("Email", "Email", "call_to_action_email", "partners", "partners-section");
-    add_settings_field("Industry Recognition", "Industry Recognition", "industry_recognition", "partners", "partners-section");
-    
-    register_setting("partners-section", "partner_types_heading");
-    register_setting("partners-section", "partner_benefits");
-    register_setting("partners-section", "selected_partners");
-    register_setting("partners-section", "call_to_action_heading");
-    register_setting("partners-section", "call_no");
-    register_setting("partners-section", "call_to_action_email");
-    register_setting("partners-section", "industry_recognition");
-}
-
-add_action("admin_init", "display_partner_panel_fields");
-
-/* * *********************************************
- * Adding custom widget for video testimonials*
- * ******************************************** */
-
-class VideoTestimonials_Widget extends WP_Widget {
-
-    function __construct() {
-        parent::__construct(
-                'VideoTestimonials_Widget', // Base ID
-                'Video testimonial Widget', // Name
-                array('description' => __('Displays your merchant testimonial with their title.'))
+add_action( 'add_meta_boxes', 'wpdocs_register_meta_boxes' );
+ 
+/**
+ * Meta box display callback.
+ *
+ */
+function award_resource_mapping( $post ) {
+   
+    // The Query
+    $args = array(
+            'post_type'      => 'resource',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'meta_query'    => array(array(
+                    'key'   => 'wpcf-is-resource-award',
+                    'value' => 1
+                )),
+            'orderby' => 'menu_order date',
+            'order'   => 'ASC'
         );
-    }
-
-    function update($new_instance, $old_instance) {
-        $instance = $old_instance;
-        $instance['title'] = strip_tags($new_instance['title']);
-        return $instance;
-    }
-
-    function form($instance) {
-        if ($instance) {
-            $title = esc_attr($instance['title']);
-        } else {
-            $title = '';
-        }
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'financial_widget'); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-        </p>        
-        <?php
-    }
-
-    function widget($args, $instance) {
-        extract($args);
-        $title = apply_filters('widget_title', $instance['title']);
-        $type = $instance['type'];
-        echo $before_widget;
-        if ($title) {
-            echo $before_title . $title . $after_title;
-        }
-        $this->getVideoTestimonialListings($type);
-        echo $after_widget;
-    }
-
-    /*     * *********************************************************
-     * Function to fetch listing of member benefits 
-     * Parameters : $numberOfListings
-     * Return : Html view with listing of items.
-     * ********************************************************* */
-
-    function getVideoTestimonialListings($type) { //html
-        global $post;
-        //add_image_size( 'financial_widget_size', 85, 45, false );
-        $listings = new WP_Query();
-        $args = array(
-            'post_type' => 'video-testimonial',
-            'post_status' => 'publish',
-            'order' => 'ASC'
-        );
-        
-        //$featured_resources = query_posts($args);
-        $listings->query($args);
-        
-        if ($listings->found_posts > 0) {
-            $return = '
-            <div class="owl-carousel owl-theme">
-                <!--Display testimonials for merchants-->';
-                
-                if ($listings->found_posts > 0) {
-                    while ($listings->have_posts()) {
-                        
-                        $listings->the_post();
-                        
-                     
-                $return .=  '<div class="item">
-                            <div class="video-player">'. get_the_post_thumbnail($post->ID).'
-                            </div>
-                            <p class="marchent-name">'. get_the_title().' </p>
-                            <p class="business-label">'. get_post_meta($post->ID, 'wpcf-business', true).'</p>
-                            <p class="business-name">'. get_post_meta($post->ID, 'wpcf-video_topic', true).' </p>
-                            <p class="success-description">'. get_the_content().' </p>					
-                        </div>';
-                    
-                    }
-                }
-         $return .= '     
-            </div>            
-        </div>			
-    </section>';
-         echo $return;
-            wp_reset_postdata();
-        } else {
-            echo '<p style="padding:25px;">No listing found</p>';
-        }
-    }
-
+    $award_resources = new WP_Query( $args );
+   
+    $selected_id = get_post_meta( $post->ID, 'resource_id', true);
+    $selected    = '';
+    if ( $award_resources->have_posts() ) :
+        $return = '<select name=resource_id><option value="">Select resource</option>';
+        while ( $award_resources->have_posts() ) : $award_resources->the_post();
+            if ( $selected_id == get_the_ID() ) :
+                $selected = 'selected';
+            endif;
+            $return .= '<option '.$selected.' value='.get_the_ID().'>'.get_the_title().'</option>';
+        endwhile;
+        $return .= '</select>';
+    endif;
+    echo $return;
 }
 
-//end class Realty_Widget
-register_widget('VideoTestimonials_Widget');

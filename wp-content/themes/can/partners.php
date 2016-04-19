@@ -33,7 +33,15 @@ if ( $partnerTypes->have_posts() ) :
 								<div class="partnership-item">
 									<h3 class="partnership-label"><?php echo get_the_title(); ?></h3>
 									<p class="partnership-description"> <?php  echo get_the_content(); ?> </p>
-									<a href="<?php echo esc_url(get_permalink($post->ID)); ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>"> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
+                                                                        <?php 
+                                                                        if ( get_the_ID() == 305 ) {
+                                                                            $link = get_post_meta($post->ID, 'wpcf-affiliate-partner-ex', true);
+                                                                        }
+                                                                        else {
+                                                                            $link = get_the_permalink($post->ID);
+                                                                        }
+                                                                        ?>
+									<a href="<?php echo $link; ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>"> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
 								</div>
 							</div>
 						</div>
