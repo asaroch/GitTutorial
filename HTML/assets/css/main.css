@@ -1670,11 +1670,12 @@ form.form-section h3.heading-beacome-partner {
 	z-index: 9;
 }
  .bring-best-item{
-	margin: 0px 22px 120px;
+	margin: 0px 22px 10px;
+        height: 346px;
 } 
  .bring-best-item .category-icon {
- 	width: auto;
- 	height: auto;
+ 	width: 92px;
+ 	height: 92px;
  }
 .heading-label {
 	font-family: "Fort-Bold"; 
