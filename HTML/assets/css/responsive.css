@@ -265,6 +265,9 @@
         width: auto;
         min-width: 235px;
     }
+    .bring-best-item {
+        height:300px;
+    }
 }
 @media (max-width:767px) {	
     #user_rettings_slider .owl-prev {
@@ -991,6 +994,7 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
+    
 }
 @media (max-width:480px){
     .water-mark-image {

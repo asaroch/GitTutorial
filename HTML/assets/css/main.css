@@ -254,7 +254,6 @@ h1 strong,
 .get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,
 .financial-product-item h5,
 .learn-more-btn,
-.testimonial-heading,
 #about_us p b,
 .featured-title a,
 .read-date b,
@@ -540,6 +539,9 @@ i.glyphicon-play {
 	width:506px;
 	margin: 0 auto 34px;
 	font-family: 'Fort-Light';
+}
+#about_us p b {
+    display: inline-block;
 }
 .btn-purple-style:hover, .btn-purple-style:focus {
 	color: #843A87;
@@ -1387,6 +1389,7 @@ footer .badges-container {
 }
 .info-product-item p span {
 	font-size: 64px;
+        display: block;
 }
 #use_termloan_for {
 	position: relative;
@@ -1678,7 +1681,6 @@ form.form-section h3.heading-beacome-partner {
 }
  .bring-best-item{
 	margin: 0px 22px 60px;
-        height: 300px;
 } 
  .bring-best-item .category-icon {
  	width: 92px;
