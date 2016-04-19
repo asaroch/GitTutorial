@@ -36,12 +36,14 @@ if ( $partnerTypes->have_posts() ) :
                                                                         <?php 
                                                                         if ( get_the_ID() == 305 ) {
                                                                             $link = get_post_meta($post->ID, 'wpcf-affiliate-partner-ex', true);
+                                                                            $target = "target=_blank";
                                                                         }
                                                                         else {
                                                                             $link = get_the_permalink($post->ID);
+                                                                            $target = '';
                                                                         }
                                                                         ?>
-									<a href="<?php echo $link; ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>"> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
+									<a href="<?php echo $link; ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>" <?php echo $target; ?>> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
 								</div>
 							</div>
 						</div>

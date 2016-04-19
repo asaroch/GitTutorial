@@ -109,7 +109,7 @@ if ( $history_funding != '' ) {
     <div class="container text-center">
         <h2> Earn value </h2>
         <h3> <strong>Deliver value</strong> </h3>
-        <a href="<?php echo get_the_permalink(337); ?>" title="APPLY NOW" class="btn btn-blue-bg"> Become a sales partner <i class="glyphicon glyphicon-play"></i></a>
+        <a href="<?php echo esc_url(get_the_permalink(337)); ?>?partner=<?php echo $post->post_name; ?>" title="APPLY NOW" class="btn btn-blue-bg"> Become a sales partner <i class="glyphicon glyphicon-play"></i></a>
     </div>
 </section>
 <?php
