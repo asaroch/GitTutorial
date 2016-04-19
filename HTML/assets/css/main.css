@@ -1451,7 +1451,7 @@ form.form-section label.error {
     color: red;
     text-align: right;
     position: absolute;
-    bottom: -40px;
+    bottom: 6px;
     right: 10px;
 }
 form.form-section textarea {
