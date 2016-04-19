@@ -28,7 +28,7 @@ ob_start();
         ?>
         <div class="wrapper">
             <?php
-            if (is_front_page() || is_page('partners') ) {
+            if (is_front_page() || is_page('partners') || is_page('how-it-works') ) {
                 ?>
                 <div class="water-mark-image"></div>
                 <?php
