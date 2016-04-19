@@ -97,6 +97,7 @@
         width: 100%;
         position:static;
         margin:0;
+        padding-bottom: 5px;
     }
     .loan-item {
         font-size: 20px;
@@ -105,10 +106,15 @@
         background-color: #eee;
         padding:0;
     }
+    .popular-topics a {
+        line-height: 35px;
+        font-size: 18px;
+    }
     /*batch 2*/
     #sbf_hero .content-list-item {
         padding: 15px 15px 0;
     }
+    
     
 }
 @media (max-width: 991px) and (min-width: 768px) {
