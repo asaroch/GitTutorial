@@ -19,7 +19,9 @@ ul.nav li.current-menu-parent > a {
 }
 .show-less-term-loan{display:none;}
 .show-less-termDetail-loan{display:none;}
+
 /* Navigation change for inner pages */
 .primary-nav .nav li.dropdown a {    
     padding: 9px 0;
 }
+
