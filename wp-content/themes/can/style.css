@@ -2178,3 +2178,6 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
+.primary-nav .nav li.dropdown a {    
+    padding: 9px 0;
+}
