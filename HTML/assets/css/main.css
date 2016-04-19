@@ -1444,7 +1444,7 @@ form.form-section label{
 form.form-section .form-control {
 	margin-bottom: 45px;
 }
-form.form-section .form-group {
+form.form-section .form-group fieldset {
     position:relative;
 }
 form.form-section label.error {
@@ -1630,6 +1630,7 @@ form.form-section h3.heading-beacome-partner {
 	margin: 0 12px 5px;
 	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.15);
 	height: 296px;
+        position: relative;
 }
 .partnership-item .learn-more-btn {
 	position: absolute;
@@ -1638,9 +1639,17 @@ form.form-section h3.heading-beacome-partner {
 	display: block;
 	width: 100%;
 }
+
 .partnership-item:hover {
 	background: #B352AF;
 } 
+.partnership-item .network-name {
+    position: absolute;
+    bottom:16px;
+    left:0;
+    right:0;
+    font-family: "Fort-Book";
+}
 #partnership .badges-container {
 	padding-top: 28px;
 	margin-bottom: 60px;
