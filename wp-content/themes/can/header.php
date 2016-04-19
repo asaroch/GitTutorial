@@ -1,4 +1,5 @@
 <?php
+ob_start();
 /**
  * The template for displaying the header
  *
@@ -27,7 +28,7 @@
         ?>
         <div class="wrapper">
             <?php
-            if (is_front_page()) {
+            if (is_front_page() || is_page('partners') ) {
                 ?>
                 <div class="water-mark-image"></div>
                 <?php
@@ -79,7 +80,7 @@
                                     <?php
                                     // Call header main menu
                                     $args = array(
-                                        'menu' => 'header menu', 
+                                        'menu' => 'Main Navigation', 
                                         'menu_class' => 'nav navbar-nav navbar-right', 
                                         'container' => '',
                                         'container_class' => false,
@@ -114,7 +115,7 @@
                         ?>
                         <h1><?php echo $top_headline; ?>
                             <?php
-                            if (!is_page('resources') && !is_front_page()) {
+                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') ) {
                                 ?>
                                 <span class="down-arrow inner-page-arrow"></span>
                                 <?php

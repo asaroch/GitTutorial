@@ -1,4 +1,4 @@
-<?php
+<?php   
 get_header();
 ?>
 <section class="sales-program gradient-one">
@@ -32,9 +32,9 @@ get_header();
             ?>
             <?php
             $heading = get_post_meta($post->ID, 'wpcf-benefit-2-heading', true);
-            $desc = get_post_meta($post->ID, 'wpcf-benefit-2-descriptio', true);
+            $desc    = get_post_meta($post->ID, 'wpcf-benefit-2-descriptio', true);
 
-            if ($heading != '' || $desc != '') {
+            if ( $heading != '' || $desc != '' ) {
                 ?>
                 <div class="col-md-4 col-sm-4">
                     <div class="row">
@@ -59,7 +59,7 @@ get_header();
                         <div class="financial-product-item">
                             <div class="category-icon"> <img src="<?php echo get_template_directory_uri(); ?>/images/partner/check_icon_white-border.png" alt="check icon"> </div>
                             <h5><?php echo $heading; ?></h5>
-                            <p><?php echo $desc; ?></p>
+                            <p><?php  echo $desc; ?></p>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ get_header();
     </div>
     <div class="container">
         <div class="col-xs-12 text-center">
-            <a class="btn btn-purple-style text-uppercase" title="Become a sales partner" href="<?php echo get_the_permalink(337); ?>">become a sales partner</a>
+            <a class="btn btn-purple-style text-uppercase" title="Become a sales partner" href="<?php echo esc_url(get_the_permalink(337)); ?>?partner=<?php echo $post->post_name; ?>">become a sales partner</a>
         </div>
     </div>
 </section>

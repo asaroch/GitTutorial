@@ -19,3 +19,4 @@ ul.nav li.current-menu-parent > a {
 }
 .show-less-term-loan{display:none;}
 .show-less-termDetail-loan{display:none;}
+label.error{color:red !important;}
