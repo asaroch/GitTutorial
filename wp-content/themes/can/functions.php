@@ -1146,28 +1146,69 @@ class CanCapitalComparison_Widget extends WP_Widget {
         $can_capital_chart = new WP_Query( $args );
         //prx($can_capital_chart);
         
-        
+       $data =  get_terms('comparison-chart');
+       $logo = array();
+       $name = array();
+       
+       foreach($data as $key => $value){
+             $name[$key] = $data[$key]->name;   
+             $logo[$key] = get_term_meta($data[$key]->term_id,'wpcf-logo',true);
+        }
         $return = '<section id="funding-option">
 			<div class="container">
                             <h2 class="section-heading">Experience a better funding option</h2>
 				<div class="divtable accordion-xs gradient-one">';
 	$return .= '    		<div class="tr headings">
                                             <div class="th firstname"><span></span></div>
-                                            <div class="th term-laon">
-                                                <span><img alt="" src="assets/images/home/CAN_logo_footer.png" width="140" height="20"></span></div>
-						<div class="th trak-laon"><span>Bank Loan</span></div>
-						<div class="th installment-loan"><span>Credit card</span></div>
-					</div>';
+                                            <div class="th term-laon"><span>';
+                                            if($logo[1] != ""){
+        $return .= '                        <img alt="" src="'.$logo[1].'" width="140" height="20">';
+                                            }else{
+                                            $return .= $name[1];        
+                                            }
+        $return .= '</span></div>';
+        if($logo[0] == ""){
+	$return .= '<div class="th trak-laon"><span>'.$name[0].'</span></div>';
+        }else{
+        $return .= '<div class="th trak-laon"><span><img alt="" src="'.$logo[0].'" width="140" height="20"></span></div>';    
+        }
+        if($logo[2] == ""){
+	$return .= '<div class="th installment-loan"><span>'.$name[2].'</span></div>';
+        }
+        else{
+        $return .= '<div class="th trak-laon"><span><img alt="" src="'.$logo[2].'" width="140" height="20"></span></div>';    
+        }
+	$return .= '</div>';
         if ( $can_capital_chart->have_posts() ) : 	
             while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
-       echo $resource_topics = wp_get_post_terms($can_capital_chart->ID, 'comparison-chart', array("fields" => "names"));
+        
+    $chart_topics = wp_get_post_terms(get_the_ID(), 'comparison-chart', array("fields" => "all"));
+    
+    
+    
+     
+      
+      
 		$return .= '			<div class="tr seprate-block">
 						<div class="td firstname accordion-xs-toggle"><span>'.get_the_title().'</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
 							<div class="inner">
-								<div class="td term-laon"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
-								<div class="td trak-laon"></div>
-								<div class="td installment-loan"><span><img src="assets/images/termsloan/check_bullet.png" alt="Check"/></span></div>
+								<div class="td term-laon"><span>';
+if(isset($chart_topics[0])){                                                                
+$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
+}
+    $return .= '</span></div>
+<div class="td trak-laon"><span>';
+if(isset($chart_topics[1])){                                                                
+$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
+}
+    $return .= '</span></div>
+<div class="td installment-loan"><span>';
+if(isset($chart_topics[2])){                                                                
+$return .= '<img src="'.get_template_directory_uri().'/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
+}
+    $return .= '</span></div>								
+								
 							</div>
 						</div>
 					</div>';
@@ -1265,4 +1306,13 @@ function award_resource_mapping( $post ) {
     endif;
     echo $return;
 }
-
+/*
+ * Adding Menu, Sub-menu for How-it-works 
+ * 
+ */
+add_action('admin_menu', 'my_menu_pages');
+function my_menu_pages(){
+    add_menu_page('How it works', 'How it work', 'How It Work','administrator', '#' );
+    add_submenu_page('How it work Process', 'How it work Process', 'How it work Process', 'administrator', 'my-menu' );
+    add_submenu_page('my-menu', 'Submenu Page Title2', 'Whatever You Want2', 'manage_options', 'my-menu2' );
+}
