@@ -692,6 +692,13 @@
     #home_get_quote .down-arrow {
         border-top: 18px solid rgb(225,212,228);
     }
+    .post-information {
+        text-align: center;
+    }
+    .tools-block .post-information {
+        text-align: left;
+        
+    }
 
 /*-----------------------------------batch 2 starts--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
