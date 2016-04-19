@@ -658,10 +658,10 @@ i.glyphicon-play {
 	background: url(../images/home/time_icon.png) no-repeat left top;
 	font-family: 'Fort-Medium';
 	padding-left: 28px;
-	margin-top: 40px;
+	margin-top: 16px;
 	line-height: 25px;
 	position: absolute;
-    bottom: 10px;
+        bottom: 27px;
 }
 .select-topic {
 	position: relative;
@@ -710,9 +710,6 @@ span.select-drop {
 }
 #all_resources_block .featured-title a{
 	font-size: 18px;
-}
-#all_resources_block .read-time {
-	margin-top: 16px;
 }
 .resource-list {
 	margin-bottom: 30px;
@@ -797,7 +794,7 @@ span.select-drop {
 	position: absolute;
     min-width: 169px;
     background-color: #c7c7c7;
-    bottom: 0px;
+    bottom: 2px;
     right: 0;
 }
 .sponsored p {
@@ -1429,9 +1426,6 @@ footer .badges-container {
 #home_resource_list .featured-title {
     margin: 8px 0 13px;
 }
-#home_resource_list .read-time {
-	bottom: 15px;
-        }
 .read-time span, .read-date span{
 	font-family: "Fort-bold";
 	color: #01aef0;
