@@ -3,6 +3,7 @@
   Template Name: Home
  */
 get_header();
+global $post;
 ?>
 <!--Financial Products -->
 <div  id="financial_product" class="gradient-one">
@@ -24,9 +25,12 @@ get_header();
     <?php endif; ?>
 
     <!---to display trust badges-->
+    
     <?php if (is_active_sidebar('trust-badge')) : ?>
         <div class="widget-area trust-badge" role="complementary">
+            <div class="container">
             <?php dynamic_sidebar('trust-badge'); ?>
+            </div>
         </div><!-- .widget-area -->
     <?php endif; ?>	
     <!--trust badge widget ends here-->
@@ -138,8 +142,8 @@ get_header();
 
 <section  class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> Get Funded </h2>
-        <h3> Smart, Simple & Fast. </h3>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
+        <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></h3>
         <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>

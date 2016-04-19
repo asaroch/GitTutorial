@@ -82,17 +82,17 @@ $featured_resources = query_posts($args);
 if (!empty($featured_resources)) {
     // Fetch topic of a resource
     $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'business-type', array("fields" => "names"));
-    if ( !empty($resource_topics) ) {
-        $topics = 'in '.implode(", ", $resource_topics);
-        $topics = strlen($topics) >= 120 ? substr($topics,0,120).' ...' : $topics;
-    }
-    else {
-       $topics = ''; 
+    if (!empty($resource_topics)) {
+        $topics = 'in ' . implode(", ", $resource_topics);
+        $topics = strlen($topics) >= 120 ? substr($topics, 0, 120) . ' ...' : $topics;
+    } else {
+        $topics = '';
     }
     // Reading time
     $reading_time = get_post_meta($featured_resources[0]->ID, 'wpcf-reading-minutes', true);
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
+    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
     ?>
     <section id="resource_hero"><!-- Resource banner -->
         <div class="container">
@@ -139,12 +139,11 @@ if (!empty($featured_resources)) {
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
-                    if ( !empty($resource_topics) ) {
-                        $topics = 'in '.implode(", ", $resource_topics);
-                        $topics = strlen($topics) >= 80 ? substr($topics,0,80).' ...' : $topics;
-                    }
-                    else {
-                       $topics = ''; 
+                    if (!empty($resource_topics)) {
+                        $topics = 'in ' . implode(", ", $resource_topics);
+                        $topics = strlen($topics) >= 80 ? substr($topics, 0, 80) . ' ...' : $topics;
+                    } else {
+                        $topics = '';
                     }
 
                     // Reading time
@@ -152,6 +151,7 @@ if (!empty($featured_resources)) {
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
+                    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
                         <div class="col-md-4 featured-article">
@@ -171,36 +171,36 @@ if (!empty($featured_resources)) {
                                     <div class="sponsored">
                                         <p>Sponsored By <?php echo $sponsored_by; ?></p>
 
-                                     </div>
+                                    </div>
                                     <?php
                                 }
                                 ?>
                             </div>
                         </div>
-            <?php
-        } else {
-            ?>
+                        <?php
+                    } else {
+                        ?>
                         <div class="col-md-8 featured-article">
                             <div class="row">
                                 <div class="col-sm-5 col-5-overide">
-            <?php
-            if (has_post_thumbnail($resource->ID)) {
-                ?>
-                                        <div class="featured-story-image">
-                                        <?php echo get_the_post_thumbnail($resource->ID, 'large'); ?> 
-                                        </div>
-                                            <?php
-                                        }
+                                    <?php
+                                    if (has_post_thumbnail($resource->ID)) {
                                         ?>
+                                        <div class="featured-story-image">
+                                            <?php echo get_the_post_thumbnail($resource->ID, 'large'); ?> 
+                                        </div>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
                                         <p><?php echo $resource->post_excerpt; ?></p>
-            <?php
-            if (isset($reading_time) && $reading_time != '') {
-                ?>
+                                        <?php
+                                        if (isset($reading_time) && $reading_time != '') {
+                                            ?>
                                             <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                             <?php
                                         }
@@ -210,18 +210,18 @@ if (!empty($featured_resources)) {
                                             <div class="sponsored">
                                                 <p>Sponsored By <?php echo $sponsored_by; ?></p>
                                             </div>
-                <?php
-            }
-            ?>
+                                            <?php
+                                        }
+                                        ?>
 
                                     </div>
                                 </div>
                             </div>						
                         </div>
-            <?php
-        }
-    }
-    ?>
+                        <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -249,8 +249,6 @@ if (isset($search) && $search != NULL) {
     ));
 }
 $resources = query_posts($args);
-
-
 ?>
 <div id="all_resources_block">
     <div class="container">
@@ -258,19 +256,19 @@ $resources = query_posts($args);
             <div class="col-md-9 resource-container">						
                 <div class="row">
                     <div class="col-sm-12">
-<?php
-$heading = !empty($resources) ? 'All Resources' : 'No Resource found!';
+                        <?php
+                        $heading = !empty($resources) ? 'All Resources' : 'No Resource found!';
 
-$selected = isset($_GET['search']) ? $_GET['search'] : '';
-?>
+                        $selected = isset($_GET['search']) ? $_GET['search'] : '';
+                        ?>
                         <h2 class="section-heading"><?php echo $heading; ?></h2>
                         <div class="select-topic">
                             <form method="get" id="filter_by_business_type">
                                 <select class="form-control" name="search">
                                     <option value="">Filter by Topic</option>
-<?php
-foreach ($business_types as $business_type) {
-    ?>
+                                    <?php
+                                    foreach ($business_types as $business_type) {
+                                        ?>
                                         <option value="<?php echo $business_type->term_id; ?>" <?php echo ($business_type->term_id == $selected) ? 'selected' : ''; ?>><?php echo $business_type->name; ?></option>
                                         <?php
                                     }
@@ -281,49 +279,49 @@ foreach ($business_types as $business_type) {
                         </div>
                     </div>
                 </div>
-<?php
-if (!empty($resources)) {
-    foreach ($resources as $resource) {
+                <?php
+                if (!empty($resources)) {
+                    foreach ($resources as $resource) {
 
                         // Fetch topic of a resource
                         $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
-                          if ( !empty($resource_topics) ) {
-                            $topics = 'in '.implode(", ", $resource_topics);
-                            $topics = strlen($topics) >= 80 ? substr($topics,0,80).' ...' : $topics;
-                        }
-                        else {
-                           $topics = ''; 
+                        if (!empty($resource_topics)) {
+                            $topics = 'in ' . implode(", ", $resource_topics);
+                            $topics = strlen($topics) >= 80 ? substr($topics, 0, 80) . ' ...' : $topics;
+                        } else {
+                            $topics = '';
                         }
 
-        // Sponsored By
-        $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
+                        // Sponsored By
+                        $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
+                        $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
 
-        // Reading time
-        $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
-        
-        //Fetch value from admin whether a video is selected or not.
-        $featured_image_video = get_post_meta( $resource->ID, 'wpcf-featured_image_video' , true );
-        ?>
+                        // Reading time
+                        $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+
+                        //Fetch value from admin whether a video is selected or not.
+                        $featured_image_video = get_post_meta($resource->ID, 'wpcf-featured_image_video', true);
+                        ?>
                         <div class="row">
                             <div class="col-sm-12 resource-list">
-                        <?php
-                        if ((has_post_video($resource->ID) && $featured_image_video == 'video') || (has_post_thumbnail($resource->ID) && $featured_image_video == 'image')) {
-                            ?>
+                                <?php
+                                if ((has_post_video($resource->ID) && $featured_image_video == 'video') || (has_post_thumbnail($resource->ID) && $featured_image_video == 'image')) {
+                                    ?>
                                     <div class="resource-image">
 
-                                    <?php echo get_the_post_thumbnail($resource->ID); ?>
+                                        <?php echo get_the_post_thumbnail($resource->ID); ?>
 
                                     </div>
-                                        <?php
-                                    }
-                                    ?>
+                                    <?php
+                                }
+                                ?>
                                 <div class="resource-content">
                                     <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                     <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" ><?php echo esc_attr($resource->post_title); ?></a></p>
                                     <p><?php echo $resource->post_excerpt; ?></p>
-        <?php
-        if ($reading_time) {
-            ?>
+                                    <?php
+                                    if ($reading_time) {
+                                        ?>
                                         <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                         <?php
                                     }
@@ -333,38 +331,38 @@ if (!empty($resources)) {
                                         <div class="sponsored">
                                             <p>Sponsored By <?php echo $sponsored_by; ?></p>
                                         </div>
-            <?php
-        }
-        ?>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
-        <?php
-    }
-}
+                        <?php
+                    }
+                }
 
-wp_reset_query();
-?>
+                wp_reset_query();
+                ?>
                 <?php
                 if (count($resources) > $show_more_limit) {
                     ?>
                     <div class="show-more-terms show-more-articles">
                         <a href="javascript:void(0)" title="Show More"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
                     </div>
-    <?php
-}
-?>
+                    <?php
+                }
+                ?>
                 <div class="show-less-articles show-more-terms">
                     <a href="javascript:void(0)" title="Show Less"> SHOW LESS <i class="glyphicon glyphicon-chevron-up"></i> </a>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-3">
+            <div class="col-sm-12 col-md-3 mob-grey-bg">
                 <div class="row sidebar">
-<?php
+                    <?php
 // Call resources right sidebar widget area
-if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
-endif;
-?>
+                    if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
+                    endif;
+                    ?>
                     <div class="col-xs-12 post-section">
                         <h2 class="section-heading">CAN Capital Newsletter</h2>
                         <div class="col-xs-12 post-information">
@@ -402,15 +400,15 @@ if (!empty($popular_topics)) {
             </div>
             <div class="row">
                 <div class="col-sm-12 topic-list">
-    <?php
-    foreach ($popular_topics as $topic) {
-        ?>
+                    <?php
+                    foreach ($popular_topics as $topic) {
+                        ?>
                         <div class="col-sm-4">						
                             <a href="<?php echo get_term_link($topic->term_id); ?>"><?php echo $topic->name; ?></a>
                         </div>
-        <?php
-    }
-    ?>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>					
         </div>
@@ -419,9 +417,15 @@ if (!empty($popular_topics)) {
 ?>
 <section class="get-funded">
     <div class="container text-center">
-        <h1 class="section-heading"> Get Funded </h1>
-        <h3> Smart, Simple & Fast. </h3>
-        <a href="javascript:void(0);" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?> </h2>
+        <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?> </h3>
+        <!-- applynow widget section -->
+        <?php if (is_active_sidebar('applynow')) : ?>
+            <div class="widget-area applynow" role="complementary">
+                <?php dynamic_sidebar('applynow'); ?>
+            </div><!-- .widget-area -->
+        <?php endif; ?>	
+        <!--applynow widget ends here-->
     </div>
 </section>
 <section class="get-e-book">

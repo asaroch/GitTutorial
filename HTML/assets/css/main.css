@@ -79,6 +79,29 @@ body {
 	color: #6d6e71;
 	font-family: 'Fort-Book';
 }
+/* for default margin */
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 20px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
+
+/* for default margin */
+.voffset-bottom  { margin-bottom: 2px; }
+.voffset-bottom1 { margin-bottom: 5px; }
+.voffset-bottom2 { margin-bottom: 10px; }
+.voffset-bottom3 { margin-bottom: 20px; }
+.voffset-bottom4 { margin-bottom: 30px; }
+.voffset-bottom5 { margin-bottom: 40px; }
+.voffset-bottom6 { margin-bottom: 60px; }
+.voffset-bottom7 { margin-bottom: 80px; }
+.voffset-bottom8 { margin-bottom: 100px; }
+.voffset-bottom9 { margin-bottom: 150px; }
 header{
 	background: rgba(255, 255, 255, .7);
 }
@@ -113,9 +136,9 @@ header{
 {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a24f9d+100 */
 background: #6c2976; /* Old browsers */
-background: -moz-linear-gradient(top, #6c2976 0%, #a24f9d 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #6c2976 0%,#a24f9d 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-linear-gradient(left, #6c2976 0%, #a24f9d 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #6c2976 0%,#a24f9d 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 /*  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=0 ); IE6-9 */
 }
 .navbar-scroll-bg{
@@ -293,7 +316,7 @@ h1 {
 	top:0px;
 }
 .inner-page-arrow {
-	bottom: -60px;
+    bottom: -59px;
     top: inherit;
     left: 30px;
 }
@@ -327,7 +350,7 @@ h1 {
 	border: 2px solid #fff;
         color: #fff;
 }		
-.get-Quote-form input[type="submit"]:hover {			
+.get-Quote-form input[type="submit"]:hover, .get-Quote-form input[type="submit"]:focus {			
 	border: 2px solid #01aef0;
         color: #01aef0;
 }
@@ -387,8 +410,10 @@ h1 {
 }
 #user_rettings_slider .owl-prev, 
 #user_rettings_slider .owl-next,  
-#slider_feature_product .owl-prev, 
-#slider_feature_product .owl-next,
+#slider_feature_product .owl-prev,
+#slider_campaign_product .owl-prev, 
+#slider_feature_product .owl-next, 
+#slider_campaign_product .owl-next,
 #infografic_carousel .owl-prev, 
 #infografic_carousel .owl-next {
 	top:52%;
@@ -441,11 +466,12 @@ h1 {
 	background: url(../images/home/gradient-03_Cmark.png) repeat left top;
 }
 .resource-list-bg {
-	padding: 36px 0 43px;
+	padding: 36px 0 23px;
 }
-#home_resource_list .container:first-child {
+/*#home_resource_list .container:first-child {
 	margin-bottom: 20px;
-}
+}*/
+
 .inspiration-content {
 	text-align: center;
 }
@@ -684,11 +710,6 @@ span.select-drop {
 }
 .sidebar {
 	width: 278px;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	z-index: 0;
-	right: 0px;
 	background-color: #eee;
 	padding-bottom: 160px;
 }
@@ -1121,9 +1142,6 @@ footer .badges-container {
 	z-index: 99;
 	background: rgba(107, 40, 117, 1);
 }
-.sidebar {
-	position: static;
-}
 /* get quote overlay */ 
 #get_quote,
 #get_quote_home{
@@ -1402,7 +1420,6 @@ footer .badges-container {
 #home_resource_list .read-time {
 	bottom: 15px;
         }
-#home_resource_list .read-time, #home_resource_list .read-date { font-size: 15px; }
 .read-time span, .read-date span{
 	font-family: "Fort-bold";
 	color: #01aef0;
@@ -1745,12 +1762,18 @@ form.form-section h3.heading-beacome-partner {
     z-index: 6;
 }
 .navigation-item {
-	display: block;
-	font-family: "Fort-book"; 
-	color: #e284e0; 
-	font-size: 26px;
-	  margin: 17px auto 0;
+    display: block;
+    font-family: "Fort-book"; 
+    color: #e284e0; 
+    font-size: 26px;
+    margin: 17px auto 0;
     padding: 10px 0;
+    text-decoration: none;
+}
+.navigation-item:hover,.navigation-item:focus  {
+    color: #fff; 
+    text-decoration: none;
+    font-family: "Fort-bold";
 }
 .loan-nav .active a {
 	font-family: "Fort-bold"; 
@@ -2101,10 +2124,10 @@ background-color: #ffffff;
 	margin-right: 13px;
 }
 /* navigation dropdown  */
-#slider_feature_product .owl-prev {
+#slider_feature_product .owl-prev, #slider_campaign_product .owl-prev {
    left: -14px;
 }
-#slider_feature_product .owl-next {
+#slider_feature_product .owl-next, #slider_campaign_product .owl-prev {
    right: -14px;
 }
 .dropdown.open .glyphicon-menu-down{
@@ -2138,4 +2161,31 @@ input[type=number] {
 
 #home_resource_list .see-all-resources:hover { 
     background-color: #fff;
-    color: #843a87;}
+    color: #843a87;
+}
+/*To make image and video verticaly align*/
+.featured-story-image, .resource-image{
+    position: relative;
+    display: table;
+}
+.featured-story-image img, .resource-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+.featured-story-image .featured-video-plus, .featured-video-plus .fvp-center {
+    display: table-cell;
+    vertical-align: middle;
+}
+/*PDF changes*/
+.option-text p {
+	font-size: 15px;
+}
+.select-topic select { padding-right: 54px; }
+ul.nav li.current-menu-parent > a:hover {
+    border-bottom: 2px solid transparent;
+}

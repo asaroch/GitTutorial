@@ -55,7 +55,7 @@ ob_start();
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="navbar-brand" title="CAN CAPITAL"><img src="<?php echo get_header_image(); ?>" /></a>
+                            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" class="navbar-brand" title="CAN CAPITAL"><img src="<?php echo get_header_image(); ?>" alt="CAN CAPITAL" /></a>
                         </div>
                         <div class="collapse navbar-collapse mob-main-menu">
                             <div class='responsive-bg'> 
