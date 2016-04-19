@@ -31,7 +31,7 @@ class TOOLS_Widget extends WP_Widget {
         $title = apply_filters('widget_title', $instance['title']);
       
         if (!empty($tools)) :
-            $string = '<div class = "col-xs-12 post-section tools-block">
+            $string = '<div class = "col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section tools-block">
                             <h2 class = "section-heading">'.$title.'</h2>';
             foreach ($tools as $tool) {
                 $string .= ' <div class = "col-xs-12 post-information">

@@ -44,6 +44,11 @@ if ( $partnerTypes->have_posts() ) :
                                                                         }
                                                                         ?>
 									<a href="<?php echo $link; ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>" <?php echo $target; ?>> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
+                                                                        <?php 
+                                                                        if ( get_the_ID() == 305 ) { ?>
+                                                                            <p class="network-name">via the CJ Affiliate Network</p>
+                                                                            <?php
+                                                                        } ?>
 								</div>
 							</div>
 						</div>
@@ -169,7 +174,7 @@ endif;
 <!-- Email Us -->	
 <section id="email_us"  class="">
     <div class="container text-center">
-        <h1 class="section-heading"> <?php echo get_option('call_to_action_heading'); ?></h1>
+        <h2 class="section-heading"> <?php echo get_option('call_to_action_heading'); ?></h2>
         <h5 class="call-us"> Call us: </h5>
         <h3 class='call-number'> <?php echo get_option('call_no'); ?> </h3>
         <span class='divider-line'>  </span>
