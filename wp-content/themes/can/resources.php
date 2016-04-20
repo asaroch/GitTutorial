@@ -196,7 +196,7 @@ if (!empty($featured_resources)) {
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                        <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
+                                        <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 45 ? substr($resource->post_title, 0, 45) . ' ...' : $resource->post_title; ?></a></p>
                                         <p><?php echo $resource->post_excerpt; ?></p>
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
@@ -317,7 +317,7 @@ $resources = query_posts($args);
                                 ?>
                                 <div class="resource-content">
                                     <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                    <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" ><?php echo esc_attr($resource->post_title); ?></a></p>
+                                    <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" ><?php echo esc_attr(strlen($resource->post_title) >= 75 ? substr($resource->post_title, 0, 75) . ' ...' : $resource->post_title); ?></a></p>
                                     <p><?php echo $resource->post_excerpt; ?></p>
                                     <?php
                                     if ($reading_time) {
