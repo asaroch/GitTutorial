@@ -377,6 +377,8 @@ h1 {
 .financial-product-item h5 {
 	font-size: 26px; 
 	margin:24px 0 0;
+        word-wrap: break-word;
+        
 }
 .financial-product-item p {
 	font-size: 18px; 
