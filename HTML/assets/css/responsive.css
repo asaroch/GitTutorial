@@ -999,7 +999,7 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    ul.nav li.current-menu-parent > a {
+    ul.nav li.current-menu-parent > a,.primary-nav ul.nav li.current-menu-parent > a:hover {
             border-bottom: 4px solid #fff;
     }
     /* Navigation change for inner pages */
