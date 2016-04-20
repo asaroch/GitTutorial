@@ -273,7 +273,10 @@
         height:300px;
     }    
 }
-@media (max-width:767px) {	
+@media (max-width:767px) {
+    #home_get_quote{
+	height: auto;
+}
     #user_rettings_slider .owl-prev {
         left: -29px;
     }
@@ -450,11 +453,12 @@
         background: rgba(1,174,240,.9);		
     }
     .get-Quote-form {
-        padding: 26px 30px 16px;
+        padding: 0;
     }
     .get-Quote-form .section-heading {
         margin: 0px 0 10px;
         cursor: pointer;
+        padding: 26px 30px 16px;
     }
     .get-Quote-form form .form-control {
         margin-bottom: 20px;
@@ -1000,7 +1004,6 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    
 }
 @media (max-width:480px){
     .water-mark-image {
