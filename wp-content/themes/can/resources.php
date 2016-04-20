@@ -363,7 +363,7 @@ $resources = query_posts($args);
                     if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
                     endif;
                     ?>
-                    <div class="col-xs-12 post-section">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section">
                         <h2 class="section-heading">CAN Capital Newsletter</h2>
                         <div class="col-xs-12 post-information">
                             <p>Stay up to date with the latest financial advice.</p>
@@ -373,7 +373,7 @@ $resources = query_posts($args);
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 post-section hidden-xs">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section hidden-xs">
                         <h2 class="section-heading">Get Funded</h2>
                         <div class="col-xs-12 post-information">
                             <p>Smart, simple & fast</p>
