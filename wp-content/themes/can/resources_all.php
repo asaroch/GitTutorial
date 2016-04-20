@@ -200,9 +200,9 @@ $mobile_featured_resources = array();
                             <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
                             <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
 
-    <?php
-    if (isset($reading_time) && $reading_time != '') {
-        ?>
+                            <?php
+                            if (isset($reading_time) && $reading_time != '') {
+                                ?>
                                 <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                 <?php
                             }
@@ -212,14 +212,14 @@ $mobile_featured_resources = array();
                                 <div class="sponsored">
                                     <p>Sponsored By <?php echo $sponsored_by; ?></p>
                                 </div>
-        <?php
-    }
-    ?>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
-    <?php
-}
-?>
+                    <?php
+                }
+                ?>
             </div>
             <div class="customNavigation">
                 <div class="text-center">
