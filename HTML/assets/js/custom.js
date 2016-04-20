@@ -217,9 +217,9 @@ $(function(){
                     
                 })
                 
-                   
-
-		$("#infografic_carousel").owlCarousel({
+//    infograpic slider how it works               
+               var infoGraphSlider = $("#infografic_carousel")    
+		infoGraphSlider.owlCarousel({
 			loop:true,
 		    margin:10,
 		    responsiveClass:true,
@@ -229,12 +229,22 @@ $(function(){
 			        0:{
 			            items:1,
 			            nav:true,
-			            navText: ["<span class='icon-sprite feature-left-icon active'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: true
 			        }
 			}
 
 		});
+                infoGraphSlider.on('changed.owl.carousel', function (property) {
+                var current = property.item.index;
+                    var shownItems = property.page.size            
+                    // total number of slides
+                    var total = property.relatedTarget.items().length - 1
+                    // how many slides to go?
+                    var remain = total - (shownItems + current);
+                activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+            });
+//    infograpic slider how it works  end            
 
 		var resourceSlider = $("#resource_slider");
 			resourceSlider.owlCarousel({
