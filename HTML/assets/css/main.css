@@ -1160,9 +1160,9 @@ footer .badges-container {
 	right: 0;
 	z-index: 99;
 }
-#home_get_quote{
+/*#home_get_quote{
 	height: 176px;
-}
+}*/
 #get_quote {
 	position: fixed;
 	top: 44px;
