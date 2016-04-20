@@ -172,6 +172,7 @@ background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, F
 .primary-nav .nav > li a{
 	margin: 0px;
 	padding: 10px 0px;
+        background-color: transparent;
 }
 .primary-nav ul.nav > li {
 	padding: 0px 16px;
