@@ -999,14 +999,6 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    ul.nav li.current-menu-parent > a {
-            border-bottom: 4px solid #fff;
-    }
-    /* Navigation change for inner pages */
-    .primary-nav .nav li.dropdown > a {
-        padding-right:32px;
-        margin:0;
-    }
     
 }
 @media (max-width:480px){
