@@ -7,12 +7,31 @@
 /*ul.nav li.current-menu-parent > a {
     border-bottom: 4px solid #00B0EB;
 }*/
-
+.primary-nav .nav li.current-menu-item > a {
+     border-bottom: 4px solid #00B0EB;
+}
+.primary-nav .nav li.dropdown a {    
+    padding: 9px 0;
+}
 .primary-nav .nav .dropdown-menu li.current-menu-item a {
+    color: #00aeef;
     border-bottom: none;
-
 }
 .show-less-term-loan{display:none;}
 .show-less-termDetail-loan{display:none;}
+
+@media (max-width:767px) {
+  .primary-nav .nav li.dropdown > a {
+        padding-right:32px;
+        margin:0;
+    }
+    .primary-nav .nav .dropdown-menu li.current-menu-item a {
+       color: #fff; 
+    }
+    .primary-nav .nav li.current-menu-item > a {
+        border-bottom: 4px solid #fff;
+    }
+}
+
 
 
