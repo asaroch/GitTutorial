@@ -206,6 +206,10 @@
     .process-block .financial-product-item .process-arrow span {
         width: 130px;
     }
+    .date-time-label {
+        position: relative;
+        left:0;
+    }
 /*how it work process arrow*/
 }
 @media (min-width: 768px){	
@@ -997,6 +1001,7 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
+    
     
 }
 @media (max-width:480px){
