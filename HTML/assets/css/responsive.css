@@ -273,7 +273,10 @@
         height:300px;
     }    
 }
-@media (max-width:767px) {	
+@media (max-width:767px) {
+    #home_get_quote{
+	height: auto;
+}
     #user_rettings_slider .owl-prev {
         left: -29px;
     }
@@ -1001,8 +1004,6 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    
-    
 }
 @media (max-width:480px){
     .water-mark-image {

@@ -378,6 +378,7 @@ h1 {
 	font-size: 26px; 
 	margin:24px 0 0;
         word-wrap: break-word;
+        
 }
 .financial-product-item p {
 	font-size: 18px; 
@@ -2208,6 +2209,3 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
-/*ul.nav li.current-menu-parent > a:hover {
-    border-bottom: 2px solid transparent;
-}*/
