@@ -637,7 +637,7 @@ i.glyphicon-play {
 	position: relative;
 }
 .featured-title {
-	margin: 8px 0 27px;
+	margin: 8px 0 15px;
 }
 .featured-title a{
 	line-height: 30px;
@@ -707,12 +707,11 @@ span.select-drop {
 	padding-top: 1px; 
 }
 #all_resources_block .featured-title {
-	margin: 6px 0 1px;
-	line-height: 28px;
-	
+	margin: 6px 0 1px;	
 }
 #all_resources_block .featured-title a{
 	font-size: 18px;
+        line-height: 26px;
 }
 .resource-list {
 	margin-bottom: 30px;
