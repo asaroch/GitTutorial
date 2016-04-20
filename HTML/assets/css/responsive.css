@@ -449,11 +449,12 @@
         background: rgba(1,174,240,.9);		
     }
     .get-Quote-form {
-        padding: 26px 30px 16px;
+        padding: 0;
     }
     .get-Quote-form .section-heading {
         margin: 0px 0 10px;
         cursor: pointer;
+        padding: 26px 30px 16px;
     }
     .get-Quote-form form .form-control {
         margin-bottom: 20px;
