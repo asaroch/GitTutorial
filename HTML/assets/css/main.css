@@ -172,6 +172,7 @@ background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, F
 .primary-nav .nav > li a{
 	margin: 0px;
 	padding: 10px 0px;
+        background-color: transparent;
 }
 .primary-nav ul.nav > li {
 	padding: 0px 16px;
@@ -2206,6 +2207,10 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
-ul.nav li.current-menu-parent > a:hover {
-    border-bottom: 2px solid transparent;
+/* Navigation change for inner pages */
+.primary-nav .nav li.dropdown a {    
+    padding: 9px 0;
 }
+/*ul.nav li.current-menu-parent > a:hover {
+    border-bottom: 2px solid transparent;
+}*/
