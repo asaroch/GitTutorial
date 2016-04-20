@@ -321,6 +321,7 @@ function can_scripts() {
     wp_enqueue_script('jquery.maskedinput', get_template_directory_uri() . '/js/jquery.maskedinput.js');
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
+    wp_enqueue_script('html5lightbox', get_template_directory_uri() . '/js/html5lightbox.js');
     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 
     $search = $financialProductSlider = $testimonialSlider = FALSE;
