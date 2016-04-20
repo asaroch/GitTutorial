@@ -208,6 +208,7 @@
     }
     .date-time-label {
         position: relative;
+        left:0;
     }
 /*how it work process arrow*/
 }
