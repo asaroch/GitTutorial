@@ -7,7 +7,7 @@ Description: Twenty Sixteen is a modernized take on an ever-popular WordPress la
 Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-../images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
 Text Domain: twentysixteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -468,7 +468,7 @@ h1 {
     bottom: 0;
 }
 #home_resource_list {	
-	background: url(../images/home/gradient-03_Cmark.png) repeat left top;
+	background: url(../../images/home/gradient-03_Cmark.png) repeat left top;
 }
 .resource-list-bg {
 	padding: 36px 0 23px;
@@ -585,7 +585,7 @@ i.glyphicon-play {
         font-size: 15px;
 }
 #resource_hero {
-	background: url(../images/resources/main_featured_image.jpg) no-repeat center top;
+	background: url(../../images/resources/main_featured_image.jpg) no-repeat center top;
 	height: 493px;
 	position: relative;
 	background-size: cover;
@@ -637,7 +637,7 @@ i.glyphicon-play {
 	position: relative;
 }
 .featured-title {
-	margin: 8px 0 27px;
+	margin: 8px 0 15px;
 }
 .featured-title a{
 	line-height: 30px;
@@ -707,12 +707,11 @@ span.select-drop {
 	padding-top: 1px; 
 }
 #all_resources_block .featured-title {
-	margin: 6px 0 1px;
-	line-height: 28px;
-	
+	margin: 6px 0 1px;	
 }
 #all_resources_block .featured-title a{
 	font-size: 18px;
+        line-height: 26px;
 }
 .resource-list {
 	margin-bottom: 30px;
@@ -908,7 +907,7 @@ span.select-drop {
 	color: #6d6e71;
 	line-height: 30px;
 	background: url('../images/termsloan/arrow_bullet.png') no-repeat;
-	padding-left: 48px;
+	padding-left: 35px;
 }
 .paymment-point{
 	padding-left: 56px;
@@ -2209,6 +2208,3 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
-/*ul.nav li.current-menu-parent > a:hover {
-    border-bottom: 2px solid transparent;
-}*/
