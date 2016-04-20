@@ -206,6 +206,9 @@
     .process-block .financial-product-item .process-arrow span {
         width: 130px;
     }
+    .date-time-label {
+        position: relative;
+    }
 /*how it work process arrow*/
 }
 @media (min-width: 768px){	
