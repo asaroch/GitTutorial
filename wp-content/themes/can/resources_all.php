@@ -59,7 +59,7 @@ $mobile_featured_resources = array();
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $top_featured_resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($top_featured_resource->ID); ?>"><?php echo strlen($top_featured_resource->post_title) >= 40 ? substr($top_featured_resource->post_title, 0, 40) . ' ...' : $top_featured_resource->post_title; ?></a></p>
-                                <p><?php echo  $top_featured_resource->post_excerpt; ?></p>
+                                <p><?php echo strlen($top_featured_resource->post_excerpt) >= 200 ? substr($top_featured_resource->post_excerpt, 0, 200) . ' ...' : $top_featured_resource->post_excerpt; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
@@ -108,7 +108,7 @@ $mobile_featured_resources = array();
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
-                                <p><?php echo $resource->post_excerpt; ?></p>
+                                <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
@@ -138,7 +138,7 @@ $mobile_featured_resources = array();
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
-                                        <p><?php echo $resource->post_excerpt; ?></p>
+                                        <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
@@ -198,7 +198,7 @@ $mobile_featured_resources = array();
                         <div class="resource-content">
                             <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                             <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
-                            <p><?php echo $resource->post_excerpt; ?></p>
+                            <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
 
     <?php
     if (isset($reading_time) && $reading_time != '') {
