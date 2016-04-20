@@ -791,8 +791,8 @@ span.select-drop {
 	padding: 55px 0px 35px 15px; 
 }
 .sponsored {
-	position: absolute;
-    min-width: 169px;
+    position: absolute;
+    width: 230px;
     background-color: #c7c7c7;
     bottom: 2px;
     right: 0;
