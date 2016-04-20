@@ -52,15 +52,24 @@
     #user_rettings_slider .owl-next {
         right: -33px;
     }
+    #resource_hero .featured-title {
+        margin:8px 0;
+    }
+    .featured-title,  #all_resources_block .featured-title, #home_resource_list .featured-title {
+        margin: 2px 0 2px;
+    }
+    .featured-title a {
+        line-height: 25px;
+        font-size: 22px;
+    }
+    .sponsored p {
+        padding:5px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
         font-size: 34px;
-    }
-    .featured-title {
-        font-size: 24px;
-        margin: 8px 0 5px;
-    }
+    }    
     #search_resource .select-topic {
         width: 100%;
     }
@@ -80,9 +89,7 @@
     .social-links ul li {
         margin-right: 5px;
     }
-    .featured-title a {
-        line-height: 28px;
-    }
+    
 }
 @media (min-width:992px) {
     #post-article {
