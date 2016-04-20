@@ -2207,16 +2207,6 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
-/* Navigation change for inner pages */
-.primary-nav .nav .dropdown-menu li.current-menu-item a {
-    color: #00aeef;
-}
-ul.nav li.current-menu-parent > a {
-     border-bottom: 4px solid #00B0EB;
-}
-.primary-nav .nav li.dropdown a {    
-    padding: 9px 0;
-}
 /*ul.nav li.current-menu-parent > a:hover {
     border-bottom: 2px solid transparent;
 }*/
