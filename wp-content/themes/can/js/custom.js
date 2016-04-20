@@ -128,6 +128,8 @@ $(function () {
         responsiveClass: true,
         pagination: true,
         navigation: true,
+        autoplay: true,
+        autoplayTimeout: 8000,
         mouseDrag : false,
         touchDrag : false,
         responsive: {

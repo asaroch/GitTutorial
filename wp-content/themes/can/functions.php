@@ -1418,3 +1418,20 @@ class VideoTestimonials_Widget extends WP_Widget {
 
 //end class Realty_Widget
 register_widget('VideoTestimonials_Widget');
+
+/* * *********************************************************
+ * Callback function of menu hook 
+ * ********************************************************* */
+
+function can_how_it_works_add_pages() {
+    add_menu_page('How It Works', 'How it works', '6', 'how-it-work', '', '', 6);
+    add_submenu_page('how-it-work', 'Effortless Applications', 'Effortless Applications', 5, 'edit.php?post_type=how-it-work-effortle');
+    add_submenu_page('how-it-work', 'Hero process', 'Hero process', 5, 'edit.php?post_type=how-it-work-process');
+    add_submenu_page('how-it-work', 'Gathers Before Start', 'Gathers Before Start', 5, 'edit.php?post_type=how-it-work-gather');
+    add_submenu_page('how-it-work', 'Getting Funds', 'Getting Funds', 5, 'edit.php?post_type=how_getting_fund');
+}
+/*
+* Adding menus for How it works section admin panel
+*/
+
+add_action('admin_menu', 'can_how_it_works_add_pages');
