@@ -7,7 +7,7 @@ Description: Twenty Sixteen is a modernized take on an ever-popular WordPress la
 Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-../images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
 Text Domain: twentysixteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -53,7 +53,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
  */
 /* import font style with external style css files */
-@import url("font-style.css");
+@import url("css/font-style.css");
 
 /*reset css*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
@@ -149,7 +149,7 @@ background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, F
 }
 .water-mark-image {
 	position:absolute;
-	background:url(../images/home/Cmark.png) no-repeat right top;
+	background:url(images/home/Cmark.png) no-repeat right top;
 	top: 70px; right: 0; width: 678px;
 	height: 937px;
 }
@@ -468,7 +468,7 @@ h1 {
     bottom: 0;
 }
 #home_resource_list {	
-	background: url(../images/home/gradient-03_Cmark.png) repeat left top;
+	background: url(images/home/gradient-03_Cmark.png) repeat left top;
 }
 .resource-list-bg {
 	padding: 36px 0 23px;
@@ -585,7 +585,7 @@ i.glyphicon-play {
         font-size: 15px;
 }
 #resource_hero {
-	background: url(../images/resources/main_featured_image.jpg) no-repeat center top;
+	background: url(images/resources/main_featured_image.jpg) no-repeat center top;
 	height: 493px;
 	position: relative;
 	background-size: cover;
@@ -604,7 +604,7 @@ i.glyphicon-play {
 #resource_list_container {
 	padding: 36px 0 43px;
 	background-color: #eee;
-	background: url(../images/resources/gray_pattern_bg.png) repeat left top;
+	background: url(images/resources/gray_pattern_bg.png) repeat left top;
 }
 .col-5-overide {
     padding-right: 0;
@@ -658,7 +658,7 @@ i.glyphicon-play {
 	font-size: 12px;
 }
 .read-time{
-	background: url(../images/home/time_icon.png) no-repeat left top;
+	background: url(images/home/time_icon.png) no-repeat left top;
 	font-family: 'Fort-Medium';
 	padding-left: 28px;
 	margin-top: 16px;
@@ -830,7 +830,7 @@ span.select-drop {
 	padding :70px 0px 67px;
 }
 .get-e-book {
-	background: url(../images/resources/newsletter_email_image.jpg) no-repeat center top;
+	background: url(images/resources/newsletter_email_image.jpg) no-repeat center top;
 	background-size: cover;
 }
 .get-e-book input[type="text"]{
@@ -907,7 +907,7 @@ span.select-drop {
 	font-size: 16px;
 	color: #6d6e71;
 	line-height: 30px;
-	background: url('../images/termsloan/arrow_bullet.png') no-repeat;
+	background: url('images/termsloan/arrow_bullet.png') no-repeat;
 	padding-left: 35px;
 }
 .paymment-point{
@@ -924,7 +924,7 @@ span.select-drop {
 .termloan-use-point li {
 	position: relative;
     font-size: 26px;
-    background:url('../images/termsloan/check_bullet.png') no-repeat;
+    background:url('images/termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
     margin: 0 0px 20px;
     padding: 0 20px 0 80px;
@@ -1248,7 +1248,7 @@ footer .badges-container {
 	margin: 11px auto 15px;
 }
 .icon-sprite{
-	background: url(../images/can_sprt.png) no-repeat;
+	background: url(images/can_sprt.png) no-repeat;
 }
 .star-overall li {
 	background-position:-16px -310px;
@@ -1534,7 +1534,7 @@ form.form-section p a.know-more {
 	top:0;
 	width:27px;
 	height: 27px;
-	background: url(../images/partner/QuestionMarkIcon.png) no-repeat;
+	background: url(images/partner/QuestionMarkIcon.png) no-repeat;
 }
 .margin-top {
 	margin: 12px 0 17px;
@@ -1806,7 +1806,7 @@ form.form-section h3.heading-beacome-partner {
 .loan-nav .active a {
 	font-family: "Fort-bold"; 
 	color: #fff;
-	background: url(../images/img-2.png) no-repeat;
+	background: url(images/img-2.png) no-repeat;
 	background-position:center top;  
 }
 .nav-right-border {
