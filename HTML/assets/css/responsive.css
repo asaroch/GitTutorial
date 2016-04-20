@@ -196,9 +196,6 @@
 	width:auto;
 	height: auto;
     }
-    #testimonial .slider-nav-control {
-            bottom: 10px;
-    }
     .testimonial-content {
         top: 100px;
     }
@@ -208,6 +205,9 @@
     }
     .process-block .financial-product-item .process-arrow span {
         width: 130px;
+    }
+    .date-time-label {
+        position: relative;
     }
 /*how it work process arrow*/
 }
@@ -449,11 +449,12 @@
         background: rgba(1,174,240,.9);		
     }
     .get-Quote-form {
-        padding: 26px 30px 16px;
+        padding: 0;
     }
     .get-Quote-form .section-heading {
         margin: 0px 0 10px;
         cursor: pointer;
+        padding: 26px 30px 16px;
     }
     .get-Quote-form form .form-control {
         margin-bottom: 20px;
@@ -999,14 +1000,7 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    ul.nav li.current-menu-parent > a {
-            border-bottom: 4px solid #fff;
-    }
-    /* Navigation change for inner pages */
-    .primary-nav .nav li.dropdown > a {
-        padding-right:32px;
-        margin:0;
-    }
+    
     
 }
 @media (max-width:480px){

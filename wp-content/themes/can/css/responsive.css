@@ -1,6 +1,6 @@
-@media (min-width:1199px) {
+@media (min-width:1200px) {
     #all_resources_block .resource-content {
-        width: 62.5%;
+        width: 64.5%;
     }
     .col-7-overide {
         width: 53.733333%;
@@ -25,7 +25,7 @@
         top: 120px;
     }
     #all_resources_block .resource-content {
-        width: 50.5%;
+        width: 55.5%;
         padding-right:0;
     }
     .read-time {
@@ -79,6 +79,9 @@
     }
     .social-links ul li {
         margin-right: 5px;
+    }
+    .featured-title a {
+        line-height: 28px;
     }
 }
 @media (min-width:992px) {
@@ -193,9 +196,6 @@
 	width:auto;
 	height: auto;
     }
-    #testimonial .slider-nav-control {
-            bottom: 10px;
-    }
     .testimonial-content {
         top: 100px;
     }
@@ -205,6 +205,9 @@
     }
     .process-block .financial-product-item .process-arrow span {
         width: 130px;
+    }
+    .date-time-label {
+        position: relative;
     }
 /*how it work process arrow*/
 }
@@ -265,6 +268,9 @@
         width: auto;
         min-width: 235px;
     }
+    .bring-best-item {
+        height:300px;
+    }    
 }
 @media (max-width:767px) {	
     #user_rettings_slider .owl-prev {
@@ -314,7 +320,7 @@
     }	
     .primary-nav .glyphicon-menu-down {
         color: #fff;
-        margin-right: 5px;
+        margin-right: 3px;
         font-size: 18px;
     }
     .primary-nav ul.nav > li.dropdown {
@@ -329,7 +335,7 @@
     .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
         border: none;
     }
-    .navbar a, .primary-nav .nav .dropdown-menu li a {
+    .navbar a, .primary-nav .nav .dropdown-menu li a, .primary-nav .nav .dropdown-menu li.current-menu-item a {
         color: #fff;
     }
     .navbar-nav > li  {
@@ -650,9 +656,11 @@
     #all_resources_block .resource-content, #all_resources_block .select-topic {
         border-bottom: 1px solid #e9e9e9;		
     }
-    #all_resources_block .sponsored {
-        position: static;
-        float: right;
+    .sponsored {
+        position: relative;
+        bottom:-15px;
+        right:-20px;
+        float:right;
     }
     .get-e-book .text-align {
         text-align: center;
@@ -991,6 +999,7 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
+    
 }
 @media (max-width:480px){
     .water-mark-image {

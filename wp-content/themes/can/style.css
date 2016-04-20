@@ -172,6 +172,7 @@ background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, F
 .primary-nav .nav > li a{
 	margin: 0px;
 	padding: 10px 0px;
+        background-color: transparent;
 }
 .primary-nav ul.nav > li {
 	padding: 0px 16px;
@@ -254,7 +255,6 @@ h1 strong,
 .get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,
 .financial-product-item h5,
 .learn-more-btn,
-.testimonial-heading,
 #about_us p b,
 .featured-title a,
 .read-date b,
@@ -346,6 +346,9 @@ h1 {
 	height: 50px;
 	border: none;
 }
+.form-control {
+    padding:6px 28px;
+}
 .get-Quote-form input[type="submit"] {			
 	border: 2px solid #fff;
         color: #fff;
@@ -374,6 +377,7 @@ h1 {
 .financial-product-item h5 {
 	font-size: 26px; 
 	margin:24px 0 0;
+        word-wrap: break-word;
 }
 .financial-product-item p {
 	font-size: 18px; 
@@ -538,6 +542,9 @@ i.glyphicon-play {
 	margin: 0 auto 34px;
 	font-family: 'Fort-Light';
 }
+#about_us p b {
+    display: inline-block;
+}
 .btn-purple-style:hover, .btn-purple-style:focus {
 	color: #843A87;
 	background-color: #fff;
@@ -612,8 +619,10 @@ i.glyphicon-play {
 	height: auto;
 }
 #resource_list_container .resource-content, #home_resource_list .resource-content{
-	padding: 16px 20px;
-	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
+	padding: 16px 20px;	
+}
+.featured-story-image, #resource_list_container .resource-content, #home_resource_list .resource-content {
+    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.1);
 }
 #resource_list_container .resource-content, .featured-story-image,  #home_resource_list .resource-content {
 	height: 312px;
@@ -651,17 +660,17 @@ i.glyphicon-play {
 	background: url(images/home/time_icon.png) no-repeat left top;
 	font-family: 'Fort-Medium';
 	padding-left: 28px;
-	margin-top: 40px;
+	margin-top: 16px;
 	line-height: 25px;
 	position: absolute;
-    bottom: 10px;
+        bottom: 27px;
 }
 .select-topic {
 	position: relative;
 	width: 267px;
 }
 .select-topic select {
-	height:50px ;
+  height:50px ;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -670,7 +679,8 @@ i.glyphicon-play {
   border-radius: 25px;
   border: none;
   cursor: pointer;
-  padding-right: 54px; 
+  padding-right: 54px;
+  padding-left: 28px;
 }
 span.select-drop {
     position: absolute;
@@ -702,9 +712,6 @@ span.select-drop {
 }
 #all_resources_block .featured-title a{
 	font-size: 18px;
-}
-#all_resources_block .read-time {
-	margin-top: 16px;
 }
 .resource-list {
 	margin-bottom: 30px;
@@ -786,10 +793,10 @@ span.select-drop {
 	padding: 55px 0px 35px 15px; 
 }
 .sponsored {
-	position: absolute;
-    min-width: 169px;
+    position: absolute;
+    width: 230px;
     background-color: #c7c7c7;
-    bottom: 0px;
+    bottom: 2px;
     right: 0;
 }
 .sponsored p {
@@ -839,6 +846,7 @@ span.select-drop {
 }
 .get-e-book .section-heading {
 	margin-bottom: 4px;
+        color: #fff;
 }
 .get-e-book .text-align {
 	text-align: left;
@@ -1380,6 +1388,7 @@ footer .badges-container {
 }
 .info-product-item p span {
 	font-size: 64px;
+        display: block;
 }
 #use_termloan_for {
 	position: relative;
@@ -1419,9 +1428,6 @@ footer .badges-container {
 #home_resource_list .featured-title {
     margin: 8px 0 13px;
 }
-#home_resource_list .read-time {
-	bottom: 15px;
-        }
 .read-time span, .read-date span{
 	font-family: "Fort-bold";
 	color: #01aef0;
@@ -1670,11 +1676,11 @@ form.form-section h3.heading-beacome-partner {
 	z-index: 9;
 }
  .bring-best-item{
-	margin: 0px 22px 120px;
+	margin: 0px 22px 60px;
 } 
  .bring-best-item .category-icon {
- 	width: auto;
- 	height: auto;
+ 	width: 92px;
+ 	height: 92px;
  }
 .heading-label {
 	font-family: "Fort-Bold"; 
@@ -2202,6 +2208,6 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
-ul.nav li.current-menu-parent > a:hover {
+/*ul.nav li.current-menu-parent > a:hover {
     border-bottom: 2px solid transparent;
-}
+}*/
