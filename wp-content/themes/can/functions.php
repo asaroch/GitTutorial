@@ -939,11 +939,11 @@ function excerpt_count_js() {
     if ('page' != get_post_type()) {
 
         echo '<script>jQuery(document).ready(function(){
-		jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:12px;right:34px;color:#666;\"><small>Excerpt length: </small><span id=\"excerpt_counter\"></span><span style=\"font-weight:bold; padding-left:7px;\">/ 200</span><small><span style=\"font-weight:bold; padding-left:7px;\">character(s).</span></small></div>");
+		jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:12px;right:34px;color:#666;\"><small>Excerpt length: </small><span id=\"excerpt_counter\"></span><span style=\"font-weight:bold; padding-left:7px;\">/ 500</span><small><span style=\"font-weight:bold; padding-left:7px;\">character(s).</span></small></div>");
 			 jQuery("span#excerpt_counter").text(jQuery("#excerpt").val().length);
 			 jQuery("#excerpt").keyup( function() {
-				 if(jQuery(this).val().length > 200){
-					jQuery(this).val(jQuery(this).val().substr(0, 200));
+				 if(jQuery(this).val().length > 500){
+					jQuery(this).val(jQuery(this).val().substr(0, 500));
     }
 			 jQuery("span#excerpt_counter").text(jQuery("#excerpt").val().length);
 		   });
