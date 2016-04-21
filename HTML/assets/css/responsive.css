@@ -1015,9 +1015,6 @@
     }
  .mobile-menu {
     background: none repeat scroll 0 0 #01aef0;
-    border: 1px solid red;
-    display: table-cell;
-    height: 50px;
     overflow: hidden;
     position: fixed;
     width: 100%;
