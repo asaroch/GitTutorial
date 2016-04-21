@@ -2223,12 +2223,16 @@ input[type=number] {
 .search-result {
     margin-top:40px;
 }
+.search-result .sidebar {
+    width: 244px;
+    padding:20px;
+}
 .search-result .sidebar , .result-count{
     float:left;
     padding-top:12px;
 }
 .search-result .resource-container {
-    padding: 0 0 0  25px;
+    padding: 0 0 0 0;
 }
 .search-tab-button {
     float: right;
@@ -2287,4 +2291,7 @@ input[type=number] {
     bottom: -17px;
     left: 50%;
     transform: translateX(-50%);   
+}
+.search-result .sidebar .section-heading {
+    font-size: 22px;
 }
