@@ -128,6 +128,8 @@ $(function () {
         responsiveClass: true,
         pagination: true,
         navigation: true,
+        autoplay: true,
+        autoplayTimeout: 8000,
         mouseDrag : false,
         touchDrag : false,
         responsive: {
@@ -342,15 +344,25 @@ $(function () {
                     }
 
         });
-
-
-    //CANCAPITAL LOGO HOVER FUNCTIONALITY SHOW THE GET YOUR QUOTE OVERLAY 
-    /* $("#form_box, .navbar-brand").hover(function () {
-     $(".get-hover-form").show();
-     
-     }, function () {
-     $(".get-hover-form").hide();
-     
-     });*/
-
+        
+        /* Small business funding slider */      
+            var sbfSlider = $("#slider_testimonial");
+            $("#installment_btn").click(function(){
+                sbfSlider.trigger("to.owl.carousel", [2, 500, true]);                
+            })
+            $("#trak_loan_btn").click(function(){
+                sbfSlider.trigger("to.owl.carousel", [1, 500, true]);
+               
+            })
+            $("#term_loan_btn").click(function(){
+                sbfSlider.trigger("to.owl.carousel", [0, 500, true])
+            })
+            /* Small business funding slider */  
+            $(".navigation-item").click(function(){
+                var $this = $(this);
+                var anchorParent = $this.parent();
+                var parentSiblings = anchorParent.siblings("li.active");
+                parentSiblings.removeClass("active");
+                anchorParent.addClass("active");
+            });
 });

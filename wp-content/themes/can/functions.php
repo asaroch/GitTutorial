@@ -239,6 +239,16 @@ function twentysixteen_widgets_init() {
 		//'before_title'  => '<h2 class="widget-title">',
 		//'after_title'   => '</h2>',
 	) );
+     register_sidebar( array(
+		'name'          => __( 'video_testimonial', 'can' ),
+		'id'            => 'can_capital_video_testimonial',
+		'description'   => __( 'Appears merchant testimonials.', 'can' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section></div></section>',
+		'before_title'  => '<section id="success_community">
+        <div class="container"><h2 class="section-heading">',
+		'after_title'   => '</h2>',
+	) );
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -321,6 +331,7 @@ function can_scripts() {
     wp_enqueue_script('jquery.maskedinput', get_template_directory_uri() . '/js/jquery.maskedinput.js');
     wp_enqueue_script('custom', get_template_directory_uri() . '/js/custom.js');
     wp_enqueue_script('custom-dev', get_template_directory_uri() . '/js/custom-dev.js');
+    wp_enqueue_script('html5lightbox', get_template_directory_uri() . '/js/html5lightbox.js');
     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 
     $search = $financialProductSlider = $testimonialSlider = FALSE;
@@ -928,11 +939,11 @@ function excerpt_count_js() {
     if ('page' != get_post_type()) {
 
         echo '<script>jQuery(document).ready(function(){
-		jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:12px;right:34px;color:#666;\"><small>Excerpt length: </small><span id=\"excerpt_counter\"></span><span style=\"font-weight:bold; padding-left:7px;\">/ 130</span><small><span style=\"font-weight:bold; padding-left:7px;\">character(s).</span></small></div>");
+		jQuery("#postexcerpt .handlediv").after("<div style=\"position:absolute;top:12px;right:34px;color:#666;\"><small>Excerpt length: </small><span id=\"excerpt_counter\"></span><span style=\"font-weight:bold; padding-left:7px;\">/ 500</span><small><span style=\"font-weight:bold; padding-left:7px;\">character(s).</span></small></div>");
 			 jQuery("span#excerpt_counter").text(jQuery("#excerpt").val().length);
 			 jQuery("#excerpt").keyup( function() {
-				 if(jQuery(this).val().length > 130){
-					jQuery(this).val(jQuery(this).val().substr(0, 130));
+				 if(jQuery(this).val().length > 500){
+					jQuery(this).val(jQuery(this).val().substr(0, 500));
     }
 			 jQuery("span#excerpt_counter").text(jQuery("#excerpt").val().length);
 		   });
@@ -957,46 +968,6 @@ function resource_filter_callback() {
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
-
-/*
- * Callback function to filter the MCE settings
- */
-
-function my_mce_before_init_insert_formats($init_array) {
-
-// Define the style_formats array
-
-    $style_formats = array(
-        // Each array child is a format with it's own settings
-        array(
-            'title' => 'Top Heading',
-            'block' => 'div',
-            'classes' => 'top-heading',
-            'wrapper' => true,
-        ),
-        array(
-            'title' => 'Blue Button',
-            'block' => 'span',
-            'classes' => 'blue-button',
-            'wrapper' => true,
-        ),
-        array(
-            'title' => 'Red Button',
-            'block' => 'span',
-            'classes' => 'red-button',
-            'wrapper' => true,
-        ),
-    );
-    // Insert the array, JSON ENCODED, into 'style_formats'
-    $init_array['style_formats'] = json_encode($style_formats);
-
-    return $init_array;
-}
-
-// Attach callback to 'tiny_mce_before_init' 
-add_filter('tiny_mce_before_init', 'my_mce_before_init_insert_formats');
-
-
 /* * *********************************************
  * Adding custom widget for Member Benefits*
  * ******************************************** */
@@ -1305,13 +1276,122 @@ function award_resource_mapping( $post ) {
     endif;
     echo $return;
 }
-/*
- * Adding Menu, Sub-menu for How-it-works 
- * 
- */
-add_action('admin_menu', 'my_menu_pages');
-function my_menu_pages(){
-    add_menu_page('How it works', 'How it work', 'How It Work','administrator', '#' );
-    add_submenu_page('How it work Process', 'How it work Process', 'How it work Process', 'administrator', 'my-menu' );
-    add_submenu_page('my-menu', 'Submenu Page Title2', 'Whatever You Want2', 'manage_options', 'my-menu2' );
+/* * *********************************************
+ * Adding custom widget for video testimonials*
+ * ******************************************** */
+
+class VideoTestimonials_Widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+                'VideoTestimonials_Widget', // Base ID
+                'Video testimonial Widget', // Name
+                array('description' => __('Displays your merchant testimonial with their title.'))
+        );
+    }
+
+    function update($new_instance, $old_instance) {
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        return $instance;
+    }
+
+    function form($instance) {
+        if ($instance) {
+            $title = esc_attr($instance['title']);
+        } else {
+            $title = '';
+        }
+        ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'financial_widget'); ?></label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+        </p>        
+        <?php
+    }
+
+    function widget($args, $instance) {
+        extract($args);
+        $title = apply_filters('widget_title', $instance['title']);
+        $type = $instance['type'];
+        echo $before_widget;
+        if ($title) {
+            echo $before_title . $title . $after_title;
+        }
+        $this->getVideoTestimonialListings($type);
+        echo $after_widget;
+    }
+
+    /*     * *********************************************************
+     * Function to fetch listing of member benefits 
+     * Parameters : $numberOfListings
+     * Return : Html view with listing of items.
+     * ********************************************************* */
+
+    function getVideoTestimonialListings($type) { //html
+        global $post;
+        //add_image_size( 'financial_widget_size', 85, 45, false );
+        $listings = new WP_Query();
+        $args = array(
+            'post_type' => 'video-testimonial',
+            'post_status' => 'publish',
+            'order' => 'ASC'
+        );
+        
+        //$featured_resources = query_posts($args);
+        $listings->query($args);
+        
+        if ($listings->found_posts > 0) {
+            $return = '
+            <div class="owl-carousel owl-theme">
+                <!--Display testimonials for merchants-->';
+                
+                if ($listings->found_posts > 0) {
+                    while ($listings->have_posts()) {
+                        
+                        $listings->the_post();
+                        
+                     
+                $return .=  '<div class="item">
+                            <div class="video-player">'. get_the_post_thumbnail($post->ID).'
+                            </div>
+                            <p class="marchent-name">'. get_the_title().' </p>
+                            <p class="business-label">'. get_post_meta($post->ID, 'wpcf-business', true).'</p>
+                            <p class="business-name">'. get_post_meta($post->ID, 'wpcf-video_topic', true).' </p>
+                            <p class="success-description">'. get_the_content().' </p>					
+                        </div>';
+                    
+                    }
+                }
+         $return .= '     
+            </div>            
+        </div>			
+    </section>';
+         echo $return;
+            wp_reset_postdata();
+        } else {
+            echo '<p style="padding:25px;">No listing found</p>';
+        }
+    }
+
 }
+
+//end class Realty_Widget
+register_widget('VideoTestimonials_Widget');
+
+/* * *********************************************************
+ * Callback function of menu hook 
+ * ********************************************************* */
+
+function can_how_it_works_add_pages() {
+    add_menu_page('How It Works', 'How it works', '6', 'how-it-work', '', '', 6);
+    add_submenu_page('how-it-work', 'Effortless Applications', 'Effortless Applications', 5, 'edit.php?post_type=how-it-work-effortle');
+    add_submenu_page('how-it-work', 'Hero process', 'Hero process', 5, 'edit.php?post_type=how-it-work-process');
+    add_submenu_page('how-it-work', 'Gathers Before Start', 'Gathers Before Start', 5, 'edit.php?post_type=how-it-work-gather');
+    add_submenu_page('how-it-work', 'Getting Funds', 'Getting Funds', 5, 'edit.php?post_type=how_getting_fund');
+}
+/*
+* Adding menus for How it works section admin panel
+*/
+
+add_action('admin_menu', 'can_how_it_works_add_pages');

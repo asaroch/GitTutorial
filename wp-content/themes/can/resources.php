@@ -84,7 +84,7 @@ if (!empty($featured_resources)) {
     $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'business-type', array("fields" => "names"));
     if (!empty($resource_topics)) {
         $topics = 'in ' . implode(", ", $resource_topics);
-        $topics = strlen($topics) >= 120 ? substr($topics, 0, 120) . ' ...' : $topics;
+        $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
     } else {
         $topics = '';
     }
@@ -92,7 +92,7 @@ if (!empty($featured_resources)) {
     $reading_time = get_post_meta($featured_resources[0]->ID, 'wpcf-reading-minutes', true);
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
-    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
+    $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
     ?>
     <section id="resource_hero"><!-- Resource banner -->
         <div class="container">
@@ -103,8 +103,8 @@ if (!empty($featured_resources)) {
                             <p>FEATURED</p>
                         </div>
                         <p class="read-date"><?php echo get_the_date('F j, Y', $featured_resources[0]->ID); ?> <b><?php echo $topics; ?></b></p>
-                        <p class="featured-title"><a href="<?php echo get_the_permalink($featured_resources[0]->ID); ?>" ><?php echo $featured_resources[0]->post_title; ?></a></p>
-                        <p><?php echo $featured_resources[0]->post_excerpt; ?></p>
+                        <p class="featured-title"><a href="<?php echo get_the_permalink($featured_resources[0]->ID); ?>" ><?php echo strlen($featured_resources[0]->post_title) >= 60 ? substr($featured_resources[0]->post_title, 0, 60) . ' ...' : $featured_resources[0]->post_title; ?></a></p>
+                        <p><?php echo strlen($featured_resources[0]->post_excerpt) >= 245 ? substr($featured_resources[0]->post_excerpt, 0, 245) . ' ...' : $featured_resources[0]->post_excerpt; ?></p>
                         <?php
                         if (isset($reading_time) && $reading_time != '') {
                             ?>
@@ -141,7 +141,7 @@ if (!empty($featured_resources)) {
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
-                        $topics = strlen($topics) >= 80 ? substr($topics, 0, 80) . ' ...' : $topics;
+                        $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
                     } else {
                         $topics = '';
                     }
@@ -151,14 +151,14 @@ if (!empty($featured_resources)) {
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
-                    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
+                    $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
                         <div class="col-md-4 featured-article">
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
-                                <p class="featured-content"><?php echo $resource->post_excerpt; ?></p>
+                                <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
+                                <p class="featured-content"><?php echo strlen($resource->post_excerpt) >= 170 ? substr($resource->post_excerpt, 0, 170) . ' ...' : $resource->post_excerpt; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
@@ -196,8 +196,8 @@ if (!empty($featured_resources)) {
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                        <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
-                                        <p><?php echo $resource->post_excerpt; ?></p>
+                                        <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 45 ? substr($resource->post_title, 0, 45) . ' ...' : $resource->post_title; ?></a></p>
+                                        <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
@@ -287,14 +287,14 @@ $resources = query_posts($args);
                         $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                         if (!empty($resource_topics)) {
                             $topics = 'in ' . implode(", ", $resource_topics);
-                            $topics = strlen($topics) >= 80 ? substr($topics, 0, 80) . ' ...' : $topics;
+                            $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
                         } else {
                             $topics = '';
                         }
 
                         // Sponsored By
                         $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
-                        $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
+                        $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
 
                         // Reading time
                         $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
@@ -317,8 +317,8 @@ $resources = query_posts($args);
                                 ?>
                                 <div class="resource-content">
                                     <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                    <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" ><?php echo esc_attr($resource->post_title); ?></a></p>
-                                    <p><?php echo $resource->post_excerpt; ?></p>
+                                    <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" ><?php echo esc_attr(strlen($resource->post_title) >= 75 ? substr($resource->post_title, 0, 75) . ' ...' : $resource->post_title); ?></a></p>
+                                    <p><?php echo strlen($resource->post_excerpt) >= 145 ? substr($resource->post_excerpt, 0, 145) . ' ...' : $resource->post_excerpt; ?></p>
                                     <?php
                                     if ($reading_time) {
                                         ?>
@@ -374,11 +374,17 @@ $resources = query_posts($args);
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section hidden-xs">
-                        <h2 class="section-heading">Get Funded</h2>
+                        <h2 class="section-heading"><?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
                         <div class="col-xs-12 post-information">
-                            <p>Smart, simple & fast</p>
+                            <p><?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></p>
                             <div class="get-funded">
-                                <a href="#" class="btn btn-blue-bg field-style">APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
+                                <!-- applynow widget section -->
+                                <?php if (is_active_sidebar('applynow')) : ?>
+                                    <div class="widget-area applynow" role="complementary">
+                                        <?php dynamic_sidebar('applynow'); ?>
+                                    </div><!-- .widget-area -->
+                                <?php endif; ?>	
+                                <!--applynow widget ends here-->
                             </div>
                         </div>
                     </div>

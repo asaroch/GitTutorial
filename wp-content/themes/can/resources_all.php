@@ -30,7 +30,7 @@ $mobile_featured_resources = array();
                 $resource_topics = wp_get_post_terms($top_featured_resource->ID, 'business-type', array("fields" => "names"));
                 if (!empty($resource_topics)) {
                     $topics = 'in ' . implode(", ", $resource_topics);
-                    $topics = strlen($topics) >= 50 ? substr($topics, 0, 50) . ' ...' : $topics;
+                    $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
                 } else {
                     $topics = '';
                 }
@@ -40,7 +40,7 @@ $mobile_featured_resources = array();
 
                 // Sponsored By
                 $sponsored_by = get_post_meta($top_featured_resource->ID, 'wpcf-sponsored-by', true);
-                $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
+                $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                 ?>
                 <div class="col-md-8 clearfix">
                     <div class="row">
@@ -58,8 +58,8 @@ $mobile_featured_resources = array();
                         <div class="col-sm-7 col-7-overide">
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $top_featured_resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                <p class="featured-title"><a href="<?php echo get_the_permalink($top_featured_resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
-                                <p><?php echo $top_featured_resource->post_excerpt; ?></p>
+                                <p class="featured-title"><a href="<?php echo get_the_permalink($top_featured_resource->ID); ?>"><?php echo strlen($top_featured_resource->post_title) >= 40 ? substr($top_featured_resource->post_title, 0, 40) . ' ...' : $top_featured_resource->post_title; ?></a></p>
+                                <p><?php echo strlen($top_featured_resource->post_excerpt) >= 200 ? substr($top_featured_resource->post_excerpt, 0, 200) . ' ...' : $top_featured_resource->post_excerpt; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
@@ -91,7 +91,7 @@ $mobile_featured_resources = array();
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
-                        $topics = strlen($topics) >= 50 ? substr($topics, 0, 50) . ' ...' : $topics;
+                        $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
                     } else {
                         $topics = '';
                     }
@@ -101,14 +101,14 @@ $mobile_featured_resources = array();
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
-                    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
+                    $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
                         <div class="col-md-4 clearfix">
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
-                                <p><?php echo $resource->post_excerpt; ?></p>
+                                <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
+                                <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
@@ -137,8 +137,8 @@ $mobile_featured_resources = array();
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                                        <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo $resource->post_title; ?></a></p>
-                                        <p><?php echo $resource->post_excerpt; ?></p>
+                                        <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
+                                        <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
@@ -182,7 +182,7 @@ $mobile_featured_resources = array();
                     $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
-                        $topics = strlen($topics) >= 50 ? substr($topics, 0, 50) . ' ...' : $topics;
+                        $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
                     } else {
                         $topics = '';
                     }
@@ -192,17 +192,17 @@ $mobile_featured_resources = array();
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
-                    $sponsored_by = strlen($sponsored_by) >= 10 ? substr($sponsored_by, 0, 10) . ' ...' : $sponsored_by;
+                    $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                     ?>
                     <div class="item">
                         <div class="resource-content">
                             <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
-                            <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo $resource->post_title; ?></a></p>
-                            <p><?php echo $resource->post_excerpt; ?></p>
+                            <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
+                            <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
 
-    <?php
-    if (isset($reading_time) && $reading_time != '') {
-        ?>
+                            <?php
+                            if (isset($reading_time) && $reading_time != '') {
+                                ?>
                                 <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
                                 <?php
                             }
@@ -212,14 +212,14 @@ $mobile_featured_resources = array();
                                 <div class="sponsored">
                                     <p>Sponsored By <?php echo $sponsored_by; ?></p>
                                 </div>
-        <?php
-    }
-    ?>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
-    <?php
-}
-?>
+                    <?php
+                }
+                ?>
             </div>
             <div class="customNavigation">
                 <div class="text-center">

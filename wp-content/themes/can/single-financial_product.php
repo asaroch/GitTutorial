@@ -158,9 +158,11 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
                     ?>
                     <!--Testimonials ends here-->
                     <div class="item">
-                        <div class="video-player">
+                        <div class="video-player html5lightbox">
                             <?php echo get_the_post_thumbnail($post->ID); ?>
                         </div>
+                        <?php $meta    = get_post_meta( $post->ID, '_fvp_video', true );
+                        $video_url =  wp_get_attachment_url( $meta['id'] ); ?>
                         <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
                         <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business', true); ?> </p>
                         <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-video_topic', true); ?> </p>

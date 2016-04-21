@@ -1,6 +1,6 @@
-@media (min-width:1199px) {
+@media (min-width:1200px) {
     #all_resources_block .resource-content {
-        width: 62.5%;
+        width: 64.5%;
     }
     .col-7-overide {
         width: 53.733333%;
@@ -25,7 +25,7 @@
         top: 120px;
     }
     #all_resources_block .resource-content {
-        width: 50.5%;
+        width: 55.5%;
         padding-right:0;
     }
     .read-time {
@@ -52,15 +52,24 @@
     #user_rettings_slider .owl-next {
         right: -33px;
     }
+    #resource_hero .featured-title {
+        margin:8px 0;
+    }
+    .featured-title,  #all_resources_block .featured-title, #home_resource_list .featured-title {
+        margin: 2px 0 2px;
+    }
+    .featured-title a {
+        line-height: 25px;
+        font-size: 22px;
+    }
+    .sponsored p {
+        padding:5px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
         font-size: 34px;
-    }
-    .featured-title {
-        font-size: 24px;
-        margin: 8px 0 5px;
-    }
+    }    
     #search_resource .select-topic {
         width: 100%;
     }
@@ -80,6 +89,7 @@
     .social-links ul li {
         margin-right: 5px;
     }
+    
 }
 @media (min-width:992px) {
     #post-article {
@@ -193,9 +203,6 @@
 	width:auto;
 	height: auto;
     }
-    #testimonial .slider-nav-control {
-            bottom: 10px;
-    }
     .testimonial-content {
         top: 100px;
     }
@@ -205,6 +212,10 @@
     }
     .process-block .financial-product-item .process-arrow span {
         width: 130px;
+    }
+    .date-time-label {
+        position: relative;
+        left:0;
     }
 /*how it work process arrow*/
 }
@@ -265,8 +276,14 @@
         width: auto;
         min-width: 235px;
     }
+    .bring-best-item {
+        height:300px;
+    }    
 }
-@media (max-width:767px) {	
+@media (max-width:767px) {
+    #home_get_quote{
+	height: auto;
+}
     #user_rettings_slider .owl-prev {
         left: -29px;
     }
@@ -314,7 +331,7 @@
     }	
     .primary-nav .glyphicon-menu-down {
         color: #fff;
-        margin-right: 5px;
+        margin-right: 3px;
         font-size: 18px;
     }
     .primary-nav ul.nav > li.dropdown {
@@ -329,7 +346,7 @@
     .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
         border: none;
     }
-    .navbar a, .primary-nav .nav .dropdown-menu li a {
+    .navbar a, .primary-nav .nav .dropdown-menu li a, .primary-nav .nav .dropdown-menu li.current-menu-item a {
         color: #fff;
     }
     .navbar-nav > li  {
@@ -443,11 +460,12 @@
         background: rgba(1,174,240,.9);		
     }
     .get-Quote-form {
-        padding: 26px 30px 16px;
+        padding: 0;
     }
     .get-Quote-form .section-heading {
         margin: 0px 0 10px;
         cursor: pointer;
+        padding: 26px 30px 16px;
     }
     .get-Quote-form form .form-control {
         margin-bottom: 20px;
@@ -650,9 +668,11 @@
     #all_resources_block .resource-content, #all_resources_block .select-topic {
         border-bottom: 1px solid #e9e9e9;		
     }
-    #all_resources_block .sponsored {
-        position: static;
-        float: right;
+    .sponsored {
+        position: relative;
+        bottom:-15px;
+        right:-20px;
+        float:right;
     }
     .get-e-book .text-align {
         text-align: center;
