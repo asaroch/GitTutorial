@@ -2208,3 +2208,8 @@ input[type=number] {
     display: table-cell;
     vertical-align: middle;
 }
+
+/*infographic slider arrow spacing */
+#infografic_carousel {
+    padding: 0 35px;
+}
