@@ -353,7 +353,7 @@ $(function(){
             $("#term_loan_btn").click(function(){
                 sbfSlider.trigger("to.owl.carousel", [0, 500, true])
             })
-            /* Small business funding slider */  
+            /* Small business funding slider state */  
             $(".navigation-item").click(function(){
                 var $this = $(this);
                 var anchorParent = $this.parent();
@@ -361,5 +361,11 @@ $(function(){
                 parentSiblings.removeClass("active");
                 anchorParent.addClass("active");
             });
+            
+//            $("body").click(function(e){
+//                 if (!$("div#form_box").is(e.target)) {
+//                $("div#form_box").removeClass("activeGetQuote");
+//                 }
+//            });
 
 });
