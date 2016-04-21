@@ -661,7 +661,8 @@
         float:left;
     }
     #all_resources_block .resource-content {
-        padding:35px 18px 30px;
+/*        padding:35px 18px 30px;*/
+        padding: 0px 18px 30px;
         width:100%;
         height: auto;
     }
