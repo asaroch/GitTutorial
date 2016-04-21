@@ -755,6 +755,7 @@
     .info-product-item p {
         padding: 10px 40px;
         font-size: 18px;
+        line-height: 30px;
     }
     .info-product-item p span {
         font-size: 30px;
