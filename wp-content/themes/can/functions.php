@@ -1395,3 +1395,20 @@ function can_how_it_works_add_pages() {
 */
 
 add_action('admin_menu', 'can_how_it_works_add_pages');
+
+function myextensionTinyMCE($init) {
+    // Command separated string of extended elements
+    $ext = 'span[id|name|class|style]';
+
+    // Add to extended_valid_elements if it alreay exists
+    if ( isset( $init['extended_valid_elements'] ) ) {
+        $init['extended_valid_elements'] .= ',' . $ext;
+    } else {
+        $init['extended_valid_elements'] = $ext;
+    }
+
+    // Super important: return $init!
+    return $init;
+}
+
+add_filter('tiny_mce_before_init', 'myextensionTinyMCE' );
