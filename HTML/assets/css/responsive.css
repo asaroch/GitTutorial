@@ -217,6 +217,9 @@
         position: relative;
         left:0;
     }
+    .resource-sm-height {
+        height: 225px;
+    }
 /*how it work process arrow*/
 }
 @media (min-width: 768px){	
@@ -661,7 +664,8 @@
         float:left;
     }
     #all_resources_block .resource-content {
-        padding:35px 18px 30px;
+/*        padding:35px 18px 30px;*/
+        padding: 0px 18px 30px;
         width:100%;
         height: auto;
     }
@@ -755,6 +759,7 @@
     .info-product-item p {
         padding: 10px 40px;
         font-size: 18px;
+        line-height: 30px;
     }
     .info-product-item p span {
         font-size: 30px;
@@ -1011,6 +1016,13 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
+ .mobile-menu {
+    background: none repeat scroll 0 0 #01aef0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
 }
 @media (max-width:480px){
     .water-mark-image {

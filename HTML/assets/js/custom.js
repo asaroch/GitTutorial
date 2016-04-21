@@ -59,15 +59,12 @@ $(function(){
             }
             ;
         }
-
-
-
     }
 
-
+//testimonial slider start
 	var testimonial  = $("#slider_testimonial");
 		testimonial.owlCarousel({
-			loop:false,
+                    loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    navigation:false,
@@ -77,11 +74,8 @@ $(function(){
 			            nav:false,
 			            dots: false
 			        }
-
-			    }
-			 
+			    }		 
 		});
-
 		testimonial.on('changed.owl.carousel',function(property){
 
                     var current = property.item.index;
@@ -91,24 +85,17 @@ $(function(){
                     // how many slides to go?
                     var remain = total - (shownItems + current);
                     activeSliders($(".prev"), $(".next"), current, remain);
-                });
-
-	
-
-		
+                });		
 		//custom next and prev. events 
 		$(".next").click(function(){
 			testimonial.trigger("next.owl.carousel");
-		})
+		});
 
 		$(".prev").click(function(){
 			testimonial.trigger("prev.owl.carousel");
-		})
+		});
+//testimonial slider end
 
-	
-
-		//var sliderFeatureProduct = $("#slider_feature_product");
-		//var sliderFeatureProduct = $("#slider_feature_product");
 		var featureSlider = $("#slider_feature_product");
 			featureSlider.owlCarousel({
 			loop:false,
@@ -133,7 +120,6 @@ $(function(){
 			onInitialize: function () {
 					
 			}
-
 		});
 
 		featureSlider.on('changed.owl.carousel', function (property) {
@@ -143,13 +129,12 @@ $(function(){
                 var total = property.relatedTarget.items().length - 1
                 // how many slides to go?
                 var remain = total - (shownItems + current);
-
                 activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
             });
             
 		var sliderUserRatting = $("#user_rettings_slider");
-			sliderUserRatting.owlCarousel({
-			loop:false,
+                    sliderUserRatting.owlCarousel({
+                    loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -220,7 +205,7 @@ $(function(){
 //    infograpic slider how it works               
                var infoGraphSlider = $("#infografic_carousel")    
 		infoGraphSlider.owlCarousel({
-			loop:true,
+                    loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -245,10 +230,10 @@ $(function(){
                 activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
             });
 //    infograpic slider how it works  end            
-
+//    Home resources slider   
 		var resourceSlider = $("#resource_slider");
 			resourceSlider.owlCarousel({
-				loop:false,
+                            loop:false,
 			    margin:10,
 			    responsiveClass:true,
 			    pagination : true,
@@ -265,13 +250,14 @@ $(function(){
 			});
 
 			resourceSlider.on('changed.owl.carousel',function(property){
-                            var totalSlides = $("#resource_slider .owl-item ").length;
-			    var current = property.item.index;
-			    activeSliders($(".slide-prev"), $(".slide-next"), current, totalSlides);
-
+                            var current = property.item.index;
+                            var shownItems = property.page.size            
+                            // total number of slides
+                            var total = property.relatedTarget.items().length - 1
+                            // how many slides to go?
+                            var remain = total - (shownItems + current);
+                            activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
 			});
-
-
 
 		//resource section on home next and prev. events 
 		$(".slide-next").click(function(){
@@ -281,7 +267,7 @@ $(function(){
 		$(".slide-prev").click(function(){
 			resourceSlider.trigger("prev.owl.carousel");
 		})
-
+//    Home resources slider end
 
 
 		//STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
@@ -353,7 +339,7 @@ $(function(){
             $("#term_loan_btn").click(function(){
                 sbfSlider.trigger("to.owl.carousel", [0, 500, true])
             })
-            /* Small business funding slider */  
+            /* Small business funding slider state */  
             $(".navigation-item").click(function(){
                 var $this = $(this);
                 var anchorParent = $this.parent();
@@ -361,5 +347,11 @@ $(function(){
                 parentSiblings.removeClass("active");
                 anchorParent.addClass("active");
             });
+            
+//            $("body").click(function(e){
+//                 if (!$("div#form_box").is(e.target)) {
+//                $("div#form_box").removeClass("activeGetQuote");
+//                 }
+//            });
 
 });
