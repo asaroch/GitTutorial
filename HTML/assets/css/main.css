@@ -2213,3 +2213,45 @@ input[type=number] {
 #infografic_carousel {
     padding: 0 35px;
 }
+
+/* -----------------------batch 3 starts ---------------------------*/
+/*resource search result*/
+.search-result {
+    margin-top:40px;
+}
+.search-result .sidebar , .result-count{
+    float:left;
+}
+.search-result .resource-container {
+    padding: 0 0 0  25px;
+}
+.search-tab-button {
+    float: right;
+    
+    
+}
+.search-tab-button .nav-tabs{
+    border-radius: 25px;
+    border:1px solid #00aeef;
+}
+.search-tab-button .nav-tabs>li.active>a,
+.search-tab-button .nav-tabs>li.active>a:focus,
+.search-tab-button .nav-tabs>li.active>a:hover ,
+.search-tab-button .nav>li>a:focus,
+.search-tab-button .nav>li>a:hover,
+.search-tab-button .nav-tabs>li>a,
+.search-tab-button .nav-tabs>li>a:hover{
+    border: none;
+}
+.search-tab-button .nav-tabs>li.active>a,
+.search-tab-button .nav-tabs>li.active>a:focus,
+.search-tab-button .nav-tabs>li.active>a:hover {
+    background-color: #00aeef;
+    color:#fff;
+    margin:0;
+}
+.search-tab-button .nav-tabs>li>a {
+    background: #fff;
+    margin:0;
+}
+
