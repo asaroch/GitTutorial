@@ -1023,6 +1023,7 @@
     width: 100%;
     z-index: 999;
 }
+.menu-top-spacing { margin-top: 55px}
 }
 @media (max-width:480px){
     .water-mark-image {
