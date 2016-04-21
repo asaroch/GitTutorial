@@ -217,6 +217,9 @@
         position: relative;
         left:0;
     }
+    .resource-sm-height {
+        height: 225px;
+    }
 /*how it work process arrow*/
 }
 @media (min-width: 768px){	
