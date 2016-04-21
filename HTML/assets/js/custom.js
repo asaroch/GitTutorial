@@ -220,7 +220,7 @@ $(function(){
 //    infograpic slider how it works               
                var infoGraphSlider = $("#infografic_carousel")    
 		infoGraphSlider.owlCarousel({
-			loop:true,
+                    loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
