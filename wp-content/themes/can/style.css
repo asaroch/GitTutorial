@@ -2352,6 +2352,3 @@ input[type=number] {
 .clear-all .btn:hover {
     color: #01AEF0;
 }
-.search-result .sidebar input[type="checkbox"]:checked .clear-all {
-    display: block;
-}
