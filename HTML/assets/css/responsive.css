@@ -1031,10 +1031,16 @@
     width: 100%;
     z-index: 999;
 }
-.menu-top-spacing { margin-top: 55px}
-.search-result .resource-container {
-    border-bottom: none;
+.menu-top-spacing {
+    margin-top: 55px;
 }
+    .search-result .resource-container {
+        border-bottom: none;
+    }
+    .search-tab-button .nav-tabs>li>a {
+        color:#00aeef;
+        padding:6px 8px;
+    }
 }
 @media (max-width:480px){
     .water-mark-image {
