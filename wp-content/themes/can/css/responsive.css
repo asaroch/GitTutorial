@@ -1024,15 +1024,15 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    .mobile-menu {
-       background: none repeat scroll 0 0 #01aef0;
-       overflow: hidden;
-       position: fixed;
-       width: 100%;
-       z-index: 999;
-   }
+ .mobile-menu {
+    background: none repeat scroll 0 0 #01aef0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    }
     .menu-top-spacing {
-       margin-top: 55px;
+        margin-top: 55px;
     }
     .search-result .resource-container {
         border-bottom: none;

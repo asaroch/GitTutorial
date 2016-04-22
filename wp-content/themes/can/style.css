@@ -149,7 +149,7 @@ background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, F
 }
 .water-mark-image {
 	position:absolute;
-	background:url(images/home/Cmark.png) no-repeat right top;
+	background:url(../../images/home/Cmark.png) no-repeat right top;
 	top: 70px; right: 0; width: 678px;
 	height: 937px;
 }
@@ -468,7 +468,7 @@ h1 {
     bottom: 0;
 }
 #home_resource_list {	
-	background: url(images/home/gradient-03_Cmark.png) repeat left top;
+	background: url(../images/home/gradient-03_Cmark.png) repeat left top;
 }
 .resource-list-bg {
 	padding: 36px 0 23px;
@@ -585,7 +585,7 @@ i.glyphicon-play {
         font-size: 15px;
 }
 #resource_hero {
-	background: url(images/resources/main_featured_image.jpg) no-repeat center top;
+	background: url(../images/resources/main_featured_image.jpg) no-repeat center top;
 	height: 493px;
 	position: relative;
 	background-size: cover;
@@ -604,7 +604,7 @@ i.glyphicon-play {
 #resource_list_container {
 	padding: 36px 0 43px;
 	background-color: #eee;
-	background: url(images/resources/gray_pattern_bg.png) repeat left top;
+	background: url(../images/resources/gray_pattern_bg.png) repeat left top;
 }
 .col-5-overide {
     padding-right: 0;
@@ -658,7 +658,7 @@ i.glyphicon-play {
 	font-size: 12px;
 }
 .read-time{
-	background: url(images/home/time_icon.png) no-repeat left top;
+	background: url(../images/home/time_icon.png) no-repeat left top;
 	font-family: 'Fort-Medium';
 	padding-left: 28px;
 	margin-top: 16px;
@@ -829,7 +829,7 @@ span.select-drop {
 	padding :70px 0px 67px;
 }
 .get-e-book {
-	background: url(images/resources/newsletter_email_image.jpg) no-repeat center top;
+	background: url(../images/resources/newsletter_email_image.jpg) no-repeat center top;
 	background-size: cover;
 }
 .get-e-book input[type="text"]{
@@ -906,7 +906,7 @@ span.select-drop {
 	font-size: 16px;
 	color: #6d6e71;
 	line-height: 30px;
-	background: url('images/termsloan/arrow_bullet.png') no-repeat;
+	background: url('../images/termsloan/arrow_bullet.png') no-repeat;
 	padding-left: 35px;
 }
 .paymment-point{
@@ -923,7 +923,7 @@ span.select-drop {
 .termloan-use-point li {
     position: relative;
     font-size: 26px;
-    background:url('images/termsloan/check_bullet.png') no-repeat;
+    background:url('../images/termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
     margin: 0 0px 20px;
     padding: 0 20px 0 80px;
@@ -1248,7 +1248,7 @@ footer .badges-container {
 	margin: 11px auto 15px;
 }
 .icon-sprite{
-	background: url(images/can_sprt.png) no-repeat;
+	background: url(../images/can_sprt.png) no-repeat;
 }
 .star-overall li {
 	background-position:-16px -310px;
@@ -1480,6 +1480,8 @@ form.form-section h3 {
 #partner_lead_form .partner-type .form-group{
 	margin-bottom: 5px;
 }
+
+/*custom radio and label*/
 #partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
 	height: 20px;
 	display: inline-block;
@@ -1491,7 +1493,7 @@ form.form-section h3 {
 #partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
 	display: none;
 }
-#partner_lead_form .partner-type input[type="radio"] + label {
+#partner_lead_form .partner-type input[type="radio"] + label, .search-result .sidebar input[type="checkbox"] + label {
 	cursor: pointer;
 }
 #partner_lead_form .partner-type input[type="radio"] + label span, .search-result .sidebar input[type="checkbox"] + label span {
@@ -1513,11 +1515,35 @@ form.form-section h3 {
     border-radius: 0;
     width:16px;
     height:16px;
+    -webkit-box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.55);
+    box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.55);
 }
 #partner_lead_form .partner-type input[type="radio"]:checked + label span,
 .search-result .sidebar input[type="checkbox"]:checked + label span{	
      background-color: #6b2875;
 }
+.search-result .sidebar input[type="checkbox"]:checked + label span {
+    background-color: #6E6F73;
+    border:none;
+    color:#fff;
+    position:relative;
+}
+.search-result .sidebar input[type="checkbox"]:checked + label span:after {
+    content: "\e013";
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    top: -3px;
+    left: 1px;
+    font-size: 14px;
+    font-weight: normal;
+}
+.search-result .sidebar input[type="checkbox"]:checked + label {
+    font-family: "Fort-Medium";
+}
+
+/*custom radio and label end*/
+
 form.form-section p a.know-more {
 	font-size: 16px;
 	color: #00aeef;
@@ -1540,7 +1566,7 @@ form.form-section p a.know-more {
 	top:0;
 	width:27px;
 	height: 27px;
-	background: url(images/partner/QuestionMarkIcon.png) no-repeat;
+	background: url(../images/partner/QuestionMarkIcon.png) no-repeat;
 }
 .margin-top {
 	margin: 12px 0 17px;
@@ -1812,7 +1838,7 @@ form.form-section h3.heading-beacome-partner {
 .loan-nav .active a {
 	font-family: "Fort-bold"; 
 	color: #fff;
-	background: url(images/img-2.png) no-repeat;
+	background: url(../images/img-2.png) no-repeat;
 	background-position:center top;  
 }
 .nav-right-border {
@@ -2229,7 +2255,7 @@ input[type=number] {
 }
 .search-result .sidebar {
     width: 244px;
-    padding:35px 22px;
+    padding:35px 22px 20px;
 }
 .search-result .sidebar , .result-count{
     float:left;    
@@ -2305,4 +2331,24 @@ input[type=number] {
 .search-result .sidebar input[type="checkbox"] + label i {
     color: #a4a4a4;
     font-style: normal
+}
+.clear-all {
+    width:244px;
+    clear:both;
+    text-align: center;
+    border-top: 2px solid #fff;
+    background-color: #eee;
+    display: none;
+}
+.clear-all .btn, .clear-all .btn:hover, .clear-all .btn:focus{
+    color:#3BBDEF;
+    border:none;
+    background-color: transparent;
+    text-decoration: underline;
+    outline:none;
+    box-shadow:none;
+    padding: 9px;
+}
+.clear-all .btn:hover {
+    color: #01AEF0;
 }

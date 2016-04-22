@@ -347,11 +347,22 @@ $(function(){
                 parentSiblings.removeClass("active");
                 anchorParent.addClass("active");
             });
+// custom checkbox 22-april  
+
+            var checkbox = $(".search-result .sidebar input[type='checkbox']");
+            $(checkbox).click(function(){
+                if(checkbox.is(":checked")){
+                    $(".clear-all").show("slow");
+                }
+                else {
+                   $(".clear-all").hide("slow"); 
+                }
+            });
+            $(".clear-all").click(function(){
+                $(".search-result .sidebar input[type='checkbox']").attr('checked',false);
+                $(".clear-all").hide("slow");
+            })
             
-//            $("body").click(function(e){
-//                 if (!$("div#form_box").is(e.target)) {
-//                $("div#form_box").removeClass("activeGetQuote");
-//                 }
-//            });
+    // custom checkbox 22-april          
 
 });
