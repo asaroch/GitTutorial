@@ -189,10 +189,9 @@ endif;
             <?php endif; ?>	
                 <!-- capital_comparison_chart section -->
 		<!--funding option-->
-		<section id="home_resource_list" class="hidden-xs">
+		
                     <?php echo get_template_part( 'resources_all'); ?> 
-                </section>
-		<section  class="get-funded">
+               	<section  class="get-funded">
 			<div class="container text-center">
 				<h2 class="section-heading"> Get Funded </h2>
 				<h3> Smart, Simple & Fast. </h3>
