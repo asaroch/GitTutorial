@@ -284,22 +284,33 @@ $(function () {
 
 
 
-    $("#infografic_carousel").owlCarousel({
-        loop: true,
-        margin: 10,
-        responsiveClass: true,
-        pagination: true,
-        navigation: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true,
-                navText: ["<span class='icon-sprite feature-left-icon active'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
-                dots: true
-            }
-        }
-
-    });
+    //    infograpic slider how it works               
+               var infoGraphSlider = $("#infografic_carousel")    
+		infoGraphSlider.owlCarousel({
+                    loop:false,
+		    margin:10,
+		    responsiveClass:true,
+		    pagination : true,
+		    navigation:true,
+			responsive:{
+			        0:{
+			            items:1,
+			            nav:true,
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            dots: true
+			        }
+                            }
+		});
+                infoGraphSlider.on('changed.owl.carousel', function (property) {
+                var current = property.item.index;
+                    var shownItems = property.page.size            
+                    // total number of slides
+                    var total = property.relatedTarget.items().length - 1
+                    // how many slides to go?
+                    var remain = total - (shownItems + current);
+                activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+            });
+//    infograpic slider how it works  end  
 
 
     //STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
@@ -365,4 +376,21 @@ $(function () {
                 parentSiblings.removeClass("active");
                 anchorParent.addClass("active");
             });
+            
+            // clear all - search resource
+            var checkbox = $(".search-result .sidebar input[type='checkbox']");
+            $(checkbox).click(function(){
+                if(checkbox.is(":checked")){
+                    $(".clear-all").show("slow");
+                }
+                else {
+                   $(".clear-all").hide("slow"); 
+                }
+            });
+            $(".clear-all").click(function(){
+                $(".search-result .sidebar input[type='checkbox']").attr('checked',false);
+                $(".clear-all").hide("slow");
+            })
+            
+            // clear all - search resource 
 });
