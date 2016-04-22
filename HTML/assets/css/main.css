@@ -2255,7 +2255,7 @@ input[type=number] {
 }
 .search-result .sidebar {
     width: 244px;
-    padding:35px 22px;
+    padding:35px 22px 20px;
 }
 .search-result .sidebar , .result-count{
     float:left;    
@@ -2333,10 +2333,25 @@ input[type=number] {
     font-style: normal
 }
 .clear-all {
-    color:#3BBDEF;
-    border-top: 1px solid #fff;
+    width:244px;
+    clear:both;
+    text-align: center;
+    border-top: 2px solid #fff;
+    background-color: #eee;
+    display: none;
 }
-.clear-all .btn {
+.clear-all .btn, .clear-all .btn:hover, .clear-all .btn:focus{
+    color:#3BBDEF;
     border:none;
     background-color: transparent;
+    text-decoration: underline;
+    outline:none;
+    box-shadow:none;
+    padding: 9px;
+}
+.clear-all .btn:hover {
+    color: #01AEF0;
+}
+.search-result .sidebar input[type="checkbox"]:checked .clear-all {
+    display: block;
 }
