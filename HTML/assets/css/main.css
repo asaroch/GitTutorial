@@ -921,7 +921,7 @@ span.select-drop {
 	padding: 80px 0 56px;
 }
 .termloan-use-point li {
-	position: relative;
+    position: relative;
     font-size: 26px;
     background:url('../images/termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
@@ -929,10 +929,11 @@ span.select-drop {
     padding: 0 20px 0 80px;
     text-align: left;
 }
-  .termloan-use-point li p {position: absolute;
+  .termloan-use-point li p {
+    position: absolute;
     top: 50%;
    -ms-transform: translateY(-50%);
- 	transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 .list-term-use {
@@ -1479,7 +1480,7 @@ form.form-section h3 {
 #partner_lead_form .partner-type .form-group{
 	margin-bottom: 5px;
 }
-#partner_lead_form .partner-type input[type="radio"] {
+#partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
 	height: 20px;
 	display: inline-block;
 	width: 20px;
@@ -1487,14 +1488,14 @@ form.form-section h3 {
 	vertical-align: middle;
 	box-shadow: none;
 }
-#partner_lead_form .partner-type input[type="radio"] {
+#partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
 	display: none;
 }
 #partner_lead_form .partner-type input[type="radio"] + label {
 	cursor: pointer;
 }
-#partner_lead_form .partner-type input[type="radio"] + label span {
-	display:inline-block;
+#partner_lead_form .partner-type input[type="radio"] + label span, .search-result .sidebar input[type="checkbox"] + label span {
+    display:inline-block;
     width:20px;
     height:20px;
     margin:-5px 10px 0 0;
@@ -1505,10 +1506,16 @@ form.form-section h3 {
     background-color: #fff;
     border: 5px solid #fff;
     -webkit-box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.30);
-	-moz-box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.30);
-	box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.30);
+    -moz-box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.30);
+    box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.30);
 }
-#partner_lead_form .partner-type input[type="radio"]:checked + label span {	
+.search-result .sidebar input[type="checkbox"] + label span {
+    border-radius: 0;
+    width:16px;
+    height:16px;
+}
+#partner_lead_form .partner-type input[type="radio"]:checked + label span,
+.search-result .sidebar input[type="checkbox"]:checked + label span{	
      background-color: #6b2875;
 }
 form.form-section p a.know-more {
@@ -2216,23 +2223,30 @@ input[type=number] {
 
 /* -----------------------batch 3 starts ---------------------------*/
 /*resource search result*/
-.search-result {
-    margin-top:40px;
+#all_resources_block.search-result {
+    padding:40px 0 80px;
+    border-bottom: 5px solid #eee;
+}
+.search-result .sidebar {
+    width: 244px;
+    padding:35px 22px;
 }
 .search-result .sidebar , .result-count{
-    float:left;
+    float:left;    
+}
+.result-count {
+    padding-top:12px;
 }
 .search-result .resource-container {
-    padding: 0 0 0  25px;
+    padding: 0;
+    border-bottom: 2px solid #eee;
 }
 .search-tab-button {
     float: right;
-    
-    
 }
 .search-tab-button .nav-tabs{
     border-radius: 25px;
-    border:1px solid #00aeef;
+    border:2px solid #00aeef;
 }
 .search-tab-button .nav-tabs>li.active>a,
 .search-tab-button .nav-tabs>li.active>a:focus,
@@ -2249,9 +2263,46 @@ input[type=number] {
     background-color: #00aeef;
     color:#fff;
     margin:0;
+    font-family: "fort-Bold";
 }
 .search-tab-button .nav-tabs>li>a {
-    background: #fff;
+    background: transparent;
     margin:0;
+    border-radius: 0 18px 18px 0px;
+    color: #00aeef;
+    padding:6px 15px;
+}
+.search-tab-button .nav-tabs>li:last-child a
+{
+     border-radius: 0 13px 15px 0px;
+}
+.search-tab-button .nav-tabs>li:first-child a {
+    border-radius: 13px 0px 0px 15px
+}
+.search-header {
+    float:right;
+    width:100%;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 22px;
+}
+.search-tab-button .nav-tabs>li.active:after {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-top: 8px solid #00aeef;
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    transform: translateX(-50%);   
+}
+.search-result .sidebar .section-heading {
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
+.search-result .sidebar input[type="checkbox"] + label i {
+    color: #a4a4a4;
+    font-style: normal
+}
