@@ -65,6 +65,14 @@
     .sponsored p {
         padding:5px;
     }
+    .search-result .resource-container {
+        padding-left:30px;
+        width:100%;
+    }
+    .search-result-list {
+        padding-left:0;
+        clear:both
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
@@ -1024,6 +1032,9 @@
     z-index: 999;
 }
 .menu-top-spacing { margin-top: 55px}
+.search-result .resource-container {
+    border-bottom: none;
+}
 }
 @media (max-width:480px){
     .water-mark-image {
