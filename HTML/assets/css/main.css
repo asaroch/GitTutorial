@@ -2308,7 +2308,7 @@ input[type=number] {
 .search-header {
     float:right;
     width:100%;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     border-bottom: 2px solid #eee;
     margin-bottom: 22px;
 }
@@ -2319,7 +2319,7 @@ input[type=number] {
     border-top: 8px solid #00aeef;
     content: "";
     position: absolute;
-    bottom: -17px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);   
 }
