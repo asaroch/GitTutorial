@@ -65,6 +65,14 @@
     .sponsored p {
         padding:5px;
     }
+    .search-result .resource-container {
+        padding-left:30px;
+        width:100%;
+    }
+    .search-result-list {
+        padding-left:0;
+        clear:both
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
@@ -216,6 +224,9 @@
     .date-time-label {
         position: relative;
         left:0;
+    }
+    .resource-sm-height {
+        height: 225px;
     }
 /*how it work process arrow*/
 }
@@ -1012,6 +1023,23 @@
     }
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
+    }
+ .mobile-menu {
+    background: none repeat scroll 0 0 #01aef0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+.menu-top-spacing {
+    margin-top: 55px;
+}
+    .search-result .resource-container {
+        border-bottom: none;
+    }
+    .search-tab-button .nav-tabs>li>a {
+        color:#00aeef;
+        padding:6px 8px;
     }
 }
 @media (max-width:480px){
