@@ -1055,6 +1055,12 @@
 #social-media-section .content-area p.top-line, #social-media-section .content-area p, #social-media-section .content-area .img-container, #social-media-section .btn-block, #social-media-section .client-testimonials { width: 100%}
 #cc-newslette input[type="text"] { width: 100%}
 #cc-newslette .btn-left { text-align: center}
+#articles .related-articles .thumbnail { background-color: transparent; min-height: 120px;}
+#articles .related-articles .caption h3 { font-size: 16px; line-height: normal}
+#articles .related-articles .section-heading {
+    margin: 0 0 25px;
+}
+#articles .related-articles .caption { padding: 10px;}
 }
 @media (max-width:480px){
     .water-mark-image {
