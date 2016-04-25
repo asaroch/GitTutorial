@@ -81,6 +81,7 @@
                 <div class="footer-note">
                     <?php
                     echo get_post_meta($post->ID, 'wpcf-footer-text', true);
+                    echo footer_text();
                     ?>
                 </div>	
             </div>

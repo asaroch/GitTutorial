@@ -1396,6 +1396,19 @@ function can_how_it_works_add_pages() {
 
 add_action('admin_menu', 'can_how_it_works_add_pages');
 
+
+function can_small_business_fundng_add_pages() {
+    add_menu_page('Small Business Funding', 'Small Business Funding', '6', 'small-business-funding', '', '', 6);
+    add_submenu_page('small-business-funding', 'Hero Slider', 'Hero Slider', 5, 'edit.php?post_type=hero-banner-slider');
+    add_submenu_page('small-business-funding', 'Business Funding Charts', 'Business Funding Charts', 5, 'edit.php?post_type=business-funding-cha');
+    add_submenu_page('small-business-funding', 'Business Funding Graphs', 'Business Funding Graphs', 5, 'edit.php?post_type=business-funding-gra');
+}
+/*
+* Adding menus for How it works section admin panel
+*/
+
+add_action('admin_menu', 'can_small_business_fundng_add_pages');
+
 function myextensionTinyMCE($init) {
     // Command separated string of extended elements
     $ext = 'span[id|name|class|style]';
