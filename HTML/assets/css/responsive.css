@@ -291,6 +291,11 @@
     .bring-best-item {
         height:300px;
     }    
+/* Resources Post */
+#social-media-section .section-heading {
+    margin: 0 auto;
+    width: 55%;
+}
 }
 @media (max-width:767px) {
     #home_get_quote{
@@ -1042,6 +1047,14 @@
         color:#00aeef;
         padding:6px 8px;
     }
+    /* Resources Post */
+#social-media-section .section-heading {
+    margin: 0 auto;
+    width: 100%;
+}
+#social-media-section .content-area p.top-line, #social-media-section .content-area p, #social-media-section .content-area .img-container, #social-media-section .btn-block, #social-media-section .client-testimonials { width: 100%}
+#cc-newslette input[type="text"] { width: 100%}
+#cc-newslette .btn-left { text-align: center}
 }
 @media (max-width:480px){
     .water-mark-image {
@@ -1056,4 +1069,7 @@
     #all_resources_block .select-topic {
         width: 240px;
     }
-}       
+}    
+@media (max-width:360px){
+    #social-media-section .btn-block .btn:last-child { margin-top: 10px;}
+}
