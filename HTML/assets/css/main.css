@@ -2564,13 +2564,20 @@ border-radius: 0;
 .live-chat {
     padding: 63px 66px;
 }
-.live-chat .section-heading {
+.live-chat .section-heading,
+.search-resource-center .section-heading{
     font-family: "fort-Book";
 }
-.live-chat .section-heading b {
+.live-chat .section-heading b,
+.search-resource-center .section-heading b {
     display:block;
     font-family: "fort-Bold";
 }
+
+#help-log p {
+    width:auto;
+}
+
 /* Contact form  */
 .conatct-from { 
     width: 64%;
@@ -2582,7 +2589,4 @@ border-radius: 0;
 }
 .conatct-from .join-us { 
     margin-top: 0px;
-}
-#help-log p {
-    width:auto;
 }
