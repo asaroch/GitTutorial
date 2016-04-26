@@ -2365,10 +2365,10 @@ input[type=number] {
 .social-media { width: 50px; position: absolute; right:20px; top: 30px; text-align:  center;  z-index: 1}
 .social-media h3 { font-size: 14px; border-bottom: 2px solid #eeeeee; padding-bottom: 10px}
 .social-media li { margin-top: 15px;}
-.social-media li a img { -webkit-transition: -webkit-transform .8s ease-in-out;
+.social-media li a img, .social-links ul li a img { -webkit-transition: -webkit-transform .8s ease-in-out;
   transition: transform .8s ease-in-out;}
 
-.social-media li a img:hover { 
+.social-media li a img:hover, .social-links ul li a img:hover { 
     -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
@@ -2457,5 +2457,31 @@ background-color: #6d6e7; color: #00B0EB; font-size: 14px;
     width: 624px;
 }
 #cc-newslette small { color:  #fff; float: left; padding-left: 15%}
-
 #cc-newslette .btn-left { text-align: left}
+.large-size-icon { 
+    background-color: rgba(0, 0, 0, 0.4); 
+    border: none; 
+    border-radius: 20px; 
+    color: #fff; 
+    font-size: 11px; 
+    position:absolute; 
+    right: 5%; 
+    top: 20px;
+    height: 40px;
+}
+.large-size-icon i { margin-left: 10px; font-size: 14px; color: #01aef0}
+#resource_hero .modal-dialog {
+  width: 96%;
+  height: 100%;
+  padding: 0;
+}
+
+#resource_hero .modal-content {
+  height: 100%;
+  border-radius: 0;
+}
+#resource_hero .modal-body { padding-top: 0;}
+#resource_hero .modal-body img { margin: 0 auto}
+#resource_hero .modal-body small { margin-top: 15px; display: inline-block}
+#resource_hero .modal-header { border: none}
+#resource_hero .modal-header button.close { font-size: 48px;}
