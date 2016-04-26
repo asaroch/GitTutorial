@@ -18,11 +18,12 @@ $args = array(
 );
 $small_business_funds = query_posts($args);
 
-// grerat potentials slider
+// great potentials slider
 
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'business-funding-gra',
 				'orderby'     => 'menu_order date',
+                                'posts_per_page' => -1,
 				'order'       => 'ASC'
 			);
 $greatPotentialProcess = new WP_Query( $args );
@@ -39,9 +40,11 @@ $ctahref = get_post_meta(get_the_ID(), 'wpcf-cta-url', true);
 $args = array(	'post_status' => 'publish' , 
                                         'post_type'   => 'business-funding-cha',
                                         'orderby'     => 'menu_order date',
+                                        'posts_per_page' => -1,
                                         'order'       => 'ASC'
                                 );
-        $business_capital_chart = new WP_Query($args);
+$business_capital_chart = new WP_Query($args);
+     
 ?>
 <div id="sbf_hero" class="gradient-one">
 			<span class="down-arrow"></span>
@@ -233,6 +236,7 @@ $args = array(	'post_status' => 'publish' ,
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'industry_recognition',
 				'orderby'     => 'menu_order date',
+                                'posts_per_page' => -1,
 				'order'       => 'ASC'
 			);
 $awards = new WP_Query( $args );
