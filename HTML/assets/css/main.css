@@ -336,12 +336,12 @@ position: relative;
 .get-Quote-form .section-heading {
 color: #fff;
 }
-.get-Quote-form input, .get-Quote-form input[type="number"], #search_resource input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
+.get-Quote-form input, .get-Quote-form input[type="number"], #search_resource input, .search-resource-center input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
 font-size: 16px;
 color: #a1a1a1;
 box-shadow: none;
 }
-.get-Quote-form input, #search_resource input, form.form-section input {
+.get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input {
 border-radius: 25px;
 height: 50px;
 border: none;
@@ -695,7 +695,7 @@ padding: 13px 10px;
 pointer-events : none;
 color: #01AEF0;
 }
-#search_resource span.select-drop {
+#search_resource span.select-drop, .search-resource-center span.select-drop{
 border-left: 2px solid #e9e9e9;
 }
 
@@ -2566,18 +2566,19 @@ border-radius: 0;
 }
 .live-chat .section-heading,
 .search-resource-center .section-heading{
-    font-family: "fort-Book";
+    font-family: "fort-Light";
 }
 .live-chat .section-heading b,
 .search-resource-center .section-heading b {
     display:block;
     font-family: "fort-Bold";
 }
-
 #help-log p {
     width:auto;
 }
-
+.search-resource-center {
+    padding:68px 80px;
+}
 /* Contact form  */
 .contact-from { 
     width: 64%;
