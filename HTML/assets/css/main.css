@@ -2568,3 +2568,9 @@ border-radius: 0;
     display:block;
     font-family: "fort-Bold";
 }
+/* Contact form  */
+.conatct-from { 
+    width: 64%;
+    margin: 0 auto
+}
+
