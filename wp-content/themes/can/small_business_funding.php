@@ -4,6 +4,7 @@ Template Name: small business funding
 */
 get_header();
 // Fetured resources
+$page_id = get_the_ID();
 $args = array(
     'post_type' => 'hero-banner-slider',
     'post_status' => 'publish',
@@ -17,6 +18,17 @@ $args = array(
 );
 $small_business_funds = query_posts($args);
 
+// great potentials slider
+
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'business-funding-gra',
+				'orderby'     => 'menu_order date',
+                                'posts_per_page' => -1,
+				'order'       => 'ASC'
+			);
+$greatPotentialProcess = new WP_Query( $args );
+
+
 // CTA section 
 $ctaheading = get_post_meta(get_the_ID(), 'wpcf-cta-description1', true);
 $ctatext = get_post_meta(get_the_ID(), 'wpcf-cta-button-text', true);
@@ -28,9 +40,11 @@ $ctahref = get_post_meta(get_the_ID(), 'wpcf-cta-url', true);
 $args = array(	'post_status' => 'publish' , 
                                         'post_type'   => 'business-funding-cha',
                                         'orderby'     => 'menu_order date',
+                                        'posts_per_page' => -1,
                                         'order'       => 'ASC'
                                 );
-        $business_capital_chart = new WP_Query($args);
+$business_capital_chart = new WP_Query($args);
+     
 ?>
 <div id="sbf_hero" class="gradient-one">
 			<span class="down-arrow"></span>
@@ -181,19 +195,28 @@ $args = array(	'post_status' => 'publish' ,
 		<!--Right Financial-->
 		<section id="right-financing">
 			<div class="container">
-				<h2 class="section-heading">Your greatest potential begin with<br> the right financing</h2>
+                            <h2 class="section-heading">
+                              <?php echo get_post_meta($page_id, 'wpcf-graph-heading', true) ?></h2>
 				<div id="infografic_carousel" class="owl-carousel owl-theme">
+                                     <?php
+                                    while ($greatPotentialProcess->have_posts()) : $greatPotentialProcess->the_post();
+                                        ?>
 					<div class="item">
 						<div class="info-product-item">							
-							<div class="graph1"><img src="assets/images/partner/garph-1.png" alt="installation icon image" class="img-responsive"></div>
+							<div class="graph1">
+                                                        <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(),'small'); ?>
+                                       
+                                        <?php
+                                    endif;
+                                    ?>
+                                                        
+                                                        </div>
 						</div>
 					</div>
-					<div class="item">
-						<div class="graph1"><img src="assets/images/partner/garph-2.png" alt="installation icon image" class="img-responsive"></div>
-					</div>
-					<div class="item">
-						<div class="graph1"><img src="assets/images/partner/garph-1.png" alt="installation icon image" class="img-responsive"></div>
-					</div>
+                                     <?php endwhile; ?>
 				</div>
 			</div>
 		</section>
@@ -213,6 +236,7 @@ $args = array(	'post_status' => 'publish' ,
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'industry_recognition',
 				'orderby'     => 'menu_order date',
+                                'posts_per_page' => -1,
 				'order'       => 'ASC'
 			);
 $awards = new WP_Query( $args );

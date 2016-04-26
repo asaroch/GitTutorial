@@ -1112,6 +1112,7 @@ class CanCapitalComparison_Widget extends WP_Widget {
         $args = array(	'post_status' => 'publish' , 
                                         'post_type'   => 'can-comparison-chart',
                                         'orderby'     => 'menu_order date',
+                                        'posts_per_page' => -1,
                                         'order'       => 'ASC'
                                 );
         $can_capital_chart = new WP_Query( $args );
@@ -1384,17 +1385,30 @@ register_widget('VideoTestimonials_Widget');
  * ********************************************************* */
 
 function can_how_it_works_add_pages() {
-    add_menu_page('How It Works', 'How it works', '6', 'how-it-work', '', '', 6);
-    add_submenu_page('how-it-work', 'Effortless Applications', 'Effortless Applications', 5, 'edit.php?post_type=how-it-work-effortle');
-    add_submenu_page('how-it-work', 'Hero process', 'Hero process', 5, 'edit.php?post_type=how-it-work-process');
-    add_submenu_page('how-it-work', 'Gathers Before Start', 'Gathers Before Start', 5, 'edit.php?post_type=how-it-work-gather');
-    add_submenu_page('how-it-work', 'Getting Funds', 'Getting Funds', 5, 'edit.php?post_type=how_getting_fund');
+    add_menu_page('How It Works', 'How it works', '6', 'edit.php?post_type=how-it-work-effortle', '', '', 6);
+    add_submenu_page('edit.php?post_type=how-it-work-effortle', 'Effortless Applications', 'Effortless Applications', 5, 'edit.php?post_type=how-it-work-effortle');
+    add_submenu_page('edit.php?post_type=how-it-work-effortle', 'Hero process', 'Hero process', 5, 'edit.php?post_type=how-it-work-process');
+    add_submenu_page('edit.php?post_type=how-it-work-effortle', 'Gathers Before Start', 'Gathers Before Start', 5, 'edit.php?post_type=how-it-work-gather');
+    add_submenu_page('edit.php?post_type=how-it-work-effortle', 'Getting Funds', 'Getting Funds', 5, 'edit.php?post_type=how_getting_fund');
 }
 /*
 * Adding menus for How it works section admin panel
 */
 
 add_action('admin_menu', 'can_how_it_works_add_pages');
+
+
+function can_small_business_fundng_add_pages() {
+    add_menu_page('Small Business Funding', 'Small Business Funding', '6', 'edit.php?post_type=hero-banner-slider', '', '', 6);
+    add_submenu_page('edit.php?post_type=hero-banner-slider', 'Hero Slider', 'Hero Slider', 5, 'edit.php?post_type=hero-banner-slider');
+    add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Charts', 'Business Funding Charts', 5, 'edit.php?post_type=business-funding-cha');
+    add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Graphs', 'Business Funding Graphs', 5, 'edit.php?post_type=business-funding-gra');
+}
+/*
+* Adding menus for How it works section admin panel
+*/
+
+add_action('admin_menu', 'can_small_business_fundng_add_pages');
 
 function myextensionTinyMCE($init) {
     // Command separated string of extended elements
