@@ -2490,6 +2490,33 @@ border-radius: 0;
 #resource_hero .modal-header { border: none}
 #resource_hero .modal-header button.close { font-size: 48px;}
 
+#resource_hero .modal-body small { 
+    margin-top: 15px; 
+    display: inline-block
+}
+#resource_hero .modal-header { 
+    border: none
+}
+#resource_hero .modal-header button.close {
+    font-size: 48px;
+}
+
+/*  Resources Glossary  */
+.resources-glossary .section-heading { 
+    float: left;
+    width:100%; 
+    text-align: left;
+}
+.resources-glossary p { 
+    font-family: Fort-book;
+    display: table;
+    font-size: 26px;
+    color: #00aeef;
+    margin-bottom: 15px;
+}
+.glossary-border-bottom {
+    border-bottom: 6px solid #eee;
+}
 
 /*help center*/
 #FAQ-block {
@@ -2532,31 +2559,4 @@ border-radius: 0;
 }
 .accordion-inner {
     margin-bottom: 20px;
-}
-#resource_hero .modal-body small { 
-    margin-top: 15px; 
-    display: inline-block
-}
-#resource_hero .modal-header { 
-    border: none
-}
-#resource_hero .modal-header button.close {
-    font-size: 48px;
-}
-
-/*  Resources Glossary  */
-.resources-glossary .section-heading { 
-    float: left;
-    width:100%; 
-    text-align: left;
-}
-.resources-glossary p { 
-    font-family: Fort-book;
-    display: table;
-    font-size: 26px;
-    color: #00aeef;
-    margin-bottom: 15px;
-}
-.glossary-border-bottom {
-    border-bottom: 6px solid #eee;
 }
