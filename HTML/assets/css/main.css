@@ -2573,6 +2573,9 @@ border-radius: 0;
     display:block;
     font-family: "fort-Bold";
 }
+.search-resource-center .section-heading {
+    line-height: 52px;
+}
 #help-log p {
     width:auto;
 }
