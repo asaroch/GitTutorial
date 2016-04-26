@@ -36,7 +36,7 @@ $(function () {
         $(".show-less-term-loan").hide();
         $('html, body').animate({scrollTop: $('#use_termloan_for').offset().top}, slow);
     });
-    
+
     //show more and show hide for terms and payments section.
     $('ul.details-point').find('li:gt(3)').hide();
     $('.show-more-termDetail-loan').click(function (e) {
@@ -52,7 +52,7 @@ $(function () {
         $('ul.details-point').find('li:gt(3)').hide('slow');
         $(".show-more-termDetail-loan").show();
         $(".show-less-termDetail-loan").hide();
-       // $('html, body').animate({scrollTop: $('#details_termsloan').offset().top}, slow);
+        // $('html, body').animate({scrollTop: $('#details_termsloan').offset().top}, slow);
     });
 
     $('#filter_by_business_type select').change(function (e) {
@@ -84,84 +84,93 @@ $(function () {
                 return false;
             } else
             {
-                $( ".wpcf7-form" ).submit();
+                $(".wpcf7-form").submit();
             }
         }
     });
-    
+
     jQuery("#phone").mask("(999) 999-9999");
-    
+
     // Partner lead generation validations
     $('#partner-lead-generation').validate({
         // Specify the validation rules
         rules: {
-            first_name : {
-                required    : true,
-                minlength   : 2,
-                lettersonly : true
+            first_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
             },
-            last_name : {
-                required    : true,
-                minlength   : 2,
-                lettersonly : true
+            last_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
             },
-            email : {
-                required    : true,
-                email       : true
+            email: {
+                required: true,
+                email: true
             },
-            phone : {
-                required    : true,
-                minlength   : 10,
+            phone: {
+                required: true,
+                minlength: 10,
                 //maxlength   : 10 
             },
-            business_name : {
-                required : true
+            business_name: {
+                required: true
             },
-            title : {
-                required : true
+            title: {
+                required: true
             },
-            message : {
-                required : true
+            message: {
+                required: true
             }
         },
-        
         // Specify the validation error messages
         messages: {
-            first_name : {
-               required    : var_object.validationsErrs.required,
-               minlength   : var_object.validationsErrs.first_name_min_chars,
-               lettersonly : var_object.validationsErrs.first_name_min_chars
+            first_name: {
+                required: var_object.validationsErrs.required,
+                minlength: var_object.validationsErrs.first_name_min_chars,
+                lettersonly: var_object.validationsErrs.first_name_min_chars
             },
-            last_name : {
-               required    : var_object.validationsErrs.required,
-               minlength   : var_object.validationsErrs.last_name_min_chars,
-               lettersonly : var_object.validationsErrs.last_name_min_chars
+            last_name: {
+                required: var_object.validationsErrs.required,
+                minlength: var_object.validationsErrs.last_name_min_chars,
+                lettersonly: var_object.validationsErrs.last_name_min_chars
             },
-            email : {
-                required    : var_object.validationsErrs.required,
-                email       : var_object.validationsErrs.email,
+            email: {
+                required: var_object.validationsErrs.required,
+                email: var_object.validationsErrs.email,
             },
-            phone : {
-                required    : var_object.validationsErrs.required,
-                minlength   : "Minimum 10 numbers are allowed",
+            phone: {
+                required: var_object.validationsErrs.required,
+                minlength: "Minimum 10 numbers are allowed",
             },
-            business_name : {
-                required    : var_object.validationsErrs.required
+            business_name: {
+                required: var_object.validationsErrs.required
             },
-            title : {
-                required    : var_object.validationsErrs.required
+            title: {
+                required: var_object.validationsErrs.required
             },
-            message : {
-                required    : var_object.validationsErrs.required
+            message: {
+                required: var_object.validationsErrs.required
             }
         },
-        
-        submitHandler: function(form) {
+        submitHandler: function (form) {
             form.submit();
         }
     });
-    
-    jQuery.validator.addMethod("lettersonly", function(value, element) {
+
+    jQuery.validator.addMethod("lettersonly", function (value, element) {
         return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
     }, "No number or special character allowed")
+
+    $(document).on('keydown', function(e) { 
+    var keyCode = e.keyCode || e.which; 
+
+    if (keyCode == 9) { 
+        e.preventDefault(); 
+        // call custom function here
+        //$('#main_navigationbar').focus();
+    
+    }
+    });
 });
