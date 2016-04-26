@@ -107,7 +107,7 @@ ob_start();
 
                     <div class="head-titles">
                         <?php
-                        if (!is_front_page() && !is_page('resources')) {
+                        if (!is_front_page() && !is_page('resources') && $post->post_type != 'resource') {
                             ?>
                             <p><?php echo get_the_title($post->ID); ?></p>
                             <?php
@@ -115,7 +115,7 @@ ob_start();
                         ?>
                         <h1><?php echo $top_headline; ?>
                             <?php
-                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') ) {
+                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') && $post->post_type != 'resource' ) {
                                 ?>
                                 <span class="down-arrow inner-page-arrow"></span>
                                 <?php
