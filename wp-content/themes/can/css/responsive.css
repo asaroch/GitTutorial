@@ -1076,6 +1076,9 @@
 .social-media { position: inherit; right: 0; width: 100%; display: inline-block; border-bottom: 2px solid #eeeeee; padding-bottom: 20px; padding-left: 12%; margin-bottom: 15px}
 .social-media h3 { border: none; float: left; margin-top: 10px;}
 .social-media li { float: left; margin: 0 0 0 20px;}
+/*  Resources Glossary  */
+.glossary-mob-top-border {  border-top: 2px solid #eee;}
+.resources-glossary p { font-size: 16px;}
 }
 @media (max-width:480px){
     .water-mark-image {
