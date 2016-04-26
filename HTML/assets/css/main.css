@@ -2579,14 +2579,14 @@ border-radius: 0;
 }
 
 /* Contact form  */
-.conatct-from { 
+.contact-from { 
     width: 64%;
     margin: 0 auto
 }
-.conatct-from .section-heading {
+.contact-from .section-heading {
     margin-top: 0;
     margin-bottom: 60px;
 }
-.conatct-from .join-us { 
+.contact-from .join-us { 
     margin-top: 0px;
 }
