@@ -2562,3 +2562,23 @@ border-radius: 0;
 }
 /* Contact form  */
 .conatct-from { width: 64%; margin: 0 auto}
+.conatct-from .section-heading { margin-bottom: 60px;}
+.conatct-from .join-us { margin-top: 0px}
+
+/* Video icon  */
+.video-play-icon { 
+    border: 3px solid #fff; 
+    border-radius: 85px;
+    padding: 20px 15px 20px 25px;
+    display: inline-block;
+    box-shadow: 1px 1px 2px #333;
+}
+.video-play-icon i {
+   display: block;
+   width: 0;
+   height: 0;
+   border-left: 60px solid #fff;
+   border-top: 30px solid transparent;
+   border-bottom: 30px solid transparent;
+}
+.video-play-icon:hover, .video-play-icon:hover i { opacity: 0.7}
