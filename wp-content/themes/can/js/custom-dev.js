@@ -163,6 +163,82 @@ $(function () {
         return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
     }, "No number or special character allowed")
 
+
+    $('.refine-by-topic-checkbox').on('change', function () {
+        $('#refine-by-topic-form').submit();
+    });
+    
+    if (var_object.resourceFilteredParameters.filteredTopics) {
+        $(".clear-all").show("slow");
+    }
+    
+    // Disable go button on page load
+    if ( var_object.resourceFilteredParameters.businessTypes || var_object.resourceFilteredParameters.searchKeyword ) {
+        $('.btn-go').prop('disabled', false);
+    }
+    else {
+        $('.btn-go').prop('disabled', true);
+    }
+    
+    // Enable go button if user has entered text
+     $('#resource-search input[type="text"]').keyup(function() {
+        if($(this).val() != '') {
+           $('.btn-go').prop('disabled', false);
+        }
+        else {
+            if ( $('#business-type').val() == '' ) {
+                $('.btn-go').prop('disabled', true);
+            }
+            else {
+               $('.btn-go').prop('disabled', false);
+            }
+        }
+     });
+     
+    $('#business-type').change(function() {
+         if( $(this).val() != '' ) {
+           $('.btn-go').prop('disabled', false);
+        }
+        else {
+            if ( $('#resource-search input[type="text"]').val() == '' ) {
+                $('.btn-go').prop('disabled', true);
+            }
+            else {
+               $('.btn-go').prop('disabled', false);
+            }
+        }
+    });
+
+    $('.resource-filter-paging').on('click', function (e) {
+        $this = $(this);
+        e.preventDefault();
+        var offset = $("#show-more-filtered-resources-offset").val();
+        $.ajax({
+            url: var_object.ajax_url,
+            dataType: 'json',
+            type: 'post',
+            data: {
+                action: 'ajax_resources_pagination',
+                resourceFilteredParameters: var_object.resourceFilteredParameters,
+                offset: offset
+            },
+            beforeSend: function () {
+                $("#loading-image").show();
+                $('.show-more-terms').hide();
+            },
+            success: function (response) {
+                $("#loading-image").hide();
+                if (response.status == 'error') {
+                    $('.show-more-terms').hide();
+                } else {
+                    $('.show-more-terms').show();
+                    $('#show-more-filtered-resources-offset').val(++offset);
+                }
+                $('#mostRecent').append(response.data);
+            }
+        });
+    });
+    
     $(document).on('keydown', function(e) { 
     var keyCode = e.keyCode || e.which; 
 
