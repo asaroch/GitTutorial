@@ -2352,6 +2352,10 @@ input[type=number] {
 .clear-all .btn:hover {
     color: #01AEF0;
 }
+.search-result .sidebar input[type="checkbox"] + label span {
+    cursor: initial;
+    opacity: .3;
+}
 /* Resources Post */
 
 #social-media-section { 
