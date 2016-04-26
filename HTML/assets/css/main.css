@@ -2561,4 +2561,10 @@ border-radius: 0;
     margin-bottom: 20px;
 }
 /* Contact form  */
-.conatct-from { width: 64%; margin: 0 auto}
+.conatct-from { 
+    width: 64%;
+    margin: 0 auto
+}
+.conatct-from .section-heading {
+    margin-top: 0;
+}
