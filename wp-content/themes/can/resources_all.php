@@ -27,7 +27,7 @@ $mobile_featured_resources = array();
                 <?php
                 $top_featured_resource = $featured_resources[0];
                 // Fetch topic of a resource
-                $resource_topics = wp_get_post_terms($top_featured_resource->ID, 'resource-topic', array("fields" => "names"));
+                $resource_topics = wp_get_post_terms($top_featured_resource->ID, 'business-type', array("fields" => "names"));
                 if (!empty($resource_topics)) {
                     $topics = 'in ' . implode(", ", $resource_topics);
                     $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
@@ -88,7 +88,7 @@ $mobile_featured_resources = array();
                 array_shift($featured_resources);
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
-                    $resource_topics = wp_get_post_terms($resource->ID, 'resource-topic', array("fields" => "names"));
+                    $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
                         $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
@@ -179,7 +179,7 @@ $mobile_featured_resources = array();
 
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
-                    $resource_topics = wp_get_post_terms($resource->ID, 'resource-topic', array("fields" => "names"));
+                    $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
                         $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;

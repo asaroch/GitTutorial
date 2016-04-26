@@ -7,7 +7,7 @@
 /*ul.nav li.current-menu-parent > a {
     border-bottom: 4px solid #00B0EB;
 }*/
-.primary-nav .nav li.current-menu-item > a, .primary-nav .nav li.current-page-ancestor > a  {
+.primary-nav .nav li.current-menu-item > a {
      border-bottom: 4px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown a {    
@@ -19,7 +19,6 @@
 }
 .show-less-term-loan{display:none;}
 .show-less-termDetail-loan{display:none;}
-#loading-image{display: block; margin: 0 auto;}
 
 @media (max-width:767px) {
   .primary-nav .nav li.dropdown > a {

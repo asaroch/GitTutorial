@@ -67,7 +67,7 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
         <div class="widget-area trust-badge" role="complementary">
             <div class= "container">
                 <div class="bottom-margin-80">
-                    <?php dynamic_sidebar('trust-badge'); ?>
+                         <?php dynamic_sidebar('trust-badge'); ?>
                 </div>
             </div>
         </div><!-- .widget-area -->
@@ -157,38 +157,12 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
                     $listings->the_post();
                     ?>
                     <!--Testimonials ends here-->
-                    <?php
-                    $meta = get_post_meta($post->ID, '_fvp_video', true);
-                    $video = wp_get_attachment_url($meta['id']);
-                    /*                     * Script to generate thumbnail from video* */
-                    $ffmpeg = 'ffmpeg';
-
-// where you'll save the image
-                    $upload_url = wp_upload_dir();
-                    $image = $upload_url['basedir'] . "/thumbnails/" . $post->ID . ".jpg";
-
-// default time to get the image
-                    $second = 1;
-
-// get the duration and a random place within that
-                    $cmd = "$ffmpeg -i $video 2>&1";
-                    if (preg_match('/Duration: ((\d+):(\d+):(\d+))/s', `$cmd`, $time)) {
-                        $total = ($time[2] * 3600) + ($time[3] * 60) + $time[4];
-                        $second = rand(1, ($total - 1));
-                    }
-
-// get the screenshot
-                    $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1";
-                    $return = `$cmd`;
-                    /*                     * Script Ends here* */
-                    ?>
                     <div class="item">
-                        <div class="video-player">
-
-                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox" data-width="480" data-height="320"><img src="<?php echo $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg"; ?>" alt="video thumbnail"></a>
-
+                        <div class="video-player html5lightbox">
+                            <?php echo get_the_post_thumbnail($post->ID); ?>
                         </div>
-
+                        <?php $meta    = get_post_meta( $post->ID, '_fvp_video', true );
+                        $video_url =  wp_get_attachment_url( $meta['id'] ); ?>
                         <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
                         <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business', true); ?> </p>
                         <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-video_topic', true); ?> </p>

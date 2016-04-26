@@ -107,7 +107,7 @@ ob_start();
 
                     <div class="head-titles">
                         <?php
-                        if (!is_front_page() && !is_page('resources') && $post->post_type != 'resource') {
+                        if (!is_front_page() && !is_page('resources')) {
                             ?>
                             <p><?php echo get_the_title($post->ID); ?></p>
                             <?php
@@ -115,24 +115,18 @@ ob_start();
                         ?>
                         <h1><?php echo $top_headline; ?>
                             <?php
-                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') && $post->post_type != 'resource' ) {
+                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') ) {
                                 ?>
                                 <span class="down-arrow inner-page-arrow"></span>
                                 <?php
                             }
-							
-							if( is_page('resources') || is_page('search') ) {
-								?>
-								<button class="glyphicon glyphicon-search search-btn visible-xs"></button>  
-								<?php
-							} 
                             ?>
                         </h1>					
                     </div></div>
                 <!-- /.container-fluid -->		  
             </nav>
             <?php
-            if (!is_front_page() && !is_page('partners') && !is_page('become-a-partner') && $post->post_type != "your desired post type" ) {
+            if (!is_front_page()) {
                 ?>
                 <div id="get_quote">
                     <div id="form_box" class="gradient-one get-Quote-form">
