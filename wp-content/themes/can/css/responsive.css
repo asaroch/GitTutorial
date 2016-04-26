@@ -19,6 +19,9 @@
         font-size: 14px;
         padding: 0 33px; 
     }
+    .search-result-list {
+        padding-left:0;
+    }
 }
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
@@ -66,12 +69,10 @@
         padding:5px;
     }
     .search-result .resource-container {
-        padding-left:30px;
         width:100%;
     }
     .search-result-list {
-        padding-left:0;
-        clear:both
+        padding-left: 35px;
     }
 }
 @media (max-width:1199px) and (min-width:768px) {
@@ -1024,16 +1025,16 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
-    .mobile-menu {
-       background: none repeat scroll 0 0 #01aef0;
-       overflow: hidden;
-       position: fixed;
-       width: 100%;
-       z-index: 999;
-   }
-    .menu-top-spacing {
-       margin-top: 55px;
-    }
+ .mobile-menu {
+    background: none repeat scroll 0 0 #01aef0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+.menu-top-spacing {
+    margin-top: 55px;
+}
     .search-result .resource-container {
         border-bottom: none;
     }
