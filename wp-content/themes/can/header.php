@@ -115,18 +115,24 @@ ob_start();
                         ?>
                         <h1><?php echo $top_headline; ?>
                             <?php
-                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') ) {
+                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') ) {
                                 ?>
                                 <span class="down-arrow inner-page-arrow"></span>
                                 <?php
                             }
+							
+							if( is_page('resources') || is_page('search') ) {
+								?>
+								<button class="glyphicon glyphicon-search search-btn visible-xs"></button>  
+								<?php
+							} 
                             ?>
                         </h1>					
                     </div></div>
                 <!-- /.container-fluid -->		  
             </nav>
             <?php
-            if (!is_front_page()) {
+            if (!is_front_page() && !is_page('partners') && !is_page('become-a-partner') && $post->post_type != "your desired post type" ) {
                 ?>
                 <div id="get_quote">
                     <div id="form_box" class="gradient-one get-Quote-form">
