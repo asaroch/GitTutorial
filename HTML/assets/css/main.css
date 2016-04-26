@@ -2560,3 +2560,5 @@ border-radius: 0;
 .accordion-inner {
     margin-bottom: 20px;
 }
+/* Contact form  */
+.conatct-from { width: 64%; margin: 0 auto}
