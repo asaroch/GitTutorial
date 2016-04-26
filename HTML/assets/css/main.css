@@ -2580,3 +2580,21 @@ border-radius: 0;
 .contact-from .join-us { 
     margin-top: 0px;
 }
+#our-offices {
+    padding: 80px 0
+}
+#our-offices .thumbnail { 
+    border: none; 
+    padding: 0; 
+    border-radius: 0;
+}
+#our-offices .caption h3 {
+    font-family: Fort-bold;
+    font-size: 28px;
+    color: #6a2875;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#our-offices .caption p { 
+    font-size: 15px; 
+}
