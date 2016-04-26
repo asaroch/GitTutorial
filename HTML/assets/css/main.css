@@ -255,7 +255,7 @@ h1 strong,
 .get-Quote-form input, #search_resource input, .select-topic select, .news-letter-field input,
 .financial-product-item h5,
 .learn-more-btn,
-#about_us p b,
+#about_us p b, #help-log p b,
 .featured-title a,
 .read-date b,
 .featured-tag,
@@ -543,7 +543,7 @@ width:506px;
 margin: 0 auto 34px;
 font-family: 'Fort-Light';
 }
-#about_us p b {
+#about_us p b, #help-log p b {
 display: inline-block;
 }
 .btn-purple-style:hover, .btn-purple-style:focus {
@@ -557,7 +557,7 @@ color: #6E2577;
 .get-funded .btn-blue-bg {
 padding: 12px 41px;
 }
-#about_us p, .get-funded h2, .get-funded h3{
+#about_us p, .get-funded h2, .get-funded h3, #help-log p{
 font-size: 36px;
 }
 .get-funded h3 {
@@ -1630,10 +1630,10 @@ font-family: "Fort-Medium";
 /*.slider-nav-control {
     bottom: -54px;
 }*/
-#referal_about_us {
+#referal_about_us, #help-log {
 padding: 50px 0 54px;
 }
-#referal_about_us p{
+#referal_about_us p, #help-log p{
 width: 572px;
 margin: 0 auto 28px;
 font-family: 'Fort-Light';
@@ -1739,7 +1739,7 @@ margin: 50px auto 10px;
 #email_us {
 padding-bottom: 70px;
 }
-#email_us .btn{
+#email_us .btn, .live-chat .btn{
 padding: 14px 28px;
 }
 #email_us .section-heading{
@@ -2519,8 +2519,11 @@ border-radius: 0;
 }
 
 /*help center*/
-#FAQ-block {
+#faq-block {
     padding: 80px 0;
+}
+#faq-block .section-heading {
+    margin-bottom: 85px;
 }
 .accordion-group {
     margin-bottom: 30px;
@@ -2561,13 +2564,20 @@ border-radius: 0;
 .live-chat {
     padding: 63px 66px;
 }
-.live-chat .section-heading {
+.live-chat .section-heading,
+.search-resource-center .section-heading{
     font-family: "fort-Book";
 }
-.live-chat .section-heading b {
+.live-chat .section-heading b,
+.search-resource-center .section-heading b {
     display:block;
     font-family: "fort-Bold";
 }
+
+#help-log p {
+    width:auto;
+}
+
 /* Contact form  */
 .contact-from { 
     width: 64%;
