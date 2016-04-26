@@ -1055,12 +1055,24 @@
 #social-media-section .content-area p.top-line, #social-media-section .content-area p, #social-media-section .content-area .img-container, #social-media-section .btn-block, #social-media-section .client-testimonials { width: 100%}
 #cc-newslette input[type="text"] { width: 100%}
 #cc-newslette .btn-left { text-align: center}
-#articles .related-articles .thumbnail { background-color: transparent; min-height: 120px;}
+#articles .related-articles { padding: 50px 0 35px;}
+#articles .related-articles .thumbnail { background-color: transparent; min-height: 110px; border-width: 2px; margin-bottom: 10px;}
 #articles .related-articles .caption h3 { font-size: 16px; line-height: normal}
 #articles .related-articles .section-heading {
     margin: 0 0 25px;
 }
 #articles .related-articles .caption { padding: 10px;}
+#articles .related-articles .col-sm-6:last-child .thumbnail { border: none}
+#cc-newslette small {
+    bottom: -95px;
+    float: none;
+    left: 0;
+    padding-left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+#social-media-section .testimonial-content .testimonial-heading { font-size: 26px;}
 }
 @media (max-width:480px){
     .water-mark-image {
