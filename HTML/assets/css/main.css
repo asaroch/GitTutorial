@@ -2593,6 +2593,7 @@ border-radius: 0;
 #our-offices {
     padding: 80px 0
 }
+#our-offices .section-heading { margin-bottom: 50px;}
 #our-offices .thumbnail { 
     border: none; 
     padding: 0; 
