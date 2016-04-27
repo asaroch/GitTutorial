@@ -37,6 +37,10 @@ $args = array(
     'order' => 'ASC'
 );
 $featured_resources = query_posts($args);
+
+
+//create a object to show estimated reading time for a post.
+$estimated_time = new EstimatedPostReadingTime();
 ?>
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
@@ -95,7 +99,7 @@ if (!empty($featured_resources)) {
         $topics = '';
     }
     // Reading time
-    $reading_time = get_post_meta($featured_resources[0]->ID, 'wpcf-reading-minutes', true);
+    $reading_time =  $estimated_time->estimate_time_shortcode($featured_resources[0]);
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
@@ -116,7 +120,7 @@ if (!empty($featured_resources)) {
                         <?php
                         if (isset($reading_time) && $reading_time != '') {
                             ?>
-                            <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
                             <?php
                         }
 
@@ -155,7 +159,7 @@ if (!empty($featured_resources)) {
                     }
 
                     // Reading time
-                    $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+                    $reading_time = $estimated_time->estimate_time_shortcode($resource);
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
@@ -170,7 +174,7 @@ if (!empty($featured_resources)) {
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
-                                    <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                    <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                     <?php
                                 }
 
@@ -209,7 +213,7 @@ if (!empty($featured_resources)) {
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
-                                            <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                             <?php
                                         }
 
@@ -311,7 +315,7 @@ $topics = get_terms('resource-topic', array(
                         $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
 
                         // Reading time
-                        $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+                        $reading_time = $estimated_time->estimate_time_shortcode($resource);
 
                         //Fetch value from admin whether a video is selected or not.
                         $featured_image_video = get_post_meta($resource->ID, 'wpcf-featured_image_video', true);
@@ -336,7 +340,7 @@ $topics = get_terms('resource-topic', array(
                                     <?php
                                     if ($reading_time) {
                                         ?>
-                                        <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                        <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                         <?php
                                     }
 

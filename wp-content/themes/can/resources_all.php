@@ -13,6 +13,9 @@ $args = array(
 );
 $featured_resources = query_posts($args);
 $mobile_featured_resources = array();
+
+//create a object to show estimated reading time for a post.
+$estimated_time = new EstimatedPostReadingTime();
 ?>
 <section id="home_resource_list" class="hidden-xs">
     <div class="resource-list-bg gradient-three ">
@@ -36,7 +39,7 @@ $mobile_featured_resources = array();
                 }
 
                 // Reading time
-                $reading_time = get_post_meta($top_featured_resource->ID, 'wpcf-reading-minutes', true);
+                $reading_time = $estimated_time->estimate_time_shortcode($top_featured_resource);
 
                 // Sponsored By
                 $sponsored_by = get_post_meta($top_featured_resource->ID, 'wpcf-sponsored-by', true);
@@ -63,7 +66,7 @@ $mobile_featured_resources = array();
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
-                                    <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                    <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                     <?php
                                 }
 
@@ -97,7 +100,7 @@ $mobile_featured_resources = array();
                     }
 
                     // Reading time
-                    $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+                    $reading_time = $estimated_time->estimate_time_shortcode($resource);
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
@@ -112,7 +115,7 @@ $mobile_featured_resources = array();
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
-                                    <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                    <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                     <?php
                                 }
                                 ?>
@@ -142,7 +145,7 @@ $mobile_featured_resources = array();
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
-                                            <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                             <?php
                                         }
 
@@ -188,7 +191,7 @@ $mobile_featured_resources = array();
                     }
 
                     // Reading time
-                    $reading_time = get_post_meta($resource->ID, 'wpcf-reading-minutes', true);
+                    $reading_time = $estimated_time->estimate_time_shortcode($resource);
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
@@ -203,7 +206,7 @@ $mobile_featured_resources = array();
                             <?php
                             if (isset($reading_time) && $reading_time != '') {
                                 ?>
-                                <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                                <p class="read-time"><?php echo $reading_time; ?> Read</p>
                                 <?php
                             }
 
