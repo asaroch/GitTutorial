@@ -2729,3 +2729,9 @@ span.top-quest {
     text-transform: uppercase;
      
 }
+
+/* about-us slider*/
+#home_resource_list #articles .item {
+    padding: 0 20px;
+}
+
