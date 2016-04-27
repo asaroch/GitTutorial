@@ -14,21 +14,26 @@ $business_types = get_terms('business-type', array(
 $args = array(
     'post_type' => 'resource',
     'post_status' => 'publish',
-    'showposts' => $itemsPerPage,
+    'showposts' => -1,
     'orderby' => 'post_title',
     'order' => 'asc'
 );
 $resources = new WP_Query( $args );
 
-$glossary = array();
+$glossary = $glossaryInteger = array();
 if ( $resources->have_posts() ) :
   while ($resources->have_posts()) : $resources->the_post();
-
-        $glossary[preg_match("/^[a-zA-Z]+$/",substr(strtoupper(get_the_title()), 0, 1))?substr(strtoupper(get_the_title()), 0, 1):"#"][] = get_the_title();
+        if(preg_match("/^[a-zA-Z]+$/",substr(strtoupper(get_the_title()), 0, 1))){
+            $glossary[substr(strtoupper(get_the_title()), 0, 1)][] = get_the_title();
+        }else{
+            $glossaryInteger["#"][] = get_the_title();
+        }
+        
   endwhile;
 endif;
 ksort($glossary);
-//prx($glossary);
+$mergeGlossary = array_merge($glossary,$glossaryInteger);
+
 ?>
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
@@ -74,7 +79,7 @@ ksort($glossary);
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 resource-container resources-glossary" id="mostRecentGlossary">                                            <?php 
-                        foreach($glossary as $index => $valueArr){
+                        foreach($mergeGlossary as $index => $valueArr){
                         ?>
                             <div class="row">
                                 <div class="col-sm-12">
@@ -85,13 +90,13 @@ ksort($glossary);
                                 </div>
                             </div>   
                         <?php }                    
-if ($resources->found_posts > $show_more_limit) {   ?>
+/*if ($resources->found_posts > $show_more_limit) {   ?>
                             <div class="show-more-terms">
                                 <a href="javascript:void(0);" title="Show more" class="glossary-filter-paging"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
                                 <input type="hidden" id="show-more-filtered-resources-offset"  value="2" name="resourceFilterPaging" />
                             </div>
     <?php
-}
+} */
 ?>
                         </div>
 

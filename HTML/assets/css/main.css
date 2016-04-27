@@ -2582,6 +2582,21 @@ border-radius: 0;
 .search-resource-center {
     padding:68px 80px;
 }
+.tutorial-description {
+    padding: 0 10px 0 0;
+}
+.tutorial-description h3 {
+    font-size: 26px;
+    font-family: "fort-Bold";
+    color:#01AEF0;
+    line-height: 33px;
+}
+.tutorial-description p {
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+
 /* Contact form  */
 .contact-from { 
     width: 64%;

@@ -41,47 +41,53 @@ $featured_resources = query_posts($args);
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
         <div class="row"> 
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="s">
-                </div>
-            </div>
-            <?php
-            if (!empty($business_types)) {
-                ?>
-                <div class="col-sm-1 option-text hidden-xs">
-                    <p>and / or</p>
-                </div>
-                <div class="col-sm-3 hidden-xs">
-                    <div class="select-topic">
-                        <select class="form-control">
-                            <option value="">Filter by Topic</option>
-                            <?php
-                            foreach ($business_types as $business_type) {
-                                ?>
-                                <option value="<?php echo $business_type->term_id; ?>"><?php echo $business_type->name; ?></option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                        <span class="glyphicon glyphicon-menu-down select-drop"></span>
+            <form method="get" action="<?php echo get_the_permalink('597'); ?>" id="resource-search">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <fieldset>
+                            <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="keyword">
+                        </fieldset>
                     </div>
                 </div>
                 <?php
-            }
-            ?>
-            <div class="col-sm-2 hidden-xs">
-                <div class="form-group">
-                    <button class="btn btn-blue-bg btn-go field-style">GO <i class="glyphicon glyphicon-play"></i></button>
+                if (!empty($business_types)) {
+                    ?>
+                    <div class="col-sm-1 option-text hidden-xs">
+                        <p>and / or</p>
+                    </div>
+                    <div class="col-sm-3 hidden-xs">
+                        <div class="select-topic">
+                            <fieldset>
+                                <select class="form-control" name="business-type" id="business-type">
+                                    <option value="">Filter by Business Type</option>
+                                    <?php
+                                    foreach ($business_types as $business_type) {
+                                        ?>
+                                        <option value="<?php echo $business_type->term_id; ?>"><?php echo $business_type->name; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </fieldset>
+                            <span class="glyphicon glyphicon-menu-down select-drop"></span>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+                <div class="col-sm-2 hidden-xs">
+                    <div class="form-group">
+                        <button class="btn btn-blue-bg btn-go field-style">GO <i class="glyphicon glyphicon-play"></i></button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </section><!-- Search Resource -->
 <?php
 if (!empty($featured_resources)) {
     // Fetch topic of a resource
-    $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'business-type', array("fields" => "names"));
+    $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'resource-topic', array("fields" => "names"));
     if (!empty($resource_topics)) {
         $topics = 'in ' . implode(", ", $resource_topics);
         $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
@@ -93,8 +99,10 @@ if (!empty($featured_resources)) {
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
+    $background_image = 'http://localhost/can_capital/cancapital-core-site/wp-content/uploads/2016/03/main_featured_image.jpg';
+    $src = wp_get_attachment_image_src(get_post_thumbnail_id($featured_resources[0]->ID), array(1144, 493), false, '');
     ?>
-    <section id="resource_hero"><!-- Resource banner -->
+    <section id="resource_hero" style="background-image: url('<?php echo $src[0]; ?>')" ><!-- Resource banner -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -138,7 +146,7 @@ if (!empty($featured_resources)) {
                 <?php
                 foreach ($featured_resources as $resource) {
                     // Fetch topic of a resource
-                    $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
+                    $resource_topics = wp_get_post_terms($resource->ID, 'resource-topic', array("fields" => "names"));
                     if (!empty($resource_topics)) {
                         $topics = 'in ' . implode(", ", $resource_topics);
                         $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
@@ -154,7 +162,7 @@ if (!empty($featured_resources)) {
                     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
-                        <div class="col-md-4 featured-article">
+                        <div class="col-md-4 featured-article resource-sm-height">
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
@@ -243,12 +251,18 @@ $args = array(
 
 if (isset($search) && $search != NULL) {
     $args['tax_query'] = array(array(
-            'taxonomy' => 'business-type',
+            'taxonomy' => 'resource-topic',
             'field' => 'id',
             'terms' => $search
     ));
 }
 $resources = query_posts($args);
+
+// Fetch Topics 
+$topics = get_terms('resource-topic', array(
+    'parent' => '0',
+    'hide_empty' => 0
+        ));
 ?>
 <div id="all_resources_block">
     <div class="container">
@@ -267,9 +281,9 @@ $resources = query_posts($args);
                                 <select class="form-control" name="search">
                                     <option value="">Filter by Topic</option>
                                     <?php
-                                    foreach ($business_types as $business_type) {
+                                    foreach ($topics as $topic) {
                                         ?>
-                                        <option value="<?php echo $business_type->term_id; ?>" <?php echo ($business_type->term_id == $selected) ? 'selected' : ''; ?>><?php echo $business_type->name; ?></option>
+                                        <option value="<?php echo $topic->term_id; ?>" <?php echo ($topic->term_id == $selected) ? 'selected' : ''; ?>><?php echo $topic->name; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -284,7 +298,7 @@ $resources = query_posts($args);
                     foreach ($resources as $resource) {
 
                         // Fetch topic of a resource
-                        $resource_topics = wp_get_post_terms($resource->ID, 'business-type', array("fields" => "names"));
+                        $resource_topics = wp_get_post_terms($resource->ID, 'resource-topic', array("fields" => "names"));
                         if (!empty($resource_topics)) {
                             $topics = 'in ' . implode(", ", $resource_topics);
                             $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
@@ -363,14 +377,34 @@ $resources = query_posts($args);
                     if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Resources right sidebar')) :
                     endif;
                     ?>
+                    <?php
+                    // Newsletter
+                    $newsletter = get_option('newsletter_data');
+                    ?>
                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section">
-                        <h2 class="section-heading">CAN Capital Newsletter</h2>
+                        <?php
+                        if ($newsletter['heading'] != '') {
+                            ?>
+                            <h2 class="section-heading"><?php echo $newsletter['heading']; ?></h2>
+                            <?php
+                        }
+                        ?>
                         <div class="col-xs-12 post-information">
-                            <p>Stay up to date with the latest financial advice.</p>
-                            <div class="news-letter-field">
-                                <input type="text" class="form-control field-style" placeholder="Email Address">
-                                <button type="submit" class="btn btn-blue-bg field-style">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
-                            </div>
+                            <?php
+                            if ($newsletter['copy_text'] != '') {
+                                ?>
+                                <p><?php echo $newsletter['copy_text']; ?></p>
+                                <?php
+                            }
+                            ?>
+                            <form method="post" id="newsletter-subscription">
+                                <div class="news-letter-field">
+                                    <fieldset>
+                                        <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
+                                    </fieldset>
+                                    <button type="submit" class="btn btn-blue-bg field-style" name="subscribe_newsletter">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section hidden-xs">
