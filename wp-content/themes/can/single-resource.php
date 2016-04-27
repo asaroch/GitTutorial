@@ -59,7 +59,7 @@ while ( have_posts() ) : the_post();
     ?>
     <section id="resource_hero" style="background-image: url('<?php echo $src[0]; ?>')" ><!-- Resource banner -->
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-default large-size-icon hidden-xs" data-toggle="modal" data-target="#myModal">
+        <button type="button" class="btn btn-default large-size-icon" data-toggle="modal" data-target="#myModal">
             See Full Image <i class="glyphicon glyphicon-resize-full"></i>
         </button>
         <!-- Modal -->
@@ -89,7 +89,7 @@ while ( have_posts() ) : the_post();
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" target="_blank" title="facebook">
+                    <a href="javascript:void(0);" target="_blank" title="facebook" id="fb-share-button">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/home/facebook_icon.png" alt="facebook share">
                     </a>
                 </li>

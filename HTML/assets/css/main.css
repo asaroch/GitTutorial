@@ -604,7 +604,7 @@ padding: 0 32px 25px;
 float:right;
 }
 #resource_list_container {
-padding: 36px 0 43px;
+padding: 36px 0 33px;
 background-color: #eee;
 background: url(../images/resources/gray_pattern_bg.png) repeat left top;
 }
@@ -2567,7 +2567,7 @@ border-radius: 0;
 }
 .live-chat .section-heading,
 .search-resource-center .section-heading{
-    font-family: "fort-Light";
+    font-family: "fort-Medium";
 }
 .live-chat .section-heading b,
 .search-resource-center .section-heading b {
