@@ -22,6 +22,9 @@
     .search-result-list {
         padding-left:0;
     }
+    .tutorial-description {
+         padding: 0 80px 0 0px;
+    }
 }
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
@@ -1079,6 +1082,11 @@
 /*  Resources Glossary  */
 .glossary-mob-top-border {  border-top: 2px solid #eee;}
 .resources-glossary p { font-size: 16px;}
+/* Contact form  */
+.contact-from { 
+    width: auto;
+    margin: 0 auto
+}
 }
 @media (max-width:480px){
     .water-mark-image {

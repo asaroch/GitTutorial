@@ -350,21 +350,14 @@ function can_scripts() {
    
     // Fetch partner lead validation error messages
     $validationsErrs = get_option('partners_lead_generations_validations_error_msg');
-	
-	// Search parameters of resource
-	$resourceFilteredParameters = array();
-	$resourceFilteredParameters['searchKeyword']   = ( isset($_GET['keyword']) && $_GET['keyword'] != '' ) ? $_GET['keyword'] : FALSE;
-	$resourceFilteredParameters['businessTypes']   = ( isset($_GET['business-type']) && $_GET['business-type'] != '' ) ? $_GET['business-type'] : FALSE;
-	$resourceFilteredParameters['filteredTopics'] = ( isset($_GET['topics']) ) ? $_GET['topics'] : FALSE;
     
     wp_localize_script('custom-dev', 'var_object', array('ajax_url' => admin_url('admin-ajax.php'),
-        'show_more_limit'             => get_option('posts_per_page'),
-        'image_url'                   => get_template_directory_uri(),
-        'search'                      => $search,
-        'financialProductSlider'      => $financialProductSlider,
-        'testimonialSlider'           => $testimonialSlider,
-        'validationsErrs'             => $validationsErrs,
-		'resourceFilteredParameters'  => $resourceFilteredParameters
+        'show_more_limit'        => get_option('posts_per_page'),
+        'image_url'              => get_template_directory_uri(),
+        'search'                 => $search,
+        'financialProductSlider' => $financialProductSlider,
+        'testimonialSlider'      => $testimonialSlider,
+        'validationsErrs'        => $validationsErrs
       ));
 }
 
@@ -904,7 +897,6 @@ add_image_size('trending-resources', 70, 100);
 add_image_size('partners-expertise', 92, 92 );
 add_image_size('selected-partners', 280, 85);
 add_image_size('awards', 140, 130);
-add_image_size('resource-featured', 1144, 493);
 
  add_action('admin_init', 'admin_init' );
  
@@ -1435,6 +1427,7 @@ function myextensionTinyMCE($init) {
 
 add_filter('tiny_mce_before_init', 'myextensionTinyMCE' );
 
+
 add_action( 'wp_ajax_nopriv_ajax_resources_pagination', 'ajax_resources_pagination' );
 add_action( 'wp_ajax_ajax_resources_pagination', 'ajax_resources_pagination' );
 
@@ -1543,6 +1536,60 @@ function ajax_resources_pagination() {
 							</div>
 						</div>';
 		endwhile;
+	} 
+	else {
+		$response['status'] = 'error';
+		$return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No Resource found!</h3></div></div>';
+	}
+	
+	$response['data'] = $return;
+	echo json_encode($response);
+    die();
+}
+
+add_action( 'wp_ajax_nopriv_ajax_glossary_pagination', 'ajax_glossary_pagination' );
+add_action( 'wp_ajax_ajax_glossary_pagination', 'ajax_glossary_pagination' );
+
+
+/* * ****************************************************************************
+ * Callback function of ajax hook to add ajax pagination on Glossary page.
+ * ********************************************************* *********************/
+function ajax_glossary_pagination() {
+	$prevOffset         = $_POST['offset'];
+    $itemsPerPage       = get_option('posts_per_page');
+	$offset             = ($prevOffset - 1) * $itemsPerPage;
+	
+	$args = array(
+		'post_type'        => 'resource',
+		'post_status'      => 'publish',
+		'offset'           => $offset,
+		'showposts'        => $itemsPerPage,
+		'orderby'          => 'menu_order date',
+		'order'            => 'DESC'
+	);
+
+	$resources = new WP_Query($args);
+	$return = '';
+    //    prx($resources);
+	$glossary = array();
+	if ( $resources->have_posts() ) {
+		$response['status'] = 'success';
+		while ( $resources->have_posts() ) : $resources->the_post();
+			$glossary[preg_match("/^[a-zA-Z]+$/",substr(strtoupper(get_the_title()), 0, 1))?substr(strtoupper(get_the_title()), 0, 1):"#"][] = get_the_title();
+		endwhile;
+                ksort($glossary);
+                        foreach($glossary as $index => $valueArr){
+                      
+                         $return = '<div class="row">
+                                <div class="col-sm-12">
+                                    <h2 class="section-heading">'. $index. '</h2>';
+                                    foreach($valueArr as $key => $value){
+                         $data  .= (strlen($value) > 50)?substr($value,0,49)."...":$value;
+                                    }
+                         $return .= '<p>'.$data.'</p>';           
+                         $return .= '</div>
+                            </div>';   
+                        }
 	} 
 	else {
 		$response['status'] = 'error';

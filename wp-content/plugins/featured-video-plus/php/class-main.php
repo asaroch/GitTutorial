@@ -149,7 +149,8 @@ class Featured_Video_Plus {
 		$h = isset( $atts['height'] ) ? $atts['height'] : '';
 
 		if ( has_post_video() ) {
-			return get_the_post_video( null, array( $w, $h ) );
+			die("here");
+			//return get_the_post_video( null, array( $w, $h ) );
 		}
 	}
 

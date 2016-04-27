@@ -160,7 +160,7 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
                     <?php
                     $meta = get_post_meta($post->ID, '_fvp_video', true);
                     $video = wp_get_attachment_url($meta['id']);
-                    /*                     * Script to generate thumbnail from video* */
+// Script to generate thumbnail from video* */
                     $ffmpeg = 'ffmpeg';
 
 // where you'll save the image
@@ -180,7 +180,7 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
 // get the screenshot
                     $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1";
                     $return = `$cmd`;
-                    /*                     * Script Ends here* */
+//Script Ends here* */
                     ?>
                     <div class="item">
                         <div class="video-player"> <div class="video-play-icon"><i></i></div>

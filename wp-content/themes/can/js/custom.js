@@ -382,7 +382,7 @@ $(function () {
             $(checkbox).click(function(){
                 if(checkbox.is(":checked")){
                     $(".clear-all").show("slow");
-                } 
+                }
                 else {
                    $(".clear-all").hide("slow"); 
                 }
