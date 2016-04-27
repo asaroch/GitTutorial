@@ -11,7 +11,7 @@ $business_types = get_terms('business-type', array(
         ));
 
 // Popular Topics
-$popular_topics = get_terms('business-type', array(
+$popular_topics = get_terms('resource-topic', array(
     'parent' => '0',
     'hide_empty' => 0,
     'meta_query' => array
