@@ -313,6 +313,9 @@
         margin: 0 auto;
         width: 55%;
     }
+        #home_resource_list #articles .owl-controls {
+        display: block;
+    }
 }
 @media (max-width:767px) {
     #home_get_quote{
