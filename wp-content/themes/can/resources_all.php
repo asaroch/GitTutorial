@@ -107,7 +107,7 @@ $estimated_time = new EstimatedPostReadingTime();
                     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
-                        <div class="col-md-4 clearfix">
+                        <div class="col-md-4 clearfix resource-sm-height">
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>

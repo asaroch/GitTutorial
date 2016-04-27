@@ -22,6 +22,9 @@
     .search-result-list {
         padding-left:0;
     }
+    .tutorial-description {
+         padding: 0 80px 0 0px;
+    }
 }
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
@@ -226,7 +229,15 @@
         position: relative;
         left:0;
     }
-    .resource-sm-height {
+/*    .resource-sm-height {
+        height: 225px;
+    }*/
+    #resource_list_container .resource-sm-height,
+    #home_resource_list .resource-sm-height {
+        float:left;
+    }
+    #resource_list_container .resource-sm-height .resource-content,
+    #home_resource_list .resource-sm-height .resource-content {
         height: 225px;
     }
 /*how it work process arrow*/
@@ -291,11 +302,15 @@
     .bring-best-item {
         height:300px;
     }    
-/* Resources Post */
-#social-media-section .section-heading {
-    margin: 0 auto;
-    width: 55%;
-}
+    /*infographic slider arrow spacing */
+        #infografic_carousel {
+        padding: 0 35px;
+    }
+    /* Resources Post */
+    #social-media-section .section-heading {
+        margin: 0 auto;
+        width: 55%;
+    }
 }
 @media (max-width:767px) {
     #home_get_quote{
@@ -1079,6 +1094,18 @@
 /*  Resources Glossary  */
 .glossary-mob-top-border {  border-top: 2px solid #eee;}
 .resources-glossary p { font-size: 16px;}
+/* Contact form  */
+.contact-from { 
+    width: auto;
+    margin: 0 auto
+}
+#infografic_product.tutorials .owl-controls {
+    display: none;
+}
+.tutorial-section {
+        margin: 30px 0;
+        padding:0;
+}
 }
 @media (max-width:480px){
     .water-mark-image {

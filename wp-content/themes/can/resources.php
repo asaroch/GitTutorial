@@ -103,7 +103,6 @@ if (!empty($featured_resources)) {
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
-    $background_image = 'http://localhost/can_capital/cancapital-core-site/wp-content/uploads/2016/03/main_featured_image.jpg';
     $src = wp_get_attachment_image_src(get_post_thumbnail_id($featured_resources[0]->ID), array(1144, 493), false, '');
     ?>
     <section id="resource_hero" style="background-image: url('<?php echo $src[0]; ?>')" ><!-- Resource banner -->
