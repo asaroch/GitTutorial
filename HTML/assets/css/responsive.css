@@ -101,6 +101,9 @@
     .social-links ul li {
         margin-right: 5px;
     }
+    .search-resource-center .select-topic {
+        width: 240px;
+    }
     
 }
 @media (min-width:992px) {
@@ -557,7 +560,7 @@
         top:70px;
         z-index: 0;
     }
-    #about_us p, .get-funded h2, .get-funded h3 {
+    #about_us p, .get-funded h2, .get-funded h3, #help-log p {
         font-size: 24px;
     }
     #about_us p {
@@ -1098,6 +1101,37 @@
         margin: 30px 0;
         padding:0;
 }
+.tutorial-description {
+    padding: 20px 10px 0;
+}
+.search-resource-center input, .search-resource-center .select-topic {
+    width:272px;
+    margin:0 auto;
+}
+.search-resource-center .select-topic {    
+    margin-bottom: 20px;
+}
+.search-resource-center .form-group {
+    margin-bottom: 0;
+}
+#infografic_product.tutorials .customNavigation {
+    margin-bottom: 0;
+}
+.accordion-group a {
+    font-size: 18px;
+    padding:15px;
+}
+.accordion-inner .accordion-heading a {
+    font-size: 16px;
+}
+span.top-quest{
+    display: block;
+    width: 110px;
+}
+.accordion-inner .accordion-group {
+    padding: 0 15px;
+}
+
 }
 @media (max-width:480px){
     .water-mark-image {
