@@ -232,10 +232,17 @@
         position: relative;
         left:0;
     }
-    .resource-sm-height {
+/*    .resource-sm-height {
+        height: 225px;
+    }*/
+    #resource_list_container .resource-sm-height,
+    #home_resource_list .resource-sm-height {
+        float:left;
+    }
+    #resource_list_container .resource-sm-height .resource-content,
+    #home_resource_list .resource-sm-height .resource-content {
         height: 225px;
     }
-/*how it work process arrow*/
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -1119,10 +1126,11 @@
 }
 .accordion-group a {
     font-size: 18px;
-    padding:15px;
+    padding:10px;
 }
 .accordion-inner .accordion-heading a {
     font-size: 16px;
+    padding: 10px 0;
 }
 span.top-quest{
     display: block;
