@@ -40,6 +40,7 @@ $(function(){
 
 
 	function activeSliders(prev, next, currentIndex, remain) {
+        console.log(prev);
         if (currentIndex == 0) {
             prev.removeClass("active");
         } else {
@@ -221,36 +222,20 @@ $(function(){
 
 		});
                 infoGraphSlider.on('changed.owl.carousel', function (property) {
-                var current = property.item.index;
-                    var shownItems = property.page.size            
+                    var current = property.item.index;
+                    var shownItems = property.page.size;
                     // total number of slides
-                    var total = property.relatedTarget.items().length - 1
+                    var total = property.relatedTarget.items().length - 1;
                     // how many slides to go?
                     var remain = total - (shownItems + current);
-                activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
-            });
+                    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+                    activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
+                    
+                });
 //    infograpic slider how it works  end 
-//tutorial
-//    var tutorialSlider = $("#infografic_carousel.tutorials"); 
-//        tutorialSlider.on('changed.owl.carousel', function (property) {
-//                var current = property.item.index;
-//                    var shownItems = property.page.size            
-//                    // total number of slides
-//                    var total = property.relatedTarget.items().length - 1
-//                    // how many slides to go?
-//                    var remain = total - (shownItems + current);
-//                activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
-//            });
-//            
-//            $("#infografic_product.tutorials .slide-next").click(function(){
-//			tutorialSlider.trigger("next.owl.carousel");
-//		})
-//
-//		$("#infografic_product.tutorials .slide-prev").click(function(){
-//			tutorialSlider.trigger("prev.owl.carousel");
-//		})
-                
-       //tutorial end         
+
+    
+    
     
 //    Home resources slider   
 		var resourceSlider = $("#resource_slider");
@@ -290,7 +275,13 @@ $(function(){
 			resourceSlider.trigger("prev.owl.carousel");
 		})
                 
-                
+                $("#infografic_product.tutorials .slide-next").click(function(){                    
+			infoGraphSlider.trigger("next.owl.carousel");
+		});
+
+		$("#infografic_product.tutorials .slide-prev").click(function(){                        
+			infoGraphSlider.trigger("prev.owl.carousel");
+		});
 //    Home resources slider end
 
 
