@@ -112,6 +112,12 @@ $(function(){
 			            dots: false
 			        },
 			        768:{
+			            items:2,
+			            nav:true,
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            dots: true
+			        },
+                                992:{
 			            items:3,
 			            nav:true,
 			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
