@@ -1087,6 +1087,9 @@
     width: auto;
     margin: 0 auto
 }
+#infografic_product.tutorials .owl-controls {
+    display: none;
+}
 }
 @media (max-width:480px){
     .water-mark-image {
