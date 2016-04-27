@@ -351,13 +351,20 @@ function can_scripts() {
     // Fetch partner lead validation error messages
     $validationsErrs = get_option('partners_lead_generations_validations_error_msg');
     
+    // Search parameters of resource
+    $resourceFilteredParameters = array();
+    $resourceFilteredParameters['searchKeyword']   = ( isset($_GET['keyword']) && $_GET['keyword'] != '' ) ? $_GET['keyword'] : FALSE;
+    $resourceFilteredParameters['businessTypes']   = ( isset($_GET['business-type']) && $_GET['business-type'] != '' ) ? $_GET['business-type'] : FALSE;
+    $resourceFilteredParameters['filteredTopics'] =  ( isset($_GET['topics']) ) ? $_GET['topics'] : FALSE;
+    
     wp_localize_script('custom-dev', 'var_object', array('ajax_url' => admin_url('admin-ajax.php'),
         'show_more_limit'        => get_option('posts_per_page'),
         'image_url'              => get_template_directory_uri(),
         'search'                 => $search,
         'financialProductSlider' => $financialProductSlider,
         'testimonialSlider'      => $testimonialSlider,
-        'validationsErrs'        => $validationsErrs
+        'validationsErrs'        => $validationsErrs,
+        'resourceFilteredParameters'  => $resourceFilteredParameters
       ));
 }
 
@@ -1112,7 +1119,6 @@ class CanCapitalComparison_Widget extends WP_Widget {
         $args = array(	'post_status' => 'publish' , 
                                         'post_type'   => 'can-comparison-chart',
                                         'orderby'     => 'menu_order date',
-                                        'posts_per_page' => -1,
                                         'order'       => 'ASC'
                                 );
         $can_capital_chart = new WP_Query( $args );
