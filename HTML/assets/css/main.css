@@ -2661,3 +2661,29 @@ span.top-quest {
     margin-bottom: 25px;
 }
 #our-leading-team {}
+
+/* Video icon wp */
+.video-play-icon { 
+    border: 3px solid #fff; 
+    border-radius: 85px;
+    padding: 20px 15px 20px 25px;
+    display: inline-block;
+    box-shadow: 1px 1px 2px #333;
+    position: absolute;
+    left: 42%;
+    top: 18%;
+    z-index: 1;
+}
+.video-play-icon i {
+   display: block;
+   width: 0;
+   height: 0;
+   border-left: 60px solid #fff;
+   border-top: 30px solid transparent;
+   border-bottom: 30px solid transparent;
+}
+.video-play-icon:hover, .video-play-icon:hover i { opacity: 0.7}
+
+.html5-lightbox-box { width: 96%}
+.html5-lightbox-overlay { opacity: 0.5}
+.html5-elem-wrap { width: 100%; height: 100%}
