@@ -40,6 +40,7 @@ $(function(){
 
 
 	function activeSliders(prev, next, currentIndex, remain) {
+        console.log(prev);
         if (currentIndex == 0) {
             prev.removeClass("active");
         } else {
@@ -203,7 +204,7 @@ $(function(){
                 })
                 
 //    infograpic slider how it works               
-               var infoGraphSlider = $("#infografic_carousel")    
+               var infoGraphSlider = $("#infografic_carousel");    
 		infoGraphSlider.owlCarousel({
                     loop:false,
 		    margin:10,
@@ -221,15 +222,21 @@ $(function(){
 
 		});
                 infoGraphSlider.on('changed.owl.carousel', function (property) {
-                var current = property.item.index;
-                    var shownItems = property.page.size            
+                    var current = property.item.index;
+                    var shownItems = property.page.size;
                     // total number of slides
-                    var total = property.relatedTarget.items().length - 1
+                    var total = property.relatedTarget.items().length - 1;
                     // how many slides to go?
                     var remain = total - (shownItems + current);
-                activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
-            });
-//    infograpic slider how it works  end            
+                    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+                    activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
+                    
+                });
+//    infograpic slider how it works  end 
+
+    
+    
+    
 //    Home resources slider   
 		var resourceSlider = $("#resource_slider");
 			resourceSlider.owlCarousel({
@@ -267,6 +274,14 @@ $(function(){
 		$(".slide-prev").click(function(){
 			resourceSlider.trigger("prev.owl.carousel");
 		})
+                
+                $("#infografic_product.tutorials .slide-next").click(function(){                    
+			infoGraphSlider.trigger("next.owl.carousel");
+		});
+
+		$("#infografic_product.tutorials .slide-prev").click(function(){                        
+			infoGraphSlider.trigger("prev.owl.carousel");
+		});
 //    Home resources slider end
 
 
