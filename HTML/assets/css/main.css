@@ -2718,3 +2718,20 @@ span.top-quest {
     width: 100%;
     height: 100%;
 }
+#home_resource_list #articles .related-articles { 
+    background-color: transparent;
+}
+#home_resource_list #articles .related-articles .caption .read-date { padding-bottom: 5px;}
+#home_resource_list #articles .related-articles .caption .topic { 
+    color: #01aef0;
+    font-family: "Fort-bold";
+    font-size: 12px;
+    text-transform: uppercase;
+     
+}
+
+/* about-us slider*/
+#home_resource_list #articles .item {
+    padding: 0 20px;
+}
+
