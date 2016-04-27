@@ -249,6 +249,16 @@ function twentysixteen_widgets_init() {
         <div class="container"><h2 class="section-heading">',
 		'after_title'   => '</h2>',
 	) );
+    register_sidebar( array(
+		'name'          => __( 'social_share', 'can' ),
+		'id'            => 'can-social-share',
+		'description'   => __( 'Displayes shocial share icons', 'can' ),
+		//'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		//'after_widget'  => '</section></div></section>',
+		//'before_title'  => '<section id="success_community">
+      //  <div class="container"><h2 class="section-heading">',
+		//'after_title'   => '</h2>',
+	) );
 }
 
 add_action('widgets_init', 'twentysixteen_widgets_init');
@@ -904,6 +914,7 @@ add_image_size('trending-resources', 70, 100);
 add_image_size('partners-expertise', 92, 92 );
 add_image_size('selected-partners', 280, 85);
 add_image_size('awards', 140, 130);
+add_image_size('related-articles', 360, 155);
 
  add_action('admin_init', 'admin_init' );
  
@@ -1606,3 +1617,29 @@ function ajax_glossary_pagination() {
 	echo json_encode($response);
     die();
 }
+
+/* * ****************************************************************************
+ * Callback function of shortcode to be used in resource detail page
+ * ********************************************************* *********************/
+function resource_detail_copy_text() {
+    global $post;
+    //  prx($post);
+    // Fetch heading
+    $heading       = get_post_meta($post->ID, 'wpcf-copy-text-heading', true);
+ 
+    // Fetch person name
+    $person_name   = get_post_meta($post->ID, 'wpcf-person-name', true);
+    
+    // Fetch business name
+    $business_name = get_post_meta($post->ID, 'wpcf-business-name', true);
+    $return = '';
+    
+   if ( $heading != '' || $person_name != '' || $business_name != '' ) {
+        $return  = '<div class="testimonial-content">
+                    <h3 class="testimonial-heading">"'.$heading.'"</h3>
+                    <h3 class="customer-info">– '.$person_name.', '.$business_name.'</h3>
+                </div>';
+   }
+    return $return;
+}
+add_shortcode( 'resource-detail-copy-text', 'resource_detail_copy_text' );
