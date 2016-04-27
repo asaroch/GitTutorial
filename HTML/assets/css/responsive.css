@@ -1194,17 +1194,15 @@
         padding: 10px 0;
         position: relative;
     }
-    /*.accordion-inner .accordion-group a i {
-        position:absolute;
-        top:15px;
-        right:0;
-    }*/
     span.top-quest{
         display: block;
         width: 110px;
     }
     .accordion-inner .accordion-group {
         padding: 0 15px;
+    }
+    #home_resource_list #articles .related-articles .thumbnail {
+        background-color: #fff; 
     }
 }
 @media (max-width:480px){
