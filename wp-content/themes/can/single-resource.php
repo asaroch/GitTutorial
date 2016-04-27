@@ -6,6 +6,8 @@ $business_types = get_terms('business-type', array(
     'parent' => '0',
     'hide_empty' => 0
         ));
+
+$linkedin_url = "http://www.linkedin.com/shareArticle?mini=true&url=".get_the_permalink($post->ID)."&summary=inQbation%20provides%20world%20class%20web%20sites%20that%20source=inqbation.com";
 ?>
 <section id='search_resource'><!-- Search Resource -->
     <div class="container">
@@ -56,8 +58,36 @@ $business_types = get_terms('business-type', array(
 <?php
 while ( have_posts() ) : the_post();
     $src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
+    $src =  $src[0];
+    $meta = get_post_meta($post->ID, '_fvp_video', true);
+    $video = wp_get_attachment_url($meta['id']);
+    if ( $video != '') {
+        // Script to generate thumbnail from video* */
+      $ffmpeg = 'ffmpeg';
+
+      // where you'll save the image
+      $upload_url = wp_upload_dir();
+      $image = $upload_url['basedir'] . "/thumbnails/" . $post->ID . ".jpg";
+
+      // default time to get the image
+      $second = 1;
+
+      // get the duration and a random place within that
+      $cmd = "$ffmpeg -i $video 2>&1";
+      if (preg_match('/Duration: ((\d+):(\d+):(\d+))/s', `$cmd`, $time)) {
+          $total = ($time[2] * 3600) + ($time[3] * 60) + $time[4];
+          $second = rand(1, ($total - 1));
+      }
+
+      // get the screenshot
+      $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1";
+      $return = `$cmd`;
+      //Script Ends here* */
+      $src = $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg";
+    }
+      
     ?>
-    <section id="resource_hero" style="background-image: url('<?php echo $src[0]; ?>')" ><!-- Resource banner -->
+    <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-default large-size-icon" data-toggle="modal" data-target="#myModal">
             See Full Image <i class="glyphicon glyphicon-resize-full"></i>
@@ -84,8 +114,14 @@ while ( have_posts() ) : the_post();
             <h3>Share</h3>
             <ul>
                 <li>
-                    <a href="javascript:void(0);" target="_blank" title="twitter" class="twitter-share-button">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/home/twitter_icon.png" alt="twitter share">
+                    <a class="twitter-share-button"
+                        href="https://twitter.com/share"
+                        data-size="large"
+                        data-url=https://www.cancapital.com/"
+                        data-via="twitterdev"
+                        data-related="twitterapi,twitter"
+                        data-hashtags="example,demo"
+                        data-text="custom share text" target="_blank"> <img src="<?php echo get_template_directory_uri(); ?>/images/home/twitter_icon.png" alt="twitter share">
                     </a>
                 </li>
                 <li>
@@ -94,7 +130,7 @@ while ( have_posts() ) : the_post();
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);" target="_blank" title="Linkdin">
+                    <a href="<?php echo $linkedin_url;  ?>"  title="Linkdin" id="linkedin-share-button">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/home/linkedin_icon.png" alt="linkdin share">
                     </a>
                 </li>
