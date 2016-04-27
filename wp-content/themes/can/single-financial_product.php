@@ -183,9 +183,9 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
 //Script Ends here* */
                     ?>
                     <div class="item">
-                        <div class="video-player"> <div class="video-play-icon"><i></i></div>
+                        <div class="video-player"> 
 
-                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox" data-width="480" data-height="320"><img src="<?php echo $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg"; ?>" alt="video thumbnail"></a>
+                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><img src="<?php echo $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg"; ?>" alt="video thumbnail"><div class="video-play-icon"><i></i></div></a>
                         
                             </div>
 

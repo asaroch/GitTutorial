@@ -1130,7 +1130,6 @@ class CanCapitalComparison_Widget extends WP_Widget {
         $args = array(	'post_status' => 'publish' , 
                                         'post_type'   => 'can-comparison-chart',
                                         'orderby'     => 'menu_order date',
-                                        'posts_per_page' => -1,
                                         'order'       => 'ASC'
                                 );
         $can_capital_chart = new WP_Query( $args );
