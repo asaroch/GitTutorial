@@ -2628,3 +2628,6 @@ border-radius: 0;
 #our-offices .caption p { 
     font-size: 15px; 
 }
+/* About Us  */
+#about-us { width: 74%; margin: 0 auto}
+#about-us p { font-size: 16px; color: #fff; margin-bottom: 25px;}
