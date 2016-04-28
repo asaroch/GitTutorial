@@ -2752,12 +2752,11 @@ span.top-quest {
 #home_resource_list #articles .item {
      padding: 0 10px;
  }    
- /*connect with us*/
+ /*career*/
  .connect-with-us {
      text-align: center;
      padding: 70px 0 30px;
- }
- 
+ } 
  .connect-with-us h3 {
      font-size: 22px;
      color: #fff;
@@ -2771,4 +2770,18 @@ span.top-quest {
  }
  connect-through span {
      display: block;
+ }
+ .testimonial-content.career h4 {
+     font-size: 18px;
+ }
+ .testimonial-content.career h4 {
+    color: #6b2875;
+ }
+ .testimonial-content.career h5 {
+     font-size: 20px;
+     color: #6d6e71;
+     margin-bottom: 20px;
+ }
+ .testimonial-content.career .section-heading {
+     margin: 18px 0 15px;
  }
