@@ -112,6 +112,12 @@ $(function(){
 			            dots: false
 			        },
 			        768:{
+			            items:2,
+			            nav:true,
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+			            dots: true
+			        },
+                                992:{
 			            items:3,
 			            nav:true,
 			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
@@ -269,12 +275,12 @@ $(function(){
 		//resource section on home next and prev. events 
 		$(".slide-next").click(function(){
 			resourceSlider.trigger("next.owl.carousel");
-		})
+		});
 
 		$(".slide-prev").click(function(){
 			resourceSlider.trigger("prev.owl.carousel");
-		})
-                
+		});
+                //help center slider
                 $("#infografic_product.tutorials .slide-next").click(function(){                    
 			infoGraphSlider.trigger("next.owl.carousel");
 		});
