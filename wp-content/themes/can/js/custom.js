@@ -307,10 +307,14 @@ $(function () {
                             }
 		});
                 infoGraphSlider.on('changed.owl.carousel', function (property) {
+                    var item = property.item.index + 1;
+                    $('.current-slider').html(item);
                     var current = property.item.index;
-                    var shownItems = property.page.size            
+                    var shownItems = property.page.size;
+                   
                     // total number of slides
-                    var total = property.relatedTarget.items().length - 1
+                    var  total = property.relatedTarget.items().length - 1;
+                     
                     // how many slides to go?
                     var remain = total - (shownItems + current);
                     activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
