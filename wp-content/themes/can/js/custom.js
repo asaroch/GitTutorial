@@ -144,6 +144,12 @@ $(function () {
                 nav: financialProductSlider,
                 navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
                 dots: false
+            },
+            992:{
+                items:3,
+                nav:financialProductSlider,
+                navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
+                dots: true
             }
         },
         onInitialize: function () {
@@ -161,6 +167,7 @@ $(function () {
         var remain = total - (shownItems + current);
 
         activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+        activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
 
 
     });
@@ -282,8 +289,6 @@ $(function () {
         resourceSlider.trigger("prev.owl.carousel");
     })
 
-
-
     //    infograpic slider how it works               
                var infoGraphSlider = $("#infografic_carousel")    
 		infoGraphSlider.owlCarousel({
@@ -302,15 +307,33 @@ $(function () {
                             }
 		});
                 infoGraphSlider.on('changed.owl.carousel', function (property) {
-                var current = property.item.index;
+                    var current = property.item.index;
                     var shownItems = property.page.size            
                     // total number of slides
                     var total = property.relatedTarget.items().length - 1
                     // how many slides to go?
                     var remain = total - (shownItems + current);
-                activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
-            });
-//    infograpic slider how it works  end  
+                    activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+                     activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
+                });
+//infograpic slider how it works  end  
+
+//help center slider prev next
+                $("#infografic_product.tutorials .slide-next").click(function(){                    
+			infoGraphSlider.trigger("next.owl.carousel");
+		});
+
+		$("#infografic_product.tutorials .slide-prev").click(function(){                        
+			infoGraphSlider.trigger("prev.owl.carousel");
+		});
+//about us slider prev next
+                $("#home_resource_list #articles .slide-next").click(function(){                    
+			featureSlider.trigger("next.owl.carousel");
+		});
+
+		$("#home_resource_list #articles .slide-prev").click(function(){                        
+			featureSlider.trigger("prev.owl.carousel");
+		});
 
 
     //STICKY MAIN NAVIGATION BAR WHEN SCROLL THE WINDOW.
