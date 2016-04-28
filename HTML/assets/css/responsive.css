@@ -77,6 +77,10 @@
     .search-result-list {
         padding-left: 35px;
     }
+    #articles .related-articles .caption h3 {
+        font-size: 22px;
+        line-height: 26px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
@@ -304,9 +308,12 @@
     .bring-best-item {
         height:300px;
     }    
-    /*infographic slider arrow spacing */
-        #infografic_carousel {
+    /* slider arrow spacing */
+    #infografic_carousel {
         padding: 0 35px;
+    }
+    #home_resource_list #articles .item {
+        padding: 0 20px;
     }
     /* Resources Post */
     #social-media-section .section-heading {
@@ -315,6 +322,7 @@
     }
         #home_resource_list #articles .owl-controls {
         display: block;
+        margin-bottom: 40px;
     }
 }
 @media (max-width:767px) {
@@ -698,7 +706,6 @@
         float:left;
     }
     #all_resources_block .resource-content {
-/*        padding:35px 18px 30px;*/
         padding: 0px 18px 30px;
         width:100%;
         height: auto;
@@ -819,13 +826,19 @@
         padding-bottom: 30px;
     }
     /* Block Solution Built*/
-    #term_loan .loan-nav ul li { float: inherit; border: none}
+    #term_loan .loan-nav ul li {
+        float: inherit; 
+        border: none;
+    }
     #term_loan .down-arrow {
         left: 43%;
         top: 16px;
         border-top: 18px solid rgb(225,212,228);
     }
-    #term_loan p { font-size: 28px; line-height: 38px;}
+    #term_loan p { 
+        font-size: 28px; 
+        line-height: 38px;
+    }
     #term_loan .person-name {
         font-size: 22px;
         text-transform: normal;
@@ -1105,7 +1118,11 @@
         margin: 0 0 25px;
     }
     #articles .related-articles .caption { 
-        padding: 10px;
+        padding: 10px 15px;
+        height: 320px;
+    }
+    #articles .related-articles .caption .read-time {
+        position: absolute;
     }
     #articles .related-articles .col-sm-6:last-child .thumbnail { 
         border: none;
@@ -1203,6 +1220,9 @@
     }
     #home_resource_list #articles .related-articles .thumbnail {
         background-color: #fff; 
+    }
+    .btn-purple-style {
+        padding: 12px 20px;
     }
 }
 @media (max-width:480px){
