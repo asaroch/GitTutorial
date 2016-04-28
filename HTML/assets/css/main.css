@@ -2762,9 +2762,13 @@ span.top-quest {
      font-size: 22px;
      color: #fff;
      line-height: 30px;
-     margin-bottom: 65px;
+     margin: 28px 0 65px;
      padding: 0 15px;
  }
  .connect-with-us h5 {
      font-size: 22px;
+     margin-bottom: 15px;
+ }
+ connect-through span {
+     display: block;
  }
