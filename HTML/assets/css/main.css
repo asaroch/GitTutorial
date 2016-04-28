@@ -2739,7 +2739,7 @@ span.top-quest {
     border-top: 1px solid rgb(238,238,238);
     border-bottom: 3px solid rgb(238,238,238);
     margin-bottom: 40px;
-    padding-bottom: 20px;
+    padding: 18px 0;
 }
 .topics-bg { 
     padding: 50px 0 20px; 
