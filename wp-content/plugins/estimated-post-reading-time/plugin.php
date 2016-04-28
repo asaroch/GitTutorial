@@ -65,7 +65,7 @@ class EstimatedPostReadingTime {
 		return $content;
 	}
 
-	function estimate_time_shortcode() {
+	function estimate_time_shortcode($post) {
 
 		$result = false;
 		
@@ -87,7 +87,7 @@ class EstimatedPostReadingTime {
 			$wpm = "250";
 		}
 
-		global $post;
+		//global $post;
 		$content = strip_tags($post->post_content);		
 		$content_words = str_word_count($content);
 		$estimated_minutes = floor($content_words / $wpm);
