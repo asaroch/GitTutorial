@@ -71,6 +71,7 @@ if ((isset($_GET['business-type']) && $_GET['business-type'] != '') && count($fi
 }
 
 $resources = new WP_Query($args);
+
 ?>
 <section id="search_resource"><!-- Search Resource -->
     <div class="container">
@@ -275,7 +276,7 @@ if ($resources->found_posts > $show_more_limit) {
     <div class="container text-center">
         <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
         <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></h3>
-<?php dynamic_sidebar('applynow'); ?>
+        <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>
 <?php get_footer(); ?>
