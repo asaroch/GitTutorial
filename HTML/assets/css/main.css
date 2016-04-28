@@ -2439,9 +2439,9 @@ font-size: 20px;
 #social-media-section .btn-block .btn-theme {
 background-color: #6d6e7; color: #00B0EB; font-size: 14px;
 }
-#social-media-section .client-testimonials {  width: 60%; margin: 0px auto; padding-top: 20px;}
-#social-media-section .client-testimonials .media-heading {font-family: Fort-bold; font-size: 16px; color: #6d6e7}
-#social-media-section .client-testimonials .media-body {font-family: Fort-book; font-size: 14px; color: #6d6e71}
+#social-media-section .client-testimonials, #all_resources_block .client-testimonials  {  width: 60%; margin: 0px auto; padding-top: 20px;}
+#social-media-section .client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading {font-family: Fort-bold; font-size: 16px; color: #6d6e7}
+#social-media-section .client-testimonials .media-body, #all_resources_block .client-testimonials .media-body {font-family: Fort-book; font-size: 14px; color: #6d6e71}
 #articles .related-articles {
 background-color: #e9e9e9;
 padding: 70px 0 67px;
@@ -2732,7 +2732,23 @@ span.top-quest {
     font-size: 12px;
     text-transform: uppercase;     
 }
+/* Resource Listing */
+#all_resources_block .client-testimonials { 
+    width: auto;
+    display: inline-block;
+    border-top: 1px solid rgb(238,238,238);
+    border-bottom: 3px solid rgb(238,238,238);
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+}
+.topics-bg { 
+    padding: 50px 0 20px; 
+    border-bottom: 2px solid rgb(238,238,238);
+}
+.topics-bg .section-heading { color: #01aef0;}
+
 /* about-us slider*/
+
 #home_resource_list #articles .item {
      padding: 0 10px;
  }    
