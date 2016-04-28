@@ -137,6 +137,7 @@ $(function(){
                 // how many slides to go?
                 var remain = total - (shownItems + current);
                 activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+                activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
             });
             
 		var sliderUserRatting = $("#user_rettings_slider");
@@ -287,6 +288,14 @@ $(function(){
 
 		$("#infografic_product.tutorials .slide-prev").click(function(){                        
 			infoGraphSlider.trigger("prev.owl.carousel");
+		});
+                //about us slider
+                $("#home_resource_list #articles .slide-next").click(function(){                    
+			featureSlider.trigger("next.owl.carousel");
+		});
+
+		$("#home_resource_list #articles .slide-prev").click(function(){                        
+			featureSlider.trigger("prev.owl.carousel");
 		});
 //    Home resources slider end
 

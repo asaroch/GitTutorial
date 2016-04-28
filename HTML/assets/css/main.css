@@ -282,11 +282,13 @@ font-family: 'Fort-Light';
 }
 .btn {
 text-transform: uppercase;
+
 }
 .btn-blue-bg {
 background: #01AEF0;
 color: #fff;
 font-family: 'Fort-Medium';
+box-shadow: none;
 }
 .navbar-collapse {
 padding: 0;
@@ -525,6 +527,7 @@ padding:0;
 color: #01AEF0;
 background-color: #fff;
 border: 2px solid #01AEF0;
+box-shadow: none;
 }
 .utility-navigation .navbar-nav > li.btn-blue-bg > a,
 footer a.btn-blue-bg {
@@ -551,6 +554,7 @@ display: inline-block;
 .btn-purple-style:hover, .btn-purple-style:focus {
 color: #843A87;
 background-color: #fff;
+box-shadow: none;
 }
 .get-funded {
 padding: 55px 0px 65px;
@@ -2178,10 +2182,7 @@ cursor: pointer;
 #home_resource_list .see-all-resources{
 background-color: transparent;
 }
-#home_resource_list .see-all-resources:hover{
-color: #fff;
-border-color: #fff;
-}
+
 /*batch 1 insights section carousal for mobile only end*/
 /* navigation dropdown  */
 .dropdown .glyphicon-menu-down {
@@ -2222,20 +2223,18 @@ bottom: none;
 .btn.focus, .btn:focus, .btn:hover, a:hover, a:active, a:focus {
 outline: 0;
 }
-/* 4-14-16 */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
 -webkit-appearance: none;
 margin: 0;
 }
-
 input[type=number] {
 -moz-appearance:textfield;
 }
-
-#home_resource_list .see-all-resources:hover {
+#home_resource_list .see-all-resources:hover, #home_resource_list .see-all-resources:focus {
 background-color: #fff;
 color: #843a87;
+border-color: #fff;
 }
 /*To make image and video verticaly align*/
 .featured-story-image, .resource-image{
