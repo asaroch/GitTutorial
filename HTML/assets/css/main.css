@@ -2645,7 +2645,16 @@ span.top-quest {
     margin-bottom: 10px;
 }
 #our-offices .caption p { 
-    font-size: 15px; 
+    font-size: 16px;    
+}
+#our-offices .caption p, #our-offices .caption .learn-more-btn {
+     color: #6d6e71;
+}
+#our-offices .caption .learn-more-btn:hover, #our-offices .caption .learn-more-btn:focus  {
+    color: #00aeef;
+}
+#our-offices .caption .learn-more-btn  {
+    font-family: "fort-Book";
 }
 /* About Us  */
 #about-us { 
@@ -2782,9 +2791,11 @@ span.top-quest {
  .testimonial-content.career h4 {
     color: #6b2875;
  }
- .testimonial-content.career h5 {
-     font-size: 20px;
+ .testimonial-content.career h5,  .city-name  {
      color: #6d6e71;
+ } 
+ .testimonial-content.career h5 {
+     font-size: 20px;     
      margin-bottom: 20px;
  }
  .testimonial-content.career .section-heading {
@@ -2796,9 +2807,23 @@ span.top-quest {
 .job-location {
      padding: 20px 48px;
  }
+ .job-location > a {
+     padding:0;
+ }
  .job-post, .job-location span {
      color: #00aeef;
+     font-size: 14px;
  }
 .job-post, .city-name {
      font-size: 18px;
+ }
+ .city-name {
+   font-family: "fort-Book";  
+ }
+ #faq-block.career .section-heading {
+     margin-bottom: 30px;
+ }
+ #faq-block.career .section-heading + p {
+     margin-bottom: 75px;
+     text-align: center;
  }
