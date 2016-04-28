@@ -137,6 +137,7 @@ $(function(){
                 // how many slides to go?
                 var remain = total - (shownItems + current);
                 activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
+                activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
             });
             
 		var sliderUserRatting = $("#user_rettings_slider");
@@ -275,18 +276,26 @@ $(function(){
 		//resource section on home next and prev. events 
 		$(".slide-next").click(function(){
 			resourceSlider.trigger("next.owl.carousel");
-		})
+		});
 
 		$(".slide-prev").click(function(){
 			resourceSlider.trigger("prev.owl.carousel");
-		})
-                
+		});
+                //help center slider
                 $("#infografic_product.tutorials .slide-next").click(function(){                    
 			infoGraphSlider.trigger("next.owl.carousel");
 		});
 
 		$("#infografic_product.tutorials .slide-prev").click(function(){                        
 			infoGraphSlider.trigger("prev.owl.carousel");
+		});
+                //about us slider
+                $("#home_resource_list #articles .slide-next").click(function(){                    
+			featureSlider.trigger("next.owl.carousel");
+		});
+
+		$("#home_resource_list #articles .slide-prev").click(function(){                        
+			featureSlider.trigger("prev.owl.carousel");
 		});
 //    Home resources slider end
 

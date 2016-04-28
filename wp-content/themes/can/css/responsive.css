@@ -101,6 +101,9 @@
     .social-links ul li {
         margin-right: 5px;
     }
+    .search-resource-center .select-topic {
+        width: 240px;
+    }
     
 }
 @media (min-width:992px) {
@@ -229,7 +232,7 @@
         position: relative;
         left:0;
     }
-/*    .resource-sm-height {
+/*    .resource-content.resource-sm-height {
         height: 225px;
     }*/
     #resource_list_container .resource-sm-height,
@@ -240,7 +243,6 @@
     #home_resource_list .resource-sm-height .resource-content {
         height: 225px;
     }
-/*how it work process arrow*/
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -310,6 +312,9 @@
     #social-media-section .section-heading {
         margin: 0 auto;
         width: 55%;
+    }
+        #home_resource_list #articles .owl-controls {
+        display: block;
     }
 }
 @media (max-width:767px) {
@@ -565,7 +570,7 @@
         top:70px;
         z-index: 0;
     }
-    #about_us p, .get-funded h2, .get-funded h3 {
+    #about_us p, .get-funded h2, .get-funded h3, #help-log p {
         font-size: 24px;
     }
     #about_us p {
@@ -1025,17 +1030,18 @@
     }
 /*-----------------------------------batch 2 end--------------------------------------*/
 /*-----------------------------------------------------------------------------------*/
-/*-----Bugzilla Fixes start*/
     #get_quote_home form{
         display: none;
     }
-    #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
+    #get_quote_home.activeGetQuote form, 
+    #form_box.activeGetQuote form {
         display: block;
     }
     #get_quote_home{
         overflow: auto;
     }
-    #get_quote_home.activeGetQuote form, #form_box.activeGetQuote form {
+    #get_quote_home.activeGetQuote form, 
+    #form_box.activeGetQuote form {
         position: absolute;
         bottom: 10px;
         margin-bottom: 0px;
@@ -1045,16 +1051,16 @@
     #get_quote_home.activeGetQuote,  #form_box.activeGetQuote{
         height: 75vh;
     }
- .mobile-menu {
-    background: none repeat scroll 0 0 #01aef0;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-}
-.menu-top-spacing {
-    margin-top: 55px;
-}
+    .mobile-menu {
+       background: none repeat scroll 0 0 #01aef0;
+       overflow: hidden;
+       position: fixed;
+       width: 100%;
+       z-index: 999;
+   }
+   .menu-top-spacing {
+       margin-top: 55px;
+   }
     .search-result .resource-container {
         border-bottom: none;
     }
@@ -1062,50 +1068,142 @@
         color:#00aeef;
         padding:6px 8px;
     }
+    /*-----------------------------------batch 2 start--------------------------------------*/
+/*-----------------------------------------------------------------------------------*/
     /* Resources Post */
-#social-media-section .section-heading {
-    margin: 0 auto;
-    width: 100%;
-}
-#social-media-section .content-area p.top-line, #social-media-section .content-area p, #social-media-section .content-area .img-container, #social-media-section .btn-block, #social-media-section .client-testimonials { width: 100%}
-#cc-newslette input[type="text"] { width: 100%}
-#cc-newslette .btn-left { text-align: center}
-#articles .related-articles { padding: 50px 0 35px;}
-#articles .related-articles .thumbnail { background-color: transparent; min-height: 110px; border-width: 2px; margin-bottom: 10px;}
-#articles .related-articles .caption h3 { font-size: 16px; line-height: normal}
-#articles .related-articles .section-heading {
-    margin: 0 0 25px;
-}
-#articles .related-articles .caption { padding: 10px;}
-#articles .related-articles .col-sm-6:last-child .thumbnail { border: none}
-#cc-newslette small {
-    bottom: -95px;
-    float: none;
-    left: 0;
-    padding-left: 0;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-}
-#social-media-section .testimonial-content .testimonial-heading { font-size: 26px;}
-.social-media { position: inherit; right: 0; width: 100%; display: inline-block; border-bottom: 2px solid #eeeeee; padding-bottom: 20px; padding-left: 12%; margin-bottom: 15px}
-.social-media h3 { border: none; float: left; margin-top: 10px;}
-.social-media li { float: left; margin: 0 0 0 20px;}
-/*  Resources Glossary  */
-.glossary-mob-top-border {  border-top: 2px solid #eee;}
-.resources-glossary p { font-size: 16px;}
-/* Contact form  */
-.contact-from { 
-    width: auto;
-    margin: 0 auto
-}
-#infografic_product.tutorials .owl-controls {
-    display: none;
-}
-.tutorial-section {
-        margin: 30px 0;
-        padding:0;
-}
+    #social-media-section .section-heading {
+        margin: 0 auto;
+        width: 100%;
+    }
+    #social-media-section .content-area p.top-line,
+    #social-media-section .content-area p,
+    #social-media-section .content-area .img-container,
+    #social-media-section .btn-block,
+    #social-media-section .client-testimonials { 
+        width: 100%
+    }
+    #cc-newslette input[type="text"] { 
+        width: 100%;
+    }
+    #cc-newslette .btn-left { 
+        text-align: center;
+    }
+    #articles .related-articles { 
+        padding: 50px 0 35px;
+    }
+    #articles .related-articles .thumbnail { 
+        background-color: transparent; 
+        min-height: 110px; 
+        border-width: 2px; 
+        margin-bottom: 10px;
+    }
+    #articles .related-articles .caption h3 { 
+        font-size: 16px; 
+        line-height: normal;
+    }
+    #articles .related-articles .section-heading {
+        margin: 0 0 25px;
+    }
+    #articles .related-articles .caption { 
+        padding: 10px;
+    }
+    #articles .related-articles .col-sm-6:last-child .thumbnail { 
+        border: none;
+    }
+    #cc-newslette small {
+        bottom: -95px;
+        float: none;
+        left: 0;
+        padding-left: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+    #social-media-section .testimonial-content .testimonial-heading { 
+        font-size: 26px;
+    }
+    .social-media { 
+        position: inherit; 
+        right: 0; 
+        width: 100%; 
+        display: inline-block; 
+        border-bottom: 2px solid #eeeeee; 
+        padding-bottom: 20px; 
+        padding-left: 12%; 
+        margin-bottom: 15px;
+    }
+    .social-media h3 { 
+        border: none; 
+        float: left; 
+        margin-top: 10px;
+    }
+    .social-media li { 
+        float: left; 
+        margin: 0 0 0 20px;
+    }
+    /*  Resources Glossary  */
+    .glossary-mob-top-border {  
+        border-top: 2px solid #eee;
+    }
+    .resources-glossary p { 
+        font-size: 16px;
+    }
+    /* Contact form  */
+    .contact-from { 
+        width: auto;
+        margin: 0 auto
+    }
+    #infografic_product.tutorials .owl-controls, #home_resource_list #articles .owl-controls {
+        display: none;
+    }
+    .tutorial-section {
+            margin: 30px 0;
+            padding:0;
+    }
+    .tutorial-description {
+        padding: 20px 10px 0;
+    }
+    .tutorial-description h3 {
+        font-size: 24px;
+    }
+    #faq-block .section-heading {
+        margin-bottom: 30px;
+    }
+    #faq-block {
+        padding: 35px 0 25px;
+    }
+    .search-resource-center input, .search-resource-center .select-topic {
+        width:272px;
+        margin:0 auto;
+    }
+    .search-resource-center .select-topic {    
+        margin-bottom: 20px;
+    }
+    .search-resource-center .form-group {
+        margin-bottom: 0;
+    }
+    #infografic_product.tutorials .customNavigation {
+        margin-bottom: 0;
+    }
+    .accordion-group a {
+        font-size: 18px;
+        padding:10px;
+    }
+    .accordion-inner .accordion-heading a {
+        font-size: 16px;
+        padding: 10px 0;
+        position: relative;
+    }
+    span.top-quest{
+        display: block;
+        width: 110px;
+    }
+    .accordion-inner .accordion-group {
+        padding: 0 15px;
+    }
+    #home_resource_list #articles .related-articles .thumbnail {
+        background-color: #fff; 
+    }
 }
 @media (max-width:480px){
     .water-mark-image {
