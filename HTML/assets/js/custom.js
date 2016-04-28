@@ -275,12 +275,12 @@ $(function(){
 		//resource section on home next and prev. events 
 		$(".slide-next").click(function(){
 			resourceSlider.trigger("next.owl.carousel");
-		})
+		});
 
 		$(".slide-prev").click(function(){
 			resourceSlider.trigger("prev.owl.carousel");
-		})
-                
+		});
+                //help center slider
                 $("#infografic_product.tutorials .slide-next").click(function(){                    
 			infoGraphSlider.trigger("next.owl.carousel");
 		});
