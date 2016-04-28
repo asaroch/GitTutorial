@@ -273,7 +273,8 @@ strong,
 .info-product-item p span,
 form.form-section .form-control,
 form.form-section h3,
-.search-resource-center input
+.search-resource-center input,
+.connect-through h5
 {
 font-family: 'Fort-Bold';
 }
@@ -372,13 +373,13 @@ height: 50px;
 #financial_product {
 padding-bottom: 0;
 }
-.financial-product-item {
+.financial-product-item , .connect-through{
 margin-bottom: 10px;
 text-align: center;
 color: #fff;
 padding: 15px 20px;
 }
-.financial-product-item h5 {
+.financial-product-item h5, .connect-through h5 {
 font-size: 26px;
 margin:24px 0 0;
 word-wrap: break-word;
@@ -898,7 +899,7 @@ padding: 65px 0;
 #details_termsloan, #funding-option, #faq-block{
 	background: #eee;
 }
-.financial-product-item h5.section-heading {
+.financial-product-item h5.section-heading, .connect-with-us .section-heading {
 color: #fff;
 font-size: 36px;
 }
@@ -2729,12 +2730,25 @@ span.top-quest {
     color: #01aef0;
     font-family: "Fort-bold";
     font-size: 12px;
-    text-transform: uppercase;
-     
+    text-transform: uppercase;     
 }
-
 /* about-us slider*/
-   #home_resource_list #articles .item {
-        padding: 0 10px;
-    }
-
+#home_resource_list #articles .item {
+     padding: 0 10px;
+ }    
+ /*connect with us*/
+ .connect-with-us {
+     text-align: center;
+     padding: 70px 0 30px;
+ }
+ 
+ .connect-with-us h3 {
+     font-size: 22px;
+     color: #fff;
+     line-height: 30px;
+     margin-bottom: 65px;
+     padding: 0 15px;
+ }
+ .connect-with-us h5 {
+     font-size: 22px;
+ }
