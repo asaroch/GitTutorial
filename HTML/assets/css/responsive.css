@@ -273,6 +273,7 @@
     #resource_list_container .resource-sm-height,
     #home_resource_list .resource-sm-height {
         float:left;
+        margin-bottom:20px;
     }
     #resource_list_container .resource-sm-height .resource-content,
     #home_resource_list .resource-sm-height .resource-content {
