@@ -2837,3 +2837,24 @@ span.top-quest {
  #member_benefit.career .section-heading {
      margin-bottom: 30px;
  }
+ /* Page Not Found*/
+#page-not-found p {
+    margin: 0 0 10px;
+    word-wrap: break-word;
+    font-family: "Fort-Light";
+    font-size: 24px;
+    line-height: 30px;
+
+}
+#page-not-found ul {
+    font-size: 22px;
+    padding: 0 20px 5px;
+    list-style-type: disc;
+    margin-bottom: 10px;
+}
+#page-not-found ul li {
+    margin-bottom: 5px;
+    font-family: "Fort-Light";
+    font-size: 24px;
+    line-height: 30px;
+}
