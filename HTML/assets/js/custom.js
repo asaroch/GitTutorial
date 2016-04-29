@@ -398,5 +398,16 @@ $(function(){
             $(".accordion a").on("click", function () {
                 $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
             });
+            
+            //nav drop down
+//            $(".primary-nav li.dropdown span").click(function(){
+//                if ($(this).attr('aria-expanded') == 'true'){
+//                    $(".primary-nav li .dropdown-menu").css("display","block");
+//                }
+//                else {
+//                    $(".primary-nav li .dropdown-menu").css("display","none");
+//                }
+//            });
+            
 
 });
