@@ -2199,11 +2199,11 @@ background-color: transparent;
 /* navigation dropdown  */
 .dropdown .glyphicon-menu-down {
 position: absolute;
-right: 0;
-top: 12px;
-width: 30px;
+right: -4px;
+top: 8px;
+width: 26px;
 text-align: center;
-line-height: 19px;
+line-height: 27px;
 cursor: pointer;
 z-index: 99;
 }
