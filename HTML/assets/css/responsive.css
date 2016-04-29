@@ -33,6 +33,11 @@
      top: 120px;
  }
 }
+@media (min-width:1025px){
+    .dropdown .glyphicon-menu-down {
+        pointer-events: none;
+    }
+}
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
         top: 120px;
@@ -314,9 +319,9 @@
     #testimonial .container {
         position: relative;
     }
-    .dropdown .glyphicon-menu-down {
+/*    .dropdown .glyphicon-menu-down {
         pointer-events: none;
-    }
+    }*/
     .primary-nav .nav .dropdown-menu {
         width: auto;
         min-width: 235px;
