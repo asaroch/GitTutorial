@@ -6,9 +6,9 @@ get_header();
 
 // Fetch Business types to populate filter business type drop down
 $business_types = get_terms('business-type', array(
-    'parent' => '0',
-    'hide_empty' => 0
-        ));
+        'parent'     => '0',
+        'hide_empty' => 0
+    ));
 
 // Popular Topics
 $popular_topics = get_terms('resource-topic', array(
@@ -98,8 +98,10 @@ if (!empty($featured_resources)) {
     } else {
         $topics = '';
     }
+    
     // Reading time
     $reading_time =  $estimated_time->estimate_time_shortcode($featured_resources[0]);
+   
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
@@ -382,21 +384,22 @@ $topics = get_terms('resource-topic', array(
                     ?>
                     <?php
                     // Newsletter
-                    $newsletter = get_option('newsletter_data');
+                    $newsletter = get_option('news_letter_data');
+                 
                     ?>
                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section">
                         <?php
                         if ($newsletter['heading'] != '') {
                             ?>
-                            <h2 class="section-heading"><?php echo $newsletter['heading']; ?></h2>
+                            <h2 class="section-heading news-letter-heading"><?php echo $newsletter['heading']; ?></h2>
                             <?php
                         }
                         ?>
                         <div class="col-xs-12 post-information">
                             <?php
-                            if ($newsletter['copy_text'] != '') {
+                            if ( $newsletter['description'] != '' ) {
                                 ?>
-                                <p><?php echo $newsletter['copy_text']; ?></p>
+                                <p><?php echo $newsletter['description']; ?></p>
                                 <?php
                             }
                             ?>
@@ -471,26 +474,34 @@ if (!empty($popular_topics)) {
         <!--applynow widget ends here-->
     </div>
 </section>
+<?php 
+$ebook_heading = get_post_meta($post->ID, 'wpcf-ebook-heading', true);
+$ebook_desc    = get_post_meta($post->ID, 'wpcf-ebook-description', true);
+?>
 <section class="get-e-book">
     <div class="container">					
         <div class="row">
             <div class="col-sm-12">
-                <h3 class="section-heading">Reach Your Financial Goals With The E-book</h3>
-                <p>The free e-book comes with a weekly newsletter on business funding.</p>
+                <h3 class="section-heading"><?php echo $ebook_heading; ?></h3>
+                <p><?php echo $ebook_desc; ?></p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <input type="text" class="form-control field-style" placeholder="Email Address">
+        <form id="ebook-form" method="post">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <fieldset>
+                                <input type="text" class="form-control field-style" placeholder="Email Address">
+                            </fieldset>
+                        </div>
                     </div>
+                    <div class="col-sm-4 text-left">
+                        <button type="submit" class="btn btn-blue-bg field-style">GET E-BOOK <i class="glyphicon glyphicon-play"></i></button>
+                    </div>						
                 </div>
-                <div class="col-sm-4 text-left">
-                    <button type="submit" class="btn btn-blue-bg field-style">GET E-BOOK <i class="glyphicon glyphicon-play"></i></button>
-                </div>						
-            </div>
-        </div>					
+            </div>	
+        </form>
     </div>
 </section>	
 <?php get_footer(); ?>

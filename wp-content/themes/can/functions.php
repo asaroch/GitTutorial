@@ -1643,3 +1643,24 @@ function resource_detail_copy_text() {
     return $return;
 }
 add_shortcode( 'resource-detail-copy-text', 'resource_detail_copy_text' );
+
+add_action( 'wp_ajax_nopriv_newsletter_subscribe', 'newsletter_subscribe' );
+add_action( 'wp_ajax_newsletter_subscribe', 'newsletter_subscribe' );
+/* * ****************************************************************************
+ * Callback function of ajax hook to subscibe on newsletter
+ * ********************************************************* *********************/
+function newsletter_subscribe() {
+    $email       = $_POST['email'];
+    $emailFormat = get_option('news_letter_data');
+    
+    $headers[]   = 'From: '.get_option('admin_email');
+    $headers[]   = 'Content-Type: text/html; charset=UTF-8';
+    
+    $response  = array();
+    if (wp_mail ( $email, $emailFormat['subject'], $emailFormat['body'], $headers ) ) {
+        $reponse['msg']  = 'Sucess';
+        $reponse['data'] = '<label class="sucess">Thank you to subscribe. Email has been sent to you.</label>';
+    }
+    echo json_encode($reponse);
+    exit;
+}

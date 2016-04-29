@@ -71,7 +71,7 @@ if ((isset($_GET['business-type']) && $_GET['business-type'] != '') && count($fi
 }
 
 $resources = new WP_Query($args);
-
+//prx($resources);
 ?>
 <section id="search_resource"><!-- Search Resource -->
     <div class="container">
