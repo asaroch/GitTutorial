@@ -861,6 +861,9 @@ text-align: left;
 }
 /*resource end*/
 /* terms loan */
+.head-titles {
+    position: relative;
+}
 .head-titles p {
 font-size: 16px;
 margin-top: 20px;
@@ -1723,7 +1726,7 @@ z-index: 9;
 .bring-best-item{
 margin: 0px 22px 60px;
 }
-.bring-best-item .category-icon {
+.bring-best-item .category-icon , #member_benefit.career .category-icon{
 width: 92px;
 height: 92px;
 }
@@ -2826,4 +2829,8 @@ span.top-quest {
  #faq-block.career .section-heading + p {
      margin-bottom: 75px;
      text-align: center;
+ }
+
+ #member_benefit.career .section-heading {
+     margin-bottom: 30px;
  }
