@@ -29,6 +29,8 @@ $search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
 $cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
 $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 
+// video section heading
+$video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', true);
 
 // tutorial carousel
 $args = array(	'post_status' => 'publish' , 
@@ -135,19 +137,45 @@ $business_types = get_terms('business-type', array(
                 <!-- Infografic carousel -->
 		<section id="infografic_product" class="tutorials">
 			<div class="container">
-				<h2 class="section-heading">Tutorials </h2>
+                            
+				<h2 class="section-heading"><?php echo $video_section_heading; ?> </h2>
                                 <div id="infografic_carousel" class="owl-carousel owl-theme">
-                                <?php
+                                <?php                              
                                 if ($help_center_video->found_posts > 0) {
                                 while ($help_center_video->have_posts()) : $help_center_video->the_post();
-                                $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);                             
+                                $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);   
+                    $meta = get_post_meta($post->ID, '_fvp_video', true);
+                    $video = wp_get_attachment_url($meta['id']);
+// Script to generate thumbnail from video* */
+                    $ffmpeg = 'ffmpeg';
+
+// where you'll save the image
+                    $upload_url = wp_upload_dir();
+                   $image = $upload_url['basedir'] . "/thumbnails/" . $post->ID . ".jpg";
+
+// default time to get the image
+                    $second = 1;
+
+// get the duration and a random place within that
+                    $cmd = "$ffmpeg -i $video 2>&1";
+                   
+                    if (preg_match('/Duration: ((\d+):(\d+):(\d+))/s', $cmd, $time)) {
+                        $total = ($time[2] * 3600) + ($time[3] * 60) + $time[4];
+                        $second = rand(1, ($total - 1));
+                    }
+
+// get the screenshot
+                    $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1";
+                    $return = `$cmd`;
+//Script Ends here* */
+                    
                                 ?>
                                     <div class="item">
                                         <div class="col-sm-12 tutorial-section">
                                             <div class="col-sm-7">
                                                 <?php if (has_post_thumbnail($post->ID)): ?>
                                                 <div class="video-player">
-                                                    <?php echo  get_the_post_thumbnail($post->ID); ?>
+                                                   <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><img src="<?php echo $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg"; ?>" alt="video thumbnail"><div class="video-play-icon"><i></i></div></a>
                                                 </div>					
                                                 <?php endif; ?>
                                             </div>
