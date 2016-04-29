@@ -25,6 +25,13 @@
     .tutorial-description {
          padding: 0 80px 0 0px;
     }
+    .connect-with-us h3 {
+        padding: 0 114px;
+    }
+    /*career*/
+    .testimonial-content.career {
+     top: 120px;
+ }
 }
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
@@ -77,6 +84,10 @@
     .search-result-list {
         padding-left: 35px;
     }
+    #articles .related-articles .caption h3 {
+        font-size: 22px;
+        line-height: 26px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
@@ -104,7 +115,16 @@
     .search-resource-center .select-topic {
         width: 240px;
     }
-    
+    .testimonial-content.career {
+        top: 110px;
+         height: 335px;
+    }
+    .testimonial-content.career .section-heading {
+         margin: 8px 0;
+     }
+     .testimonial-content.career h5 {
+         margin-bottom: 10px;
+     }    
 }
 @media (min-width:992px) {
     #post-article {
@@ -304,9 +324,12 @@
     .bring-best-item {
         height:300px;
     }    
-    /*infographic slider arrow spacing */
-        #infografic_carousel {
+    /* slider arrow spacing */
+    #infografic_carousel {
         padding: 0 35px;
+    }
+    #home_resource_list #articles .item {
+        padding: 0 20px;
     }
     /* Resources Post */
     #social-media-section .section-heading {
@@ -315,7 +338,12 @@
     }
         #home_resource_list #articles .owl-controls {
         display: block;
+        margin-bottom: 40px;
     }
+     #member_benefit.career .section-heading {
+        width: 41%;
+        margin: 0 auto 45px;
+     }
 }
 @media (max-width:767px) {
     #home_get_quote{
@@ -698,7 +726,6 @@
         float:left;
     }
     #all_resources_block .resource-content {
-/*        padding:35px 18px 30px;*/
         padding: 0px 18px 30px;
         width:100%;
         height: auto;
@@ -819,13 +846,19 @@
         padding-bottom: 30px;
     }
     /* Block Solution Built*/
-    #term_loan .loan-nav ul li { float: inherit; border: none}
+    #term_loan .loan-nav ul li {
+        float: inherit; 
+        border: none;
+    }
     #term_loan .down-arrow {
         left: 43%;
         top: 16px;
         border-top: 18px solid rgb(225,212,228);
     }
-    #term_loan p { font-size: 28px; line-height: 38px;}
+    #term_loan p { 
+        font-size: 28px; 
+        line-height: 38px;
+    }
     #term_loan .person-name {
         font-size: 22px;
         text-transform: normal;
@@ -948,12 +981,12 @@
         background-color: #e69500; 
     }
     .accordion-xs .accordion-xs-toggle:after {
-        content: "";
+        content: "?";
         float: right;
         color: rgba(1, 174, 240, 0.9);
     }
     .accordion-xs .accordion-xs-toggle.collapsed:after { 
-        content: "";
+        content: "?";
     }
     .accordion-xs-collapse .inner { 
         display: list-item; 
@@ -1105,7 +1138,11 @@
         margin: 0 0 25px;
     }
     #articles .related-articles .caption { 
-        padding: 10px;
+        padding: 10px 15px;
+        height: 320px;
+    }
+    #articles .related-articles .caption .read-time {
+        position: absolute;
     }
     #articles .related-articles .col-sm-6:last-child .thumbnail { 
         border: none;
@@ -1203,6 +1240,19 @@
     }
     #home_resource_list #articles .related-articles .thumbnail {
         background-color: #fff; 
+    }
+    .btn-purple-style {
+        padding: 12px 20px;
+    }
+    /*career*/
+    .testimonial-content.career {
+        padding: 0 20px;
+    }
+    .job-location > a {
+      padding:0;
+    }
+    .job-location {
+        padding: 20px 0;
     }
 }
 @media (max-width:480px){
