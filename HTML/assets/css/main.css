@@ -1723,7 +1723,7 @@ z-index: 9;
 .bring-best-item{
 margin: 0px 22px 60px;
 }
-.bring-best-item .category-icon {
+.bring-best-item .category-icon , #member_benefit.career .category-icon{
 width: 92px;
 height: 92px;
 }
