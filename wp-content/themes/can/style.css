@@ -861,6 +861,9 @@ text-align: left;
 }
 /*resource end*/
 /* terms loan */
+.head-titles {
+    position: relative;
+}
 .head-titles p {
 font-size: 16px;
 margin-top: 20px;
@@ -1457,7 +1460,7 @@ form.form-section label{
 font-size: 16px;
 color: #6d6e71;
 position: relative;
-padding-right: 20px;
+padding-right: 37px;
 width: 100%;
 }
 form.form-section .form-control {
@@ -1723,7 +1726,7 @@ z-index: 9;
 .bring-best-item{
 margin: 0px 22px 60px;
 }
-.bring-best-item .category-icon {
+.bring-best-item .category-icon , #member_benefit.career .category-icon{
 width: 92px;
 height: 92px;
 }
