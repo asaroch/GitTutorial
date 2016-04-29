@@ -273,7 +273,9 @@ strong,
 .info-product-item p span,
 form.form-section .form-control,
 form.form-section h3,
-.search-resource-center input
+.search-resource-center input,
+.connect-through h5,
+.job-post
 {
 font-family: 'Fort-Bold';
 }
@@ -282,11 +284,13 @@ font-family: 'Fort-Light';
 }
 .btn {
 text-transform: uppercase;
+
 }
 .btn-blue-bg {
 background: #01AEF0;
 color: #fff;
 font-family: 'Fort-Medium';
+box-shadow: none;
 }
 .navbar-collapse {
 padding: 0;
@@ -370,13 +374,13 @@ height: 50px;
 #financial_product {
 padding-bottom: 0;
 }
-.financial-product-item {
+.financial-product-item , .connect-through{
 margin-bottom: 10px;
 text-align: center;
 color: #fff;
 padding: 15px 20px;
 }
-.financial-product-item h5 {
+.financial-product-item h5, .connect-through h5 {
 font-size: 26px;
 margin:24px 0 0;
 word-wrap: break-word;
@@ -525,6 +529,7 @@ padding:0;
 color: #01AEF0;
 background-color: #fff;
 border: 2px solid #01AEF0;
+box-shadow: none;
 }
 .utility-navigation .navbar-nav > li.btn-blue-bg > a,
 footer a.btn-blue-bg {
@@ -551,6 +556,7 @@ display: inline-block;
 .btn-purple-style:hover, .btn-purple-style:focus {
 color: #843A87;
 background-color: #fff;
+box-shadow: none;
 }
 .get-funded {
 padding: 55px 0px 65px;
@@ -855,6 +861,9 @@ text-align: left;
 }
 /*resource end*/
 /* terms loan */
+.head-titles {
+    position: relative;
+}
 .head-titles p {
 font-size: 16px;
 margin-top: 20px;
@@ -894,7 +903,7 @@ padding: 65px 0;
 #details_termsloan, #funding-option, #faq-block{
 	background: #eee;
 }
-.financial-product-item h5.section-heading {
+.financial-product-item h5.section-heading, .connect-with-us .section-heading {
 color: #fff;
 font-size: 36px;
 }
@@ -909,7 +918,7 @@ font-size: 16px;
 color: #6d6e71;
 line-height: 30px;
 background: url('images/termsloan/arrow_bullet.png') no-repeat;
-padding-left: 35px;
+padding-left: 50px;
 }
 .paymment-point{
 padding-left: 56px;
@@ -1368,15 +1377,19 @@ margin-bottom: 57px;
 #infografic_product {
 padding: 85px 0 59px;
 }
-#infografic_product .owl-theme .owl-controls .owl-dots .owl-dot {
+#infografic_product .owl-theme .owl-controls .owl-dots .owl-dot, #home_resource_list #articles .owl-theme .owl-controls .owl-dots .owl-dot {
 display: inline-block;
 }
-#infografic_product .owl-theme .owl-controls .owl-dots {
+#infografic_product .owl-theme .owl-controls .owl-dots, #home_resource_list #articles .owl-theme .owl-controls .owl-dots {
 text-align: center;
 }
 #infografic_product .owl-theme .owl-controls .owl-dots .owl-dot.active span {
 background-color: #6a2875;
 opacity: 1;
+}
+#home_resource_list #articles .owl-theme .owl-controls .owl-dots .owl-dot.active span {
+    background-color: #fff;
+    opacity: 1;  
 }
 .info-product-item {
 margin-bottom: 40px;
@@ -1415,7 +1428,7 @@ height: auto;
 padding: 15px 20px 0;
 margin-bottom: 0;
 }
-#termsloan_detail {
+#termsloan_detail, #termsloan_detail.career {
 padding: 74px 0 81px;
 background-color: #eee;
 }
@@ -1423,7 +1436,7 @@ background-color: #eee;
 margin-bottom: 40px;
 }
 #termsloan_detail .details-point li {
-font-size: 14px;
+font-size: 16px;
 }
 .inspiration-content .section-heading {
 margin-top: 52px;
@@ -1447,7 +1460,7 @@ form.form-section label{
 font-size: 16px;
 color: #6d6e71;
 position: relative;
-padding-right: 20px;
+padding-right: 37px;
 width: 100%;
 }
 form.form-section .form-control {
@@ -1713,7 +1726,7 @@ z-index: 9;
 .bring-best-item{
 margin: 0px 22px 60px;
 }
-.bring-best-item .category-icon {
+.bring-best-item .category-icon , #member_benefit.career .category-icon{
 width: 92px;
 height: 92px;
 }
@@ -2178,10 +2191,7 @@ cursor: pointer;
 #home_resource_list .see-all-resources{
 background-color: transparent;
 }
-#home_resource_list .see-all-resources:hover{
-color: #fff;
-border-color: #fff;
-}
+
 /*batch 1 insights section carousal for mobile only end*/
 /* navigation dropdown  */
 .dropdown .glyphicon-menu-down {
@@ -2222,20 +2232,18 @@ bottom: none;
 .btn.focus, .btn:focus, .btn:hover, a:hover, a:active, a:focus {
 outline: 0;
 }
-/* 4-14-16 */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
 -webkit-appearance: none;
 margin: 0;
 }
-
 input[type=number] {
 -moz-appearance:textfield;
 }
-
-#home_resource_list .see-all-resources:hover {
+#home_resource_list .see-all-resources:hover, #home_resource_list .see-all-resources:focus {
 background-color: #fff;
 color: #843a87;
+border-color: #fff;
 }
 /*To make image and video verticaly align*/
 .featured-story-image, .resource-image{
@@ -2435,9 +2443,9 @@ font-size: 20px;
 #social-media-section .btn-block .btn-theme {
 background-color: #6d6e7; color: #00B0EB; font-size: 14px;
 }
-#social-media-section .client-testimonials {  width: 60%; margin: 0px auto; padding-top: 20px;}
-#social-media-section .client-testimonials .media-heading {font-family: Fort-bold; font-size: 16px; color: #6d6e7}
-#social-media-section .client-testimonials .media-body {font-family: Fort-book; font-size: 14px; color: #6d6e71}
+#social-media-section .client-testimonials, #all_resources_block .client-testimonials  {  width: 60%; margin: 0px auto; padding-top: 20px;}
+#social-media-section .client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading {font-family: Fort-bold; font-size: 16px; color: #6d6e7}
+#social-media-section .client-testimonials .media-body, #all_resources_block .client-testimonials .media-body {font-family: Fort-book; font-size: 14px; color: #6d6e71}
 #articles .related-articles {
 background-color: #e9e9e9;
 padding: 70px 0 67px;
@@ -2491,26 +2499,15 @@ height: 100%;
 padding: 0;
 }
 
-#resource_hero .modal-content {
-height: auto;
+#resource_hero .modal-content, #our-leading-team .modal-content{
+height: 100%;
 border-radius: 0;
 }
-#resource_hero .modal-body { padding-top: 0;}
-#resource_hero .modal-body img { margin: 0 auto}
-#resource_hero .modal-body small { margin-top: 15px; display: inline-block}
-#resource_hero .modal-header { border: none}
-#resource_hero .modal-header button.close { font-size: 48px;}
-
-#resource_hero .modal-body small { 
-    margin-top: 15px; 
-    display: inline-block
-}
-#resource_hero .modal-header { 
-    border: none
-}
-#resource_hero .modal-header button.close {
-    font-size: 48px;
-}
+#resource_hero .modal-body, #our-leading-team .modal-body { padding-top: 0;}
+#resource_hero .modal-body img, #our-leading-team .modal-body img { margin: 0 auto}
+#resource_hero .modal-body small, #our-leading-team .modal-body small { margin-top: 15px; display: inline-block}
+#resource_hero .modal-header, #our-leading-team .modal-header { border: none}
+#resource_hero .modal-header button.close, #our-leading-team .modal-header button.close { font-size: 48px;}
 
 /*  Resources Glossary  */
 .resources-glossary .section-heading { 
@@ -2547,7 +2544,11 @@ border-radius: 0;
     display: block;
     padding: 30px;
     text-decoration: none;
-    
+}
+.accordion-group a p {
+    font-size: 14px;
+    color: #6d6e71;
+    font-family: "fort-Book";
 }
 .accordion-group a {
    font-family: "fort-Bold"; 
@@ -2556,7 +2557,7 @@ border-radius: 0;
     float:right;
     color: #01AEF0;
 }
-.accordion-inner .accordion-group {
+.accordion-inner .accordion-group, .job-location {
     border-top: 2px solid #e9e9e9;
     margin-bottom: 0;
     border-bottom: none;
@@ -2578,7 +2579,7 @@ border-radius: 0;
 }
 .live-chat .section-heading,
 .search-resource-center .section-heading{
-    font-family: "fort-Light";
+    font-family: "fort-Medium";
 }
 .live-chat .section-heading b,
 .search-resource-center .section-heading b {
@@ -2634,12 +2635,12 @@ span.top-quest {
     padding: 80px 0
 }
 #our-offices .section-heading { margin-bottom: 50px;}
-#our-offices .thumbnail { 
+#our-offices .thumbnail, #our-leading-team .thumbnail { 
     border: none; 
     padding: 0; 
     border-radius: 0;
 }
-#our-offices .caption h3 {
+#our-offices .caption h3, #our-leading-team .caption h3 {
     font-family: Fort-bold;
     font-size: 28px;
     color: #6a2875;
@@ -2647,7 +2648,16 @@ span.top-quest {
     margin-bottom: 10px;
 }
 #our-offices .caption p { 
-    font-size: 15px; 
+    font-size: 16px;    
+}
+#our-offices .caption p, #our-offices .caption .learn-more-btn {
+     color: #6d6e71;
+}
+#our-offices .caption .learn-more-btn:hover, #our-offices .caption .learn-more-btn:focus  {
+    color: #00aeef;
+}
+#our-offices .caption .learn-more-btn  {
+    font-family: "fort-Book";
 }
 /* About Us  */
 #about-us { 
@@ -2660,8 +2670,42 @@ span.top-quest {
     color: #fff; 
     margin-bottom: 25px;
 }
-#our-leading-team {}
+#our-leading-team  .modal-body .caption p.content { 
+    font-size: 14px; 
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 0 10%
+}
+#our-leading-team .caption p {
+    font-size: 16px;
+}
+#our-leading-team { 
+    padding: 74px 0;
+}
+#our-leading-team:hover img{
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+, IE10 */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+}
 
+#our-leading-team img:hover {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+    cursor: pointer;
+}
+#our-leading-team  .modal-body .thumbnail img {
+    filter: none;
+    -webkit-filter: grayscale(0%);
+}
+#our-leading-team .section-heading { 
+    margin-bottom: 60px;
+}
+#our-leading-team .caption h3 { 
+    font-size: 22px;
+    margin-top: 12px;
+}
 /* Video icon wp */
 .video-play-icon { 
     border: 3px solid #fff; 
@@ -2682,8 +2726,111 @@ span.top-quest {
    border-top: 30px solid transparent;
    border-bottom: 30px solid transparent;
 }
-.video-play-icon:hover, .video-play-icon:hover i { opacity: 0.7}
+.video-play-icon:hover, .video-play-icon:hover i { 
+    opacity: 0.7;
+}
+.html5-lightbox-box { 
+    width: 96%;
+}
+.html5-lightbox-overlay { 
+    opacity: 0.5;
+}
+.html5-elem-wrap { 
+    width: 100%;
+    height: 100%;
+}
+#home_resource_list #articles .related-articles { 
+    background-color: transparent;
+}
+#home_resource_list #articles .related-articles .caption .read-date { padding-bottom: 5px;}
+#home_resource_list #articles .related-articles .caption .topic { 
+    color: #01aef0;
+    font-family: "Fort-bold";
+    font-size: 12px;
+    text-transform: uppercase;     
+}
+/* Resource Listing */
+#all_resources_block .client-testimonials { 
+    width: auto;
+    display: inline-block;
+    border-top: 1px solid rgb(238,238,238);
+    border-bottom: 3px solid rgb(238,238,238);
+    margin-bottom: 40px;
+    padding: 18px 0;
+}
+.topics-bg { 
+    padding: 50px 0 20px; 
+    border-bottom: 2px solid rgb(238,238,238);
+}
+.topics-bg .section-heading { color: #01aef0;}
 
-.html5-lightbox-box { width: 96%}
-.html5-lightbox-overlay { opacity: 0.5}
-.html5-elem-wrap { width: 100%; height: 100%}
+/* about-us slider*/
+
+#home_resource_list #articles .item {
+     padding: 0 10px;
+ }    
+ /*career*/
+ .connect-with-us {
+     text-align: center;
+     padding: 70px 0 30px;
+ } 
+ .connect-with-us h3 {
+     font-size: 22px;
+     color: #fff;
+     line-height: 30px;
+     margin: 28px 0 65px;
+     padding: 0 15px;
+ }
+ .connect-with-us h5 {
+     font-size: 22px;
+     margin-bottom: 15px;
+ }
+ connect-through span {
+     display: block;
+ }
+ .testimonial-content.career h4 {
+     font-size: 18px;
+ }
+ .testimonial-content.career h4 {
+    color: #6b2875;
+ }
+ .testimonial-content.career h5,  .city-name  {
+     color: #6d6e71;
+ } 
+ .testimonial-content.career h5 {
+     font-size: 20px;     
+     margin-bottom: 20px;
+ }
+ .testimonial-content.career .section-heading {
+     margin: 18px 0 15px;
+ }
+ #termsloan_detail.career {
+     background-color: #fff;
+ }
+.job-location {
+     padding: 20px 48px;
+ }
+ .job-location > a {
+     padding:0;
+ }
+ .job-post, .job-location span {
+     color: #00aeef;
+     font-size: 14px;
+ }
+.job-post, .city-name {
+     font-size: 18px;
+ }
+ .city-name {
+   font-family: "fort-Book";  
+ }
+ #faq-block.career .section-heading {
+     margin-bottom: 30px;
+ }
+ #faq-block.career .section-heading + p {
+     margin-bottom: 75px;
+     text-align: center;
+ }
+
+ #member_benefit.career .section-heading {
+     margin-bottom: 30px;
+ }
