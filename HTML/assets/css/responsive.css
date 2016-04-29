@@ -786,7 +786,7 @@
     #get_quote, #get_quote_home {
         z-index: 8;
     }
-    #home_get_quote .down-arrow {
+    #home_get_quote .down-arrow , .inner-page-arrow.xs-border {
         border-top: 18px solid rgb(225,212,228);
     }
     .post-information {
