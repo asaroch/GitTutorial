@@ -1,82 +1,39 @@
 <?php
 /**
- * Plugin Name: Partners
+ * Plugin Name: Quick Quote 
  * Description: Plugin displays error messages
  */
-add_action('admin_menu', 'can_partners_add_pages');
+add_action('admin_menu', 'can_quick_quote_add_pages');
 
 /* * *********************************************************
  * Callback function of menu hook 
  * ********************************************************* */
 
-function can_partners_add_pages() {
-    add_menu_page('Partners', 'Partners', 6, 'partners', 'partners_callback_function', '', 6);
-    add_submenu_page('partners', 'Partner Types', 'Partner Types', 5, 'edit.php?post_type=partner-type');
-    add_submenu_page('partners', 'Selected Partners', 'Selected Partners', 5, 'edit.php?post_type=selected_partner');
-    add_submenu_page('partners', 'Partner Benefits', 'Partner Benefits', 5, 'edit.php?post_type=partner_benefit');
-    add_submenu_page('partners', 'Partners Lead Generation', 'Partners Lead Generation', 5, 'partner_lead_generation', 'partner_lead_generation');
-    add_submenu_page('partners', 'Partners Lead Generation Email Format', 'Partners Lead Generation Email Format', 5, 'partner_lead_generation_email_format', 'partner_lead_generation_email_format');
+function can_quick_quote_add_pages() {
+    add_menu_page('Quick Quote', 'Quick Quote', 6, 'quick-quote', 'quick_quote', '', 6);
+    add_submenu_page('quick-quote', 'Quick Quote Field Options', 'Quick Quote Field Options', 5, 'quick_quote_field_options', 'quick_quote_field_options');
 }
 
-function partner_lead_generation_email_format() {
-    wp_enqueue_style('bootstrap', '/wp-content/plugins/badges/css/bootstrap.css');
-    wp_enqueue_script('bootstrap', '/wp-content/plugins/badges/js/bootstrap.js');
-    // Save email format
-    if ( isset($_POST['saveEmailFormat']) ) {
-       extract($_POST);
-       update_option( 'partners_lead_generations_email_format', $email );
-    }
-    
-    // Fetch email format
-    $emailFormat = get_option('partners_lead_generations_email_format');
-    ?>
-     <div class="row">
-        <h3>Partner Lead Generation email format:</h3>
-        <div class="col-md-8">
-            <form role="form" method="post" >
-                <div class="form-group">
-                    <label for="subject">Subject:</label>
-                    <input type="text" class="form-control" id="subject" placeholder="Email Subject" name="email[subject]" required value="<?php echo $emailFormat['subject']; ?>" />
-                </div>
-                <div class="form-group">
-                    <label for="email-body">Body:</label>
-                  <?php 
-                  $content = $emailFormat['body'];
-                  wp_editor( $content, 'email-body', $settings = array('textarea_name' => 'email[body]') ); ?> 
-                </div>
-                <button type="submit" class="btn btn-primary" name="saveEmailFormat">Save</button>
-            </form>
-        </div>
-    </div>
-    <?php
-}
 
 /* * *********************************************************
  * Callback function of menu hook 
  * ********************************************************* */
-function partner_lead_generation() {
+function quick_quote() {
     wp_enqueue_style('bootstrap', '/wp-content/plugins/badges/css/bootstrap.css');
     wp_enqueue_script('bootstrap', '/wp-content/plugins/badges/js/bootstrap.js');
     
     // Save validations error message
     if ( isset($_POST['saveValidationsErrorMessage']) ) {
-        update_option( 'partners_lead_generations_validations_error_msg', $_POST['validations'] );
+        update_option( 'quick_quote_generations_validations_error_msg', $_POST['validations'] );
     }
     
     // Fetch option
-    $validationsErr = get_option('partners_lead_generations_validations_error_msg');
+    $validationsErr = get_option('quick_quote_generations_validations_error_msg');
     
-    // Save affiliate data
-    if ( isset($_POST['saveAffiliate']) ) {
-        extract($_POST);
-        update_option( 'partners_lead_affiliate_data', $affiliate );
-    }
-    
-    // Fetch email format
-    $affiliate = get_option('partners_lead_affiliate_data');
+
     ?>
     <div class="row">
-        <h3>Partners Lead Generation validation error messages :</h3>
+        <h3>Quick Quote validation error messages :</h3>
         <div class="col-md-8">
             <form role="form" method="post" >
                 <div class="form-group">
@@ -93,111 +50,76 @@ function partner_lead_generation() {
                 </div>
                  <div class="form-group">
                     <label for="last-name-minimum-chars">Last name minimum characters allowed:</label>
-                    <input type="text" class="form-control" id="last-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[last_name_min_chars]" required value="<?php echo $validationsErr['first_name_min_chars']; ?>" />
+                    <input type="text" class="form-control" id="last-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[last_name_min_chars]" required value="<?php echo $validationsErr['last_name_min_chars']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="busiess-name-minimum-chars">Business name minimum characters allowed:</label>
+                    <input type="text" class="form-control" id="busiess-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[business_name_min_chars]" required value="<?php echo $validationsErr['business_name_min_chars']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="loan-amount">Loan amount range:</label>
+                    <input type="text" class="form-control" id="loan-amount" placeholder="Minimum range for loan amount is 4500 and maximum is 500,000" name="validations[loan-amount]" required value="<?php echo $validationsErr['loan-amount']; ?>" />
                 </div>
                 <button type="submit" class="btn btn-primary" name="saveValidationsErrorMessage">Save</button>
             </form>
         </div>
     </div>
-    <div class="row">
-        <h3>Partner Lead Generation affiliate link:</h3>
-        <div class="col-md-8">
-            <form role="form" method="post" >
-                <div class="form-group">
-                    <label for="copy-text">Copy Text:</label>
-                    <input type="text" class="form-control" id="copy-text" placeholder="Heading" name="affiliate[heading]" required value="<?php echo $affiliate['heading']; ?>" />
-                </div>
-                <div class="form-group">
-                    <label for="external-link">External Link:</label>
-                    <input type="text" class="form-control" id="external-link" placeholder="External Link" name="affiliate[link]" required value="<?php echo $affiliate['link']; ?>" />
-                </div>
-                <button type="submit" class="btn btn-primary" name="saveAffiliate">Save</button>
-            </form>
-        </div>
-    </div>
+ 
    
     <?php
 }
 
 /* * *********************************************************
- * Callback function of hook to display partners page
+ * Callback function of submenu hook 
  * ********************************************************* */
 
-function partners_callback_function() {
+function quick_quote_field_options()
+{
+    wp_enqueue_style('bootstrap', '/wp-content/plugins/badges/css/bootstrap.css');
+    wp_enqueue_script('bootstrap', '/wp-content/plugins/badges/js/bootstrap.js');
+    
+    // Save validations error message
+    if ( isset($_POST['saveFieldOptions']) ) {
+        update_option( 'quick_quote_field_options',$_POST );
+    }
+    
+    // Fetch option
+    $fieldOptionValue = get_option('quick_quote_field_options');
+    
+
     ?>
-    <div class="wrap">
-        <h1>Partner Options:</h1>
-        <form method="post" action="options.php">
-            <?php
-            settings_fields("partners-section");
-            do_settings_sections("partners");
-            submit_button();
-            ?>          
-        </form>
+    <div class="row">
+        <h3>Quick Quote Field Options :</h3>
+        <div class="col-md-8">
+            <form role="form" method="post" >
+                <div class="form-group">
+                    <label for="phone_number">Phone Number:</label>
+                    <input type="radio" class="form-control" name="extraFieldValue" value="phone" <?php if($fieldOptionValue['extraFieldValue'] == 'phone'){ echo "checked"; } ?> />
+                </div>
+                 <div class="form-group">
+                    <label for="business_name">Business Name:</label>
+                    <input type="radio" class="form-control" name="extraFieldValue" value="business_name" <?php if($fieldOptionValue['extraFieldValue'] == 'business_name'){ echo "checked"; } ?> />
+                </div>
+                  <div class="form-group">
+                    <label for="loan_amount">Loan Amount:</label>
+                    <input type="radio" class="form-control" name="extraFieldValue" value="loan_amount" <?php if($fieldOptionValue['extraFieldValue'] == 'loan_amount'){ echo "checked"; } ?> />
+                </div>
+                
+                <div class="form-group">
+                    <label for="post_url">Post URL:</label>
+                    <input type="text" class="form-control" name="post_url" value="<?php echo $fieldOptionValue['post_url']; ?>"/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="post_url">Label For Submit Button:</label>
+                    <input type="text" class="form-control" name="submit_button" value="<?php echo $fieldOptionValue['submit_button']; ?>"/>
+                </div>
+                <button type="submit" class="btn btn-primary" name="saveFieldOptions">Save</button>
+            </form>
+        </div>
     </div>
+ 
+   
     <?php
+    
 }
-
-function partner_types_heading() {
-    ?>
-    <input type="text" name="partner_types_heading" id="partner_types_heading" value="<?php echo get_option('partner_types_heading'); ?>" />
-    <?php
-}
-
-function partner_benefits() {
-    ?>
-    <input type="text" name="partner_benefits" id="partner_benefits" value="<?php echo get_option('partner_benefits'); ?>" />
-    <?php
-}
-
-function selected_partners() {
-    ?>
-    <input type="text" name="selected_partners" id="selected_partners" value="<?php echo get_option('selected_partners'); ?>" />
-    <?php
-}
-
-function call_to_action_heading() {
-    ?>
-    <input type="text" name="call_to_action_heading" id="call_to_action_heading" value="<?php echo get_option('call_to_action_heading'); ?>" />
-    <?php
-}
-
-function call_no() {
-    ?>
-    <input type="text" name="call_no" id="call_no" value="<?php echo get_option('call_no'); ?>" />
-    <?php
-}
-
-function call_to_action_email() {
-    ?>
-    <input type="text" name="call_to_action_email" id="call_to_action_email" value="<?php echo get_option('call_to_action_email'); ?>" />
-    <?php
-}
-
-function industry_recognition() {
-    ?>
-    <input type="text" name="industry_recognition" id="industry_recognition" value="<?php echo get_option('industry_recognition'); ?>" />
-    <?php
-}
-
-function display_partner_panel_fields() {
-    add_settings_section("partners-section", "Settings:", null, "partners");
-
-    add_settings_field("Partner Types Heading", "Partner Types Heading", "partner_types_heading", "partners", "partners-section");
-    add_settings_field("Partner Benefits", "Partner Benefits", "partner_benefits", "partners", "partners-section");
-    add_settings_field("Selected Partners", "Selected Partners", "selected_partners", "partners", "partners-section");
-    add_settings_field("Call to action heading", "Call to action heading", "call_to_action_heading", "partners", "partners-section");
-    add_settings_field("Call No", "Call No", "call_no", "partners", "partners-section");
-    add_settings_field("Email", "Email", "call_to_action_email", "partners", "partners-section");
-    add_settings_field("Industry Recognition", "Industry Recognition", "industry_recognition", "partners", "partners-section");
-
-    register_setting("partners-section", "partner_types_heading");
-    register_setting("partners-section", "partner_benefits");
-    register_setting("partners-section", "selected_partners");
-    register_setting("partners-section", "call_to_action_heading");
-    register_setting("partners-section", "call_no");
-    register_setting("partners-section", "call_to_action_email");
-    register_setting("partners-section", "industry_recognition");
-}
-
-add_action("admin_init", "display_partner_panel_fields");

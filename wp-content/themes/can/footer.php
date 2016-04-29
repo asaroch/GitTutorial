@@ -69,7 +69,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href=<?php echo isset($youtube_url) && $youtube_url != '' ? $youtube_url : 'javascript:void(0)'; ?>" <?php echo isset($youtube_url) && $youtube_url != '' ? 'target=_blank' : ''; ?> title="YouTube">
+                                <a href="<?php echo isset($youtube_url) && $youtube_url != '' ? $youtube_url : 'javascript:void(0)'; ?>" <?php echo isset($youtube_url) && $youtube_url != '' ? 'target=_blank' : ''; ?> title="YouTube">
                                    <img src="<?php echo get_template_directory_uri(); ?>/images/home/youtube_icon.png" alt="youtube share">
                                 </a>
                             </li>

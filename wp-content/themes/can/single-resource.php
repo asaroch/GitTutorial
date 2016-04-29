@@ -80,7 +80,7 @@ while ( have_posts() ) : the_post();
       }
 
       // get the screenshot
-      $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1";
+      $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -s 1000x1000 -vcodec mjpeg -f mjpeg $image 2>&1";
       $return = `$cmd`;
       //Script Ends here* */
       $src = $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg";
