@@ -2198,18 +2198,18 @@ background-color: transparent;
 /*batch 1 insights section carousal for mobile only end*/
 /* navigation dropdown  */
 
-/*.dropdown .glyphicon-menu-down {
+.dropdown .glyphicon-menu-down {
 position: absolute;
 right: 0;
-top: 12px;
-width: 30px;
+top: 8px;
+width: 29px;
 text-align: center;
-line-height: 19px;
+line-height: 27px;
 cursor: pointer;
 z-index: 99;
-}*/
+}
 
-
+/*
 .dropdown .glyphicon-menu-down {
 position: absolute;
 right: -4px;
@@ -2219,7 +2219,7 @@ text-align: center;
 line-height: 27px;
 cursor: pointer;
 z-index: 99;
-}
+}*/
 .primary-nav .nav li.dropdown > a {
 margin-right: 13px;
 }
