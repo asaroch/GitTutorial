@@ -22,6 +22,14 @@ $cta_button_url = get_post_meta(get_the_ID(), 'wpcf-cta-url', true);
 $cta_chat_head = get_post_meta(get_the_ID(), 'wpcf-chat-questions-head', true);
 $cta_chat_button = get_post_meta(get_the_ID(), 'wpcf-chat-phone-number', true);
 
+// Search heading
+$search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
+
+// cta_get_fund
+$cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
+$cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
+
+
 // tutorial carousel
 $args = array(	'post_status' => 'publish' , 
                 'post_type'   => 'help-center-video',
@@ -41,7 +49,13 @@ foreach($chart_topics as $key => $value){
     $question_answer_arr[$value->name][$post_order][get_the_title()] = get_the_content();
 }
 endwhile;
-//prx($question_answer_arr);
+
+// Fetch Business types to populate filter business type drop down
+$business_types = get_terms('business-type', array(
+    'parent' => '0',
+    'hide_empty' => 0
+        ));
+
 ?>
 <!--Process Block -->
 		<section id="faq-block">
@@ -157,7 +171,7 @@ endwhile;
                                             <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
                                             <span class="current-slider"> 1 </span>
                                             <span class="slider-ratio">/</span> 
-                                            <span class="total-slider"> 16 </span>
+                                            <span class="total-slider"> <?php echo $help_center_video->post_count; ?> </span>
                                             <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
                                     </div>
                                 </div>
@@ -165,44 +179,57 @@ endwhile;
 		</section>
 		<!-- Infografic carousel -->		
                 <section class="search-resource-center gray-bg">
-			<div class="container text-center">
-                            <h2 class="section-heading">Looking for more? <b>Search our Resource Center </b></h2>
-				<form action="#" method="post">
-                                    <div class="row"> 
-                                            <div class="col-sm-5 col-md-6">
-                                                    <div class="form-group">
-                                                        <fieldset>
-                                                            <input type="text" class="form-control" placeholder="Search Resources by Keyword">
-                                                        </fieldset>
-                                                    </div>
-                                            </div>
-                                            <div class="col-sm-1 option-text hidden-xs">
-                                                    <p>and / or</p>
-                                            </div>
-                                            <div class="col-sm-4 col-md-3 hidden-xs">
-                                                    <div class="select-topic">
-                                                            <select class="form-control">
-                                                                    <option value="">Business Type</option>
-                                                                    <option value="">Business Type</option>
-                                                                    <option value="">Business Type</option>
-                                                            </select>
-                                                            <span class="glyphicon glyphicon-menu-down select-drop"></span>
-                                                    </div>
-                                            </div>
-                                            <div class="col-sm-2 hidden-xs">
-                                                    <div class="form-group">
-                                                            <button class="btn btn-blue-bg btn-go field-style">Go</button>
-                                                    </div>
-                                            </div>
+                    <div class="container text-center">
+                        <h2 class="section-heading"><?php echo $search_heading; ?></h2>
+                        <form method="get" action="<?php echo get_the_permalink('597'); ?>" id="resource-search">
+                            <div class="row"> 
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <fieldset>
+                                            <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="keyword">
+                                        </fieldset>
                                     </div>
-				</form>
-			</div>
+                                </div>
+                                <?php
+                                if (!empty($business_types)) {
+                                    ?>
+                                    <div class="col-sm-1 option-text hidden-xs">
+                                        <p>and / or</p>
+                                    </div>
+                                    <div class="col-sm-4 col-md-3 hidden-xs">
+                                        <div class="select-topic">
+                                            <fieldset>
+                                                <select class="form-control" name="business-type" id="business-type">
+                                                    <option value="">Filter by Business Type</option>
+                                                    <?php
+                                                    foreach ($business_types as $business_type) {
+                                                        ?>
+                                                        <option value="<?php echo $business_type->term_id; ?>"><?php echo $business_type->name; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </fieldset>
+                                            <span class="glyphicon glyphicon-menu-down select-drop"></span>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                                ?>
+                                <div class="col-sm-2 hidden-xs">
+                                    <div class="form-group">
+                                        <button class="btn btn-blue-bg btn-go field-style">GO <i class="glyphicon glyphicon-play"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 		</section>
                 <section  class="get-funded">
 			<div class="container text-center">
-				<h2 class="section-heading"> Get Funded </h2>
-				<h3> Smart, Simple & Fast. </h3>
-				<a href="javascript:void(0);" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
+				<h2 class="section-heading"> <?php echo $cta_cta_title; ?> </h2>
+				<h3><?php echo $cta_cta_desc; ?></h3>
+				<?php dynamic_sidebar('applynow'); ?>
 			</div>
 		</section>
 
