@@ -2197,6 +2197,19 @@ background-color: transparent;
 
 /*batch 1 insights section carousal for mobile only end*/
 /* navigation dropdown  */
+
+/*.dropdown .glyphicon-menu-down {
+position: absolute;
+right: 0;
+top: 12px;
+width: 30px;
+text-align: center;
+line-height: 19px;
+cursor: pointer;
+z-index: 99;
+}*/
+
+
 .dropdown .glyphicon-menu-down {
 position: absolute;
 right: -4px;
@@ -2841,23 +2854,40 @@ span.top-quest {
      margin-bottom: 30px;
  }
  /* Page Not Found*/
+#page-not-found {
+    margin-bottom: 50px;
+}
+ #page-not-found h1 {
+     font-size: 56px;
+    line-height: 66px;
+}
 #page-not-found p {
     margin: 0 0 10px;
     word-wrap: break-word;
     font-family: "Fort-Light";
+    color: #692173;
     font-size: 24px;
     line-height: 30px;
 
 }
-#page-not-found ul {
+#pageot-found-not-found ul {
     font-size: 22px;
     padding: 0 20px 5px;
-    margin-bottom: 10px;
+    margin: 20px 0;
 }
 #page-not-found ul li {
     margin-bottom: 5px;
     font-family: "Fort-Light";
+    color: #692173;
     font-size: 24px;
     line-height: 30px;
     list-style: outside disc;
 }
+#page-not-found h3 {
+    font-family: "Fort-Light";
+    color: #692173;
+    font-size: 30px;
+    line-height: 40px;
+    margin: 20px 0;
+}
+
