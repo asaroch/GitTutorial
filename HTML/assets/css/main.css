@@ -2684,8 +2684,8 @@ span.top-quest {
 }
 #our-leading-team { 
     padding: 74px 0;
-/*}
-#our-leading-team:hover img{
+}
+/*#our-leading-team:hover img{
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");  Firefox 3.5+, IE10 
     filter: gray;  IE6-9 
     -webkit-filter: grayscale(100%);  Chrome 19+ & Safari 6+ 
@@ -2849,7 +2849,6 @@ span.top-quest {
 #page-not-found ul {
     font-size: 22px;
     padding: 0 20px 5px;
-    list-style-type: disc;
     margin-bottom: 10px;
 }
 #page-not-found ul li {
@@ -2857,4 +2856,5 @@ span.top-quest {
     font-family: "Fort-Light";
     font-size: 24px;
     line-height: 30px;
+    list-style: outside disc;
 }
