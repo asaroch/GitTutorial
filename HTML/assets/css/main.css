@@ -2827,3 +2827,7 @@ span.top-quest {
      margin-bottom: 75px;
      text-align: center;
  }
+
+ #member_benefit.career .section-heading {
+     margin-bottom: 30px;
+ }
