@@ -2407,6 +2407,7 @@ font-family: Fort-book;
 font-size: 14px;
 list-style: circle;
 }
+
 #social-media-section .read-time { display: inline-block; position: inherit; top: 0; margin-top: 12px;}
 #social-media-section .customer-info { font-family: Fort-bold; margin-top: 24px; font-size: 14px}
 #social-media-section .content-area {
@@ -2415,7 +2416,7 @@ display: block;
 margin: 34px auto 0;
 }
 #social-media-section .content-area p{
-width: 60%;
+width: 70%;
 margin: 20px auto;
 font-size: 16px;
 color: #6d6e71;
@@ -2448,6 +2449,7 @@ background-color: #6d6e7; color: #00B0EB; font-size: 14px;
 }
 #social-media-section .client-testimonials, #all_resources_block .client-testimonials  {  width: 60%; margin: 0px auto; padding-top: 20px;}
 #social-media-section .client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading {font-family: Fort-bold; font-size: 16px; color: #6d6e7}
+#social-media-section .client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading a { color: #6d6e7}
 #social-media-section .client-testimonials .media-body, #all_resources_block .client-testimonials .media-body {font-family: Fort-book; font-size: 14px; color: #6d6e71}
 #articles .related-articles {
 background-color: #e9e9e9;
@@ -2464,6 +2466,7 @@ line-height: 30px;
 text-decoration: none;
 padding-bottom: 8px;
 }
+#articles .related-articles .caption h3 a { color: #01aef0;}
 #articles .related-articles .caption .read-time, #articles .related-articles .caption .read-date { font-size: 12px; padding-bottom: 10px;}
 #articles .related-articles .caption .read-time { bottom: 30px; padding-top: 0;}
 #articles .related-articles .caption p { font-size: 14px; color: #6d6e71; padding-top: 10px;}
@@ -2685,19 +2688,19 @@ span.top-quest {
 #our-leading-team { 
     padding: 74px 0;
 }
-#our-leading-team:hover img{
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 3.5+, IE10 */
-    filter: gray; /* IE6-9 */
-    -webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
-    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
-    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+/*#our-leading-team:hover img{
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");  Firefox 3.5+, IE10 
+    filter: gray;  IE6-9 
+    -webkit-filter: grayscale(100%);  Chrome 19+ & Safari 6+ 
+    -webkit-transition: all .6s ease;  Fade to color for Chrome and Safari 
+    -webkit-backface-visibility: hidden;  Fix for transition flickering 
 }
 
 #our-leading-team img:hover {
     filter: none;
     -webkit-filter: grayscale(0%);
     cursor: pointer;
-}
+}*/
 #our-leading-team  .modal-body .thumbnail img {
     filter: none;
     -webkit-filter: grayscale(0%);
@@ -2837,3 +2840,24 @@ span.top-quest {
  #member_benefit.career .section-heading {
      margin-bottom: 30px;
  }
+ /* Page Not Found*/
+#page-not-found p {
+    margin: 0 0 10px;
+    word-wrap: break-word;
+    font-family: "Fort-Light";
+    font-size: 24px;
+    line-height: 30px;
+
+}
+#page-not-found ul {
+    font-size: 22px;
+    padding: 0 20px 5px;
+    margin-bottom: 10px;
+}
+#page-not-found ul li {
+    margin-bottom: 5px;
+    font-family: "Fort-Light";
+    font-size: 24px;
+    line-height: 30px;
+    list-style: outside disc;
+}

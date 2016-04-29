@@ -361,6 +361,9 @@ function can_scripts() {
     // Fetch partner lead validation error messages
     $validationsErrs = get_option('partners_lead_generations_validations_error_msg');
     
+    // Fetch Quick Quote validation error messages
+    $quickQuotevalidationsErrs = get_option('quick_quote_generations_validations_error_msg');
+    
     // Search parameters of resource
     $resourceFilteredParameters = array();
     $resourceFilteredParameters['searchKeyword']   = ( isset($_GET['keyword']) && $_GET['keyword'] != '' ) ? $_GET['keyword'] : FALSE;
@@ -374,7 +377,8 @@ function can_scripts() {
         'financialProductSlider' => $financialProductSlider,
         'testimonialSlider'      => $testimonialSlider,
         'validationsErrs'        => $validationsErrs,
-        'resourceFilteredParameters'  => $resourceFilteredParameters
+        'resourceFilteredParameters'  => $resourceFilteredParameters,
+        'quickQuotevalidationsErrs' => $quickQuotevalidationsErrs
       ));
 }
 
