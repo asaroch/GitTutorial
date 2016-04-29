@@ -1245,6 +1245,12 @@
     .testimonial-content.career {
         padding: 0 20px;
     }
+    .job-location > a {
+      padding:0;
+    }
+    .job-location {
+        padding: 20px 0;
+    }
 }
 @media (max-width:480px){
     .water-mark-image {

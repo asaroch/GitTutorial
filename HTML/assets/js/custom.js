@@ -393,6 +393,10 @@ $(function(){
                 $(".clear-all").hide("slow");
             })
             
-    // custom checkbox 22-april          
+    // custom checkbox 22-april      
+        //    help center accordion
+            $(".accordion a").on("click", function () {
+                $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
+            });
 
 });
