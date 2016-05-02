@@ -2458,7 +2458,7 @@ input[type=number] {
 #social-media-section .btn-block { 
     width: 60%; 
     border-bottom: 2px solid #eeeeee;
-    margin: 20px auto;
+    margin: 20px auto 0;
     padding: 20px 0 60px;
 }
 #social-media-section .btn-block .btn { 
@@ -2475,20 +2475,29 @@ input[type=number] {
     color: #00B0EB; 
     font-size: 14px;
 }
-#social-media-section .client-testimonials, #all_resources_block .client-testimonials  { 
+.client-testimonials, #all_resources_block .client-testimonials  { 
     width: 60%; 
     margin: 0px auto;
-    padding-top: 20px;
+    padding-bottom: 80px;
 }
-#social-media-section .client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading {
+.client-testimonials {
+    width: 58%; 
+    margin: 0px auto;
+    position: relative;
+    top: -55px;
+}
+ #all_resources_block .client-testimonials { 
+     top:0;
+ }
+.client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading {
     font-family: Fort-bold;
     font-size: 16px;
     color: #6d6e7;
 }
-#social-media-section .client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading a {
+.client-testimonials .media-heading, #all_resources_block .client-testimonials .media-heading a {
     color: #6d6e7;
 }
-#social-media-section .client-testimonials .media-body, #all_resources_block .client-testimonials .media-body {
+.client-testimonials .media-body, #all_resources_block .client-testimonials .media-body {
     font-family: Fort-book;
     font-size: 14px;
     color: #6d6e71;
