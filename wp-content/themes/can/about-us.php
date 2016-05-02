@@ -237,7 +237,7 @@ endif;
                     <h5 class="call-us"> Call us: </h5>
                     <h3 class='call-number'> <?php echo $email_us_number; ?> </h3>
                     <span class='divider-line'>  </span>
-                    <a href="mailto:mailto:miranda@yourcompany.com?bcc=eventsteam@yourcompany.com&subject=Excited%20to%20meet%20at%20the%20event!&body=Hi%20Miranda," title="APPLY NOW" class="btn btn-blue-bg"> <?php echo $email_us_button; ?> <i class="glyphicon glyphicon-play"></i></a>
+                    <a href="mailto:anirudh.sood@trantorinc.com?subject=Want%20to%20learn%20more&body=Hi%20,Anirudh" title="APPLY NOW" class="btn btn-blue-bg"> <?php echo $email_us_button; ?> <i class="glyphicon glyphicon-play"></i></a>
                 </div>
             </section>
             <!-- Email Us -->
