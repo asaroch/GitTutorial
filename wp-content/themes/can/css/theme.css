@@ -19,6 +19,7 @@
 }
 .show-less-term-loan{display:none;}
 .show-less-termDetail-loan{display:none;}
+label.sucess{color: green;margin-bottom: 10px;}
 
 @media (max-width:767px) {
   .primary-nav .nav li.dropdown > a {

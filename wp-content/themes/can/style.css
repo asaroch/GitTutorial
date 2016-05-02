@@ -2869,3 +2869,67 @@ span.top-quest {
     margin: 20px 0;
 }
 
+#home_resource_list #articles .item {
+     padding: 0 10px;
+ }    
+ /*career*/
+ .connect-with-us {
+     text-align: center;
+     padding: 70px 0 30px;
+ } 
+ .connect-with-us h3 {
+     font-size: 22px;
+     color: #fff;
+     line-height: 30px;
+     margin: 28px 0 65px;
+     padding: 0 15px;
+ }
+ .connect-with-us h5 {
+     font-size: 22px;
+     margin-bottom: 15px;
+ }
+ connect-through span {
+     display: block;
+ }
+ .testimonial-content.career h4 {
+     font-size: 18px;
+ }
+ .testimonial-content.career h4 {
+    color: #6b2875;
+ }
+ .testimonial-content.career h5,  .city-name  {
+     color: #6d6e71;
+ } 
+ .testimonial-content.career h5 {
+     font-size: 20px;     
+     margin-bottom: 20px;
+ }
+ .testimonial-content.career .section-heading {
+     margin: 18px 0 15px;
+ }
+ #termsloan_detail.career {
+     background-color: #fff;
+ }
+.job-location {
+     padding: 20px 48px;
+ }
+ .job-location > a {
+     padding:0;
+ }
+ .job-post, .job-location span {
+     color: #00aeef;
+     font-size: 14px;
+ }
+.job-post, .city-name {
+     font-size: 18px;
+ }
+ .city-name {
+   font-family: "fort-Book";  
+ }
+ #faq-block.career .section-heading {
+     margin-bottom: 30px;
+ }
+ #faq-block.career .section-heading + p {
+     margin-bottom: 75px;
+     text-align: center;
+ }

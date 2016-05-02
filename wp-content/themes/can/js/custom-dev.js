@@ -240,10 +240,10 @@ $(function () {
     });
     
     // Quick Quote validations
-    $('#ee').validate({
+    $('#get_quote_submit_form').validate({
         // Specify the validation rules
         rules: {
-            name: {
+            fname: {
                 required: true,
                 minlength: 2,
                 lettersonly: true
@@ -273,7 +273,7 @@ $(function () {
         },
         // Specify the validation error messages
         messages: {
-            name: {
+            fname: {
                 required: var_object.quickQuotevalidationsErrs.required,
                 minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
                 lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
@@ -300,8 +300,26 @@ $(function () {
                 required: var_object.quickQuotevalidationsErrs.required
             }
         },
-        submitHandler: function (form) {
-            form.submit();
+        
+        submitHandler: function(form) {
+            var formData = $(form).serialize();
+            alert(formData);
+            $(form).ajaxSubmit({
+                type:"GET",
+                url:var_object.fieldOptionValue.post_url,
+                success: function() {
+                    alert("Success");
+                },
+                error: function() {
+                    //$('#get_quote_submit_form').fadeTo( "slow", 0.15, function() {
+                        //$('#error').fadeIn();
+                   // });
+                }
+            });
         }
     });
+   
+   
+ 
+
 });

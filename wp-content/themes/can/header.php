@@ -121,13 +121,8 @@ ob_start();
                             <?php
                         }
                         ?>
-                        <h1><?php echo $top_headline; ?>
-                            <?php
-                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') && $post->post_type != 'resource' ) {
-                                ?>
-                                <span class="down-arrow inner-page-arrow"></span>
-                                <?php
-                            }
+                        <h1><?php echo $top_headline;
+                            
 							
 							if( is_page('resources') || is_page('search') ) {
 								?>
@@ -135,7 +130,17 @@ ob_start();
 								<?php
 							} 
                             ?>
-                        </h1>					
+                        </h1>
+                            <?php
+                            if (is_page('resources') || is_front_page() || is_page('become-a-partner') || is_page('search') || $post->post_type == 'resource' ) {
+                                ?>
+           
+                                <?php
+                            } elseif(is_page('partners') || is_page('how-it-works') || is_page('small-business-funding')) { ?>
+                                <span class="down-arrow inner-page-arrow xs-border"></span>
+                            <?php } else { ?>
+                                <span class="down-arrow inner-page-arrow"></span>
+                            <?php } ?>
                     </div></div>
                 <!-- /.container-fluid -->		  
             </nav>

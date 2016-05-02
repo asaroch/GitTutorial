@@ -60,6 +60,7 @@ while ( have_posts() ) : the_post();
     $src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
     $src =  $src[0];
     $meta = get_post_meta($post->ID, '_fvp_video', true);
+
     $video = wp_get_attachment_url($meta['id']);
     if ( $video != '') {
         // Script to generate thumbnail from video* */
@@ -210,7 +211,8 @@ while ( have_posts() ) : the_post();
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $author->display_name; ?></h4>
+                                    <?php the_author_posts_link(); ?>
+                                    <h4 class="media-heading"><a href="<?php echo get_the_author_link(); ?>"><?php echo $author->display_name; ?></a></h4>
                                     <?php
                                     $author_description = get_user_meta($post->post_author, 'description', true);
                                     if ($author_description != '') {
@@ -303,29 +305,48 @@ while ( have_posts() ) : the_post();
     ?>
     <!-- Related Articles section -->
     <!-- CAN Capital Newslette -->
+    <?php 
+    // Newsletter
+    $newsletter = get_option('news_letter_data');
+    ?>
     <section class="gradient-one" id="cc-newslette">
         <div class="container">					
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="section-heading">CAN Capital Newslette</h3>
-                    <p>Stay up-to-date withe the latest financial advice</p>
+                    <?php 
+                    if ( $newsletter['heading'] != '' ) {
+                        ?>
+                        <h3 class="section-heading news-letter-heading"><?php echo $newsletter['heading']; ?></h3>
+                        <?php
+                    }
+                    
+                    if ( $newsletter['description'] != '' ) {
+                        ?>
+                          <p><?php echo $newsletter['description']; ?></p>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
-                    <div class="col-sm-8">
-                        <div class="form-group">
-                            <input type="text" class="form-control field-style" placeholder="Email">
+                <form method="post" id="newsletter-subscription">
+                    <div class="col-sm-12">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <fieldset>
+                                    <input type="text" class="form-control field-style" placeholder="Email" name="email">
+                                <fieldset>
+                            </div>
+                            <small>We never share your information</small>
                         </div>
-                        <small>We never share your information</small>
+                        <div class="col-sm-4 btn-left">
+                            <button type="submit" class="btn btn-blue-bg field-style" name="subscribe_newsletter">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
+                        </div>						
                     </div>
-                    <div class="col-sm-4 btn-left">
-                        <button type="submit" class="btn btn-blue-bg field-style">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
-                    </div>						
-                </div>
+                </form>
             </div>					
         </div>
-        </section>
+    </section>
     <!-- CAN Capital Newslette -->
     <!-- Get Funded -->
     <section class="get-funded">
