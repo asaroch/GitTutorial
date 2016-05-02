@@ -782,7 +782,7 @@ class Testimonial_Widget extends WP_Widget {
 								<div class="row">	
 									<div class="col-sm-4">';
                                                                             if (has_post_thumbnail($post->ID)):
-                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail') .'</div>';
+                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array( 'class' => 'img-responsive' )) .'</div>';
                                                                             endif;
 										
 									$listItem .= '</div>
