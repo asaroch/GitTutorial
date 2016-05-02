@@ -229,8 +229,7 @@
     h1{
         font-size: 30px;
         margin:0 0 15px;
-    }
-    
+    }    
     .inner-page-arrow {
         bottom: -48px; 
     }
@@ -258,7 +257,6 @@
     .testimonial-content {
         top: 100px;
     }
-    /*how it work process arrow*/
     .process-block .financial-product-item .process-arrow {
         right: -63px;
     }
@@ -269,9 +267,6 @@
         position: relative;
         left:0;
     }
-/*    .resource-content.resource-sm-height {
-        height: 225px;
-    }*/
     #resource_list_container .resource-sm-height,
     #home_resource_list .resource-sm-height {
         float:left;
@@ -280,6 +275,12 @@
     #resource_list_container .resource-sm-height .resource-content,
     #home_resource_list .resource-sm-height .resource-content {
         height: 225px;
+    }
+    .sidebar .post-section:last-child, .sidebar .post-section:last-child .section-heading {
+        text-align: center;
+    }
+    #all_resources_block .sidebar .post-section:last-child h2.section-heading {
+        float:none;
     }
 }
 @media (min-width: 768px){	
