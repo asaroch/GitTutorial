@@ -1136,7 +1136,7 @@
     #social-media-section .content-area p,
     #social-media-section .content-area .img-container,
     #social-media-section .btn-block,
-    #social-media-section .client-testimonials { 
+    .client-testimonials { 
         width: 100%
     }
     #cc-newslette input[type="text"] { 
