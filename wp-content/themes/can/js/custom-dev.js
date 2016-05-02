@@ -238,4 +238,70 @@ $(function () {
             }
         });
     });
+    
+    // Quick Quote validations
+    $('#ee').validate({
+        // Specify the validation rules
+        rules: {
+            name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            last_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+                minlength: 10,
+                //maxlength   : 10 
+            },
+            business_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            loan_amount: {
+                required: true
+            }
+        },
+        // Specify the validation error messages
+        messages: {
+            name: {
+                required: var_object.quickQuotevalidationsErrs.required,
+                minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
+                lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
+            },
+            last_name: {
+                required: var_object.quickQuotevalidationsErrs.required,
+                minlength: var_object.quickQuotevalidationsErrs.last_name_min_chars,
+                lettersonly: var_object.quickQuotevalidationsErrs.last_name_min_chars
+            },
+            email: {
+                required: var_object.quickQuotevalidationsErrs.required,
+                email: var_object.quickQuotevalidationsErrs.email,
+            },
+            phone: {
+                required: var_object.quickQuotevalidationsErrs.required,
+                minlength: "Minimum 10 numbers are allowed",
+            },
+            business_name: {
+                required: var_object.quickQuotevalidationsErrs.required,
+                minlength: var_object.quickQuotevalidationsErrs.business_name_min_chars,
+                lettersonly: var_object.quickQuotevalidationsErrs.business_name_min_chars
+            },
+            loan_amount: {
+                required: var_object.quickQuotevalidationsErrs.required
+            }
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
 });
