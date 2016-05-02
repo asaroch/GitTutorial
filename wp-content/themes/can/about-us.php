@@ -30,8 +30,16 @@ $search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
 $cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
 $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 
-// video section heading
-$video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', true);
+// great potentials slider
+
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'leading-team',
+				'orderby'     => 'date',
+                                'posts_per_page' => -1,
+				'order'       => 'ASC'
+			);
+$leading_team = new WP_Query( $args );
+
 ?>
 <section class="sales-program gradient-one">
                 <div class="container" id="about-us">
@@ -53,16 +61,23 @@ $video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', 
                         </div>
                     </div>
                     <div class="row">
+                        <?php while ($leading_team->have_posts()) : $leading_team->the_post(); ?>
                         <div class="col-sm-3 text-center">
                             <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb1.png" class="img-responsive" width="156" height="156" data-toggle="modal" data-target="#myModal">
+                                <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive","data-toggle" => "modal","data-target" => "#myModal_".get_the_ID())); ?>
+                                        <?php
+                                    endif;
+                                    ?>
                                 <div class="caption">
-                                    <h3>Dan Mateo</h3>
-                                    <p>Chief Executive Officer</p>
+                                    <h3><?php echo get_the_title(); ?></h3>
+                                    <p><?php echo get_the_excerpt(); ?></p>
                                 </div>
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal fade" id="myModal_<?php echo get_the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -70,11 +85,17 @@ $video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', 
                                         </div>
                                         <div class="modal-body text-center">
                                             <div class="thumbnail">
-                                                <img alt="" src="assets/images/aboutus/img_thumb1.png" class="img-responsive" width="156" height="156" data-toggle="modal" data-target="#myModal">
+                                               <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive","data-toggle" => "modal","data-target" => "#myModal_".get_the_ID())); ?>
+                                        <?php
+                                    endif;
+                                    ?>
                                                 <div class="caption">
-                                                    <h3>Dan Mateo</h3>
-                                                    <p>Chief Executive Officer</p>
-                                                    <p class="content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                                    <h3><?php echo get_the_title(); ?></h3>
+                                    <p><?php echo get_the_excerpt(); ?></p>
+                                    <p class="content"><?php echo get_the_content(); ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,88 +103,9 @@ $video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', 
                                 </div>
                             </div> 
                         </div>
-                        <!---1 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb2.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Parris Sanz, Esq.</h3>
-                                    <p>Chief Legal Officer</p>
-                                </div>
-                            </div>
+                       <?php endwhile; ?>
 
-                        </div>
-                        <!---2 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb3.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>James Mendelsohn</h3>
-                                    <p>Chief Marketing Officer</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---3 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb4.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>DMandy Sebel</h3>
-                                    <p>Chief People Officer</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---4 Block---->
-
-                    </div>
-                    <div class="row voffset4">
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb5.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Kenneth Gang</h3>
-                                    <p>Chief Risk Office</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---1 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb6.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Aman Verje</h3>
-                                    <p>Chief Technology Officer</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---2 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb7.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>David Dart</h3>
-                                    <p>Chief Technology Office</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---3 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb8.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Ritesh Gupta</h3>
-                                    <p>Chief Customer Operations
-                                        Officere</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!---4 Block---->
-                    </div>
+                    </div>                    
                 </div>
             </section>
             <!---Our Leading Team---->
