@@ -21,6 +21,7 @@ function theme_settings_page() {
 
 function add_theme_menu_item() {
     add_menu_page("Theme Panel", "Theme Panel", "manage_options", "theme-panel", "theme_settings_page", null, 99);
+    add_options_page( 'Newsletter Subscription', 'Newsletter Subscription', 10, 'newsletter_subscription', 'newsletter_subscription' );
 }
 
 add_action("admin_menu", "add_theme_menu_item");
@@ -64,3 +65,43 @@ function display_theme_panel_fields() {
 }
 
 add_action("admin_init", "display_theme_panel_fields");
+
+function newsletter_subscription () {
+    wp_enqueue_style('bootstrap', '/wp-content/plugins/theme-options/css/bootstrap.css');
+    wp_enqueue_script('bootstrap', '/wp-content/plugins/theme-options/js/bootstrap.js');
+    
+    if ( isset($_POST['save_news_letter']) ) {
+       update_option( 'news_letter_data', $_POST['news_letter'] );
+    }
+     // Fetch email format
+    $news_letter = get_option('news_letter_data');
+    ?>
+    <div class="row">
+        <h3>Newsletter Subscription:</h3>
+        <div class="col-md-8">
+            <form role="form" method="post" >
+                <div class="form-group">
+                    <label for="heading">Heading:</label>
+                    <input type="text" class="form-control" id="heading" placeholder="Heading" name="news_letter[heading]" required value="<?php echo $news_letter['heading']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" placeholder="Description" name="news_letter[description]" required value="<?php echo $news_letter['description']; ?>" /> 
+                </div>
+                <div class="form-group">
+                    <label for="email-subject">Email Subject:</label>
+                    <input type="text" class="form-control" id="email-subject" placeholder="Email Subject" name="news_letter[subject]" required value="<?php echo $news_letter['subject']; ?>" /> 
+                </div>
+                <div class="form-group">
+                    <label for="email-body">Email Body:</label>
+                    <?php 
+                    $content = $news_letter['body'];
+                    wp_editor( $content, 'email-body', $settings = array('textarea_name' => 'news_letter[body]') ); ?> 
+                </div>
+                <button type="submit" class="btn btn-primary" name="save_news_letter">Save</button>
+            </form>
+        </div>
+    </div>
+    <?php
+    
+}

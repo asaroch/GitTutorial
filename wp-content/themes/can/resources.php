@@ -64,6 +64,7 @@ if (!empty($featured_resources)) {
     if ( $featured_image_or_video == 'video' ) {
         $meta  = get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
         $video = wp_get_attachment_url($meta['id']);
+
         
         if ( $video != '' ) {
             $src = video_thumbnail( $video , '1144x493', $featured_resources[0] );
