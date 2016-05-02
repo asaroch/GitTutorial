@@ -1293,6 +1293,3 @@
         width: 240px;
     }
 }    
-@media (max-width:360px){
-    #social-media-section .btn-block .btn:last-child { margin-top: 10px;}
-}
