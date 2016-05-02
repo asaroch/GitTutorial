@@ -60,32 +60,7 @@ while ( have_posts() ) : the_post();
     $src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
     $src =  $src[0];
     $meta = get_post_meta($post->ID, '_fvp_video', true);
-    $video = wp_get_attachment_url($meta['id']);
-    if ( $video != '') {
-        // Script to generate thumbnail from video* */
-      $ffmpeg = 'ffmpeg';
-
-      // where you'll save the image
-      $upload_url = wp_upload_dir();
-      $image = $upload_url['basedir'] . "/thumbnails/" . $post->ID . ".jpg";
-
-      // default time to get the image
-      $second = 1;
-
-      // get the duration and a random place within that
-      $cmd = "$ffmpeg -i $video 2>&1";
-      if (preg_match('/Duration: ((\d+):(\d+):(\d+))/s', `$cmd`, $time)) {
-          $total = ($time[2] * 3600) + ($time[3] * 60) + $time[4];
-          $second = rand(1, ($total - 1));
-      }
-
-      // get the screenshot
-      $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1";
-      $return = `$cmd`;
-      //Script Ends here* */
-      $src = $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg";
-    }
-      
+    $video = wp_get_attachment_url($meta['id']);   
     ?>
     <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->
         <!-- Button trigger modal -->
@@ -210,7 +185,8 @@ while ( have_posts() ) : the_post();
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><?php echo $author->display_name; ?></h4>
+                                    <?php the_author_posts_link(); ?>
+                                    <h4 class="media-heading"><a href="<?php echo get_the_author_link(); ?>"><?php echo $author->display_name; ?></a></h4>
                                     <?php
                                     $author_description = get_user_meta($post->post_author, 'description', true);
                                     if ($author_description != '') {
