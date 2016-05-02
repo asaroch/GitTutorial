@@ -7,7 +7,7 @@ $meta = get_post_meta(get_the_ID());
 
 global $post;
 $listings = new WP_Query();
-$listings->query('post_type=video-testimonial&order=ASC');
+$listings->query('post_type=video-testimonial&posts_per_page=-1,&order=ASC');
 
 /*
  * Fetch loan keypoints
@@ -153,8 +153,9 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
             <!--Display testimonials for merchants-->
             <?php
             if ($listings->found_posts > 0) {
-                while ($listings->have_posts()) {
+                while ($listings->have_posts()) {                    
                     $listings->the_post();
+                   
                     ?>
                     <!--Testimonials ends here-->
                     <?php
@@ -183,6 +184,7 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
 //Script Ends here* */
                     ?>
                     <div class="item">
+                       
                         <div class="video-player"> 
 
                             <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><img src="<?php echo $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg"; ?>" alt="video thumbnail"><div class="video-play-icon"><i></i></div></a>

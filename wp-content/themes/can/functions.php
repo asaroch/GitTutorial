@@ -361,6 +361,11 @@ function can_scripts() {
     // Fetch partner lead validation error messages
     $validationsErrs = get_option('partners_lead_generations_validations_error_msg');
     
+    // Fetch Quick Quote validation error messages
+    $quickQuotevalidationsErrs = get_option('quick_quote_generations_validations_error_msg');
+    //Fetch quick quote field option values
+    $fieldOptionValue = get_option('quick_quote_field_options');
+    
     // Search parameters of resource
     $resourceFilteredParameters = array();
     $resourceFilteredParameters['searchKeyword']   = ( isset($_GET['keyword']) && $_GET['keyword'] != '' ) ? $_GET['keyword'] : FALSE;
@@ -374,7 +379,9 @@ function can_scripts() {
         'financialProductSlider' => $financialProductSlider,
         'testimonialSlider'      => $testimonialSlider,
         'validationsErrs'        => $validationsErrs,
-        'resourceFilteredParameters'  => $resourceFilteredParameters
+        'resourceFilteredParameters'  => $resourceFilteredParameters,
+        'quickQuotevalidationsErrs' => $quickQuotevalidationsErrs,
+        'fieldOptionValue' => $fieldOptionValue
       ));
 }
 
@@ -778,7 +785,7 @@ class Testimonial_Widget extends WP_Widget {
 								<div class="row">	
 									<div class="col-sm-4">';
                                                                             if (has_post_thumbnail($post->ID)):
-                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail') .'</div>';
+                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array( 'class' => 'img-responsive' )) .'</div>';
                                                                             endif;
 										
 									$listItem .= '</div>
@@ -1847,11 +1854,11 @@ function ajax_author_listing_pagination() {
     echo json_encode($response);
     exit;
 }
-
+        
 /* * ****************************************************************************
  * Function to generate thumbnail of a video
  * ********************************************************* *********************/
-function video_thumbnail( $video , $size = '1144*493') {
+function video_thumbnail( $video , $size = '1144x493', $post) {
      if ( $video != '') {
         // Script to generate thumbnail from video* */
       $ffmpeg = 'ffmpeg';
@@ -1875,6 +1882,7 @@ function video_thumbnail( $video , $size = '1144*493') {
       $return = `$cmd`;
       //Script Ends here* */
       $src = $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg";
+      return $src;
     }
-    return $src;
+    
 }

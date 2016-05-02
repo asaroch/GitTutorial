@@ -64,15 +64,17 @@ if (!empty($featured_resources)) {
     if ( $featured_image_or_video == 'video' ) {
         $meta  = get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
         $video = wp_get_attachment_url($meta['id']);
+
+        
         if ( $video != '' ) {
-            $src = video_thumbnail( $video , '1144*493' );
+            $src = video_thumbnail( $video , '1144x493', $featured_resources[0] );
         }
     }
     else {
         $src = wp_get_attachment_image_src(get_post_thumbnail_id($featured_resources[0]->ID), array(1144, 493), false, '');
     }
     ?>
-    <section id="resource_hero" style="background-image: url('<?php echo $src[0]; ?>')" ><!-- Resource banner -->
+    <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">

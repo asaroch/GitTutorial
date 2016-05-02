@@ -121,13 +121,8 @@ ob_start();
                             <?php
                         }
                         ?>
-                        <h1><?php echo $top_headline; ?>
-                            <?php
-                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') && $post->post_type != 'resource' ) {
-                                ?>
-                                <span class="down-arrow inner-page-arrow"></span>
-                                <?php
-                            }
+                        <h1><?php echo $top_headline;
+                            
 							
 							if( is_page('resources') || is_page('search') ) {
 								?>
@@ -135,7 +130,17 @@ ob_start();
 								<?php
 							} 
                             ?>
-                        </h1>					
+                        </h1>
+                            <?php
+                            if (is_page('resources') || is_front_page() || is_page('become-a-partner') || is_page('search') || $post->post_type == 'resource' ) {
+                                ?>
+           
+                                <?php
+                            } elseif(is_page('partners') || is_page('how-it-works') || is_page('small-business-funding')) { ?>
+                                <span class="down-arrow inner-page-arrow xs-border"></span>
+                            <?php } else { ?>
+                                <span class="down-arrow inner-page-arrow"></span>
+                            <?php } ?>
                     </div></div>
                 <!-- /.container-fluid -->		  
             </nav>
@@ -144,11 +149,7 @@ ob_start();
                 ?>
                 <div id="get_quote">
                     <div id="form_box" class="gradient-one get-Quote-form">
-                        <div class="container">	
-                            <span class="down-arrow"></span>
-                            <h2 class="section-heading"> Get Your Quote </h2>
-                            <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
-                        </div>
+                        <?php echo get_template_part('get-quick-quote'); ?> 
                     </div>
                 </div>
                 <?php
