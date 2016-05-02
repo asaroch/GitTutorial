@@ -399,12 +399,17 @@ $(function(){
                 $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
             });
             
-            //nav drop down
-//            $(".primary-nav li.dropdown span").click(function(){
-//                if ($(this).attr('aria-expanded') == 'false'){
-//                    $(".primary-nav .nav li.dropdown:focus").css({"background-color": "transparent", "border-color": "red", "box-shadow":"none"});
-//                }
-//            });
+//            location                 
+               $("#our-leading-team img, #our-offices img").mouseenter(function(){    
+                   var $this = $(this);
+                   $("#our-leading-team img, #our-offices img").addClass("change-one");
+                   $this.removeClass("change-one");
+               });
+               
+                $("#our-leading-team img, #our-offices img").mouseleave(function(){
+                    $("#our-leading-team img, #our-offices img").removeClass("change-one");
+                });
+              
             
 
 });
