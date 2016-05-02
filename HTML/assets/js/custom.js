@@ -401,11 +401,8 @@ $(function(){
             
             //nav drop down
 //            $(".primary-nav li.dropdown span").click(function(){
-//                if ($(this).attr('aria-expanded') == 'true'){
-//                    $(".primary-nav li .dropdown-menu").css("display","block");
-//                }
-//                else {
-//                    $(".primary-nav li .dropdown-menu").css("display","none");
+//                if ($(this).attr('aria-expanded') == 'false'){
+//                    $(".primary-nav .nav li.dropdown:focus").css({"background-color": "transparent", "border-color": "red", "box-shadow":"none"});
 //                }
 //            });
             

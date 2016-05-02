@@ -6,21 +6,28 @@ get_header();
 //get field option selected from admin
 $fieldOptionValue = get_option('quick_quote_field_options');
 
+
 // Save partner lead form
-if (isset($_POST['getQuote'])) {
-    print_r($_POST);die('here');
-}
-?>
+/*if (isset($_POST['getQuote'])) { 
+    $url = $fieldOptionValue['post_url'];
+    $name = $_POST['fname'];
+    $email = $_POST['email'];
+    $extraFieldValue = $_POST[$fieldOptionValue['extraFieldValue']];
+        $postUrl = $url."?name=".$name."&email=".$email."&".$fieldOptionValue['extraFieldValue']."=".$extraFieldValue;
+    
+}*/
+    ?>
+ 
     <div class="container">
         <span class="down-arrow"></span>
         <h2 class="section-heading"> Get Your Quote </h2>
-        <form class="" role="form" method="POST" id="get_quote_submit_form">
+        <form class="" method="POST" id="get_quote_submit_form">
             <div class="row">
                 <div class="col-sm-10">
                     <div class="row">
                         <div class="col-sm-4">
                             <fieldset>
-                                <input type="text" class="form-control" placeholder="Name" name="name" id="name">
+                                <input type="text" class="form-control" placeholder="Name" name="fname" id="name">
                             </fieldset>
                         </div>
                         <div class="col-sm-4">
@@ -33,7 +40,7 @@ if (isset($_POST['getQuote'])) {
                                 <?php if(isset($fieldOptionValue['extraFieldValue']) && ($fieldOptionValue['extraFieldValue'] == 'business_name') ): ?>
                                 <input type="text" class="form-control" placeholder="Business name" name="business_name" id="business-name">
                                 <?php elseif(isset($fieldOptionValue['extraFieldValue']) && ($fieldOptionValue['extraFieldValue'] == 'loan_amount') ): ?>
-                                <input type="text" class="form-control" placeholder="Loan amount" name="loan_amount" id="loan-amount">
+                                <input type="number" class="form-control" placeholder="Loan amount" name="loan_amount" id="loan-amount" min="4500" max="500000">
                                 <?php else: ?>
                                 <input type="text" class="form-control" placeholder="Phone Number" name="phone" id="phone">
                                 <?php endif; ?>

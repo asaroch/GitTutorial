@@ -1,6 +1,6 @@
 <?php
 /*
-  Template Name: help center
+  Template Name: About Us
  */
 get_header();
 // Fetured resources
@@ -14,12 +14,19 @@ $help_center = new WP_Query($args);
 
 // Description block CTA
 
-$cta_description = get_post_meta(get_the_ID(), 'wpcf-cta-description1', true);
-$cta_button_text = get_post_meta(get_the_ID(), 'wpcf-cta-button-text', true);
-$cta_button_url = get_post_meta(get_the_ID(), 'wpcf-cta-url', true);
+$about_us_heading = get_post_meta(get_the_ID(), 'wpcf-about-us-heading', true);
+$about_us_desc = get_post_meta(get_the_ID(), 'wpcf-about-us-description', true);
+
+$develop_career_text = get_post_meta(get_the_ID(), 'wpcf-develop-career-text', true);
+$develop_career_button = get_post_meta(get_the_ID(), 'wpcf-develop-career-butto', true);
+$develop_career_url = get_post_meta(get_the_ID(), 'wpcf-develop-career-url', true);
+
+$compare_funding_text = get_post_meta(get_the_ID(), 'wpcf-compare-funding-text', true);
+$compare_funding_button = get_post_meta(get_the_ID(), 'wpcf-compare-funding-butt', true);
+$compare_funding_url = get_post_meta(get_the_ID(), 'wpcf-compare-funding-url', true);
 
 // Chat block
-$cta_chat_head = get_post_meta(get_the_ID(), 'wpcf-chat-questions-head', true);
+$email_us_text = get_post_meta(get_the_ID(), 'wpcf-email-us-text', true);
 $cta_chat_button = get_post_meta(get_the_ID(), 'wpcf-chat-phone-number', true);
 
 // Search heading

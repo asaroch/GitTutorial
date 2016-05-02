@@ -170,11 +170,13 @@
         line-height: 35px;
         font-size: 18px;
     }
-    /*batch 2*/
     #sbf_hero .content-list-item {
         padding: 15px 15px 0;
     }
-    
+    .graph1, .graph2 { 
+        width: auto;
+        height: auto;
+    }     
     
 }
 @media (max-width: 991px) and (min-width: 768px) {
@@ -206,7 +208,7 @@
         display: none;
     }
     .col-7-overide {
-        width: 53.833333%;
+        width: 53.633333%;
     }
     .resource-container {
         padding-right: 15px; 
@@ -273,6 +275,7 @@
     #resource_list_container .resource-sm-height,
     #home_resource_list .resource-sm-height {
         float:left;
+        margin-bottom:20px;
     }
     #resource_list_container .resource-sm-height .resource-content,
     #home_resource_list .resource-sm-height .resource-content {
@@ -1279,7 +1282,7 @@
         height: auto;
         margin: 0 auto;
     }
-    .graph1, .graph2 { width: auto; height: auto;} 
+    
     #all_resources_block .select-topic {
         width: 240px;
     }
