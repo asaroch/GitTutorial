@@ -40,6 +40,21 @@ $args = array(	'post_status' => 'publish' ,
 			);
 $leading_team = new WP_Query( $args );
 
+// News articles featured.
+// Fetured resources
+$args = array(
+    'post_type' => 'news',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(array(
+            'key' => '_is_featured',
+            'value' => 'yes'
+        )),
+    'orderby' => 'menu_order date',
+    'order' => 'ASC'
+);
+$news_featured = new WP_Query($args);
+
 ?>
 <section class="sales-program gradient-one">
                 <div class="container" id="about-us">
@@ -190,36 +205,29 @@ endif;
                         <div class="container">
                             <h2 class="section-heading">CAN Capital In the News</h2>
                             <div id="slider_feature_product" class="owl-carousel owl-theme">
+                                <?php 
+                                while ($news_featured->have_posts()) : $news_featured->the_post();
+                                $chart_topics = wp_get_post_terms(get_the_ID(), 'news-agency', array("fields" => "all"));
+                                $category_logo = get_term_meta($chart_topics[0]->term_id,'wpcf-logo',true);
+                                ?>
                                 <div class="item">
                                     <div class="thumbnail">
-                                        <img src="assets/images/resources/main_featured_image.jpg" alt="..." class="img-responsive hidden-xs">
+                                        <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        echo get_the_post_thumbnail(get_the_ID(), 'large');
+                                    endif;
+                                    ?>
+                                        
                                         <div class="caption">
-                                            <p class="topic">TOPIC</p>
-                                            <p class="read-date">Mar 13, 2016</p>
-                                            <h3>The Unbundling of
-                                                Finance</h3>
-                                            <p>In a world where everything is being
-                                                unbundled, allowing consumers to pick ...</p>
+                                            <p class="topic"><img src="<?php echo $category_logo; ?>" alt="News" /></p>
+                                            <p class="read-date"><?php echo get_the_date(); ?></p>
+                                            <h3><?php echo get_the_title(); ?></h3>
+                                            <p><?php echo get_string_length(get_the_content(),'70'); ?></p>
                                             <p class="read-time">8 Min Read</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <p class="topic">TOPIC</p>
-                                            <p class="read-date">Mar 12, 2016</p>
-                                            <h3>Small Business Loans:
-                                                Options Along The
-                                                Financing Spectrum</h3>
-                                            <p>Small businesses, startups, and the
-                                                self-employed have never had the easiest
-                                                time getting financing, but most experts
-                                                agree it became downright difficult ...</p>
-                                            <p class="read-time">8 Min Read</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endwhile; ?>
                                 <div class="item">
                                     <div class="thumbnail">
                                         <div class="caption">

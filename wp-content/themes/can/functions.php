@@ -1886,3 +1886,11 @@ function video_thumbnail( $video , $size = '1144x493', $post) {
     }
     
 }
+
+// get the steing length
+
+function get_string_length($str, $len='35'){
+    $return = (strlen($str) >= $len) ?substr($str, 0, $len) . ' ...' : $str;
+    return $return;
+}
+
