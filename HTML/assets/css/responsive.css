@@ -46,7 +46,13 @@
     .primary-nav li.dropdown span[aria-expanded="false"] + ul.dropdown-menu {
         display: none;
     }
-    /*       .primary-nav li.dropdown span + ul.dropdown-menu*/
+    .primary-nav .glyphicon-menu-down {
+        font-size: 13px;
+    }
+    .dropdown .glyphicon-menu-down {
+        right: -3px;
+        width: 27px;
+    }
 }
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
