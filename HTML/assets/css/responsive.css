@@ -363,7 +363,7 @@
         margin: 0 auto 45px;
     }
     .get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input,.get-Quote-form input[type="number"] { font-family: "Fort-Book"; height: 40px; padding: 10px 15px; font-size: 14px}
-    .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
+    .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-2 { 
         padding-left: 10px;
         padding-right: 10px;
     }
