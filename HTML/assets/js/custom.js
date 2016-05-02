@@ -412,7 +412,7 @@ $(function(){
               
             
 
-});
+
 $(window).scroll(function(e){ 
   var $el = $('.fixedElement'); 
   var isPositionFixed = ($el.css('position') == 'fixed');
@@ -423,4 +423,5 @@ $(window).scroll(function(e){
   {
     $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
   } 
+});
 });
