@@ -803,19 +803,29 @@ span.select-drop {
     position: relative;
     padding: 55px 0px 35px 15px;
 }
-.sponsored {
+.sponsored, .content-area .sponsored {
     position: absolute;
     width: 230px;
     background-color: #c7c7c7;
     bottom: 2px;
     right: 0;
 }
-.sponsored p {
+.content-area .sponsored {
+    width: 70%;
+    position: inherit;
+    margin: 10px auto 0;
+    text-align: left;
+}
+.sponsored p, .content-area .sponsored p {
     font-size: 13px;
     font-family: 'Fort-BookItalic';
     color: #fff;
     padding: 7px;
 }
+#social-media-section .content-area .sponsored p { 
+     width: 100%;
+     margin: 0;
+ }
 .popular-topics {
     border-top: 1px solid #fff;
     background-color: #eee;
@@ -2545,7 +2555,7 @@ input[type=number] {
     width: 70%; 
     border-bottom: 2px solid #eeeeee;
     margin: 20px auto 0;
-    padding: 20px 0 60px;
+    padding: 20px 0;
 }
 #social-media-section .btn-block .btn { 
     border: none;
