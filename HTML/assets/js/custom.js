@@ -175,10 +175,9 @@ $(function(){
 
 		});
 
-
 		var communitySlider = $("#success_community .owl-carousel")
-			communitySlider.owlCarousel({
-			loop:false,
+                    communitySlider.owlCarousel({
+                    loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -187,13 +186,13 @@ $(function(){
 			        0:{
 			            items:1,
 			            nav:true,
-			            navText: ["<span class='icon-sprite ratting-left-icon'></span>","<span class='icon-sprite ratting-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: false
 			        },
 			        768:{
 			            items:2,
 			            nav:true,
-			            navText: ["<span class='icon-sprite ratting-left-icon'></span>","<span class='icon-sprite ratting-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: true
 			        }
 			}
@@ -298,11 +297,11 @@ $(function(){
 			featureSlider.trigger("prev.owl.carousel");
 		});
                 // tern loan
-                $("success_community .slide-next").click(function(){                    
+                $("#success_community .slide-next").click(function(){                    
 			communitySlider.trigger("next.owl.carousel");
 		});
 
-		$("success_community .slide-prev").click(function(){                        
+		$("#success_community .slide-prev").click(function(){                        
 			communitySlider.trigger("prev.owl.carousel");
 		});
 //    Home resources slider end
