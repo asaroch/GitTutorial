@@ -206,8 +206,8 @@ $(function(){
                     var total = property.relatedTarget.items().length - 1
                     // how many slides to go?
                     var remain = total - (shownItems + current);
-                    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain);
-                    
+                    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain); 
+                    activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
                 })
                 
 //    infograpic slider how it works               
@@ -296,6 +296,14 @@ $(function(){
 
 		$("#home_resource_list #articles .slide-prev").click(function(){                        
 			featureSlider.trigger("prev.owl.carousel");
+		});
+                // tern loan
+                $("success_community .slide-next").click(function(){                    
+			communitySlider.trigger("next.owl.carousel");
+		});
+
+		$("success_community .slide-prev").click(function(){                        
+			communitySlider.trigger("prev.owl.carousel");
 		});
 //    Home resources slider end
 
