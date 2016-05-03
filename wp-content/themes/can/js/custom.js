@@ -159,7 +159,10 @@ $(function () {
     });
 
     featureSlider.on('changed.owl.carousel', function (property) {
+        var item = property.item.index + 1;
+        $('.current-slider').html(item);
         var current = property.item.index;
+        
         var shownItems = property.page.size
         // total number of slides
         var total = property.relatedTarget.items().length - 1
