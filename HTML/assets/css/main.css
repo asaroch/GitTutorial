@@ -1862,9 +1862,11 @@ form.form-section h3.heading-beacome-partner {
 }
 .loan-nav .active a {
     font-family: "Fort-bold";
-    color: #fff;
-    background: url(../images/img-2.png) no-repeat;
+    color: #fff;   
     background-position:center top;
+}
+.loan-nav .active {
+     background: url(../images/small_bus_arrow.png) no-repeat center -1px;
 }
 .nav-right-border {
     border-right: 1px solid #e284e0;
