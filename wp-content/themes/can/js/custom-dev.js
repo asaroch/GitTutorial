@@ -342,7 +342,6 @@ $(function () {
         
         submitHandler: function(form) {
             var formData = $(form).serialize();
-            alert(formData);
             $(form).ajaxSubmit({
                 type:"GET",
                 url:var_object.fieldOptionValue.post_url,

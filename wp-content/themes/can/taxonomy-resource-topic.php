@@ -112,7 +112,8 @@ if ($resources->have_posts()) {
                             </div>
                             <div class="col-sm-12"> 
                                 <?php
-                                $author = get_userdata($post->post_author);
+                                $author     = get_userdata($post->post_author);
+                                $user_title = get_user_meta($post->post_author, 'wpcf-user-title', true); 
                                 ?>
                                 <div class="client-testimonials">
                                     <div class="media">
@@ -122,7 +123,14 @@ if ($resources->have_posts()) {
                                             </a>
                                         </div>
                                         <div class="media-body">
-                                                <h4 class="media-heading"><?php echo get_the_author_posts_link(); ?></h4>
+                                            <h4 class="media-heading"><?php echo get_the_author_posts_link(); ?></h4>
+                                            <?php 
+                                            if ( $user_title != '' ) {
+                                                ?>
+                                                <h5><?php echo $user_title; ?></h5>
+                                                <?php
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -245,9 +253,9 @@ $args = array(
 <!-- Related Articles section -->
 <section class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> Get Funded </h2>
-        <h3> Smart, Simple & Fast. </h3>
-        <a href="javascript:void(0);" title="APPLY NOW" class="btn btn-blue-bg"> APPLY NOW <i class="glyphicon glyphicon-play"></i></a>
+        <h2 class="section-heading"> <?php echo get_post_meta( 121, 'wpcf-cta-title', true ); ?> </h2>
+        <h3> <?php echo get_post_meta( 121, 'wpcf-cta-description', true ); ?> </h3>
+        <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>
 <?php get_footer(); ?>

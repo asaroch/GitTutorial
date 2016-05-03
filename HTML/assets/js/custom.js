@@ -368,14 +368,14 @@ $(function(){
             var sbfSlider = $("#slider_testimonial");
             $("#installment_btn").click(function(){
                 sbfSlider.trigger("to.owl.carousel", [2, 500, true]);                
-            })
+            });
             $("#trak_loan_btn").click(function(){
                 sbfSlider.trigger("to.owl.carousel", [1, 500, true]);
                
-            })
+            });
             $("#term_loan_btn").click(function(){
-                sbfSlider.trigger("to.owl.carousel", [0, 500, true])
-            })
+                sbfSlider.trigger("to.owl.carousel", [0, 500, true]);
+            });
             /* Small business funding slider state */  
             $(".navigation-item").click(function(){
                 var $this = $(this);
@@ -398,7 +398,7 @@ $(function(){
             $(".clear-all").click(function(){
                 $(".search-result .sidebar input[type='checkbox']").attr('checked',false);
                 $(".clear-all").hide("slow");
-            })
+            });
             
     // custom checkbox end    
         //    help center accordion
@@ -409,12 +409,12 @@ $(function(){
 //grayscale view                 
                $("#our-leading-team img, #our-offices img").mouseenter(function(){    
                    var $this = $(this);
-                   $("#our-leading-team img, #our-offices img").addClass("change-one");
-                   $this.removeClass("change-one");
+                   $("#our-leading-team img, #our-offices img").addClass("gray-scale");
+                   $this.removeClass("gray-scale");
                });
                
                 $("#our-leading-team img, #our-offices img").mouseleave(function(){
-                    $("#our-leading-team img, #our-offices img").removeClass("change-one");
+                    $("#our-leading-team img, #our-offices img").removeClass("gray-scale");
                 });
 //grayscale view  end 
               

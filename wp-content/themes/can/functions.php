@@ -1642,10 +1642,15 @@ function resource_detail_copy_text() {
     $return = '';
     
    if ( $heading != '' || $person_name != '' || $business_name != '' ) {
-        $return  = '<div class="testimonial-content">
-                    <h3 class="testimonial-heading">"'.$heading.'"</h3>
-                    <h3 class="customer-info">– '.$person_name.', '.$business_name.'</h3>
-                </div>';
+        $return  = '<div class="testimonial-content">';
+                    if ( $heading != '' ) {
+                         $return .= '  <h3 class="testimonial-heading">"'.$heading.'"</h3>';
+                    }
+                    $return .= '<h3 class="customer-info">– '.$person_name;
+                    if ( $business_name != '' ) {
+                         $return .= ', '.$business_name;
+                    }
+                $return .= '</h3></div>';
    }
     return $return;
 }
@@ -1730,6 +1735,7 @@ function ajax_resources_listing_pagination() {
         $title              = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
         $excerpt            = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
         $author_description = get_user_meta(get_the_author_id(), 'description', true);
+        $user_title         = get_user_meta($post->post_author, 'wpcf-user-title', true); 
         $return .= '<div class="row">
                 <div class="col-sm-12 resource-list">';
                     if (has_post_thumbnail(get_the_ID())) {
@@ -1764,11 +1770,11 @@ function ajax_resources_listing_pagination() {
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
-                                    '.get_avatar(get_the_author_id(), 'thumbnail').'
+                                    '.get_avatar(get_the_author_id(), '50*50').'
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">'.get_the_author().'</h4>'.$author_description.'
+                                <h4 class="media-heading">'.get_the_author_posts_link().'</h4><h5>'.$user_title.'</h5>
                             </div>
                         </div>
                     </div>

@@ -1,3 +1,14 @@
+<?php 
+global $curauth;
+global $term;
+if ( count($curauth) || $term ) {
+    $post_id = 121;
+}
+else {
+    $post_id = $post->ID;
+}
+
+?>
 <div class="col-sm-12 col-md-3 mob-grey-bg">
     <div class="row sidebar">
         <?php
@@ -36,9 +47,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section hidden-xs">
-            <h2 class="section-heading"><?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
+            <h2 class="section-heading"><?php echo get_post_meta($post_id, 'wpcf-cta-title', true); ?></h2>
             <div class="col-xs-12 post-information">
-                <p><?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></p>
+                <p><?php echo get_post_meta($post_id, 'wpcf-cta-description', true); ?></p>
                 <div class="get-funded">
                     <!-- applynow widget section -->
                     <?php if (is_active_sidebar('applynow')) : ?>

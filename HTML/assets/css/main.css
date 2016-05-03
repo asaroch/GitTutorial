@@ -189,7 +189,7 @@ header{
     border-bottom: 0px;
     box-shadow:2px 2px 0px rgba(0, 0, 0, 0.2);
 }
-.primary-nav .nav > li a,
+.primary-nav .nav > li a
 .primary-nav .nav > li a:focus {
     border-color: #d7d7d7;
     border: 1px solid rgba(0, 0, 0, 0);
@@ -2613,6 +2613,9 @@ input[type=number] {
 #articles .related-articles .caption { 
     padding: 12px 25px 30px;
 }
+#articles .related-articles .caption img {
+    width: auto;
+}
 #articles .related-articles .caption h3 {
     font-family: Fort-bold;
     color: #01aef0;
@@ -2682,7 +2685,7 @@ input[type=number] {
 }
 #resource_hero .modal-dialog {
     width: 96%;
-    height: 100%;
+    height: auto;
     padding: 0;
 }
 
@@ -2882,26 +2885,14 @@ span.top-quest {
 #our-leading-team { 
     padding: 74px 0;
 }
-/*#our-leading-team:hover img{
-    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");  Firefox 3.5+, IE10 
-    filter: gray;  IE6-9 
-    -webkit-filter: grayscale(100%);  Chrome 19+ & Safari 6+ 
-    -webkit-transition: all .6s ease;  Fade to color for Chrome and Safari 
-    -webkit-backface-visibility: hidden;  Fix for transition flickering 
-}
-
-#our-leading-team img:hover {
-    filter: none;
-    -webkit-filter: grayscale(0%);
-    cursor: pointer;
-}*/
-
-.change-one{
+.gray-scale{
     filter: gray; 
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
-    -webkit-filter: grayscale(100%); 
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); 
     transition: all .6s ease;  
     -webkit-transition: all .6s ease;  
+    -moz-transition: all .6s ease;
 }
 
 #our-leading-team  .modal-body .thumbnail img {
@@ -2977,9 +2968,12 @@ span.top-quest {
 
 /* about-us slider*/
 
-#home_resource_list #articles .item {
+#home_resource_list #articles .item, #success_community .item {
     padding: 0 10px;
-}    
+}
+#financial_product #slider_feature_product {
+    padding:0 18px;
+}
 /*career*/
 .connect-with-us {
     text-align: center;
