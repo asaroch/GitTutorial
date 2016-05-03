@@ -130,8 +130,8 @@ $(function () {
         navigation: true,
         autoplay: true,
         autoplayTimeout: 8000,
-        mouseDrag : false,
-        touchDrag : false,
+        mouseDrag : true,
+        touchDrag : true,
         responsive: {
             0: {
                 items: 1,
@@ -149,7 +149,7 @@ $(function () {
                 items:3,
                 nav:financialProductSlider,
                 navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
-                dots: true
+                dots: true,
             }
         },
         onInitialize: function () {
