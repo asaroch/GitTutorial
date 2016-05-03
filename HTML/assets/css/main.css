@@ -2977,9 +2977,12 @@ span.top-quest {
 
 /* about-us slider*/
 
-#home_resource_list #articles .item {
+#home_resource_list #articles .item, #success_community .item {
     padding: 0 10px;
-}    
+}
+#financial_product #slider_feature_product {
+    padding:0 18px;
+}
 /*career*/
 .connect-with-us {
     text-align: center;
