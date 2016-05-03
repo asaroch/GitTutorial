@@ -2613,6 +2613,9 @@ input[type=number] {
 #articles .related-articles .caption { 
     padding: 12px 25px 30px;
 }
+#articles .related-articles .caption img {
+    width: auto;
+}
 #articles .related-articles .caption h3 {
     font-family: Fort-bold;
     color: #01aef0;
