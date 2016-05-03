@@ -139,7 +139,8 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
 
                 <?php while ($r->have_posts()) : $r->the_post(); ?>
                     <?php
-                    $image_url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'trending-resources');
+                   // $image_url = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'trending-resources');
+                    $featured_image_or_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
                     $count = '';
                     if ($instance['show']):
                         $count = (int) get_post_meta(get_the_ID(), $meta_key, true);
@@ -149,10 +150,26 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
                     ?>
                     <div class="col-xs-12 post-information">
                         <?php
-                        if (!empty($image_url[0])) {
+                        if ( $featured_image_or_video == 'video' ) {
+                            $meta  = get_post_meta(get_the_ID(), '_fvp_video', true);
+                            $video = wp_get_attachment_url($meta['id']);
+                            if ( $video != '' ) {
+                                $src = video_thumbnail( $video , '70x70', $post );
+                                ?>
+                                <div class="post-image">
+                                    <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title() ?>">
+                                        <img src="<?php echo $src; ?>" width="70" height="70" />
+                                    </a>
+                                </div>
+                                <?php
+                            }
+                        }
+                        else {
                             ?>
                             <div class="post-image">
-                               <?php echo get_the_post_thumbnail( $post->ID, array( 70, 70) ); ?>
+                                <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title() ?>">
+                                    <?php echo get_the_post_thumbnail( $post->ID, array( 70, 70) ); ?>
+                                </a>
                             </div>
                             <?php
                         }
