@@ -426,12 +426,12 @@ $(function () {
             //grayscale view                 
                $("#our-leading-team img, #our-offices img").mouseenter(function(){    
                    var $this = $(this);
-                   $("#our-leading-team img, #our-offices img").addClass("change-one");
-                   $this.removeClass("change-one");
+                   $("#our-leading-team img, #our-offices img").addClass("gray-scale");
+                   $this.removeClass("gray-scale");
                });
                
                 $("#our-leading-team img, #our-offices img").mouseleave(function(){
-                    $("#our-leading-team img, #our-offices img").removeClass("change-one");
+                    $("#our-leading-team img, #our-offices img").removeClass("gray-scale");
                 });
             //grayscale view  end 
   
