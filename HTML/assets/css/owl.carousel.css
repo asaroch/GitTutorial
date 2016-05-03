@@ -12,7 +12,7 @@
 }
 .owl-carousel .owl-animated-out {
   z-index: 1;
-}
+}   
 .owl-carousel .fadeOut {
   -webkit-animation-name: fadeOut;
   animation-name: fadeOut;

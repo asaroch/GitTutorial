@@ -1922,3 +1922,10 @@ function resource_social_share_count( $url ) {
     // Linkedin share count
     $linkedin_url = "http://www.linkedin.com/countserv/count/share?url=".$url."&format=json";
 }
+
+// get the steing length
+
+function get_string_length($str, $len='35'){
+    $return = (strlen($str) >= $len) ?substr($str, 0, $len) . ' ...' : $str;
+    return $return;
+}
