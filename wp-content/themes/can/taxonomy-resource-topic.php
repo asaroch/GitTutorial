@@ -13,8 +13,8 @@ $args = array(
     'post_type'      => 'resource',
     'post_status'    => 'publish',
     'posts_per_page' => $show_more_limit,
-    'orderby'        => 'menu_order date',
-    'order'          => 'ASC',
+    'orderby'        => 'date',
+    'order'          => 'DESC',
     'tax_query'      => array(array(
         'taxonomy'   => 'resource-topic',
         'field'      => 'id',
@@ -62,12 +62,28 @@ if ($resources->have_posts()) {
                             <div class="col-sm-12 resource-list">								
                                 <?php
                                 if (has_post_thumbnail($post->ID)) {
+                                    $featured_image_or_video = get_post_meta($post->ID, 'wpcf-featured_image_video', true);
+                                    $meta = get_post_meta($post->ID, '_fvp_video', true);
+                                    $video = wp_get_attachment_url($meta['id']);
+                                    if ($featured_image_or_video == 'video' && $video != '') { // Fetch video thumbmail
+                                        if ($video != '') {
+                                            $src = video_thumbnail($video, '267x200', $post);
+                                            ?>
+                                            <div class="resource-image">
+                                              <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img src="<?php echo $src; ?>" /></a>
+                                            </div>
+                                            <?php
+                                        }
+                                    } else {    // Fetch image src
+                                        ?>
+                                        <div class="resource-image">
+                                            <a href="<?php get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+                                                <?php echo get_the_post_thumbnail($post->ID); ?>
+                                            </a>
+                                        </div>
+                                        <?php
+                                    }
                                     ?>
-                                    <div class="resource-image">
-
-                                        <?php echo get_the_post_thumbnail($post->ID); ?>
-
-                                    </div>
                                     <?php
                                 }
                                 ?>
@@ -84,7 +100,7 @@ if ($resources->have_posts()) {
                                         <?php
                                     }
                                     
-                                    if ($sponsored_by != '') {
+                                    if ( $sponsored_by != '' ) {
                                         ?>
                                         <div class="sponsored">
                                             <p>Sponsored By <?php echo $sponsored_by; ?></p>
@@ -102,17 +118,11 @@ if ($resources->have_posts()) {
                                     <div class="media">
                                         <div class="media-left">
                                             <a href="#">
-                                                <?php echo get_avatar($post->post_author, 'thumbnail'); ?> 
+                                                <?php echo get_avatar($post->post_author, '50*50'); ?> 
                                             </a>
                                         </div>
                                         <div class="media-body">
-                                            <h4 class="media-heading"><?php echo $author->display_name; ?></h4>
-                                            <?php
-                                            $author_description = get_user_meta($post->post_author, 'description', true);
-                                            if ($author_description != '') {
-                                                echo $author_description;
-                                            }
-                                            ?>
+                                                <h4 class="media-heading"><?php echo get_the_author_posts_link(); ?></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +132,7 @@ if ($resources->have_posts()) {
                     endwhile;
                     ?>
                     <?php
-                    if ( $resources->found_posts > 1 ) {
+                    if ( $resources->found_posts > $show_more_limit ) {
                         ?>
                         <div class="show-more-terms paginate-topic-listing">
                             <a href="javascript:void(0)" title="show more user terms of loan"> SHOW MORE <i class="glyphicon glyphicon-chevron-down"></i> </a>
@@ -131,8 +141,8 @@ if ($resources->have_posts()) {
                                 <input type="hidden" id="resource-topic-term"  value="<?php echo $term->term_id; ?>" name="resource_topic_term" />
                             </form>
                         </div>
-                        <div id="loader-conatiner show-more-terms">
-                            <img id="loading-image" src="<?php echo get_template_directory_uri(); ?>/images/loader.png" style="display:none;"/>
+                        <div id="loader-conatiner">
+                            <img id="loading-image" src="<?php echo get_template_directory_uri(); ?>/images/loader.gif" style="display:none;"/>
                         </div>
                         <?php       
                     }
@@ -159,54 +169,72 @@ $args = array(
     'orderby'         => 'menu_order date',
     'order'           => 'ASC'
 );
-$featured_resources = query_posts($args);
+ $resources = new WP_Query($args);
 
-if ( count($featured_resources) ) {
+    if ($resources->have_posts()) {
     ?>
     <section id="articles">
         <div class="related-articles">
             <div class="container">
                 <div class="row">
                     <h2 class="section-heading"> Related Articles</h2>
-                    <?php 
-                    foreach ( $featured_resources as $resource ) {
-                        
+                    <?php
+                    while ($resources->have_posts()) : $resources->the_post();
                         // Fetch topic of a resource
-                        $resource_topics = wp_get_post_terms($featured_resources[0]->ID, 'resource-topic', array("fields" => "names"));
+                        $resource_topics = wp_get_post_terms($post->ID, 'resource-topic', array("fields" => "names"));
                         if (!empty($resource_topics)) {
                             $topics = implode(", ", $resource_topics);
                             $topics = strlen($topics) >= 30 ? substr($topics, 0, 30) . ' ...' : $topics;
                         } else {
                             $topics = '';
                         }
-                        
-                         // Reading time
-                        $reading_time = $estimated_time->estimate_time_shortcode($resource);
+
+                        // Reading time
+                        $reading_time = $estimated_time->estimate_time_shortcode($post);
                         ?>
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                               <?php 
-                                if (has_post_thumbnail($resource->ID)) {
-                                    echo get_the_post_thumbnail($resource->ID, 'related-articles' , array('class' => 'img-responsive hidden-xs')); 
-                                } 
-                                ?>
-                                <div class="caption">
-                                    <p class="read-date"><span><?php echo $topics; ?></span> • <?php echo get_the_date('F j, Y', $resource->ID); ?></p>
-                                    <h3><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></h3>
-                                    <p class="hidden-xs"><?php echo strlen($resource->post_excerpt) >= 160 ? substr($resource->post_excerpt, 0, 160) . ' ...' : $resource->post_excerpt; ?></p>
-                                    <?php 
-                                    if ( $reading_time ) {
+                                <?php
+                                if (has_post_thumbnail(get_the_ID())) {
+                                    $featured_image_or_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
+                                    if ($featured_image_or_video == 'video') {
+                                        $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
+                                        $video = wp_get_attachment_url($meta['id']);
+                                        if ($video != '') {
+                                            $src = video_thumbnail($video, '360x155', $featured_resources[0]);
+                                            ?>
+                                            <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+                                                <img src="<?php echo $src; ?>" title="<?php echo get_the_title(); ?>" />
+                                            </a>
+                                            <?php
+                                        }
+                                    } else {
                                         ?>
-                                        <p class="read-time hidden-xs"><?php echo $reading_time; ?> Read</p>
+                                        <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
                                         <?php
+                                        echo get_the_post_thumbnail(get_the_ID(), 'related-articles', array('class' => 'img-responsive hidden-xs'));
+                                        ?>
+                                        </a>
+                                            <?php
+                                        }
                                     }
+                                    ?>
+                                <div class="caption">
+                                    <p class="read-date"><span><?php echo $topics; ?></span> • <?php echo get_the_date('F j, Y', $post->ID); ?></p>
+                                    <h3><a href="<?php echo get_the_permalink(); ?>"><?php echo esc_attr(strlen(get_the_title()) >= 40 ? substr(get_the_title(), 0, 40) . ' ...' : get_the_title()); ?></a></h3>
+                                    <p class="hidden-xs"><?php echo strlen(get_the_content()) >= 145 ? substr(get_the_content(), 0, 145) . ' ...' : get_the_content(); ?></p>
+        <?php
+        if (isset($reading_time) && $reading_time != '') {
+            ?>
+                                        <p class="read-time hidden-xs"><?php echo $reading_time; ?> Min Read</p>
+                                        <?php }
                                     ?>
                                 </div>
                             </div>
                         </div>
-                        <?php
-                    }
-                    ?>
+        <?php
+    endwhile;
+    ?>
                 </div>
             </div>
         </div>

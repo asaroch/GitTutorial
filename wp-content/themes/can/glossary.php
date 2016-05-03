@@ -10,7 +10,6 @@ $business_types = get_terms('business-type', array(
         ));
 
 // Resources
-
 $args = array(
     'post_type' => 'resource',
     'post_status' => 'publish',

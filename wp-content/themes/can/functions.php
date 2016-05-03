@@ -1680,6 +1680,7 @@ add_action( 'wp_ajax_ajax_resources_listing_pagination', 'ajax_resources_listing
  * Callback function of ajax hook to paginate topic vise resource listing
  * ********************************************************* *********************/
 function ajax_resources_listing_pagination() {
+    global $post;
     $itemsPerPage       = get_option('posts_per_page');
     $term               = $_POST['term'];
     $offset             = ($_POST['offset'] - 1) * $itemsPerPage;
@@ -1689,12 +1690,12 @@ function ajax_resources_listing_pagination() {
             'post_status'      => 'publish',
             'offset'           => $offset,
             'showposts'        => $itemsPerPage,
-            'orderby'          => 'menu_order date',
+            'orderby'          => 'date',
             'order'            => 'DESC',
-            'tax_query'      => array(array(
-                'taxonomy'   => 'resource-topic',
-                'field'      => 'id',
-                'terms'      => $term
+            'tax_query'        => array(array(
+                'taxonomy'     => 'resource-topic',
+                'field'        => 'id',
+                'terms'        => $term
             ))
     );
 
@@ -1707,7 +1708,7 @@ function ajax_resources_listing_pagination() {
     if ( $resources->have_posts() ) {
         $response['status'] = 'success';
         while ( $resources->have_posts() ) : $resources->the_post();
-        
+      
         // Fetch topic of a resource
         $resource_topics = wp_get_post_terms(get_the_ID(), 'resource-topic', array("fields" => "names"));
         if (!empty($resource_topics)) {
@@ -1732,10 +1733,20 @@ function ajax_resources_listing_pagination() {
         $return .= '<div class="row">
                 <div class="col-sm-12 resource-list">';
                     if (has_post_thumbnail(get_the_ID())) {
-                        $return .= '<div class="resource-image">'.get_the_post_thumbnail(get_the_ID()).'</div>';
+                        if ( $featured_image_video == 'video' ) {
+                            $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
+                            $video = wp_get_attachment_url($meta['id']);
+                            if ($video != '') {
+                                $src = video_thumbnail($video, '267x200', $post );
+                                $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'"><img src="'.$src.'" /></a></div>';
+                            }
+                        }
+                        else {
+                            $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail(get_the_ID()).'</a></div>'; 
+                        }   
                     }
                     $return .= '<div class="resource-content">
-                        <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b>'.$topics.'</b></p>
+                        <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b> '.$topics.'</b></p>
                         <p class="featured-title"><a href="'.get_the_permalink(get_the_ID()).'">'.$title.'</a></p>
                         <p>'.$excerpt.'</p>';
                         if ($reading_time) {
@@ -1781,6 +1792,7 @@ add_action( 'wp_ajax_ajax_author_listing_pagination', 'ajax_author_listing_pagin
  * Callback function of ajax hook to paginate topic vise resource listing
  * ********************************************************* *********************/
 function ajax_author_listing_pagination() {
+    global $post;
     $itemsPerPage       = get_option('posts_per_page');
     $author             = $_POST['author'];
     $offset             = ($_POST['offset'] - 1) * $itemsPerPage;
@@ -1805,7 +1817,7 @@ function ajax_author_listing_pagination() {
     if ( $resources->have_posts() ) {
         $response['status'] = 'success';
         while ( $resources->have_posts() ) : $resources->the_post();
-        
+      
         // Fetch topic of a resource
         $resource_topics = wp_get_post_terms(get_the_ID(), 'resource-topic', array("fields" => "names"));
         if (!empty($resource_topics)) {
@@ -1814,6 +1826,10 @@ function ajax_author_listing_pagination() {
         } else {
                 $topics = '';
         }
+
+         //Fetch value from admin whether a video is selected or not.
+        $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
+
         // Sponsored By
         $sponsored_by = get_post_meta(get_the_ID(), 'wpcf-sponsored-by', true);
         $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
@@ -1822,14 +1838,24 @@ function ajax_author_listing_pagination() {
         $reading_time       = $estimated_time->estimate_time_shortcode($post);
         $title              = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
         $excerpt            = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
-       
+        $author_description = get_user_meta(get_the_author_id(), 'description', true);
         $return .= '<div class="row">
                 <div class="col-sm-12 resource-list">';
                     if (has_post_thumbnail(get_the_ID())) {
-                        $return .= '<div class="resource-image">'.get_the_post_thumbnail(get_the_ID()).'</div>';
+                        if ( $featured_image_video == 'video' ) {
+                            $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
+                            $video = wp_get_attachment_url($meta['id']);
+                            if ($video != '') {
+                                $src = video_thumbnail($video, '267x200', $post );
+                                $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'"><img src="'.$src.'" /></a></div>';
+                            }
+                        }
+                        else {
+                            $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail(get_the_ID()).'</a></div>'; 
+                        }   
                     }
                     $return .= '<div class="resource-content">
-                        <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b>'.$topics.'</b></p>
+                        <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b> '.$topics.'</b></p>
                         <p class="featured-title"><a href="'.get_the_permalink(get_the_ID()).'">'.$title.'</a></p>
                         <p>'.$excerpt.'</p>';
                         if ($reading_time) {
@@ -1858,7 +1884,7 @@ function ajax_author_listing_pagination() {
 /* * ****************************************************************************
  * Function to generate thumbnail of a video
  * ********************************************************* *********************/
-function video_thumbnail( $video , $size = '1144x493', $post) {
+function video_thumbnail( $video , $size, $post) {
      if ( $video != '') {
         // Script to generate thumbnail from video* */
       $ffmpeg = 'ffmpeg';
@@ -1887,10 +1913,19 @@ function video_thumbnail( $video , $size = '1144x493', $post) {
     
 }
 
+/* * ****************************************************************************
+ * Fetch count of share of resource article on fb,twitter,linkedin
+ * ********************************************************* *********************/
+function resource_social_share_count( $url ) {
+    $url = "https://www.cancapital.com/";
+    $count = 0; 
+    // Linkedin share count
+    $linkedin_url = "http://www.linkedin.com/countserv/count/share?url=".$url."&format=json";
+}
+
 // get the steing length
 
 function get_string_length($str, $len='35'){
     $return = (strlen($str) >= $len) ?substr($str, 0, $len) . ' ...' : $str;
     return $return;
 }
-
