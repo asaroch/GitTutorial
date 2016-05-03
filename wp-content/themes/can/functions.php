@@ -785,7 +785,7 @@ class Testimonial_Widget extends WP_Widget {
 								<div class="row">	
 									<div class="col-sm-4">';
                                                                             if (has_post_thumbnail($post->ID)):
-                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail') .'</div>';
+                                                                                $listItem .= '<div class="user-icon">'. get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array( 'class' => 'img-responsive' )) .'</div>';
                                                                             endif;
 										
 									$listItem .= '</div>
@@ -1651,10 +1651,241 @@ function resource_detail_copy_text() {
 }
 add_shortcode( 'resource-detail-copy-text', 'resource_detail_copy_text' );
 
+add_action( 'wp_ajax_nopriv_newsletter_subscribe', 'newsletter_subscribe' );
+add_action( 'wp_ajax_newsletter_subscribe', 'newsletter_subscribe' );
+
+/* * ****************************************************************************
+ * Callback function of ajax hook to subscibe on newsletter
+ * ********************************************************* *********************/
+function newsletter_subscribe() {
+    $email       = $_POST['email'];
+    $emailFormat = get_option('news_letter_data');
+    
+    $headers[]   = 'From: '.get_option('admin_email');
+    $headers[]   = 'Content-Type: text/html; charset=UTF-8';
+    
+    $response  = array();
+    if (wp_mail ( $email, $emailFormat['subject'], $emailFormat['body'], $headers ) ) {
+        $reponse['msg']  = 'Sucess';
+        $reponse['data'] = '<label class="sucess">Thank you to subscribe. Email has been sent to you.</label>';
+    }
+    echo json_encode($reponse);
+    exit;
+}
+
+add_action( 'wp_ajax_nopriv_ajax_resources_listing_pagination', 'ajax_resources_listing_pagination' );
+add_action( 'wp_ajax_ajax_resources_listing_pagination', 'ajax_resources_listing_pagination' );
+
+/* * ****************************************************************************
+ * Callback function of ajax hook to paginate topic vise resource listing
+ * ********************************************************* *********************/
+function ajax_resources_listing_pagination() {
+    global $post;
+    $itemsPerPage       = get_option('posts_per_page');
+    $term               = $_POST['term'];
+    $offset             = ($_POST['offset'] - 1) * $itemsPerPage;
+   
+    $args = array(
+            'post_type'        => 'resource',
+            'post_status'      => 'publish',
+            'offset'           => $offset,
+            'showposts'        => $itemsPerPage,
+            'orderby'          => 'date',
+            'order'            => 'DESC',
+            'tax_query'        => array(array(
+                'taxonomy'     => 'resource-topic',
+                'field'        => 'id',
+                'terms'        => $term
+            ))
+    );
+
+    $resources = new WP_Query($args);
+   
+    $response  = array();
+    $return = '';
+    //create a object to show estimated reading time for a post.
+    $estimated_time = new EstimatedPostReadingTime();
+    if ( $resources->have_posts() ) {
+        $response['status'] = 'success';
+        while ( $resources->have_posts() ) : $resources->the_post();
+      
+        // Fetch topic of a resource
+        $resource_topics = wp_get_post_terms(get_the_ID(), 'resource-topic', array("fields" => "names"));
+        if (!empty($resource_topics)) {
+                $topics = 'in ' . implode(", ", $resource_topics);
+                $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
+        } else {
+                $topics = '';
+        }
+
+         //Fetch value from admin whether a video is selected or not.
+        $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
+
+        // Sponsored By
+        $sponsored_by = get_post_meta(get_the_ID(), 'wpcf-sponsored-by', true);
+        $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
+
+        // Reading time
+        $reading_time       = $estimated_time->estimate_time_shortcode($post);
+        $title              = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
+        $excerpt            = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
+        $author_description = get_user_meta(get_the_author_id(), 'description', true);
+        $user_title         = get_user_meta($post->post_author, 'wpcf-user-title', true); 
+        $return .= '<div class="row">
+                <div class="col-sm-12 resource-list">';
+                    if (has_post_thumbnail(get_the_ID())) {
+                        if ( $featured_image_video == 'video' ) {
+                            $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
+                            $video = wp_get_attachment_url($meta['id']);
+                            if ($video != '') {
+                                $src = video_thumbnail($video, '267x200', $post );
+                                $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'"><img src="'.$src.'" /></a></div>';
+                            }
+                        }
+                        else {
+                            $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail(get_the_ID()).'</a></div>'; 
+                        }   
+                    }
+                    $return .= '<div class="resource-content">
+                        <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b> '.$topics.'</b></p>
+                        <p class="featured-title"><a href="'.get_the_permalink(get_the_ID()).'">'.$title.'</a></p>
+                        <p>'.$excerpt.'</p>';
+                        if ($reading_time) {
+                             $return .= '<p class="read-time">'.$reading_time.' Read</p>';
+                        }
+
+                        if ( $sponsored_by != '' ) {
+                           $return .= '<div class="sponsored">
+                            <p>Sponsored By '.$sponsored_by.'</p>
+                            </div>'; 
+                        }
+                    $return .= '</div>
+                </div>
+                <div class="col-sm-12"> <div class="client-testimonials">
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    '.get_avatar(get_the_author_id(), '50*50').'
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">'.get_the_author_posts_link().'</h4><h5>'.$user_title.'</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+        endwhile;
+    }
+    else {
+        $response['status'] = 'error';
+        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No Resource found!</h3></div></div>';
+    }
+    $response['data'] = $return;
+    echo json_encode($response);
+    exit;
+}
+
+add_action( 'wp_ajax_nopriv_ajax_author_listing_pagination', 'ajax_author_listing_pagination' );
+add_action( 'wp_ajax_ajax_author_listing_pagination', 'ajax_author_listing_pagination' );
+
+/* * ****************************************************************************
+ * Callback function of ajax hook to paginate topic vise resource listing
+ * ********************************************************* *********************/
+function ajax_author_listing_pagination() {
+    global $post;
+    $itemsPerPage       = get_option('posts_per_page');
+    $author             = $_POST['author'];
+    $offset             = ($_POST['offset'] - 1) * $itemsPerPage;
+   
+    $args = array(
+        'author'         =>  $author,
+        'orderby'        =>  'post_date',
+        'post_type'      =>  'resource',
+        'offset'         =>  $offset,
+        'showposts'      =>  $itemsPerPage,
+        'post_status'    =>  'publish',
+        'order'          =>  'DESC',
+      //  'posts_per_page' => -1
+    );
+
+    $resources = new WP_Query($args);
+   
+    $response  = array();
+    $return = '';
+    //create a object to show estimated reading time for a post.
+    $estimated_time = new EstimatedPostReadingTime();
+    if ( $resources->have_posts() ) {
+        $response['status'] = 'success';
+        while ( $resources->have_posts() ) : $resources->the_post();
+      
+        // Fetch topic of a resource
+        $resource_topics = wp_get_post_terms(get_the_ID(), 'resource-topic', array("fields" => "names"));
+        if (!empty($resource_topics)) {
+                $topics = 'in ' . implode(", ", $resource_topics);
+                $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
+        } else {
+                $topics = '';
+        }
+
+         //Fetch value from admin whether a video is selected or not.
+        $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
+
+        // Sponsored By
+        $sponsored_by = get_post_meta(get_the_ID(), 'wpcf-sponsored-by', true);
+        $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
+
+        // Reading time
+        $reading_time       = $estimated_time->estimate_time_shortcode($post);
+        $title              = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
+        $excerpt            = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
+        $author_description = get_user_meta(get_the_author_id(), 'description', true);
+        $return .= '<div class="row">
+                <div class="col-sm-12 resource-list">';
+                    if (has_post_thumbnail(get_the_ID())) {
+                        if ( $featured_image_video == 'video' ) {
+                            $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
+                            $video = wp_get_attachment_url($meta['id']);
+                            if ($video != '') {
+                                $src = video_thumbnail($video, '267x200', $post );
+                                $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'"><img src="'.$src.'" /></a></div>';
+                            }
+                        }
+                        else {
+                            $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail(get_the_ID()).'</a></div>'; 
+                        }   
+                    }
+                    $return .= '<div class="resource-content">
+                        <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b> '.$topics.'</b></p>
+                        <p class="featured-title"><a href="'.get_the_permalink(get_the_ID()).'">'.$title.'</a></p>
+                        <p>'.$excerpt.'</p>';
+                        if ($reading_time) {
+                             $return .= '<p class="read-time">'.$reading_time.' Read</p>';
+                        }
+
+                        if ( $sponsored_by != '' ) {
+                           $return .= '<div class="sponsored">
+                            <p>Sponsored By '.$sponsored_by.'</p>
+                            </div>'; 
+                        }
+                    $return .= '</div>
+                </div>
+            </div>';
+        endwhile;
+    }
+    else {
+        $response['status'] = 'error';
+        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No Resource found!</h3></div></div>';
+    }
+    $response['data'] = $return;
+    echo json_encode($response);
+    exit;
+}
+        
 /* * ****************************************************************************
  * Function to generate thumbnail of a video
  * ********************************************************* *********************/
-function video_thumbnail( $video , $size = '1144x493', $post) {
+function video_thumbnail( $video , $size, $post) {
      if ( $video != '') {
         // Script to generate thumbnail from video* */
       $ffmpeg = 'ffmpeg';
@@ -1682,3 +1913,37 @@ function video_thumbnail( $video , $size = '1144x493', $post) {
     }
     
 }
+
+/* * ****************************************************************************
+ * Fetch count of share of resource article on fb,twitter,linkedin
+ * ********************************************************* *********************/
+function resource_social_share_count( $url ) {
+    $url = "https://www.cancapital.com/";
+    $count = 0; 
+    // Linkedin share count
+    $linkedin_url = "http://www.linkedin.com/countserv/count/share?url=".$url."&format=json";
+}
+
+// get the steing length
+
+function get_string_length($str, $len='35'){
+    $return = (strlen($str) >= $len) ?substr($str, 0, $len) . ' ...' : $str;
+    return $return;
+}
+
+/* * *********************************************************
+ * Callback function of menu hook 
+ * ********************************************************* */
+
+function can_about_us_add_pages() {
+    add_menu_page('About Us', 'About Us', '6', 'edit.php?post_type=leading-team', '', '', 6);
+    add_submenu_page('edit.php?post_type=leading-team', 'Leading Team', 'Leading Team', 5, 'edit.php?post_type=leading-team');
+    add_submenu_page('edit.php?post_type=leading-team', 'News', 'News', 5, 'edit.php?post_type=news');
+    add_submenu_page('edit.php?post_type=leading-team', 'Press releases', 'Press releases', 5, 'edit.php?post_type=press-releases');
+ 
+}
+/*
+* Adding menus for How it works section admin panel
+*/
+
+add_action('admin_menu', 'can_about_us_add_pages');

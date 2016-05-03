@@ -112,22 +112,16 @@ ob_start();
                 $top_headline = get_post_meta($post->ID, 'wpcf-page-headline-title', true);
                 ?>
                 <div class="container">
-
                     <div class="head-titles">
                         <?php
-                        if (!is_front_page() && !is_page('resources') && $post->post_type != 'resource') {
+                        if (!is_front_page() && !is_page('resources') && $post->post_type != 'resource' && !is_author($post->post_author) ) {
                             ?>
                             <p><?php echo get_the_title($post->ID); ?></p>
                             <?php
                         }
                         ?>
-                        <h1><?php echo $top_headline; ?>
-                            <?php
-                            if (!is_page('resources') && !is_front_page() && !is_page('become-a-partner') && !is_page('search') && $post->post_type != 'resource' ) {
-                                ?>
-                                <span class="down-arrow inner-page-arrow"></span>
-                                <?php
-                            }
+                        <h1><?php echo $top_headline;
+                            
 							
 							if( is_page('resources') || is_page('search') ) {
 								?>
@@ -135,8 +129,19 @@ ob_start();
 								<?php
 							} 
                             ?>
-                        </h1>					
-                    </div></div>
+                        </h1>
+                            <?php
+                            if (is_page('resources') || is_front_page() || is_page('become-a-partner') || is_page('search') || $post->post_type == 'resource' || is_author($post->post_author) || is_page('glossary') ) {
+                                ?>
+           
+                                <?php
+                            } elseif(is_page('partners') || is_page('how-it-works') || is_page('small-business-funding')) { ?>
+                                <span class="down-arrow inner-page-arrow xs-border"></span>
+                            <?php } else { ?>
+                                <span class="down-arrow inner-page-arrow"></span>
+                            <?php } ?>
+                    </div>
+                </div>
                 <!-- /.container-fluid -->		  
             </nav>
             <?php

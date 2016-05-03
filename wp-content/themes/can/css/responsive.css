@@ -23,17 +23,37 @@
         padding-left:0;
     }
     .tutorial-description {
-         padding: 0 80px 0 0px;
+        padding: 0 80px 0 0px;
     }
     .connect-with-us h3 {
         padding: 0 114px;
     }
     /*career*/
     .testimonial-content.career {
-     top: 120px;
- }
+        top: 120px;
+    }
 }
-
+/* ipad */
+@media (min-width:1025px){
+    .dropdown .glyphicon-menu-down {
+        pointer-events: none;
+    }
+}
+@media (max-width:1024px) and (min-width:768px) {
+    .primary-nav li.dropdown span[aria-expanded="true"] + ul.dropdown-menu {
+        display: block;
+    }
+    .primary-nav li.dropdown span[aria-expanded="false"] + ul.dropdown-menu {
+        display: none;
+    }
+    .primary-nav .glyphicon-menu-down {
+        font-size: 13px;
+    }
+    .dropdown .glyphicon-menu-down {
+        right: -3px;
+        width: 27px;
+    }
+}
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
         top: 120px;
@@ -118,14 +138,14 @@
     }
     .testimonial-content.career {
         top: 110px;
-         height: 335px;
+        height: 335px;
     }
     .testimonial-content.career .section-heading {
-         margin: 8px 0;
-     }
-     .testimonial-content.career h5 {
-         margin-bottom: 10px;
-     }    
+        margin: 8px 0;
+    }
+    .testimonial-content.career h5 {
+        margin-bottom: 10px;
+    }    
 }
 @media (min-width:992px) {
     #post-article {
@@ -156,11 +176,13 @@
         line-height: 35px;
         font-size: 18px;
     }
-    /*batch 2*/
     #sbf_hero .content-list-item {
         padding: 15px 15px 0;
     }
-    
+    .graph1, .graph2 { 
+        width: auto;
+        height: auto;
+    }     
     
 }
 @media (max-width: 991px) and (min-width: 768px) {
@@ -214,7 +236,7 @@
         font-size: 30px;
         margin:0 0 15px;
     }
-    
+
     .inner-page-arrow {
         bottom: -48px; 
     }
@@ -235,9 +257,9 @@
     }
     #testimonial .user-icon img {
         max-width: 100%;
-	max-height: 100%;
-	width:auto;
-	height: auto;
+        max-height: 100%;
+        width:auto;
+        height: auto;
     }
     .testimonial-content {
         top: 100px;
@@ -253,9 +275,9 @@
         position: relative;
         left:0;
     }
-/*    .resource-content.resource-sm-height {
-        height: 225px;
-    }*/
+    /*    .resource-content.resource-sm-height {
+            height: 225px;
+        }*/
     #resource_list_container .resource-sm-height,
     #home_resource_list .resource-sm-height {
         float:left;
@@ -316,9 +338,9 @@
     #testimonial .container {
         position: relative;
     }
-/*    .dropdown .glyphicon-menu-down {
-        pointer-events: none;
-    }*/
+    /*    .dropdown .glyphicon-menu-down {
+            pointer-events: none;
+        }*/
     .primary-nav .nav .dropdown-menu {
         width: auto;
         min-width: 235px;
@@ -338,19 +360,33 @@
         margin: 0 auto;
         width: 55%;
     }
-        #home_resource_list #articles .owl-controls {
+    #home_resource_list #articles .owl-controls {
         display: block;
         margin-bottom: 40px;
     }
-     #member_benefit.career .section-heading {
+    #member_benefit.career .section-heading {
         width: 41%;
         margin: 0 auto 45px;
-     }
+    }
+    .get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input,.get-Quote-form input[type="number"] { 
+        font-family: "Fort-Book";
+        height: 40px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .get-Quote-form .action-btn {
+        height: 40px; 
+        padding: 3px 5px 0;
+    }
 }
 @media (max-width:767px) {
     #home_get_quote{
-	height: auto;
-}
+        height: auto;
+    }
     #user_rettings_slider .owl-prev {
         left: -29px;
     }
@@ -788,7 +824,7 @@
     #get_quote, #get_quote_home {
         z-index: 8;
     }
-    #home_get_quote .down-arrow , .inner-page-arrow.xs-border {
+    #home_get_quote .down-arrow , .inner-page-arrow .xs-border {
         border-top: 18px solid rgb(225,212,228);
     }
     .post-information {
@@ -796,11 +832,11 @@
     }
     .tools-block .post-information {
         text-align: left;
-        
+
     }
 
-/*-----------------------------------batch 2 starts--------------------------------------*/
-/*-----------------------------------------------------------------------------------*/
+    /*-----------------------------------batch 2 starts--------------------------------------*/
+    /*-----------------------------------------------------------------------------------*/
     .average-ratting {
         border-bottom: 1px solid #e9e9e9;
         margin-bottom: 20px;
@@ -849,7 +885,7 @@
     }
     /* Block Solution Built*/
     #term_loan .loan-nav ul li {
-        float: inherit; 
+        float: none; 
         border: none;
     }
     #term_loan .down-arrow {
@@ -863,7 +899,7 @@
     }
     #term_loan .person-name {
         font-size: 22px;
-        text-transform: normal;
+        text-transform: none;
         font-style: normal;
         line-height: 32px;
     }
@@ -1055,7 +1091,7 @@
         color: rgb(102, 102, 102);
     }
     .sub-logo { 
-        display: none
+        display: none;
     }
     #home_get_quote .get-quote-style .down-arrow { 
         border-top-color: #fff;
@@ -1063,8 +1099,8 @@
     .navigation-item {
         margin: 13px 0 10px;
     }
-/*-----------------------------------batch 2 end--------------------------------------*/
-/*-----------------------------------------------------------------------------------*/
+    /*-----------------------------------batch 2 end--------------------------------------*/
+    /*-----------------------------------------------------------------------------------*/
     #get_quote_home form{
         display: none;
     }
@@ -1087,15 +1123,15 @@
         height: 75vh;
     }
     .mobile-menu {
-       background: none repeat scroll 0 0 #01aef0;
-       overflow: hidden;
-       position: fixed;
-       width: 100%;
-       z-index: 999;
-   }
-   .menu-top-spacing {
-       margin-top: 55px;
-   }
+        background: none repeat scroll 0 0 #01aef0;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+    .menu-top-spacing {
+        margin-top: 55px;
+    }
     .search-result .resource-container {
         border-bottom: none;
     }
@@ -1104,7 +1140,7 @@
         padding:6px 8px;
     }
     /*-----------------------------------batch 2 start--------------------------------------*/
-/*-----------------------------------------------------------------------------------*/
+    /*-----------------------------------------------------------------------------------*/
     /* Resources Post */
     #social-media-section .section-heading {
         margin: 0 auto;
@@ -1114,7 +1150,7 @@
     #social-media-section .content-area p,
     #social-media-section .content-area .img-container,
     #social-media-section .btn-block,
-    #social-media-section .client-testimonials { 
+    .client-testimonials { 
         width: 100%
     }
     #cc-newslette input[type="text"] { 
@@ -1196,8 +1232,8 @@
         display: none;
     }
     .tutorial-section {
-            margin: 30px 0;
-            padding:0;
+        margin: 30px 0;
+        padding:0;
     }
     .tutorial-description {
         padding: 20px 10px 0;
@@ -1251,7 +1287,7 @@
         padding: 0 20px;
     }
     .job-location > a {
-      padding:0;
+        padding:0;
     }
     .job-location {
         padding: 20px 0;
@@ -1266,11 +1302,8 @@
         height: auto;
         margin: 0 auto;
     }
-    .graph1, .graph2 { width: auto; height: auto;} 
+    
     #all_resources_block .select-topic {
         width: 240px;
     }
 }    
-@media (max-width:360px){
-    #social-media-section .btn-block .btn:last-child { margin-top: 10px;}
-}

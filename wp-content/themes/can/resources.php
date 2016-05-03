@@ -64,7 +64,6 @@ if (!empty($featured_resources)) {
     if ( $featured_image_or_video == 'video' ) {
         $meta  = get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
         $video = wp_get_attachment_url($meta['id']);
-        
         if ( $video != '' ) {
             $src = video_thumbnail( $video , '1144x493', $featured_resources[0] );
         }
@@ -171,7 +170,7 @@ if (!empty($featured_resources)) {
                                             $meta  = get_post_meta($resource->ID, '_fvp_video', true);
                                             $video = wp_get_attachment_url($meta['id']);
                                             if ( $video != '' ) {
-                                                $src = video_thumbnail( $video );
+                                                $src = video_thumbnail( $video , '272x200', $resource );
                                                 ?>
                                                 <div class="featured-story-image">
                                                     <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><img src="<?php echo $src; ?>" /><a>
@@ -193,7 +192,7 @@ if (!empty($featured_resources)) {
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 45 ? substr($resource->post_title, 0, 45) . ' ...' : $resource->post_title; ?></a></p>
-                                        <p><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
+                                        <p class="featured-content"><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
@@ -313,7 +312,7 @@ $topics = get_terms('resource-topic', array(
                                         $meta  = get_post_meta($resource->ID, '_fvp_video', true);
                                         $video = wp_get_attachment_url($meta['id']);
                                         if ( $video != '' ) {
-                                            $src = video_thumbnail( $video );
+                                            $src = video_thumbnail( $video , '272x200', $resource );
                                             ?>
                                             <div class="resource-image">
                                                 <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><img src="<?php echo $src; ?>" /><a>

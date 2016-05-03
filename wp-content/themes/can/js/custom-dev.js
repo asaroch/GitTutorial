@@ -90,6 +90,45 @@ $(function () {
     });
 
     jQuery("#phone").mask("(999) 999-9999");
+    
+      $('#newsletter-subscription').validate({
+        // Specify the validation rules
+        rules : {
+            email : {
+                required : true,
+                email    : true
+            }
+        },
+        // Specify the validation error messages
+        messages: {
+            email : {
+                required : "This field is required",
+                email    : "Invalid Email",
+            }
+        },
+        submitHandler: function (form , event ) {
+            event.preventDefault();
+            var email = $(form).find('input[type="text"]').val();
+            $.ajax({
+                url       : var_object.ajax_url,
+                dataType  : 'json',
+                type      : 'post',
+                data: {
+                    action : 'newsletter_subscribe',
+                    email  : email
+                },
+                beforeSend: function () {
+                    $(form).find('button').prop('disabled', true);
+                },
+                success: function (response) {
+                    if (response.msg == 'Sucess') {
+                        $( response.data ).insertBefore( ".news-letter-heading" );
+                        $(form).find('button').prop('disabled', false);
+                    }
+                }
+            });
+        }
+    });
 
     // Partner lead generation validations
     $('#partner-lead-generation').validate({
@@ -318,7 +357,79 @@ $(function () {
         }
     });
    
-   
- 
+    $('#fb-share-button').click(function(e){
+        e.preventDefault();
+        FB.ui({
+            method : 'share',
+            href   : 'https://www.cancapital.com/',
+        }, function(response){
+        });
+    });
+    
+    // Paginate resource listing
+    $('.paginate-topic-listing').click(function(e) {
+        $this = $(this);
+        e.preventDefault();
+        var offset = $("#paginate-listing-resources-offset").val();
+        var term   = $('#resource-topic-term').val();
+        $.ajax({
+            url      : var_object.ajax_url,
+            dataType : 'json',
+            type     : 'post',
+            data: {
+                action: 'ajax_resources_listing_pagination',
+                offset: offset,
+                term  : term
+            },
+            beforeSend: function () { // show loader before ajax success
+                $("#loading-image").show();
+                $('.show-more-terms').hide();
+            },
+            success: function (response) {
+                $("#loading-image").hide();
+                if (response.status == 'error') {
+                    $('.show-more-terms').hide();
+                } else {
+                    $('.show-more-terms').show();
+                    $('#paginate-listing-resources-offset').val(++offset);
+                }
+                $( response.data ).insertBefore( ".paginate-topic-listing");
+            }
+        });
+    });
+    
+      // Paginate author listing
+    $('.paginate-author-listing').click(function(e) {
+        $this = $(this);
+        e.preventDefault();
+        var offset = $("#paginate-author-offset").val();
+       
+        var author   = $('#author-id').val();
+        $.ajax({
+            url         : var_object.ajax_url,
+            dataType    : 'json',
+            type        : 'post',
+            data: {
+                action  : 'ajax_author_listing_pagination',
+                offset  : offset,
+                author  : author
+            },
+            beforeSend: function () {
+                $("#loading-image").show();
+                $('.show-more-terms').hide();
+            },
+            success: function (response) {
+                $("#loading-image").hide();
+                if (response.status == 'error') {
+                    $('.show-more-terms').hide();
+                } else {
+                    $('.show-more-terms').show();
+                    $('#paginate-author-offset').val(++offset);
+                }
+                $( response.data ).insertBefore( ".paginate-author-listing");
+                //$('#listing-resources').append(response.data);
+            }
+        });
+    });
 
 });

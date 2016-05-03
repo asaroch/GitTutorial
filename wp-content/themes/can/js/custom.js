@@ -220,21 +220,18 @@ $(function () {
             0: {
                 items: 1,
                 nav: true,
-                navText: ["<span class='icon-sprite ratting-left-icon'></span>", "<span class='icon-sprite ratting-right-icon active'></span>"],
+                navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
                 dots: false
             },
             768: {
                 items: 2,
                 nav: testimonialSlider,
-                navText: ["<span class='icon-sprite feature-left-icon'></span>", "<span class='icon-sprite feature-right-icon active'></span>"],
+                navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
                 dots: false
             }
         },
         onInitialize: function () {
-
         }
-
-
     });
     
     successCommunity.on('changed.owl.carousel', function (property) {
@@ -244,11 +241,19 @@ $(function () {
         var total = property.relatedTarget.items().length - 1
         // how many slides to go?
         var remain = total - (shownItems + current);
-
         activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
-
-
+        activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
     });
+    
+    // term loan
+    $("#success_community .slide-next").click(function(){                    
+            communitySlider.trigger("next.owl.carousel");
+    });
+
+    $("#success_community .slide-prev").click(function(){                        
+            communitySlider.trigger("prev.owl.carousel");
+    });
+
 
     var resourceSlider = $("#resource_slider");
     resourceSlider.owlCarousel({
@@ -265,9 +270,7 @@ $(function () {
                 dots: false
             }
         }
-
     });
-
     resourceSlider.on('changed.owl.carousel', function (property) {
         var item = property.item.index + 1;
         $('.current-slider').html(item);
@@ -318,7 +321,7 @@ $(function () {
                     // how many slides to go?
                     var remain = total - (shownItems + current);
                     activeSliders($(".feature-left-icon"), $(".feature-right-icon"), current, remain);
-                     activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
+                    activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
                 });
 //infograpic slider how it works  end  
 
@@ -420,4 +423,30 @@ $(function () {
             })
             
             // clear all - search resource 
+            //grayscale view                 
+               $("#our-leading-team img, #our-offices img").mouseenter(function(){    
+                   var $this = $(this);
+                   $("#our-leading-team img, #our-offices img").addClass("change-one");
+                   $this.removeClass("change-one");
+               });
+               
+                $("#our-leading-team img, #our-offices img").mouseleave(function(){
+                    $("#our-leading-team img, #our-offices img").removeClass("change-one");
+                });
+            //grayscale view  end 
+  
+            // Sticky icons on post
+            $(window).scroll(function(e){ 
+                var $el = $('.fixedElement'); 
+                var isPositionFixed = ($el.css('position') == 'fixed');
+                if ($(this).scrollTop() > 420 && !isPositionFixed){ 
+                  $('.fixedElement').css({'position': 'fixed', 'top': '220px', 'right': '6.8%'}); 
+                }
+                  if ($(this).scrollTop() < 420 && isPositionFixed)
+                {
+                  $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
+                } 
+            });
+             // Sticky icons on post ends
 });
+
