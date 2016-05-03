@@ -71,7 +71,7 @@ class Featured_Post
         $this->post_types['page'] = 'page';
         ksort($this->post_types);
         foreach ($this->post_types as $key => $val) {
-            if ( $val == 'resource' || $val == 'hero-banner-slider'|| $val == 'news') {
+            if ( $val == 'resource' || $val == 'hero-banner-slider'|| $val == 'news'|| $val == 'press-releases') {
                 add_filter('manage_edit-' . $key . '_columns', array(&$this,
                 'manage_posts_columns'
                 ));
