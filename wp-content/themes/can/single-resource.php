@@ -57,7 +57,7 @@ while (have_posts()) : the_post();
     <!-- hero banner -->
     <!-- social media section -->
     <div id="social-media-section">
-        <div class="social-media hidden-xs">
+        <div class="social-media hidden-xs fixedElement">
             <h3>Share</h3>
             <ul>
                 <li>
@@ -150,24 +150,24 @@ while (have_posts()) : the_post();
                                 </li>
                             </ul>
                         </div>
-                        <div class="client-testimonials">
-                            <div class="media">
-                                <div class="media-left">
-                                    <?php echo get_avatar($post->post_author, 'thumbnail'); ?> 
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><?php the_author_posts_link(); ?></h4>
-                                    <?php
-                                    $author_description = get_user_meta($post->post_author, 'description', true);
-                                    if ($author_description != '') {
-                                        echo $author_description;
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+      <div class="client-testimonials">
+        <div class="media">
+            <div class="media-left">
+                <?php echo get_avatar($post->post_author, 'thumbnail'); ?> 
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"><?php the_author_posts_link(); ?></h4>
+                <?php
+                $author_description = get_user_meta($post->post_author, 'description', true);
+                if ($author_description != '') {
+                    echo $author_description;
+                }
+                ?>
             </div>
         </div>
     </div>
