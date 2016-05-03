@@ -342,9 +342,6 @@
     #testimonial .container {
         position: relative;
     }
-    /*    .dropdown .glyphicon-menu-down {
-            pointer-events: none;
-        }*/
     .primary-nav .nav .dropdown-menu {
         width: auto;
         min-width: 235px;
@@ -356,14 +353,14 @@
     #infografic_carousel {
         padding: 0 35px;
     }
-    #home_resource_list #articles .item {
+    #home_resource_list #articles .item, #success_community .item  {
+        padding: 0 5px;
+    }
+    #home_resource_list #articles .owl-carousel {
         padding: 0 20px;
     }
     #success_community .owl-carousel {
         padding:0 40px;
-    }
-    #success_community .item {
-        padding:0 5px;
     }
     /* Resources Post */
       #social-media-section .section-heading {
@@ -1318,4 +1315,7 @@
     #all_resources_block .select-topic {
         width: 240px;
     }
-}    
+}
+@media (max-width:360px){
+    #social-media-section .btn-block .btn:last-child { margin-top: 10px;}
+}
