@@ -1929,3 +1929,20 @@ function get_string_length($str, $len='35'){
     $return = (strlen($str) >= $len) ?substr($str, 0, $len) . ' ...' : $str;
     return $return;
 }
+
+/* * *********************************************************
+ * Callback function of menu hook 
+ * ********************************************************* */
+
+function can_about_us_add_pages() {
+    add_menu_page('About Us', 'About Us', '6', 'edit.php?post_type=leading-team', '', '', 6);
+    add_submenu_page('edit.php?post_type=leading-team', 'Leading Team', 'Leading Team', 5, 'edit.php?post_type=leading-team');
+    add_submenu_page('edit.php?post_type=leading-team', 'News', 'News', 5, 'edit.php?post_type=news');
+    add_submenu_page('edit.php?post_type=leading-team', 'Press releases', 'Press releases', 5, 'edit.php?post_type=press-releases');
+ 
+}
+/*
+* Adding menus for How it works section admin panel
+*/
+
+add_action('admin_menu', 'can_about_us_add_pages');

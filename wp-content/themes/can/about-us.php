@@ -41,7 +41,6 @@ $args = array(	'post_status' => 'publish' ,
 $leading_team = new WP_Query( $args );
 
 // News articles featured.
-// Fetured resources
 $args = array(
     'post_type' => 'news',
     'post_status' => 'publish',
@@ -55,7 +54,22 @@ $args = array(
 );
 $news_featured = new WP_Query($args);
 
+// Press articles featured.
+$args = array(
+    'post_type' => 'press-releases',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(array(
+            'key' => '_is_featured',
+            'value' => 'yes'
+        )),
+    'orderby' => 'menu_order date',
+    'order' => 'ASC'
+);
+$press_featured = new WP_Query($args);
+
 ?>
+
 <section class="sales-program gradient-one">
                 <div class="container" id="about-us">
                     <div class="row">
@@ -227,71 +241,21 @@ endif;
                                         </div>
                                     </div>
                                 </div>
-                                <?php endwhile; ?>
+                                <?php endwhile;
+                                while ($press_featured->have_posts()) : $press_featured->the_post(); 
+                                ?>
                                 <div class="item">
                                     <div class="thumbnail">
                                         <div class="caption">
-                                            <p class="topic">PRESS RELEASE</p>
-                                            <p class="read-date">Mar , </p>
-                                            <h3>CAN Capital Wins Five
-                                                American Business
-                                                Awards</h3>
-                                            <p>CAN Capital, Inc., the market share leader
-                                                in alternative small business finance,
-                                                announced today that the company won
-                                                top awards across five categories in the ...</p>
+                                            <p class="topic"> <img src="<?php echo get_bloginfo('template_directory'); ?>/images/about-us/logo_press_release.png" alt="Press Release"></p>
+                                            <p class="read-date"><?php echo get_the_date(); ?></p>
+                                            <h3><?php echo get_the_title(); ?></h3>
+                                            <p><?php echo get_string_length(get_the_content(),'70'); ?></p>
                                             <p class="read-time">8 Min Read</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <p class="topic">PRESS RELEASE</p>
-                                            <p class="read-date">Mar , </p>
-                                            <h3>CAN Capital Wins Five
-                                                American Business
-                                                Awards</h3>
-                                            <p>CAN Capital, Inc., the market share leader
-                                                in alternative small business finance,
-                                                announced today that the company won
-                                                top awards across five categories in the ...</p>
-                                            <p class="read-time">8 Min Read</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <p class="topic">PRESS RELEASE</p>
-                                            <p class="read-date">Mar , </p>
-                                            <h3>CAN Capital Wins Five
-                                                American Business
-                                                Awards</h3>
-                                            <p>CAN Capital, Inc., the market share leader
-                                                in alternative small business finance,
-                                                announced today that the company won
-                                                top awards across five categories in the ...</p>
-                                            <p class="read-time">8 Min Read</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <p class="topic">PRESS RELEASE</p>
-                                            <p class="read-date">Mar , </p>
-                                            <h3>CAN Capital Wins Five
-                                                American Business
-                                                Awards</h3>
-                                            <p>CAN Capital, Inc., the market share leader
-                                                in alternative small business finance,
-                                                announced today that the company won
-                                                top awards across five categories in the ...</p>
-                                            <p class="read-time">8 Min Read</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php                                endwhile; ?>
                             </div>
                             <div class="customNavigation visible-xs">
                                 <div class="text-center">
