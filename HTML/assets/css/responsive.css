@@ -368,12 +368,20 @@
         width: 41%;
         margin: 0 auto 45px;
     }
-    .get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input,.get-Quote-form input[type="number"] { font-family: "Fort-Book"; height: 40px; padding: 10px 15px; font-size: 14px}
+    .get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input,.get-Quote-form input[type="number"] { 
+        font-family: "Fort-Book";
+        height: 40px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
     .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
         padding-left: 10px;
         padding-right: 10px;
     }
-    .get-Quote-form .action-btn { height: 40px; padding: 3px 5px 0;}
+    .get-Quote-form .action-btn {
+        height: 40px; 
+        padding: 3px 5px 0;
+    }
 }
 @media (max-width:767px) {
     #home_get_quote{
@@ -816,7 +824,7 @@
     #get_quote, #get_quote_home {
         z-index: 8;
     }
-    #home_get_quote .down-arrow , .inner-page-arrow.xs-border {
+    #home_get_quote .down-arrow , .inner-page-arrow .xs-border {
         border-top: 18px solid rgb(225,212,228);
     }
     .post-information {
@@ -877,7 +885,7 @@
     }
     /* Block Solution Built*/
     #term_loan .loan-nav ul li {
-        float: inherit; 
+        float: none; 
         border: none;
     }
     #term_loan .down-arrow {
@@ -891,7 +899,7 @@
     }
     #term_loan .person-name {
         font-size: 22px;
-        text-transform: normal;
+        text-transform: none;
         font-style: normal;
         line-height: 32px;
     }
@@ -1083,7 +1091,7 @@
         color: rgb(102, 102, 102);
     }
     .sub-logo { 
-        display: none
+        display: none;
     }
     #home_get_quote .get-quote-style .down-arrow { 
         border-top-color: #fff;

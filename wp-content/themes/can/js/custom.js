@@ -420,4 +420,17 @@ $(function () {
             })
             
             // clear all - search resource 
+// Sticky icons
+$(window).scroll(function(e){ 
+  var $el = $('.fixedElement'); 
+  var isPositionFixed = ($el.css('position') == 'fixed');
+  if ($(this).scrollTop() > 420 && !isPositionFixed){ 
+    $('.fixedElement').css({'position': 'fixed', 'top': '220px', 'right': '6.8%'}); 
+  }
+    if ($(this).scrollTop() < 420 && isPositionFixed)
+  {
+    $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
+  } 
 });
+});
+
