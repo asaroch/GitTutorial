@@ -5,6 +5,7 @@ $(function () {
     } else {
         financialProductSlider = false;
     }
+   
     if(var_object.testimonialSlider){
         testimonialSlider = true;
     }

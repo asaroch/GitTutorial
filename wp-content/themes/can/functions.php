@@ -350,9 +350,16 @@ function can_scripts() {
     $count_news_press = wp_count_posts('news')->publish+wp_count_posts('press-releases')->publish;
     $count_video_testimonial = wp_count_posts('video-testimonial');
 
-    if ($count_financial_product->publish > 3 || $count_news_press > 3) {
+if(is_front_page()){
+    if ($count_financial_product->publish > 3) {
         $financialProductSlider = TRUE;
     }
+}
+elseif(is_page('about-us')){
+    if ($count_news_press > 3) {
+        $financialProductSlider = TRUE;
+    }
+}
     if ($count_video_testimonial->publish > 2) {
         $testimonialSlider = TRUE;
     }

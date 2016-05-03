@@ -30,6 +30,9 @@ $search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
 $cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
 $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 
+$news_press_heading = get_post_meta(get_the_ID(), 'wpcf-news-and-press-head', true);
+$leading_team_heading = get_post_meta(get_the_ID(), 'wpcf-leading-team-heading', true);
+
 // great potentials slider
 
 $args = array(	'post_status' => 'publish' , 
@@ -88,7 +91,7 @@ $press_featured = new WP_Query($args);
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="section-heading">Our Leading Team</div>
+                            <div class="section-heading"><?php echo $leading_team_heading; ?></div>
                         </div>
                     </div>
                     <div class="row">
@@ -219,7 +222,7 @@ endif;
                 <section id="articles">
                     <div class="related-articles resource-list-bg gradient-three">
                         <div class="container">
-                            <h2 class="section-heading">CAN Capital In the News</h2>
+                            <h2 class="section-heading"><?php echo $news_press_heading; ?></h2>
                             <div id="slider_feature_product" class="owl-carousel owl-theme">
                                 <?php 
                                 // generating post array
