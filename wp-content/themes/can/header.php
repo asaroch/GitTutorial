@@ -112,10 +112,9 @@ ob_start();
                 $top_headline = get_post_meta($post->ID, 'wpcf-page-headline-title', true);
                 ?>
                 <div class="container">
-
                     <div class="head-titles">
                         <?php
-                        if (!is_front_page() && !is_page('resources') && $post->post_type != 'resource') {
+                        if (!is_front_page() && !is_page('resources') && $post->post_type != 'resource' && !is_author($post->post_author) ) {
                             ?>
                             <p><?php echo get_the_title($post->ID); ?></p>
                             <?php
@@ -132,7 +131,7 @@ ob_start();
                             ?>
                         </h1>
                             <?php
-                            if (is_page('resources') || is_front_page() || is_page('become-a-partner') || is_page('search') || $post->post_type == 'resource' ) {
+                            if (is_page('resources') || is_front_page() || is_page('become-a-partner') || is_page('search') || $post->post_type == 'resource' || is_author($post->post_author) || is_page('glossary') ) {
                                 ?>
            
                                 <?php
@@ -141,7 +140,8 @@ ob_start();
                             <?php } else { ?>
                                 <span class="down-arrow inner-page-arrow"></span>
                             <?php } ?>
-                    </div></div>
+                    </div>
+                </div>
                 <!-- /.container-fluid -->		  
             </nav>
             <?php
