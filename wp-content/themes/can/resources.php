@@ -64,8 +64,6 @@ if (!empty($featured_resources)) {
     if ( $featured_image_or_video == 'video' ) {
         $meta  = get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
         $video = wp_get_attachment_url($meta['id']);
-
-        
         if ( $video != '' ) {
             $src = video_thumbnail( $video , '1144x493', $featured_resources[0] );
         }
@@ -172,7 +170,7 @@ if (!empty($featured_resources)) {
                                             $meta  = get_post_meta($resource->ID, '_fvp_video', true);
                                             $video = wp_get_attachment_url($meta['id']);
                                             if ( $video != '' ) {
-                                                $src = video_thumbnail( $video );
+                                                $src = video_thumbnail( $video , '272x200', $resource );
                                                 ?>
                                                 <div class="featured-story-image">
                                                     <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><img src="<?php echo $src; ?>" /><a>
@@ -314,7 +312,7 @@ $topics = get_terms('resource-topic', array(
                                         $meta  = get_post_meta($resource->ID, '_fvp_video', true);
                                         $video = wp_get_attachment_url($meta['id']);
                                         if ( $video != '' ) {
-                                            $src = video_thumbnail( $video );
+                                            $src = video_thumbnail( $video , '272x200', $resource );
                                             ?>
                                             <div class="resource-image">
                                                 <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><img src="<?php echo $src; ?>" /><a>

@@ -30,8 +30,31 @@ $search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
 $cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
 $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 
-// video section heading
-$video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', true);
+// great potentials slider
+
+$args = array(	'post_status' => 'publish' , 
+				'post_type'   => 'leading-team',
+				'orderby'     => 'date',
+                                'posts_per_page' => -1,
+				'order'       => 'ASC'
+			);
+$leading_team = new WP_Query( $args );
+
+// News articles featured.
+// Fetured resources
+$args = array(
+    'post_type' => 'news',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'meta_query' => array(array(
+            'key' => '_is_featured',
+            'value' => 'yes'
+        )),
+    'orderby' => 'menu_order date',
+    'order' => 'ASC'
+);
+$news_featured = new WP_Query($args);
+
 ?>
 <section class="sales-program gradient-one">
                 <div class="container" id="about-us">
@@ -53,16 +76,23 @@ $video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', 
                         </div>
                     </div>
                     <div class="row">
+                        <?php while ($leading_team->have_posts()) : $leading_team->the_post(); ?>
                         <div class="col-sm-3 text-center">
                             <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb1.png" class="img-responsive" width="156" height="156" data-toggle="modal" data-target="#myModal">
+                                <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive","data-toggle" => "modal","data-target" => "#myModal_".get_the_ID())); ?>
+                                        <?php
+                                    endif;
+                                    ?>
                                 <div class="caption">
-                                    <h3>Dan Mateo</h3>
-                                    <p>Chief Executive Officer</p>
+                                    <h3><?php echo get_the_title(); ?></h3>
+                                    <p><?php echo get_the_excerpt(); ?></p>
                                 </div>
                             </div>
                             <!-- Modal -->
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal fade" id="myModal_<?php echo get_the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -70,11 +100,17 @@ $video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', 
                                         </div>
                                         <div class="modal-body text-center">
                                             <div class="thumbnail">
-                                                <img alt="" src="assets/images/aboutus/img_thumb1.png" class="img-responsive" width="156" height="156" data-toggle="modal" data-target="#myModal">
+                                               <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive","data-toggle" => "modal","data-target" => "#myModal_".get_the_ID())); ?>
+                                        <?php
+                                    endif;
+                                    ?>
                                                 <div class="caption">
-                                                    <h3>Dan Mateo</h3>
-                                                    <p>Chief Executive Officer</p>
-                                                    <p class="content">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                                    <h3><?php echo get_the_title(); ?></h3>
+                                    <p><?php echo get_the_excerpt(); ?></p>
+                                    <p class="content"><?php echo get_the_content(); ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,88 +118,9 @@ $video_section_heading = get_post_meta(get_the_ID(), 'wpcf-video-section-head', 
                                 </div>
                             </div> 
                         </div>
-                        <!---1 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb2.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Parris Sanz, Esq.</h3>
-                                    <p>Chief Legal Officer</p>
-                                </div>
-                            </div>
+                       <?php endwhile; ?>
 
-                        </div>
-                        <!---2 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb3.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>James Mendelsohn</h3>
-                                    <p>Chief Marketing Officer</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---3 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb4.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>DMandy Sebel</h3>
-                                    <p>Chief People Officer</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---4 Block---->
-
-                    </div>
-                    <div class="row voffset4">
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb5.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Kenneth Gang</h3>
-                                    <p>Chief Risk Office</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---1 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb6.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Aman Verje</h3>
-                                    <p>Chief Technology Officer</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---2 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb7.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>David Dart</h3>
-                                    <p>Chief Technology Office</p>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!---3 Block---->
-                        <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
-                                <img alt="" src="assets/images/aboutus/img_thumb8.png" class="img-responsive" width="156" height="156">
-                                <div class="caption">
-                                    <h3>Ritesh Gupta</h3>
-                                    <p>Chief Customer Operations
-                                        Officere</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!---4 Block---->
-                    </div>
+                    </div>                    
                 </div>
             </section>
             <!---Our Leading Team---->
@@ -237,7 +194,7 @@ endif;
                     <h5 class="call-us"> Call us: </h5>
                     <h3 class='call-number'> <?php echo $email_us_number; ?> </h3>
                     <span class='divider-line'>  </span>
-                    <a href="mailto:mailto:miranda@yourcompany.com?bcc=eventsteam@yourcompany.com&subject=Excited%20to%20meet%20at%20the%20event!&body=Hi%20Miranda," title="APPLY NOW" class="btn btn-blue-bg"> <?php echo $email_us_button; ?> <i class="glyphicon glyphicon-play"></i></a>
+                    <a href="mailto:anirudh.sood@trantorinc.com?subject=Want%20to%20learn%20more&body=Hi%20,Anirudh" title="APPLY NOW" class="btn btn-blue-bg"> <?php echo $email_us_button; ?> <i class="glyphicon glyphicon-play"></i></a>
                 </div>
             </section>
             <!-- Email Us -->
@@ -248,36 +205,29 @@ endif;
                         <div class="container">
                             <h2 class="section-heading">CAN Capital In the News</h2>
                             <div id="slider_feature_product" class="owl-carousel owl-theme">
+                                <?php 
+                                while ($news_featured->have_posts()) : $news_featured->the_post();
+                                $chart_topics = wp_get_post_terms(get_the_ID(), 'news-agency', array("fields" => "all"));
+                                $category_logo = get_term_meta($chart_topics[0]->term_id,'wpcf-logo',true);
+                                ?>
                                 <div class="item">
                                     <div class="thumbnail">
-                                        <img src="assets/images/resources/main_featured_image.jpg" alt="..." class="img-responsive hidden-xs">
+                                        <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        echo get_the_post_thumbnail(get_the_ID(), 'large');
+                                    endif;
+                                    ?>
+                                        
                                         <div class="caption">
-                                            <p class="topic">TOPIC</p>
-                                            <p class="read-date">Mar 13, 2016</p>
-                                            <h3>The Unbundling of
-                                                Finance</h3>
-                                            <p>In a world where everything is being
-                                                unbundled, allowing consumers to pick ...</p>
+                                            <p class="topic"><img src="<?php echo $category_logo; ?>" alt="News" /></p>
+                                            <p class="read-date"><?php echo get_the_date(); ?></p>
+                                            <h3><?php echo get_the_title(); ?></h3>
+                                            <p><?php echo get_string_length(get_the_content(),'70'); ?></p>
                                             <p class="read-time">8 Min Read</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="thumbnail">
-                                        <div class="caption">
-                                            <p class="topic">TOPIC</p>
-                                            <p class="read-date">Mar 12, 2016</p>
-                                            <h3>Small Business Loans:
-                                                Options Along The
-                                                Financing Spectrum</h3>
-                                            <p>Small businesses, startups, and the
-                                                self-employed have never had the easiest
-                                                time getting financing, but most experts
-                                                agree it became downright difficult ...</p>
-                                            <p class="read-time">8 Min Read</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endwhile; ?>
                                 <div class="item">
                                     <div class="thumbnail">
                                         <div class="caption">
