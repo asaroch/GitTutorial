@@ -287,6 +287,10 @@
     #home_resource_list .resource-sm-height .resource-content {
         height: 225px;
     }
+    #social-media-section { 
+        width: auto;
+        left: auto;
+    }
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -355,8 +359,14 @@
     #home_resource_list #articles .item {
         padding: 0 20px;
     }
+    #success_community .owl-carousel {
+        padding:0 40px;
+    }
+    #success_community .item {
+        padding:0 5px;
+    }
     /* Resources Post */
-    #social-media-section .section-heading {
+      #social-media-section .section-heading {
         margin: 0 auto;
         width: 55%;
     }
@@ -1228,7 +1238,9 @@
         width: auto;
         margin: 0 auto
     }
-    #infografic_product.tutorials .owl-controls, #home_resource_list #articles .owl-controls {
+    #infografic_product.tutorials .owl-controls,
+    #home_resource_list #articles .owl-controls,
+    #success_community .owl-controls {
         display: none;
     }
     .tutorial-section {

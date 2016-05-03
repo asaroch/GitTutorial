@@ -175,10 +175,9 @@ $(function(){
 
 		});
 
-
 		var communitySlider = $("#success_community .owl-carousel")
-			communitySlider.owlCarousel({
-			loop:false,
+                    communitySlider.owlCarousel({
+                    loop:false,
 		    margin:10,
 		    responsiveClass:true,
 		    pagination : true,
@@ -187,13 +186,13 @@ $(function(){
 			        0:{
 			            items:1,
 			            nav:true,
-			            navText: ["<span class='icon-sprite ratting-left-icon'></span>","<span class='icon-sprite ratting-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: false
 			        },
 			        768:{
 			            items:2,
 			            nav:true,
-			            navText: ["<span class='icon-sprite ratting-left-icon'></span>","<span class='icon-sprite ratting-right-icon active'></span>"],
+			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: true
 			        }
 			}
@@ -203,11 +202,11 @@ $(function(){
                     var current = property.item.index;
                     var shownItems = property.page.size            
                     // total number of slides
-                    var total = property.relatedTarget.items().length - 1
+                    var total = property.relatedTarget.items().length - 1;
                     // how many slides to go?
                     var remain = total - (shownItems + current);
-                    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain);
-                    
+                    activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain); 
+                    activeSliders($(".slide-prev"), $(".slide-next"), current, remain);
                 })
                 
 //    infograpic slider how it works               
@@ -296,6 +295,14 @@ $(function(){
 
 		$("#home_resource_list #articles .slide-prev").click(function(){                        
 			featureSlider.trigger("prev.owl.carousel");
+		});
+                // tern loan
+                $("#success_community .slide-next").click(function(){                    
+			communitySlider.trigger("next.owl.carousel");
+		});
+
+		$("#success_community .slide-prev").click(function(){                        
+			communitySlider.trigger("prev.owl.carousel");
 		});
 //    Home resources slider end
 
