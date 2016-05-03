@@ -384,7 +384,7 @@ $(function(){
                 parentSiblings.removeClass("active");
                 anchorParent.addClass("active");
             });
-// custom checkbox 22-april  
+// custom checkbox
 
             var checkbox = $(".search-result .sidebar input[type='checkbox']");
             $(checkbox).click(function(){
@@ -400,13 +400,13 @@ $(function(){
                 $(".clear-all").hide("slow");
             })
             
-    // custom checkbox 22-april      
+    // custom checkbox end    
         //    help center accordion
             $(".accordion a").on("click", function () {
                 $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
             });
             
-//            location                 
+//grayscale view                 
                $("#our-leading-team img, #our-offices img").mouseenter(function(){    
                    var $this = $(this);
                    $("#our-leading-team img, #our-offices img").addClass("change-one");
@@ -416,19 +416,21 @@ $(function(){
                 $("#our-leading-team img, #our-offices img").mouseleave(function(){
                     $("#our-leading-team img, #our-offices img").removeClass("change-one");
                 });
+//grayscale view  end 
               
             
 
-
-$(window).scroll(function(e){ 
-  var $el = $('.fixedElement'); 
-  var isPositionFixed = ($el.css('position') == 'fixed');
-  if ($(this).scrollTop() > 420 && !isPositionFixed){ 
-    $('.fixedElement').css({'position': 'fixed', 'top': '220px', 'right': '6.8%'}); 
-  }
-    if ($(this).scrollTop() < 420 && isPositionFixed)
-  {
-    $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
-  } 
-});
+//sticky social icon on post
+                $(window).scroll(function(e){ 
+                    var $el = $('.fixedElement'); 
+                    var isPositionFixed = ($el.css('position') == 'fixed');
+                    if ($(this).scrollTop() > 420 && !isPositionFixed){ 
+                      $('.fixedElement').css({'position': 'fixed', 'top': '220px', 'right': '6.8%'}); 
+                    }
+                      if ($(this).scrollTop() < 420 && isPositionFixed)
+                    {
+                      $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
+                    } 
+                });
+//sticky social icon on post ends
 });
