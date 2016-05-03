@@ -1234,7 +1234,9 @@
         width: auto;
         margin: 0 auto
     }
-    #infografic_product.tutorials .owl-controls, #home_resource_list #articles .owl-controls {
+    #infografic_product.tutorials .owl-controls,
+    #home_resource_list #articles .owl-controls,
+    #success_community .owl-controls {
         display: none;
     }
     .tutorial-section {
