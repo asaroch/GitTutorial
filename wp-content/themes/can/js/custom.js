@@ -159,7 +159,10 @@ $(function () {
     });
 
     featureSlider.on('changed.owl.carousel', function (property) {
+        var item = property.item.index + 1;
+        $('.current-slider').html(item);
         var current = property.item.index;
+        
         var shownItems = property.page.size
         // total number of slides
         var total = property.relatedTarget.items().length - 1
@@ -426,12 +429,12 @@ $(function () {
             //grayscale view                 
                $("#our-leading-team img, #our-offices img").mouseenter(function(){    
                    var $this = $(this);
-                   $("#our-leading-team img, #our-offices img").addClass("change-one");
-                   $this.removeClass("change-one");
+                   $("#our-leading-team img, #our-offices img").addClass("gray-scale");
+                   $this.removeClass("gray-scale");
                });
                
                 $("#our-leading-team img, #our-offices img").mouseleave(function(){
-                    $("#our-leading-team img, #our-offices img").removeClass("change-one");
+                    $("#our-leading-team img, #our-offices img").removeClass("gray-scale");
                 });
             //grayscale view  end 
   

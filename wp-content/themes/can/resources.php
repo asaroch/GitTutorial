@@ -70,6 +70,7 @@ if (!empty($featured_resources)) {
     }
     else {
         $src = wp_get_attachment_image_src(get_post_thumbnail_id($featured_resources[0]->ID), array(1144, 493), false, '');
+        $src = $src[0];
     }
     ?>
     <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->

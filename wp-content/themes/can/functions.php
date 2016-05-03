@@ -1642,10 +1642,15 @@ function resource_detail_copy_text() {
     $return = '';
     
    if ( $heading != '' || $person_name != '' || $business_name != '' ) {
-        $return  = '<div class="testimonial-content">
-                    <h3 class="testimonial-heading">"'.$heading.'"</h3>
-                    <h3 class="customer-info">– '.$person_name.', '.$business_name.'</h3>
-                </div>';
+        $return  = '<div class="testimonial-content">';
+                    if ( $heading != '' ) {
+                         $return .= '  <h3 class="testimonial-heading">"'.$heading.'"</h3>';
+                    }
+                    $return .= '<h3 class="customer-info">– '.$person_name;
+                    if ( $business_name != '' ) {
+                         $return .= ', '.$business_name;
+                    }
+                $return .= '</h3></div>';
    }
     return $return;
 }
