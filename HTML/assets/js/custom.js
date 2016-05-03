@@ -202,7 +202,7 @@ $(function(){
                     var current = property.item.index;
                     var shownItems = property.page.size            
                     // total number of slides
-                    var total = property.relatedTarget.items().length - 1
+                    var total = property.relatedTarget.items().length - 1;
                     // how many slides to go?
                     var remain = total - (shownItems + current);
                     activeSliders($(".ratting-left-icon"), $(".ratting-right-icon"), current, remain); 
