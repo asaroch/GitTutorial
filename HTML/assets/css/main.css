@@ -2682,7 +2682,7 @@ input[type=number] {
 }
 #resource_hero .modal-dialog {
     width: 96%;
-    height: 100%;
+    height: auto;
     padding: 0;
 }
 
