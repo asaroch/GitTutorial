@@ -80,7 +80,9 @@
             <div class="col-sm-12">
                 <div class="footer-note">
                     <?php
-                    echo get_post_meta($post->ID, 'wpcf-footer-text', true);
+                    wp_reset_postdata();
+
+                    echo get_post_meta(get_the_ID(), 'wpcf-footer-text', true);
                     // including Global footer plugin.
                     echo footer_text();
                     ?>

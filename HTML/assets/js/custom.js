@@ -368,14 +368,14 @@ $(function(){
             var sbfSlider = $("#slider_testimonial");
             $("#installment_btn").click(function(){
                 sbfSlider.trigger("to.owl.carousel", [2, 500, true]);                
-            })
+            });
             $("#trak_loan_btn").click(function(){
                 sbfSlider.trigger("to.owl.carousel", [1, 500, true]);
                
-            })
+            });
             $("#term_loan_btn").click(function(){
-                sbfSlider.trigger("to.owl.carousel", [0, 500, true])
-            })
+                sbfSlider.trigger("to.owl.carousel", [0, 500, true]);
+            });
             /* Small business funding slider state */  
             $(".navigation-item").click(function(){
                 var $this = $(this);
@@ -398,7 +398,7 @@ $(function(){
             $(".clear-all").click(function(){
                 $(".search-result .sidebar input[type='checkbox']").attr('checked',false);
                 $(".clear-all").hide("slow");
-            })
+            });
             
     // custom checkbox end    
         //    help center accordion
