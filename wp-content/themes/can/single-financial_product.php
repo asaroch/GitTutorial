@@ -166,7 +166,7 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
                        
                         <div class="video-player"> 
 
-                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><?php echo get_the_post_thumbnail($post->ID); ?><div class="video-play-icon"><i></i></div></a>
+                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><?php echo get_the_post_thumbnail($post->ID,'single-post-thumbnail'); ?><div class="video-play-icon"><i></i></div></a>
                         
                             </div>
 
