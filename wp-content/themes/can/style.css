@@ -149,7 +149,7 @@ header{
 }
 .water-mark-image {
     position:absolute;
-    background:url(images/home/Cmark.png) no-repeat right top;
+    background:url(images//home/Cmark.png) no-repeat right top;
     top: 70px; right: 0; width: 678px;
     height: 937px;
 }
@@ -476,7 +476,7 @@ h1 {
     bottom: 0;
 }
 #home_resource_list {
-    background: url(images/home/gradient-03_Cmark.png) repeat left top;
+    background: url(images//home/gradient-03_Cmark.png) repeat left top;
 }
 .resource-list-bg {
     padding: 36px 0 23px;
@@ -595,7 +595,7 @@ i.glyphicon-play {
     font-size: 15px;
 }
 #resource_hero {
-    background: url(images/resources/main_featured_image.jpg) no-repeat center top;
+    background: url(images//resources/main_featured_image.jpg) no-repeat center top;
     height: 493px;
     position: relative;
     background-size: cover;
@@ -614,7 +614,7 @@ i.glyphicon-play {
 #resource_list_container {
     padding: 36px 0 33px;
     background-color: #eee;
-    background: url(images/resources/gray_pattern_bg.png) repeat left top;
+    background: url(images//resources/gray_pattern_bg.png) repeat left top;
 }
 .col-5-overide {
     padding-right: 0;
@@ -668,7 +668,7 @@ i.glyphicon-play {
     font-size: 12px;
 }
 .read-time{
-    background: url(images/home/time_icon.png) no-repeat left top;
+    background: url(images//home/time_icon.png) no-repeat left top;
     font-family: 'Fort-Medium';
     padding-left: 28px;
     margin-top: 16px;
@@ -839,7 +839,7 @@ span.select-drop {
     padding :70px 0px 67px;
 }
 .get-e-book {
-    background: url(images/resources/newsletter_email_image.jpg) no-repeat center top;
+    background: url(images//resources/newsletter_email_image.jpg) no-repeat center top;
     background-size: cover;
 }
 .get-e-book input[type="text"]{
@@ -919,7 +919,7 @@ span.select-drop {
     font-size: 16px;
     color: #6d6e71;
     line-height: 30px;
-    background: url('images/termsloan/arrow_bullet.png') no-repeat;
+    background: url('images//termsloan/arrow_bullet.png') no-repeat;
     padding-left: 50px;
 }
 .paymment-point{
@@ -936,7 +936,7 @@ span.select-drop {
 .termloan-use-point li {
     position: relative;
     font-size: 26px;
-    background:url('images/termsloan/check_bullet.png') no-repeat;
+    background:url('images//termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
     margin: 0 0px 20px;
     padding: 0 20px 0 80px;
@@ -1261,7 +1261,7 @@ footer .badges-container {
     margin: 11px auto 15px;
 }
 .icon-sprite{
-    background: url(images/can_sprt.png) no-repeat;
+    background: url(images//can_sprt.png) no-repeat;
 }
 .star-overall li {
     background-position:-16px -310px;
@@ -1583,7 +1583,7 @@ form.form-section p a.know-more {
     top:0;
     width:27px;
     height: 27px;
-    background: url(images/partner/QuestionMarkIcon.png) no-repeat;
+    background: url(images//partner/QuestionMarkIcon.png) no-repeat;
 }
 .margin-top {
     margin: 12px 0 17px;
@@ -1862,7 +1862,7 @@ form.form-section h3.heading-beacome-partner {
 .loan-nav .active a {
     font-family: "Fort-bold";
     color: #fff;
-    background: url(images/img-2.png) no-repeat;
+    background: url(images//img-2.png) no-repeat;
     background-position:center top;
 }
 .nav-right-border {
@@ -2625,6 +2625,9 @@ input[type=number] {
 }
 #articles .related-articles .caption h3 a {
     color: #01aef0;
+}
+#articles .related-articles .caption h3 a:hover { 
+    text-decoration: none;
 }
 #articles .related-articles .caption h3 a:hover { 
     text-decoration: none;
