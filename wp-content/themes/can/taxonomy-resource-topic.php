@@ -253,8 +253,8 @@ $args = array(
 <!-- Related Articles section -->
 <section class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> <?php echo get_post_meta(121, 'wpcf-cta-title', true); ?> </h2>
-        <h3> <?php echo get_post_meta(121, 'wpcf-cta-description', true); ?> </h3>
+        <h2 class="section-heading"> <?php echo get_post_meta( 121, 'wpcf-cta-title', true ); ?> </h2>
+        <h3> <?php echo get_post_meta( 121, 'wpcf-cta-description', true ); ?> </h3>
         <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>

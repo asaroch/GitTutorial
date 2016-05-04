@@ -346,11 +346,20 @@ function can_scripts() {
 
     $search = $financialProductSlider = $testimonialSlider = FALSE;
     $count_financial_product = wp_count_posts('financial_product');
+  
+    $count_news_press = wp_count_posts('news')->publish+wp_count_posts('press-releases')->publish;
     $count_video_testimonial = wp_count_posts('video-testimonial');
 
+if(is_front_page()){
     if ($count_financial_product->publish > 3) {
         $financialProductSlider = TRUE;
     }
+}
+elseif(is_page('about-us')){
+    if ($count_news_press > 3) {
+        $financialProductSlider = TRUE;
+    }
+}
     if ($count_video_testimonial->publish > 2) {
         $testimonialSlider = TRUE;
     }
@@ -1642,10 +1651,15 @@ function resource_detail_copy_text() {
     $return = '';
     
    if ( $heading != '' || $person_name != '' || $business_name != '' ) {
-        $return  = '<div class="testimonial-content">
-                    <h3 class="testimonial-heading">"'.$heading.'"</h3>
-                    <h3 class="customer-info">– '.$person_name.', '.$business_name.'</h3>
-                </div>';
+        $return  = '<div class="testimonial-content">';
+                    if ( $heading != '' ) {
+                         $return .= '  <h3 class="testimonial-heading">"'.$heading.'"</h3>';
+                    }
+                    $return .= '<h3 class="customer-info">– '.$person_name;
+                    if ( $business_name != '' ) {
+                         $return .= ', '.$business_name;
+                    }
+                $return .= '</h3></div>';
    }
     return $return;
 }

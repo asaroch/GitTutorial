@@ -5,6 +5,7 @@ $(function () {
     } else {
         financialProductSlider = false;
     }
+   
     if(var_object.testimonialSlider){
         testimonialSlider = true;
     }
@@ -130,8 +131,8 @@ $(function () {
         navigation: true,
         autoplay: true,
         autoplayTimeout: 8000,
-        mouseDrag : false,
-        touchDrag : false,
+        mouseDrag : true,
+        touchDrag : true,
         responsive: {
             0: {
                 items: 1,
@@ -149,7 +150,7 @@ $(function () {
                 items:3,
                 nav:financialProductSlider,
                 navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
-                dots: true
+                dots: true,
             }
         },
         onInitialize: function () {
@@ -159,7 +160,10 @@ $(function () {
     });
 
     featureSlider.on('changed.owl.carousel', function (property) {
+        var item = property.item.index + 1;
+        $('.current-slider').html(item);
         var current = property.item.index;
+        
         var shownItems = property.page.size
         // total number of slides
         var total = property.relatedTarget.items().length - 1
