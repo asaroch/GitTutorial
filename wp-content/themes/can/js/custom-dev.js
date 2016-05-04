@@ -90,39 +90,39 @@ $(function () {
     });
 
     jQuery("#phone").mask("(999) 999-9999");
-    
-      $('#newsletter-subscription').validate({
+
+    $('#newsletter-subscription').validate({
         // Specify the validation rules
-        rules : {
-            email : {
-                required : true,
-                email    : true
+        rules: {
+            email: {
+                required: true,
+                email: true
             }
         },
         // Specify the validation error messages
         messages: {
-            email : {
-                required : "This field is required",
-                email    : "Invalid Email",
+            email: {
+                required: "This field is required",
+                email: "Invalid Email",
             }
         },
-        submitHandler: function (form , event ) {
+        submitHandler: function (form, event) {
             event.preventDefault();
             var email = $(form).find('input[type="text"]').val();
             $.ajax({
-                url       : var_object.ajax_url,
-                dataType  : 'json',
-                type      : 'post',
+                url: var_object.ajax_url,
+                dataType: 'json',
+                type: 'post',
                 data: {
-                    action : 'newsletter_subscribe',
-                    email  : email
+                    action: 'newsletter_subscribe',
+                    email: email
                 },
                 beforeSend: function () {
                     $(form).find('button').prop('disabled', true);
                 },
                 success: function (response) {
                     if (response.msg == 'Sucess') {
-                        $( response.data ).insertBefore( ".news-letter-heading" );
+                        $(response.data).insertBefore(".news-letter-heading");
                         $(form).find('button').prop('disabled', false);
                     }
                 }
@@ -206,44 +206,39 @@ $(function () {
     $('.refine-by-topic-checkbox').on('change', function () {
         $('#refine-by-topic-form').submit();
     });
-    
+
     if (var_object.resourceFilteredParameters.filteredTopics) {
         $(".clear-all").show("slow");
     }
-    
+
     // Disable go button on page load
-    if ( var_object.resourceFilteredParameters.businessTypes || var_object.resourceFilteredParameters.searchKeyword ) {
+    if (var_object.resourceFilteredParameters.businessTypes || var_object.resourceFilteredParameters.searchKeyword) {
         $('.btn-go').prop('disabled', false);
-    }
-    else {
+    } else {
         $('.btn-go').prop('disabled', true);
     }
-    
+
     // Enable go button if user has entered text
-     $('#resource-search input[type="text"]').keyup(function() {
-        if($(this).val() != '') {
-           $('.btn-go').prop('disabled', false);
-        }
-        else {
-            if ( $('#business-type').val() == '' ) {
+    $('#resource-search input[type="text"]').keyup(function () {
+        if ($(this).val() != '') {
+            $('.btn-go').prop('disabled', false);
+        } else {
+            if ($('#business-type').val() == '') {
                 $('.btn-go').prop('disabled', true);
-            }
-            else {
-               $('.btn-go').prop('disabled', false);
+            } else {
+                $('.btn-go').prop('disabled', false);
             }
         }
-     });
-     
-    $('#business-type').change(function() {
-         if( $(this).val() != '' ) {
-           $('.btn-go').prop('disabled', false);
-        }
-        else {
-            if ( $('#resource-search input[type="text"]').val() == '' ) {
+    });
+
+    $('#business-type').change(function () {
+        if ($(this).val() != '') {
+            $('.btn-go').prop('disabled', false);
+        } else {
+            if ($('#resource-search input[type="text"]').val() == '') {
                 $('.btn-go').prop('disabled', true);
-            }
-            else {
-               $('.btn-go').prop('disabled', false);
+            } else {
+                $('.btn-go').prop('disabled', false);
             }
         }
     });
@@ -277,81 +272,62 @@ $(function () {
             }
         });
     });
-    
+
     // Quick Quote validations
     $('#get_quote_submit_form').validate({
         // Specify the validation rules
         rules: {
-            fname: {
+            first_name: {
                 required: true,
                 minlength: 2,
                 lettersonly: true
             },
-            last_name: {
-                required: true,
-                minlength: 2,
-                lettersonly: true
-            },
-            email: {
+            email_address: {
                 required: true,
                 email: true
             },
-            phone: {
+            business_phone_number: {
                 required: true,
                 minlength: 10,
                 //maxlength   : 10 
             },
-            business_name: {
-                required: true,
-                minlength: 2,
-                lettersonly: true
-            },
-            loan_amount: {
+            annual_revenue: {
                 required: true
             }
         },
         // Specify the validation error messages
         messages: {
-            fname: {
+            first_name: {
                 required: var_object.quickQuotevalidationsErrs.required,
                 minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
                 lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
             },
-            last_name: {
-                required: var_object.quickQuotevalidationsErrs.required,
-                minlength: var_object.quickQuotevalidationsErrs.last_name_min_chars,
-                lettersonly: var_object.quickQuotevalidationsErrs.last_name_min_chars
-            },
-            email: {
+            email_address: {
                 required: var_object.quickQuotevalidationsErrs.required,
                 email: var_object.quickQuotevalidationsErrs.email,
             },
-            phone: {
+            business_phone_number: {
                 required: var_object.quickQuotevalidationsErrs.required,
                 minlength: "Minimum 10 numbers are allowed",
             },
-            business_name: {
+            annual_revenue: {
                 required: var_object.quickQuotevalidationsErrs.required,
-                minlength: var_object.quickQuotevalidationsErrs.business_name_min_chars,
-                lettersonly: var_object.quickQuotevalidationsErrs.business_name_min_chars
-            },
-            loan_amount: {
-                required: var_object.quickQuotevalidationsErrs.required
+                min : var_object.quickQuotevalidationsErrs.loan_amount,
+                max : var_object.quickQuotevalidationsErrs.loan_amount
             }
         },
-        
-        submitHandler: function(form) {
+        submitHandler: function (form) {
             var formData = $(form).serialize();
             $(form).ajaxSubmit({
-                type:"GET",
-                url:var_object.fieldOptionValue.post_url,
-                success: function() {
+                type: "GET",
+                url: var_object.fieldOptionValue.post_url,
+                success: function () {
                     alert("Success");
                 },
-                error: function() {
+                error: function () {
                     //$('#get_quote_submit_form').fadeTo( "slow", 0.15, function() {
-                        //$('#error').fadeIn();
-                   // });
+                    //$('#error').fadeIn();
+                    // });
                 }
             });
         }
@@ -365,21 +341,21 @@ $(function () {
         }, function(response){
         });
     });
-    
+
     // Paginate resource listing
-    $('.paginate-topic-listing').click(function(e) {
+    $('.paginate-topic-listing').click(function (e) {
         $this = $(this);
         e.preventDefault();
         var offset = $("#paginate-listing-resources-offset").val();
-        var term   = $('#resource-topic-term').val();
+        var term = $('#resource-topic-term').val();
         $.ajax({
-            url      : var_object.ajax_url,
-            dataType : 'json',
-            type     : 'post',
+            url: var_object.ajax_url,
+            dataType: 'json',
+            type: 'post',
             data: {
                 action: 'ajax_resources_listing_pagination',
                 offset: offset,
-                term  : term
+                term: term
             },
             beforeSend: function () { // show loader before ajax success
                 $("#loading-image").show();
@@ -393,26 +369,26 @@ $(function () {
                     $('.show-more-terms').show();
                     $('#paginate-listing-resources-offset').val(++offset);
                 }
-                $( response.data ).insertBefore( ".paginate-topic-listing");
+                $(response.data).insertBefore(".paginate-topic-listing");
             }
         });
     });
-    
-      // Paginate author listing
-    $('.paginate-author-listing').click(function(e) {
+
+    // Paginate author listing
+    $('.paginate-author-listing').click(function (e) {
         $this = $(this);
         e.preventDefault();
         var offset = $("#paginate-author-offset").val();
-       
-        var author   = $('#author-id').val();
+
+        var author = $('#author-id').val();
         $.ajax({
-            url         : var_object.ajax_url,
-            dataType    : 'json',
-            type        : 'post',
+            url: var_object.ajax_url,
+            dataType: 'json',
+            type: 'post',
             data: {
-                action  : 'ajax_author_listing_pagination',
-                offset  : offset,
-                author  : author
+                action: 'ajax_author_listing_pagination',
+                offset: offset,
+                author: author
             },
             beforeSend: function () {
                 $("#loading-image").show();
@@ -426,7 +402,7 @@ $(function () {
                     $('.show-more-terms').show();
                     $('#paginate-author-offset').val(++offset);
                 }
-                $( response.data ).insertBefore( ".paginate-author-listing");
+                $(response.data).insertBefore(".paginate-author-listing");
                 //$('#listing-resources').append(response.data);
             }
         });

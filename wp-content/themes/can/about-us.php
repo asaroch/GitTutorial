@@ -30,6 +30,9 @@ $search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
 $cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
 $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 
+$news_press_heading = get_post_meta(get_the_ID(), 'wpcf-news-and-press-head', true);
+$leading_team_heading = get_post_meta(get_the_ID(), 'wpcf-leading-team-heading', true);
+
 // great potentials slider
 
 $args = array(	'post_status' => 'publish' , 
@@ -67,6 +70,8 @@ $args = array(
     'order' => 'ASC'
 );
 $press_featured = new WP_Query($args);
+//create a object to show estimated reading time for a post.
+            $estimated_time = new EstimatedPostReadingTime();
 
 ?>
 
@@ -86,7 +91,7 @@ $press_featured = new WP_Query($args);
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="section-heading">Our Leading Team</div>
+                            <div class="section-heading"><?php echo $leading_team_heading; ?></div>
                         </div>
                     </div>
                     <div class="row">
@@ -217,12 +222,19 @@ endif;
                 <section id="articles">
                     <div class="related-articles resource-list-bg gradient-three">
                         <div class="container">
-                            <h2 class="section-heading">CAN Capital In the News</h2>
+                            <h2 class="section-heading"><?php echo $news_press_heading; ?></h2>
                             <div id="slider_feature_product" class="owl-carousel owl-theme">
                                 <?php 
+                                // generating post array
+                                $post_array_object = $news_featured->get_posts();
+                                $cnt=0;
+                                if ($news_featured->found_posts > 0) {
                                 while ($news_featured->have_posts()) : $news_featured->the_post();
                                 $chart_topics = wp_get_post_terms(get_the_ID(), 'news-agency', array("fields" => "all"));
                                 $category_logo = get_term_meta($chart_topics[0]->term_id,'wpcf-logo',true);
+                                // Reading time
+                               $reading_time =  $estimated_time->estimate_time_shortcode($post_array_object[$cnt]);
+
                                 ?>
                                 <div class="item">
                                     <div class="thumbnail">
@@ -233,36 +245,58 @@ endif;
                                     ?>
                                         
                                         <div class="caption">
-                                            <p class="topic"><img src="<?php echo $category_logo; ?>" alt="News" /></p>
+                                            <p class="topic"><img src="<?php echo $category_logo; ?>" class="img-responsive" alt="News" /></p>
                                             <p class="read-date"><?php echo get_the_date(); ?></p>
                                             <h3><?php echo get_the_title(); ?></h3>
                                             <p><?php echo get_string_length(get_the_content(),'70'); ?></p>
-                                            <p class="read-time">8 Min Read</p>
+                                             <?php
+                        if ( isset($reading_time) && $reading_time != '' ) {
+                            ?>
+                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                            <?php
+                        } ?>
                                         </div>
                                     </div>
                                 </div>
-                                <?php endwhile;
-                                while ($press_featured->have_posts()) : $press_featured->the_post(); 
+                                <?php 
+                                $cnt++;
+                                endwhile;
+                                }
+                                // generating post array
+                                $post_array_object = $press_featured->get_posts();
+                                $cnt=0;
+                                if ($press_featured->found_posts > 0) {
+                                while ($press_featured->have_posts()) : $press_featured->the_post();
+                                 // Reading time
+                               $reading_time =  $estimated_time->estimate_time_shortcode($post_array_object[$cnt]);
                                 ?>
                                 <div class="item">
                                     <div class="thumbnail">
                                         <div class="caption">
-                                            <p class="topic"> <img src="<?php echo get_bloginfo('template_directory'); ?>/images/about-us/logo_press_release.png" alt="Press Release"></p>
+                                            <p class="topic"> <img src="<?php echo get_bloginfo('template_directory'); ?>/images/about-us/logo_press_release.png" alt="Press Release" class="img-responsive"></p>
                                             <p class="read-date"><?php echo get_the_date(); ?></p>
                                             <h3><?php echo get_the_title(); ?></h3>
                                             <p><?php echo get_string_length(get_the_content(),'70'); ?></p>
-                                            <p class="read-time">8 Min Read</p>
+                                             <?php
+                        if ( isset($reading_time) && $reading_time != '' ) {
+                            ?>
+                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                            <?php
+                        } ?>
                                         </div>
                                     </div>
                                 </div>
-                                <?php                                endwhile; ?>
+                                <?php 
+                                $cnt++;
+                                endwhile;
+                                } ?>
                             </div>
                             <div class="customNavigation visible-xs">
                                 <div class="text-center">
                                     <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
                                     <span class="current-slider"> 1 </span>
                                     <span class="slider-ratio">/</span> 
-                                    <span class="total-slider"> 16 </span>
+                                    <span class="total-slider"> <?php echo ($news_featured->post_count+$press_featured->post_count); ?> </span>
                                     <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
                                 </div>
                             </div>

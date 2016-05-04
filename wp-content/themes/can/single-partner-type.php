@@ -79,18 +79,19 @@ get_header();
     <div class="widget-area testimonial" role="complementary">
         <?php dynamic_sidebar('testimonial'); ?>
     </div><!-- .widget-area -->
-<?php endif; ?>
-<?php 
+<?php endif; 
+ 
+// History of funding
 $history_funding = get_post_meta($post->ID, 'wpcf-history-of-funding', true); 
-if ( $history_funding != '' ) {
-    ?>
+$history_funding_button = get_post_meta($post->ID, 'wpcf-button-text', true); 
+if ( $history_funding != '' ) { ?>
     <section id="referal_about_us" class="gradient-two">
         <div class="container text-center">
             <p><?php echo get_post_meta($post->ID, 'wpcf-history-of-funding', true); ?></p>
-            <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
+            <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style"><?php echo $history_funding_button; ?></a>
         </div>
     </section>
-    <?php
+<?php
 }
 ?>
 <!-- Email Us -->
