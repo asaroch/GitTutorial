@@ -255,7 +255,7 @@ $topics = get_terms('resource-topic', array(
 <div id="all_resources_block">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 resource-container">						
+            <div class="col-md-9 resource-container resource-landing">						
                 <div class="row">
                     <div class="col-sm-12">
                         <?php
