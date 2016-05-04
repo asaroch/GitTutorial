@@ -20,13 +20,19 @@ ob_start();
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
         <?php wp_head(); ?>
-            <script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+             <div id="fb-root"></div>
+        <script>
+        window.fbAsyncInit = function() {
+        FB.init({appId: '982908548413887', status: true, cookie: true,
+        xfbml: true});
+        };
+        (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+        }());
+        </script>
 
     </head>
     <body <?php body_class(); ?>>
