@@ -3082,4 +3082,8 @@ connect-through span {
     line-height: 40px;
     margin: 20px 0;
 }
-
+#page-not-found .breadcrumb { 
+    background-color: transparent;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+}
