@@ -102,13 +102,7 @@ body {
 .voffset-bottom7 { margin-bottom: 80px; }
 .voffset-bottom8 { margin-bottom: 100px; }
 .voffset-bottom9 { margin-bottom: 150px; }
-header{
-    background: rgba(255, 255, 255, .7);
-}
-#wrapper > header, #wrapper > section {
-    padding-left: 30px;
-    padding-right: 30px;
-}
+
 .gradient-one{
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6b2875+0,a041a1+100 */
     background: #6b2875; /* Old browsers */
