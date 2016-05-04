@@ -37,14 +37,21 @@ global $post;
     <div class="widget-area testimonial" role="complementary">
         <?php dynamic_sidebar('testimonial'); ?>
     </div><!-- .widget-area -->
-<?php endif; ?>	
-<!--Testimonial widget ends here-->
+<?php endif;
+ 
+// History of funding
+$history_funding = get_post_meta($post->ID, 'wpcf-history-of-funding', true); 
+$history_funding_button = get_post_meta($post->ID, 'wpcf-button-text', true); 
+if ( $history_funding != '' ) { ?>
 <section  id="about_us" class="gradient-two">
     <div class="container text-center">
-        <p>Supporting small business for <b>18 years</b> with over <b>$6 billion</b> in working capital.</p>
-        <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style">ABOUT US</a>
+       <p><?php echo get_post_meta($post->ID, 'wpcf-history-of-funding', true); ?></p>
+       <a href="<?php echo get_the_permalink(208); ?>" title="ABOUT US"  class="btn btn-purple-style"><?php echo $history_funding_button; ?></a>
     </div>
 </section>
+    <?php
+}
+?>
 <section id="ratting_others">
     <div class="container">
         <h2 class="section-heading">See what others are saying</h2>
