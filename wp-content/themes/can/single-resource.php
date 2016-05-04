@@ -18,16 +18,16 @@ while (have_posts()) : the_post();
     resource_social_share_count( get_the_permalink() );
 
     $featured_image_or_video = get_post_meta($post->ID, 'wpcf-featured_image_video', true);
-    $meta = get_post_meta($post->ID, '_fvp_video', true);
-    $video = wp_get_attachment_url($meta['id']);
+    $meta                    = get_post_meta($post->ID, '_fvp_video', true);
+    $video                   = wp_get_attachment_url($meta['id']);
+    $thumb_img               = get_post( get_post_thumbnail_id($post->ID) ); // Get post meta by ID
     if ($featured_image_or_video == 'video' && $video != '') { // Fetch video thumbmail
-        $meta = get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
         if ($video != '') {
             $src = video_thumbnail($video, '1144x493', $post);
         }
     } else {    // Fetch image src
-        $src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
-        $src = $src[0];
+        $src       = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
+        $src       = $src[0];
     }
     //create a object to show estimated reading time for a post.
     $estimated_time = new EstimatedPostReadingTime();
@@ -37,7 +37,7 @@ while (have_posts()) : the_post();
     <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-default large-size-icon" data-toggle="modal" data-target="#myModal">
-            See Full Image <i class="glyphicon glyphicon-resize-full"></i>
+            See Full <?php echo ($featured_image_or_video == 'video') ? 'Video' : 'Image'; ?> <i class="glyphicon glyphicon-resize-full"></i>
         </button>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -48,7 +48,7 @@ while (have_posts()) : the_post();
                     </div>
                     <div class="modal-body text-center">
                         <?php echo get_the_post_thumbnail($post->ID, 'resource-featured', array('class' => 'img-responsive')); ?>
-                        <small>Mauris ultrices velit consequat, imperdiet nisi in, rutrum mi. Morbi viverra vitae ante eu finibus. Photo by Laura Etellie</small>
+                        <small><?php echo $thumb_img->post_content; ?></small>
                     </div>
                 </div>
             </div>
@@ -138,14 +138,22 @@ while (have_posts()) : the_post();
                         ?>
                         <div class="social-media hidden-lg"><h3>Share</h3><ul>
                                 <li>
-                                    <a href="javascript:void(0);" target="_blank" title="twitter">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/images/home/twitter_icon.png" alt="twitter share"></a></li>
+                                   <a class="twitter-share-button"
+                                        href="https://twitter.com/share"
+                                        data-size="large"
+                                        data-url=https://www.cancapital.com/"
+                                        data-via="twitterdev"
+                                        data-related="twitterapi,twitter"
+                                        data-hashtags="example,demo"
+                                        data-text="custom share text" target="_blank"> 
+                                       <img src="<?php echo get_template_directory_uri(); ?>/images/home/twitter_icon.png" alt="twitter share">
+                                     </a>
                                 <li>
-                                    <a href="javascript:void(0);" target="_blank" title="facebook">
+                                   <a href="javascript:void(0);" target="_blank" title="facebook" id="fb-share-button">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/home/facebook_icon.png" alt="facebook share"></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" target="_blank" title="Linkdin">
+                                    <a href="<?php echo $linkedin_url; ?>"  title="Linkdin" id="linkedin-share-button" target="_blank">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/home/linkedin_icon.png" alt="linkdin share"></a>
                                 </li>
                             </ul>
