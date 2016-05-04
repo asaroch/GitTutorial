@@ -969,6 +969,9 @@ span.select-drop {
     color: #00aeef;
     text-decoration: none;
 }
+#use_termloan_for .show-more-terms {
+   margin-top: 35px; 
+}
 #loan_calculator{
     padding: 68px 0;
     background:#eee;
