@@ -153,9 +153,8 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
             <!--Display testimonials for merchants-->
             <?php
             if ($listings->found_posts > 0) {
-                while ($listings->have_posts()) {                    
+                while ($listings->have_posts()) {
                     $listings->the_post();
-                   
                     ?>
                     <!--Testimonials ends here-->
                     <?php
@@ -163,12 +162,12 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
                     $video = wp_get_attachment_url($meta['id']);
                     ?>
                     <div class="item">
-                       
+
                         <div class="video-player"> 
 
-                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><?php echo get_the_post_thumbnail($post->ID,'single-post-thumbnail'); ?><div class="video-play-icon"><i></i></div></a>
-                        
-                            </div>
+                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><?php echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail'); ?><div class="video-play-icon"><i></i></div></a>
+
+                        </div>
 
                         <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
                         <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business', true); ?> </p>
@@ -179,7 +178,16 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
                 }
             }
             ?>
-        </div>            
+        </div>
+        <div class="customNavigation visible-xs">
+            <div class="text-center">
+                <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
+                <span class="current-slider"> 1 </span>
+                <span class="slider-ratio">/</span> 
+                <span class="total-slider"> 16 </span>
+                <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+            </div>
+        </div>
     </div>			
 </section>
 <!-- community of success -->

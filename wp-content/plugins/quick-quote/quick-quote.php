@@ -48,17 +48,9 @@ function quick_quote() {
                     <label for="first-name-minimum-chars">First name minimum characters allowed:</label>
                     <input type="text" class="form-control" id="first-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[first_name_min_chars]" required value="<?php echo $validationsErr['first_name_min_chars']; ?>" />
                 </div>
-                 <div class="form-group">
-                    <label for="last-name-minimum-chars">Last name minimum characters allowed:</label>
-                    <input type="text" class="form-control" id="last-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[last_name_min_chars]" required value="<?php echo $validationsErr['last_name_min_chars']; ?>" />
-                </div>
                 <div class="form-group">
-                    <label for="busiess-name-minimum-chars">Business name minimum characters allowed:</label>
-                    <input type="text" class="form-control" id="busiess-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[business_name_min_chars]" required value="<?php echo $validationsErr['business_name_min_chars']; ?>" />
-                </div>
-                <div class="form-group">
-                    <label for="loan-amount">Loan amount range:</label>
-                    <input type="text" class="form-control" id="loan-amount" placeholder="Minimum range for loan amount is 4500 and maximum is 500,000" name="validations[loan-amount]" required value="<?php echo $validationsErr['loan-amount']; ?>" />
+                    <label for="loan-amount">Annual Revenue range:</label>
+                    <input type="text" class="form-control" id="loan-amount" placeholder="Minimum range for loan amount is 4500 and maximum is 500,000" name="validations[loan_amount]" required value="<?php echo $validationsErr['loan_amount']; ?>" />
                 </div>
                 <button type="submit" class="btn btn-primary" name="saveValidationsErrorMessage">Save</button>
             </form>
@@ -92,18 +84,6 @@ function quick_quote_field_options()
         <h3>Quick Quote Field Options :</h3>
         <div class="col-md-8">
             <form role="form" method="post" >
-                <div class="form-group">
-                    <label for="phone_number">Phone Number:</label>
-                    <input type="radio" class="form-control" name="extraFieldValue" value="phone" <?php if($fieldOptionValue['extraFieldValue'] == 'phone'){ echo "checked"; } ?> />
-                </div>
-                 <div class="form-group">
-                    <label for="business_name">Business Name:</label>
-                    <input type="radio" class="form-control" name="extraFieldValue" value="business_name" <?php if($fieldOptionValue['extraFieldValue'] == 'business_name'){ echo "checked"; } ?> />
-                </div>
-                  <div class="form-group">
-                    <label for="loan_amount">Loan Amount:</label>
-                    <input type="radio" class="form-control" name="extraFieldValue" value="loan_amount" <?php if($fieldOptionValue['extraFieldValue'] == 'loan_amount'){ echo "checked"; } ?> />
-                </div>
                 
                 <div class="form-group">
                     <label for="post_url">Post URL:</label>
