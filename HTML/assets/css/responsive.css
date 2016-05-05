@@ -55,8 +55,6 @@
     }    
     .get-Quote-form input,
     #search_resource input,
-    .search-resource-center input,
-    form.form-section input,
     .get-Quote-form input[type="number"],
     .select-topic select { 
         font-family: "Fort-Book";
@@ -68,7 +66,7 @@
        padding-right:54px; 
        padding-left: 15px;
     }    
-    .get-Quote-form .action-btn, .field-style {
+    .get-Quote-form .action-btn, #search_resource .field-style {
         height: 40px; 
         padding: 10px 15px;
     }
