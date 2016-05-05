@@ -374,6 +374,11 @@ elseif(is_page('about-us')){
     $quickQuotevalidationsErrs = get_option('quick_quote_generations_validations_error_msg');
     //Fetch quick quote field option values
     $fieldOptionValue = get_option('quick_quote_field_options');
+    
+    //Fetch contact us form validation Error messgaes
+    $contact_us_validations_error_msg = get_option('contact_us_validations_error_msg');
+    
+
     global $post;
     // Search parameters of resource
     $resourceFilteredParameters = array();
@@ -390,7 +395,8 @@ elseif(is_page('about-us')){
         'validationsErrs'        => $validationsErrs,
         'resourceFilteredParameters'  => $resourceFilteredParameters,
         'quickQuotevalidationsErrs' => $quickQuotevalidationsErrs,
-        'fieldOptionValue'          => $fieldOptionValue,
+        'fieldOptionValue' => $fieldOptionValue,
+        'contact_us_validations_error_msg' => $contact_us_validations_error_msg,
         'resourceURL'               => get_permalink( $post->ID )
       ));
 }

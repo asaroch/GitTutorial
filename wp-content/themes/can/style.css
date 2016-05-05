@@ -1474,7 +1474,7 @@ form.form-section label{
     width: 100%;
 }
 form.form-section .form-control {
-    margin-bottom: 45px;
+    margin-bottom: 30px;
 }
 form.form-section .form-group fieldset {
     position:relative;
@@ -1483,7 +1483,7 @@ form.form-section label.error {
     color: red;
     text-align: right;
     position: absolute;
-    bottom: 6px;
+    bottom: -2px;
     right: 10px;
 }
 form.form-section textarea {
@@ -1681,6 +1681,7 @@ form.form-section h3.heading-beacome-partner {
     margin-bottom: 15px;
     font-family: "Fort-Bold";
     font-size: 22px;
+    padding: 0 10px;
 }
 .partnership-description{
     font-size: 14px;
