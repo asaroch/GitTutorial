@@ -298,22 +298,22 @@ $(function () {
         // Specify the validation error messages
         messages: {
             first_name: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.firstname_required,
                 minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
                 lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
             },
             email_address: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.email_required,
                 email: var_object.quickQuotevalidationsErrs.email,
             },
             business_phone_number: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.phone_required,
                 minlength: "Minimum 10 numbers are allowed",
             },
             annual_revenue: {
-                required: var_object.quickQuotevalidationsErrs.required,
-                min : var_object.quickQuotevalidationsErrs.loan_amount,
-                max : var_object.quickQuotevalidationsErrs.loan_amount
+                required: var_object.quickQuotevalidationsErrs.anuualrevenue_required,
+                min: var_object.quickQuotevalidationsErrs.loan_amount,
+                max: var_object.quickQuotevalidationsErrs.loan_amount
             }
         },
         submitHandler: function (form) {
@@ -332,13 +332,13 @@ $(function () {
             });
         }
     });
-   
-    $('#fb-share-button').click(function(e) {
+
+    $('#fb-share-button').click(function (e) {
         e.preventDefault();
         FB.ui({
-            method : 'share',
-            href   :  var_object.resourceURL
-        }, function(response){
+            method: 'share',
+            href: var_object.resourceURL
+        }, function (response) {
         });
     });
 
@@ -407,8 +407,8 @@ $(function () {
             }
         });
     });
-    
-     // Contact Us validations
+
+    // Contact Us validations
     $('#contact_form').validate({
         // Specify the validation rules
         rules: {
@@ -478,18 +478,18 @@ $(function () {
     jQuery("#phone_no").mask("(999) 999-9999");
 
     // Glossary show more
-    $('.glossary-filter-paging').click(function(e) {
+    $('.glossary-filter-paging').click(function (e) {
         $this = $(this);
         e.preventDefault();
         var offset = $("#glossary-filtered-resources-offset").val();
-      
+
         $.ajax({
-            url         : var_object.ajax_url,
-            dataType    : 'json',
-            type        : 'post',
+            url: var_object.ajax_url,
+            dataType: 'json',
+            type: 'post',
             data: {
-                action  : 'ajax_glossary_pagination',
-                offset  : offset
+                action: 'ajax_glossary_pagination',
+                offset: offset
             },
             beforeSend: function () {
                 $("#loading-image").show();
@@ -503,18 +503,17 @@ $(function () {
                     $('.show-more-terms').show();
                     $('#glossary-filtered-resources-offset').val(++offset);
                 }
-              
+
                 if ($("#mostRecentGlossary div.row:last").find('.section-heading').html() == $(response.data).find('.section-heading').html()) {
-                     var resource_title = $(response.data).filter("div.row:first");
-                    
+                    var resource_title = $(response.data).filter("div.row:first");
+
                     //var resource_title = $(response.data).find('div').first();
                     var resource = $(resource_title).find('p');
-                    $("#mostRecentGlossary div.row:last .col-sm-12").append(resource);  
-                     var last_element = $(response.data).filter("div.row:not(:first)");
-                      $( last_element ).insertBefore( ".glossary-show-more");
-                }
-                else {
-                    $( response.data ).insertBefore( ".glossary-show-more");
+                    $("#mostRecentGlossary div.row:last .col-sm-12").append(resource);
+                    var last_element = $(response.data).filter("div.row:not(:first)");
+                    $(last_element).insertBefore(".glossary-show-more");
+                } else {
+                    $(response.data).insertBefore(".glossary-show-more");
                 }
             }
         });
