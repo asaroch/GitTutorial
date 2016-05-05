@@ -181,8 +181,6 @@
     }
     .graph1, .graph2 { 
         width: auto;
-    }
-    .partnership-item, .graph1, .graph2 {
         height: auto;
     }
     
@@ -277,9 +275,6 @@
         position: relative;
         left:0;
     }
-    /*    .resource-content.resource-sm-height {
-            height: 225px;
-        }*/
     #resource_list_container .resource-sm-height,
     #home_resource_list .resource-sm-height {
         float:left;
@@ -458,7 +453,9 @@
     .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
         border: none;
     }
-    .navbar a, .primary-nav .nav .dropdown-menu li a, .primary-nav .nav .dropdown-menu li.current-menu-item a {
+    .navbar a,
+    .primary-nav .nav .dropdown-menu li a,
+    .primary-nav .nav .dropdown-menu li.current-menu-item a {
         color: #fff;
     }
     .navbar-nav > li  {
@@ -568,7 +565,9 @@
     .inner-page-arrow {
         bottom: -27px; 
     }
-    .get-Quote-form, .get-Quote-form form, #form_box {
+    .get-Quote-form,
+    .get-Quote-form form,
+    #form_box {
         background: rgba(1,174,240,.9);		
     }
     .get-Quote-form {
@@ -645,7 +644,10 @@
         top:70px;
         z-index: 0;
     }
-    #about_us p, .get-funded h2, .get-funded h3, #help-log p {
+    #about_us p,
+    .get-funded h2,
+    .get-funded h3,
+    #help-log p {
         font-size: 24px;
     }
     #about_us p {
@@ -691,7 +693,8 @@
     .footer-note {
         margin-top: 45px;
     }
-    .footer-navigation li, .footer-navigation li a {
+    .footer-navigation li,
+    .footer-navigation li a {
         font-size: 16px;
     }
     /*resources*/
@@ -843,7 +846,6 @@
         text-align: left;
 
     }
-
     /*-----------------------------------batch 2 starts--------------------------------------*/
     /*-----------------------------------------------------------------------------------*/
     .average-ratting {
@@ -891,6 +893,9 @@
     }
     #partners, #cta_block {
         padding-bottom: 30px;
+    }
+    .partnership-item {
+        height: auto;
     }
     /* Block Solution Built*/
     #term_loan .loan-nav ul li {
@@ -1312,8 +1317,7 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
-    }
-    
+    }    
     #all_resources_block .select-topic {
         width: 240px;
     }
