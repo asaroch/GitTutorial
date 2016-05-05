@@ -19,15 +19,15 @@ function contact_us_email_format() {
     wp_enqueue_style('bootstrap', '/wp-content/plugins/badges/css/bootstrap.css');
     wp_enqueue_script('bootstrap', '/wp-content/plugins/badges/js/bootstrap.js');
     // Save email format
-    if ( isset($_POST['saveEmailFormat']) ) {
-       extract($_POST);
-       update_option( 'contact_us_email_format', $email );
+    if (isset($_POST['saveEmailFormat'])) {
+        extract($_POST);
+        update_option('contact_us_email_format', $email);
     }
-    
+
     // Fetch email format
     $emailFormat = get_option('contact_us_email_format');
     ?>
-     <div class="row">
+    <div class="row">
         <h3>Contact Us Email Format:</h3>
         <div class="col-md-8">
             <form role="form" method="post" >
@@ -37,9 +37,10 @@ function contact_us_email_format() {
                 </div>
                 <div class="form-group">
                     <label for="email-body">Body:</label>
-                  <?php 
-                  $content = $emailFormat['body'];
-                  wp_editor( $content, 'email-body', $settings = array('textarea_name' => 'email[body]') ); ?> 
+                    <?php
+                    $content = $emailFormat['body'];
+                    wp_editor($content, 'email-body', $settings = array('textarea_name' => 'email[body]'));
+                    ?> 
                 </div>
                 <button type="submit" class="btn btn-primary" name="saveEmailFormat">Save</button>
             </form>
@@ -51,18 +52,18 @@ function contact_us_email_format() {
 /* * *********************************************************
  * Callback function of menu hook 
  * ********************************************************* */
+
 function contact_us_callback_function() {
     wp_enqueue_style('bootstrap', '/wp-content/plugins/badges/css/bootstrap.css');
     wp_enqueue_script('bootstrap', '/wp-content/plugins/badges/js/bootstrap.js');
-    
+
     // Save validations error message
-    if ( isset($_POST['saveValidationsErrorMessage']) ) {
-        update_option( 'contact_us_validations_error_msg', $_POST['validations'] );
+    if (isset($_POST['saveValidationsErrorMessage'])) {
+        update_option('contact_us_validations_error_msg', $_POST['validations']);
     }
-    
+
     // Fetch option
     $validationsErr = get_option('contact_us_validations_error_msg');
-    
     ?>
     <div class="row">
         <h3>Partners Lead Generation validation error messages :</h3>
@@ -100,11 +101,11 @@ function contact_us_callback_function() {
                     <label for="email-valid">Email valid:</label>
                     <input type="text" class="form-control" id="email-valid" placeholder="Invalid Email" name="validations[email]" required value="<?php echo $validationsErr['email']; ?>" />
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="first-name-minimum-chars">First name minimum characters allowed:</label>
                     <input type="text" class="form-control" id="first-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[first_name_min_chars]" required value="<?php echo $validationsErr['first_name_min_chars']; ?>" />
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="last-name-minimum-chars">Last name minimum characters allowed:</label>
                     <input type="text" class="form-control" id="last-name-minimum-chars" placeholder="Minimum of 2 characters and no numbers or special characters" name="validations[last_name_min_chars]" required value="<?php echo $validationsErr['first_name_min_chars']; ?>" />
                 </div>
@@ -112,8 +113,6 @@ function contact_us_callback_function() {
             </form>
         </div>
     </div>
-   
+
     <?php
 }
-
-

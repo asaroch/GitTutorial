@@ -6,29 +6,46 @@
  * @subpackage Twenty_Sixteen
  * @since Twenty Sixteen 1.0
  */
+get_header();
+?>
 
-get_header(); ?>
+<!--404 Page -->
+<section id="page-not-found">
+    <div class="container voffset5">
+        <h1>PAGE NOT FOUND</h1>
+        <h3>We're sorry, but we cannot find the page you were looking for.</h3>
+        <div class="row">
+            <div class="col-sm-2">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/contruction_404.png">
+            </div>
+            <div class="col-sm-10">
+                <p>This might be because:</p>
+                <ul>
+                    <li>You typed the web address incorrectly</li>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'twentysixteen' ); ?></h1>
-				</header><!-- .page-header -->
+                    <li>The page may have been moved, updated or deleted</li>
 
-				<div class="page-content">
-					<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'twentysixteen' ); ?></p>
 
-					<?php get_search_form(); ?>
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+                </ul>
+            </div></div>
+        <div class="row voffset6">
+            <h3>Please try one of the following options instead.</h3>
+            <div class="col-sm-2">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/lightbulb_404.png">
+            </div>
+            <div class="col-sm-10">
+                <p>This might be because:</p>
+                <ul>
+                    <li>You typed the web address incorrectly</li>
 
-		</main><!-- .site-main -->
 
-		<?php get_sidebar( 'content-bottom' ); ?>
+                    <li>The page may have been moved, updated or deleted</li>
 
-	</div><!-- .content-area -->
 
-<?php get_sidebar(); ?>
+                </ul>
+            </div></div>
+    </div>
+</section>
+
 <?php get_footer(); ?>
