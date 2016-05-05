@@ -6,9 +6,10 @@ get_header();
 
 // The Query
 $args = array('post_status' => 'publish',
-    'post_type' => 'partner-type',
-    'orderby' => 'menu_order date',
-    'order' => 'ASC'
+    'post_type'      => 'partner-type',
+    'orderby'        => 'menu_order date',
+    'order'          => 'ASC',
+    'posts_per_page' => -1
 );
 $partnerTypes = new WP_Query($args);
 ?>
