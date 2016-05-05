@@ -251,11 +251,11 @@ $(function () {
     
     // term loan
     $("#success_community .slide-next").click(function(){                    
-            communitySlider.trigger("next.owl.carousel");
+            successCommunity.trigger("next.owl.carousel");
     });
 
     $("#success_community .slide-prev").click(function(){                        
-            communitySlider.trigger("prev.owl.carousel");
+            successCommunity.trigger("prev.owl.carousel");
     });
 
 
