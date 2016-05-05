@@ -407,5 +407,73 @@ $(function () {
             }
         });
     });
+    
+     // Contact Us validations
+    $('#contact_form').validate({
+        // Specify the validation rules
+        rules: {
+            first_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            last_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+                minlength: 10,
+                //maxlength   : 10 
+            },
+            business_name: {
+                required: true
+            },
+            title: {
+                required: true
+            },
+            message: {
+                required: true
+            }
+        },
+        // Specify the validation error messages
+        messages: {
+            first_name: {
+                required: var_object.contact_us_validations_error_msg.firstname_required,
+                minlength: var_object.contact_us_validations_error_msg.first_name_min_chars,
+                lettersonly: var_object.contact_us_validations_error_msg.first_name_min_chars
+            },
+            last_name: {
+                required: var_object.contact_us_validations_error_msg.lastname_required,
+                minlength: var_object.contact_us_validations_error_msg.last_name_min_chars,
+                lettersonly: var_object.contact_us_validations_error_msg.last_name_min_chars
+            },
+            email: {
+                required: var_object.contact_us_validations_error_msg.email_required,
+                email: var_object.contact_us_validations_error_msg.email,
+            },
+            phone: {
+                required: var_object.contact_us_validations_error_msg.phone_required,
+                minlength: "Minimum 10 numbers are allowed",
+            },
+            business_name: {
+                required: var_object.contact_us_validations_error_msg.business_required
+            },
+            title: {
+                required: var_object.contact_us_validations_error_msg.title_required
+            },
+            message: {
+                required: var_object.contact_us_validations_error_msg.message_required
+            }
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
 
 });
