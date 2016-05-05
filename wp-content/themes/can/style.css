@@ -1722,11 +1722,11 @@ form.form-section h3.heading-beacome-partner {
 }
 #we_bring_you_best{
     position: relative;
-    padding: 75px auto 104px;
+    padding: 70px 0 4px;
     text-align: center;
 }
 #we_bring_you_best .section-heading {
-    margin: 70px auto 52px;
+    margin-bottom: 52px;
 }
 #we_bring_you_best .tranp-div-two {
     top: 0px;
