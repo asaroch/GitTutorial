@@ -2,7 +2,7 @@ $(function () {
     if (var_object.search) {
         $('html, body').animate({scrollTop: $('#resource_list_container .featured-content').offset().top}, 'slow');
     }
-    $(".resource-container .row:gt(" + var_object.show_more_limit + ")").hide();
+    $(".resource-landing .row:gt(" + var_object.show_more_limit + ")").hide();
 
     $('.show-more-articles').click(function (e) {
         e.preventDefault();
@@ -332,13 +332,13 @@ $(function () {
             });
         }
     });
-
-    $('#fb-share-button').click(function (e) {
+   
+    $('#fb-share-button').click(function(e) {
         e.preventDefault();
         FB.ui({
-            method: 'share',
-            href: 'https://www.cancapital.com/',
-        }, function (response) {
+            method : 'share',
+            href   :  var_object.resourceURL
+        }, function(response){
         });
     });
 
@@ -476,5 +476,48 @@ $(function () {
         }
     });
     jQuery("#phone_no").mask("(999) 999-9999");
+
+    // Glossary show more
+    $('.glossary-filter-paging').click(function(e) {
+        $this = $(this);
+        e.preventDefault();
+        var offset = $("#glossary-filtered-resources-offset").val();
+      
+        $.ajax({
+            url         : var_object.ajax_url,
+            dataType    : 'json',
+            type        : 'post',
+            data: {
+                action  : 'ajax_glossary_pagination',
+                offset  : offset
+            },
+            beforeSend: function () {
+                $("#loading-image").show();
+                $('.show-more-terms').hide();
+            },
+            success: function (response) {
+                $("#loading-image").hide();
+                if (response.status == 'error') {
+                    $('.show-more-terms').hide();
+                } else {
+                    $('.show-more-terms').show();
+                    $('#glossary-filtered-resources-offset').val(++offset);
+                }
+              
+                if ($("#mostRecentGlossary div.row:last").find('.section-heading').html() == $(response.data).find('.section-heading').html()) {
+                     var resource_title = $(response.data).filter("div.row:first");
+                    
+                    //var resource_title = $(response.data).find('div').first();
+                    var resource = $(resource_title).find('p');
+                    $("#mostRecentGlossary div.row:last .col-sm-12").append(resource);  
+                     var last_element = $(response.data).filter("div.row:not(:first)");
+                      $( last_element ).insertBefore( ".glossary-show-more");
+                }
+                else {
+                    $( response.data ).insertBefore( ".glossary-show-more");
+                }
+            }
+        });
+    });
 
 });

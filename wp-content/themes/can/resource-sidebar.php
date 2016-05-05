@@ -7,7 +7,6 @@ if ( count($curauth) || $term ) {
 else {
     $post_id = $post->ID;
 }
-
 ?>
 <div class="col-sm-12 col-md-3 mob-grey-bg">
     <div class="row sidebar">

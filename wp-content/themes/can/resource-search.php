@@ -262,7 +262,7 @@ if ($resources->found_posts > $show_more_limit) {
 }
 ?>
                         <div id="loader-conatiner show-more-terms">
-                            <img id="loading-image" src="<?php echo get_template_directory_uri(); ?>/images/loader.png" style="display:none;"/>
+                            <img id="loading-image" src="<?php echo get_template_directory_uri(); ?>/images/loader.gif" style="display:none;"/>
                         </div>
                     </div>
                 </div>
