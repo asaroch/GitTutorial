@@ -1970,3 +1970,19 @@ function ajax_glossary_pagination() {
     echo json_encode($response);
     exit;
 }
+function title_count_js() {
+
+        echo '<script>jQuery(document).ready(function(){
+		jQuery("#titlediv #titlewrap").after("<div style=\"position:relative;color:#666;\"><small>Title length: </small><span id=\"title_counter\"></span><span style=\"font-weight:bold; padding-left:7px;\">/ 60</span><small><span style=\"font-weight:bold; padding-left:7px;\">character(s).</span></small></div>");
+			 jQuery("span#title_counter").text(jQuery("#title").val().length);
+			 jQuery("#title").keyup( function() {
+				 if(jQuery(this).val().length > 60){
+					jQuery(this).val(jQuery(this).val().substr(0, 60));
+    }
+			 jQuery("span#title_counter").text(jQuery("#title").val().length);
+		   });
+		});</script>';
+}
+
+add_action('admin_head-post.php', 'title_count_js');
+add_action('admin_head-post-new.php', 'title_count_js');
