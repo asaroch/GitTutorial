@@ -475,5 +475,6 @@ $(function () {
             form.submit();
         }
     });
+    jQuery("#phone_no").mask("(999) 999-9999");
 
 });

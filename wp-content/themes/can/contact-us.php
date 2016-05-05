@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
                     <div class="form-group">
                         <fieldset>
                             <label for="phone_no">Phone number</label>
-                            <input type="text" class="form-control" id="phone" name="phone">
+                            <input type="text" class="form-control" id="phone_no" name="phone">
                         </fieldset>
                     </div>
                 </div>
