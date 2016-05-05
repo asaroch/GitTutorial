@@ -52,7 +52,7 @@
     .dropdown .glyphicon-menu-down {
         right: -3px;
         width: 27px;
-    }
+    }    
     .get-Quote-form input,
     #search_resource input,
     .search-resource-center input,
@@ -63,14 +63,14 @@
         height: 40px;
         padding: 10px 15px;
         font-size: 14px;
-    } 
+    }
     .select-topic select {
        padding-right:54px; 
        padding-left: 15px;
-    }
+    }    
     .get-Quote-form .action-btn, .field-style {
         height: 40px; 
-        padding: 3px 5px 0;
+        padding: 10px 15px;
     }
     span.select-drop {
         padding: 9px 10px;
