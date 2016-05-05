@@ -181,9 +181,8 @@
     }
     .graph1, .graph2 { 
         width: auto;
-        height: auto;
     }
-    .partnership-item {
+    .partnership-item , .graph1, .graph2{
         height: auto;
     }
     
