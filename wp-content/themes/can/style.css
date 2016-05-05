@@ -919,7 +919,7 @@ span.select-drop {
     color: #6d6e71;
     margin-bottom: 25px;
 }
-.details-point li {
+.details-point li , .emp-perks li{
     margin-bottom: 12px;
     font-size: 16px;
     color: #6d6e71;
@@ -1445,7 +1445,7 @@ footer .badges-container {
 #termsloan_detail .section-heading {
     margin-bottom: 40px;
 }
-#termsloan_detail .details-point li {
+#termsloan_detail .details-point li, #termsloan_detail .emp-perks li {
     font-size: 16px;
 }
 .inspiration-content .section-heading {
