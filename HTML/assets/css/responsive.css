@@ -53,6 +53,29 @@
         right: -3px;
         width: 27px;
     }
+    .get-Quote-form input,
+    #search_resource input,
+    .search-resource-center input,
+    form.form-section input,
+    .get-Quote-form input[type="number"],
+    .select-topic select { 
+        font-family: "Fort-Book";
+        height: 40px;
+        padding: 10px 15px;
+        font-size: 14px;
+    } 
+    .select-topic select {
+       padding-right:54px; 
+       padding-left: 15px;
+    }
+    .get-Quote-form .action-btn, .field-style {
+        height: 40px; 
+        padding: 3px 5px 0;
+    }
+    span.select-drop {
+        padding: 9px 10px;
+        height: 34px;
+    }
 }
 @media (max-width:1199px) and (min-width:992px) {
     .testimonial-content { 
@@ -108,6 +131,14 @@
     #articles .related-articles .caption h3 {
         font-size: 22px;
         line-height: 26px;
+    }
+    .get-Quote-form input,
+    #search_resource input,
+    .search-resource-center input,
+    form.form-section input,
+    .get-Quote-form input[type="number"],
+    .select-topic select {
+        font-size: 14px;
     }
 }
 @media (max-width:1199px) and (min-width:768px) {
@@ -372,19 +403,9 @@
         width: 48%;
         margin: 0 auto 45px;
     }
-    .get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input,.get-Quote-form input[type="number"] { 
-        font-family: "Fort-Book";
-        height: 40px;
-        padding: 10px 15px;
-        font-size: 14px;
-    }
     .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
         padding-left: 10px;
         padding-right: 10px;
-    }
-    .get-Quote-form .action-btn {
-        height: 40px; 
-        padding: 3px 5px 0;
     }
 }
 @media (max-width:767px) {
