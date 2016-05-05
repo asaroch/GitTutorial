@@ -56,13 +56,13 @@
     .get-Quote-form input,
     #search_resource input,
     .get-Quote-form input[type="number"],
-    .select-topic select { 
+    #search_resource .select-topic select { 
         font-family: "Fort-Book";
         height: 40px;
         padding: 10px 15px;
         font-size: 14px;
     }
-    .select-topic select {
+    #search_resource .select-topic select {
        padding-right:54px; 
        padding-left: 15px;
     }    
@@ -70,7 +70,7 @@
         height: 40px; 
         padding: 10px 15px;
     }
-    span.select-drop {
+    #search_resource span.select-drop {
         padding: 9px 10px;
         height: 34px;
     }
@@ -132,10 +132,8 @@
     }
     .get-Quote-form input,
     #search_resource input,
-    .search-resource-center input,
-    form.form-section input,
     .get-Quote-form input[type="number"],
-    .select-topic select {
+    #search_resource .select-topic select {
         font-size: 14px;
     }
 }
