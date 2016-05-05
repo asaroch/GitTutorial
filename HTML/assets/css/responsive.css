@@ -319,6 +319,13 @@
         width: auto;
         left: auto;
     }
+    .sidebar .post-section:last-child,
+    #all_resources_block .sidebar .post-section:last-child .section-heading  {
+        text-align: center;
+    }
+    #all_resources_block .sidebar .post-section:last-child .section-heading {
+        float: none;
+    }
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
