@@ -37,8 +37,20 @@ function quick_quote() {
         <div class="col-md-8">
             <form role="form" method="post" >
                 <div class="form-group">
-                    <label for="required">Required:</label>
-                    <input type="text" class="form-control" id="required" placeholder="This field is required" name="validations[required]" required value="<?php echo $validationsErr['required']; ?>" />
+                    <label for="firstname_required">Required message for Name:</label>
+                    <input type="text" class="form-control" placeholder="This field is required" name="validations[firstname_required]" required value="<?php echo $validationsErr['firstname_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="anuualrevenue_required">Required message for Annual Revenue:</label>
+                    <input type="text" class="form-control" placeholder="This field is required" name="validations[anuualrevenue_required]" required value="<?php echo $validationsErr['anuualrevenue_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="email_required">Required message for Email Address:</label>
+                    <input type="text" class="form-control" placeholder="This field is required" name="validations[email_required]" required value="<?php echo $validationsErr['email_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="phone_required">Required message for Phone Number:</label>
+                    <input type="text" class="form-control" placeholder="This field is required" name="validations[phone_required]" required value="<?php echo $validationsErr['phone_required']; ?>" />
                 </div>
                 <div class="form-group">
                     <label for="email-valid">Email valid:</label>

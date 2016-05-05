@@ -298,20 +298,20 @@ $(function () {
         // Specify the validation error messages
         messages: {
             first_name: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.firstname_required,
                 minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
                 lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
             },
             email_address: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.email_required,
                 email: var_object.quickQuotevalidationsErrs.email,
             },
             business_phone_number: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.phone_required,
                 minlength: "Minimum 10 numbers are allowed",
             },
             annual_revenue: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.anuualrevenue_required,
                 min : var_object.quickQuotevalidationsErrs.loan_amount,
                 max : var_object.quickQuotevalidationsErrs.loan_amount
             }
