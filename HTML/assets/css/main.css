@@ -3086,6 +3086,7 @@ connect-through span {
 }
 .resource-hero-banner-height { 
     height: auto;
+    min-height:98px;
 }
 .resource-hero-banner-height img {
     height: 493px;
