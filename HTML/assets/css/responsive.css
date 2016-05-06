@@ -1254,7 +1254,7 @@
         float: left; 
         margin: 0 0 0 20px;
     }
-    .social-media li img {
+    .social-media ul li a img {
         display: inherit;
         height: auto;
         margin: 0px;
@@ -1263,7 +1263,10 @@
         width: auto;
     }
     .img-caption, #social-media-section .content-area img {
-      width: auto;
+        width: auto;
+    }
+    .content-area .sponsored {
+        width: 100%;
     }
     /*  Resources Glossary  */
     .glossary-mob-top-border {  
