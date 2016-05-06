@@ -3084,11 +3084,11 @@ connect-through span {
     top: 12px;
     white-space: nowrap;
 }
-.#resource_hero { 
+#resource_hero { 
     height: auto;
-    min-height:98px;
-}
-.#resource_hero img {
+    min-height: 98px;
+  }
+#resource_hero img {
     height: 493px;
 }
 
