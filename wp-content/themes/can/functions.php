@@ -2011,4 +2011,4 @@ function live_chat_js() {
 
 add_action('admin_head-nav-menus.php', 'live_chat_js');
 
-}
+
