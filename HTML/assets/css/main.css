@@ -1027,7 +1027,7 @@ span.select-drop {
     font-size: 26px;
     color: #00aeef;
     margin-top: 27px;
-    margin-bottom: 26px;
+    margin-bottom: 5px;
 }
 .tools-block p {
     line-height: 63px;
@@ -2972,13 +2972,13 @@ span.top-quest {
 /*career*/
 .connect-with-us {
     text-align: center;
-    padding: 70px 0 30px;
+    padding: 70px 0 10px;
 } 
 .connect-with-us h3 {
     font-size: 22px;
     color: #fff;
     line-height: 30px;
-    margin: 28px 0 65px;
+    margin: 28px 0 50px;
     padding: 0 15px;
 }
 .connect-with-us h5 {
