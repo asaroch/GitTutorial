@@ -1254,8 +1254,16 @@
         float: left; 
         margin: 0 0 0 20px;
     }
-    .img-caption, #social-media-section .content-area img {
+   #social-media-section .content-area img {
+        display: inherit;
+        height: auto;
+        margin: 0px;
+        max-width: none;
+        text-align: center;
         width: auto;
+    }
+    .img-caption, #social-media-section .content-area img {
+      width: auto;
     }
     .content-area .sponsored {
         width: 100%;
