@@ -2498,6 +2498,14 @@ input[type=number] {
     color: #6d6e71;
     line-height: 26px;
 }
+.social-media ul li a img {
+        display: inherit;
+        height: auto;
+        margin: 0px;
+        max-width: none;
+        text-align: center;
+        width: auto;
+    }
 #social-media-section .content-area img { 
     width: 86%;
     margin: 78px auto 0;  
@@ -2507,6 +2515,7 @@ input[type=number] {
     max-width: 100%;
     margin-bottom: 25px;
 }
+
 #social-media-section .content-area .img-container img {
     margin-bottom: 25px;
 }
