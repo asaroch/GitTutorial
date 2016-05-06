@@ -3076,3 +3076,17 @@ connect-through span {
     border-top: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
 }
+/*live chat*/
+.boldchat {    
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 12px;
+    white-space: nowrap;
+}
+.resource-hero-banner-height { 
+    height: auto;
+}
+.resource-hero-banner-height img {
+    height: 493px;
+}
