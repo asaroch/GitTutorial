@@ -1236,7 +1236,7 @@
         font-size: 26px;
     }
     .social-media { 
-        position: inherit; 
+        position: relative; 
         right: 0; 
         width: 100%; 
         display: inline-block; 
@@ -1253,6 +1253,14 @@
     .social-media li { 
         float: left; 
         margin: 0 0 0 20px;
+    }
+    .social-media li {
+    display: inherit;
+    height: auto;
+    margin: 0px;
+    max-width: none;
+    text-align: center;
+    width: auto;
     }
     /*  Resources Glossary  */
     .glossary-mob-top-border {  
