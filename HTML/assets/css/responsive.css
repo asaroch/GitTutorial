@@ -1254,14 +1254,6 @@
         float: left; 
         margin: 0 0 0 20px;
     }
-    .social-media ul li a img {
-        display: inherit;
-        height: auto;
-        margin: 0px;
-        max-width: none;
-        text-align: center;
-        width: auto;
-    }
     .img-caption, #social-media-section .content-area img {
         width: auto;
     }
@@ -1358,14 +1350,6 @@
     }    
     #all_resources_block .select-topic {
         width: 240px;
-    }
-    .social-media ul li a img {
-        display: inherit;
-        height: auto;
-        margin: 0px;
-        max-width: none;
-        text-align: center;
-        width: auto;
     }
 }
 @media (max-width:360px){
