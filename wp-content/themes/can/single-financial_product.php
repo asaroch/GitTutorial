@@ -7,7 +7,7 @@ $meta = get_post_meta(get_the_ID());
 
 global $post;
 $listings = new WP_Query();
-$listings->query('post_type=video-testimonial&posts_per_page=-1,&order=ASC');
+$listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 /*
  * Fetch loan keypoints

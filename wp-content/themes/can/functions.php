@@ -784,7 +784,7 @@ class Testimonial_Widget extends WP_Widget {
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
-        $listings->query('post_type=testimonial&testimonial-category=' . $type . '&posts_per_page=' . $numberOfListings);
+        $listings->query('post_type=testimonial&testimonial-category=' . $type . '&posts_per_page=' . $numberOfListings.'&orderby=menu_order date&order=ASC');
         if ($listings->found_posts > 0) {
             echo '<section  id="testimonial">
 			<div class="tranp-div-two"></div>
@@ -1377,7 +1377,8 @@ class VideoTestimonials_Widget extends WP_Widget {
         $args = array(
             'post_type' => 'video-testimonial',
             'post_status' => 'publish',
-            'order' => 'ASC'
+            'order' => 'ASC',
+            'orderby' => 'menu_order date'
         );
 
         //$featured_resources = query_posts($args);
