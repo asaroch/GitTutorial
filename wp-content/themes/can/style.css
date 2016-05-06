@@ -919,7 +919,7 @@ span.select-drop {
     color: #6d6e71;
     margin-bottom: 25px;
 }
-.details-point li {
+.details-point li , .emp-perks li{
     margin-bottom: 12px;
     font-size: 16px;
     color: #6d6e71;
@@ -1445,7 +1445,7 @@ footer .badges-container {
 #termsloan_detail .section-heading {
     margin-bottom: 40px;
 }
-#termsloan_detail .details-point li {
+#termsloan_detail .details-point li, #termsloan_detail .emp-perks li {
     font-size: 16px;
 }
 .inspiration-content .section-heading {
@@ -1485,6 +1485,7 @@ form.form-section label.error {
     position: absolute;
     bottom: -2px;
     right: 10px;
+    padding-right: 0;
 }
 form.form-section textarea {
     border-radius: 20px;
@@ -1681,6 +1682,7 @@ form.form-section h3.heading-beacome-partner {
     margin-bottom: 15px;
     font-family: "Fort-Bold";
     font-size: 22px;
+    padding: 0 10px;
 }
 .partnership-description{
     font-size: 14px;
@@ -1720,11 +1722,11 @@ form.form-section h3.heading-beacome-partner {
 }
 #we_bring_you_best{
     position: relative;
-    padding: 75px auto 104px;
+    padding: 70px 0 4px;
     text-align: center;
 }
 #we_bring_you_best .section-heading {
-    margin: 70px auto 52px;
+    margin-bottom: 52px;
 }
 #we_bring_you_best .tranp-div-two {
     top: 0px;
@@ -2229,32 +2231,16 @@ form.form-section h3.heading-beacome-partner {
 #home_resource_list .see-all-resources{
     background-color: transparent;
 }
-
-/*batch 1 insights section carousal for mobile only end*/
-/* navigation dropdown  */
-
 .dropdown .glyphicon-menu-down {
     position: absolute;
     right: 0;
-    top: 8px;
+    top: 6px;
     width: 29px;
     text-align: center;
     line-height: 27px;
     cursor: pointer;
     z-index: 99;
 }
-
-/*
-.dropdown .glyphicon-menu-down {
-position: absolute;
-right: -4px;
-top: 8px;
-width: 26px;
-text-align: center;
-line-height: 27px;
-cursor: pointer;
-z-index: 99;
-}*/
 .primary-nav .nav li.dropdown > a {
     margin-right: 13px;
 }

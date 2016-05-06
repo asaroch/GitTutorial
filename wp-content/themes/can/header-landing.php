@@ -83,11 +83,7 @@
             <div  id="financial_product" class="gradient-one">
                 <div id="get_quote">
                     <div id="form_box" class="gradient-one get-Quote-form">
-                        <div class="container">	
-                            <span class="down-arrow"></span>
-                            <h2 class="section-heading"> Get Your Quote </h2>
-                            <?php echo do_shortcode('[contact-form-7 id="315" title="Contact form 1"]'); ?>
-                        </div>
+                        <?php echo get_template_part('get-quick-quote'); ?>
                     </div>
                 </div>
 
