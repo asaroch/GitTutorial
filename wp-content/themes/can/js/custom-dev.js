@@ -89,7 +89,20 @@ $(function () {
         }
     });
 
-    jQuery("#phone").mask("(999) 999-9999");
+    jQuery("#phone").mask("(999) 999-9999",{autoclear: false});
+   /*jQuery("#phone").focusout(function() {
+        var element = $(this);
+        element.unmask();
+         phone = element.val().replace(/\D/g, '');
+         alert(phone.length);
+    if(phone.length < 10) {
+         $( '<label id="phone-error" class="error" for="phone" style="display:block;">Phone number is not valid.</label>').insertAfter( "#phone" );
+    }
+    else
+    {
+        $('#phone-error').remove();
+    }
+});*/
 
     $('#newsletter-subscription').validate({
         // Specify the validation rules
@@ -288,8 +301,7 @@ $(function () {
             },
             business_phone_number: {
                 required: true,
-                minlength: 10,
-                //maxlength   : 10 
+                minlength: 10
             },
             annual_revenue: {
                 required: true
@@ -475,7 +487,7 @@ $(function () {
             form.submit();
         }
     });
-    jQuery("#phone_no").mask("(999) 999-9999");
+    jQuery("#phone_no").mask("(999) 999-9999",{autoclear: false});
 
     // Glossary show more
     $('.glossary-filter-paging').click(function (e) {
