@@ -1995,3 +1995,20 @@ function title_count_js() {
 
 add_action('admin_head-post.php', 'title_count_js');
 add_action('admin_head-post-new.php', 'title_count_js');
+
+function live_chat_js() {
+
+        echo '<script>jQuery(document).ready(function(){
+		jQuery("#menu-item-settings-214 .field-link-target").after("<div style=\"position:relative;color:#666;\"><small>Live Chat </small><span id=\"live_chat_container\"><input type=\"checkbox\" name=\"live_chat\" id=\"live_chat\" value=\"\" /></span><small><span style=\"font-weight:bold; padding-left:7px;\">enable or disable.</span></small></div>");
+		jQuery("#live_chat").click(function(){
+                    jQuery.post( ajax_live_chat, function( data ) {
+                        console.log( data.name ); // John
+                        console.log( data.time ); // 2pm
+                    }, "json");
+                });	 
+		});</script>';
+}
+
+add_action('admin_head-nav-menus.php', 'live_chat_js');
+
+}
