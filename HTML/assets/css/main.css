@@ -3088,6 +3088,6 @@ connect-through span {
     height: auto;
     min-height: 98px;
   }
-#resource_hero img {
+#resource_hero .img-block {
     height: 493px;
 }
