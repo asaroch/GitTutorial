@@ -122,7 +122,7 @@ $twitter_url = get_option('twitter_url');
                                 <div class="user-icon"> 
                                     <?php
                                     if (has_post_thumbnail($post->ID)):
-                                        echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array('class' => 'img-circle'));
+                                        echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array('class' => 'img-circle img-responsive'));
                                     endif;
                                     ?>
                                 </div>
@@ -137,7 +137,7 @@ $twitter_url = get_option('twitter_url');
                             </div>
                         </div>
                     </div>
-                <?php
+                    <?php
                 endwhile;
             endif;
             ?>
@@ -156,30 +156,34 @@ $twitter_url = get_option('twitter_url');
 <!-- testimonial -->
 <!-- member benefit -->
 <section id="member_benefit" class="career">
-    <div class="col-xs-12">
-        <h2 class="section-heading"> Our values set the tone for day-to-day life at CAN Capital </h2>
-    </div>
     <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="section-heading"> Our values set the tone for day-to-day life at CAN Capital </h2>
+            </div>
+        </div>
+        <div class="row">
         <?php
         if ($our_value_listings->found_posts > 0):
             while ($our_value_listings->have_posts()):
                 $our_value_listings->the_post();
-                ?>
-                <div class="col-md-4 col-sm-4">
-                    <div class="category-icon">
-        <?php
-        if (has_post_thumbnail($post->ID)):
-            echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array('class' => 'img-circle'));
+                ?>               
+                    <div class="col-md-4 col-sm-4">
+                        <div class="category-icon">
+                            <?php
+                            if (has_post_thumbnail($post->ID)):
+                                echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array('class' => 'img-circle'));
+                            endif;
+                            ?>
+                        </div>
+                        <p class="benefit-name"> <?php echo get_the_title(); ?> </p>
+                        <p class="success-description"> <?php echo get_the_content(); ?> </p>					
+                    </div>                
+                <?php
+            endwhile;
         endif;
         ?>
-                    </div>
-                    <p class="benefit-name"> <?php echo get_the_title(); ?> </p>
-                    <p class="success-description"> <?php echo get_the_content(); ?> </p>					
-                </div>
-    <?php
-    endwhile;
-endif;
-?>
+     </div>
     </div>
 </section>
 <!-- member benefit -->
@@ -189,10 +193,10 @@ endif;
         <h2 class="section-heading"> Employee Perks </h2>
         <div class="col-sm-offset-4 col-sm-6">
             <div class="row">
-                <ul class="details-point">
-<?php foreach ($emp_perks as $key => $value) { ?>
+                <ul class="emp-perks">
+                    <?php foreach ($emp_perks as $key => $value) { ?>
                         <li><?php echo $value; ?></li>
-<?php } ?>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
@@ -257,11 +261,11 @@ endif;
                     ?>
                     <div class="col-sm-6 <?php echo $class; ?>">
                         <div class="thumbnail">
-        <?php
-        if (has_post_thumbnail($post->ID)):
-            echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array('class' => 'img-responsive'));
-        endif;
-        ?>
+                            <?php
+                            if (has_post_thumbnail($post->ID)):
+                                echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail', array('class' => 'img-responsive'));
+                            endif;
+                            ?>
                             <div class="caption text-center">
                                 <h3><?php echo get_the_title(); ?></h3>
                                 <p><?php echo get_the_content(); ?></p>
@@ -269,10 +273,10 @@ endif;
                             </div>
                         </div>
                     </div>
-    <?php
-    endwhile;
-endif;
-?>
+                    <?php
+                endwhile;
+            endif;
+            ?>
         </div>
     </div>
 </section>

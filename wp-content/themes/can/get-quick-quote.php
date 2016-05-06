@@ -2,7 +2,7 @@
 /*
   Template Name: Get Quick Quote
  */
-get_header();
+//get_header();
 //get field option selected from admin
 $fieldOptionValue = get_option('quick_quote_field_options');
 
