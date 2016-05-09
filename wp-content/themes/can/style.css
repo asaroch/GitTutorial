@@ -1924,6 +1924,9 @@ form.form-section h3.heading-beacome-partner {
     display: table-cell;
     vertical-align: middle;
 }
+.primary-nav .nav li.dropdown a {    
+    padding: 9px 0;
+}
 .divtable .th span img,
 .divtable .td span img {
     margin-bottom: 4px;

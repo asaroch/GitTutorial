@@ -216,4 +216,3 @@ endif;
 <!--Process ends here-->
 
 <?php get_footer(); ?>
-
