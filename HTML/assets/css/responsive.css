@@ -38,6 +38,9 @@
     .testimonial-content.career p {
         line-height: 22px;
     }
+    .success-description {
+        padding:0 30px;
+    }
 }
 /* ipad */
 @media (min-width:1025px){
@@ -332,6 +335,7 @@
     #all_resources_block .sidebar .post-section:last-child .section-heading {
         float: none;
     }
+    
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -419,6 +423,9 @@
     .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
         padding-left: 10px;
         padding-right: 10px;
+    }
+    #member_benefit.career .benefits{
+        height: 262px;
     }
 }
 @media (max-width:767px) {
