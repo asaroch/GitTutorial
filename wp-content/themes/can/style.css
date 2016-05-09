@@ -53,7 +53,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 /* import font style with external style css files */
-@import url("css/font-style.css");
+@import url("font-style.css");
 
 /*reset css*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
@@ -1683,6 +1683,8 @@ form.form-section h3.heading-beacome-partner {
     font-family: "Fort-Bold";
     font-size: 22px;
     padding: 0 10px;
+    min-height: 60px;
+    word-wrap: break-word;
 }
 .partnership-description{
     font-size: 14px;
@@ -1761,7 +1763,7 @@ form.form-section h3.heading-beacome-partner {
     text-align: center;
 }
 .partners-list li {
-    margin: 50px auto 10px;
+    margin: 6px auto 30px;
 }
 #email_us {
     padding-bottom: 70px;
