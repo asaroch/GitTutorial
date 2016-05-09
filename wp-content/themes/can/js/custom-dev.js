@@ -91,17 +91,13 @@ $(function () {
     });
 
     jQuery("#phone").mask("(999) 999-9999");
-   /*jQuery("#phone").focusout(function() {
+    /*jQuery("#phone").focusout(function() {
         var element = $(this);
         element.unmask();
          phone = element.val().replace(/\D/g, '');
-         alert(phone.length);
     if(phone.length < 10) {
-         $( '<label id="phone-error" class="error" for="phone" style="display:block;">Phone number is not valid.</label>').insertAfter( "#phone" );
-    }
-    else
-    {
-        $('#phone-error').remove();
+        $('#phone').after('<label class="error">Phone number has to be 10 digits long.</label>');
+        return false;
     }
 });*/
 
@@ -535,13 +531,13 @@ $(function () {
     });
     
 
-    $(document).on('keyup',function(evt) {
+   /* $(document).on('keyup',function(evt) {
     if (evt.keyCode == 9) {
        $("#tabcontrol").focus();
         evt.preventDefault();
         return false;
     }
-});
+});*/
 
     $("#menu-item-214").append($(".boldchat"));
 
