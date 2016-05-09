@@ -35,6 +35,9 @@
     #testimonial .slider-nav-control {
         bottom:-85px;
     }
+    .testimonial-content.career p {
+        line-height: 22px;
+    }
 }
 /* ipad */
 @media (min-width:1025px){
