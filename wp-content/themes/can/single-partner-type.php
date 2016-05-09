@@ -68,9 +68,16 @@ get_header();
             ?>
         </div>	
     </div>
+    <?php 
+    $become_partner_url = esc_url(get_the_permalink(337)).'?partner='.$post->post_name;
+    if ( get_the_ID() == 305 ) {
+        $become_partner_url   = get_post_meta($post->ID, 'wpcf-affiliate-partner-ex', true);
+        $target = "target=_blank";
+    }
+    ?>
     <div class="container">
         <div class="col-xs-12 text-center">
-            <a class="btn btn-purple-style text-uppercase" title="Become a sales partner" href="<?php echo esc_url(get_the_permalink(337)); ?>?partner=<?php echo $post->post_name; ?>">become a sales partner</a>
+            <a class="btn btn-purple-style text-uppercase" title="Become a sales partner" href="<?php echo $become_partner_url; ?>" <?php echo $target; ?>>become a sales partner</a>
         </div>
     </div>
 </section>
@@ -82,7 +89,7 @@ get_header();
 <?php endif; 
  
 // History of funding
-$history_funding = get_post_meta($post->ID, 'wpcf-history-of-funding', true); 
+$history_funding = get_post_meta($post->ID,        'wpcf-history-of-funding', true); 
 $history_funding_button = get_post_meta($post->ID, 'wpcf-button-text', true); 
 if ( $history_funding != '' ) { ?>
     <section id="referal_about_us" class="gradient-two">
@@ -108,9 +115,23 @@ if ( $history_funding != '' ) { ?>
 <!-- Email Us -->
 <section  class="get-funded">
     <div class="container text-center">
-        <h2> Earn value </h2>
-        <h3> <strong>Deliver value</strong> </h3>
-        <a href="<?php echo esc_url(get_the_permalink(337)); ?>?partner=<?php echo $post->post_name; ?>" title="APPLY NOW" class="btn btn-blue-bg"> Become a sales partner <i class="glyphicon glyphicon-play"></i></a>
+        <?php 
+        $earn_value = get_post_meta($post->ID, 'wpcf-partner-cta-line-1', true );
+        if ( $earn_value != '' ) {
+            ?>
+            <h2><?php echo $earn_value; ?> </h2>
+            <?php
+        }
+        
+        $deliver_value = get_post_meta($post->ID, 'wpcf-partner-cta-line-2', true );
+        if ( $deliver_value != '' ) {
+            ?>
+             <h3> <strong><?php echo $deliver_value; ?></strong> </h3>
+            <?php
+        }
+        ?>
+      
+        <a href="<?php echo $become_partner_url; ?>" title="APPLY NOW" class="btn btn-blue-bg" <?php echo $target; ?>> Become a sales partner <i class="glyphicon glyphicon-play"></i></a>
     </div>
 </section>
 <?php

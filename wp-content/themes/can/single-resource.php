@@ -13,47 +13,35 @@ get_template_part('resource-search-template');
 
 // Single page detail
 while (have_posts()) : the_post();
-   
-    // Fetch post social share count
-    resource_social_share_count( get_the_permalink() );
 
-    $featured_image_or_video = get_post_meta($post->ID, 'wpcf-featured_image_video', true);
-    $meta                    = get_post_meta($post->ID, '_fvp_video', true);
-    $video                   = wp_get_attachment_url($meta['id']);
-    $thumb_img               = get_post( get_post_thumbnail_id($post->ID) ); // Get post meta by ID
-    if ($featured_image_or_video == 'video' && $video != '') { // Fetch video thumbmail
-        if ($video != '') {
-            $src = video_thumbnail($video, '1144x493', $post);
-        }
-    } else {    // Fetch image src
-        $src       = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
-        $src       = $src[0];
-    }
     //create a object to show estimated reading time for a post.
     $estimated_time = new EstimatedPostReadingTime();
     // Reading time
     $reading_time = $estimated_time->estimate_time_shortcode($post);
+    
+    $src        = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
+    $image_src  = $src =  $src[0];
+    
+    $meta =  get_post_meta($post->ID, '_fvp_video', true);
+   
+    $label  = "Image";
+    if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+        $src  = wp_get_attachment_url($meta['id']);
+        $label  = "Video";
+    }
     ?>
-    <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->
+    <section id="resource_hero"><!-- Resource banner -->
+         <?php
+          if ( $image_src != NULL || $src != NULL ) {
+              ?>
+            <div class="img-block" style="background-image: url('<?php echo $image_src; ?>')"></div>
+              <?php
+          }
+          ?>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-default large-size-icon" data-toggle="modal" data-target="#myModal">
-            See Full <?php echo ($featured_image_or_video == 'video') ? 'Video' : 'Image'; ?> <i class="glyphicon glyphicon-resize-full"></i>
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <?php echo get_the_post_thumbnail($post->ID, 'resource-featured', array('class' => 'img-responsive')); ?>
-                        <small><?php echo $thumb_img->post_content; ?></small>
-                    </div>
-                </div>
-            </div>
-        </div>                
+        <a href="<?php echo $src; ?>" data-webm="<?php echo $src; ?>" class="html5lightbox btn btn-default large-size-icon">See Full <?php echo $label; ?> <i class="glyphicon glyphicon-resize-full"></i></a>         
     </section>
+       
     <!-- hero banner -->
     <!-- social media section -->
     <div id="social-media-section">
@@ -91,7 +79,7 @@ while (have_posts()) : the_post();
         $resource_topics = wp_get_post_terms($post->ID, 'resource-topic', array("fields" => "names"));
         if (!empty($resource_topics)) {
             $topics = implode(", ", $resource_topics);
-            $topics = strlen($topics) >= 105 ? substr($topics, 0, 105) . ' ...' : $topics;
+            //$topics = strlen($topics) >= 105 ? substr($topics, 0, 105) . ' ...' : $topics;
         } else {
             $topics = '';
         }
@@ -108,7 +96,7 @@ while (have_posts()) : the_post();
                     <?php
                     if ($reading_time) {
                         ?>
-                        <p class="read-time"><?php echo $reading_time; ?> Min Read</p>
+                        <p class="read-time"><?php echo $reading_time; ?> Read</p>
                         <?php
                     }
                     ?>
@@ -124,7 +112,6 @@ while (have_posts()) : the_post();
                         if (is_array($tags)) {
                             ?>
                             <div class="btn-block">
-                                <button type="button" class="btn btn-theme"> Tag </button>
                                 <?php
                                 foreach ($tags as $tag) {
                                     ?>
@@ -135,6 +122,18 @@ while (have_posts()) : the_post();
                             </div>  <!-- buttons -->
                             <?php
                         }
+                        
+                        // Sponsored By
+                        $sponsored_by = get_post_meta($post->ID, 'wpcf-sponsored-by', true);
+                        if ( $sponsored_by != '' ) {
+                            $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
+                            ?>
+                            <div class="sponsored">
+                                <p>Sponsored By <?php echo $sponsored_by; ?></p>
+                            </div>
+                            <?php
+                        }
+                      
                         ?>
                         <div class="social-media hidden-lg"><h3>Share</h3><ul>
                                 <li>
@@ -315,13 +314,16 @@ while (have_posts()) : the_post();
                         <div class="col-sm-8">
                             <div class="form-group">
                                 <fieldset>
-                                    <input type="text" class="form-control field-style" placeholder="Email" name="email">
+                                    <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
                                     <fieldset>
                                         </div>
                                         <small>We never share your information</small>
                                         </div>
                                         <div class="col-sm-4 btn-left">
-                                            <button type="submit" class="btn btn-blue-bg field-style" name="subscribe_newsletter">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
+                                            <button type="submit" class="btn btn-blue-bg field-style newsletter-button" name="subscribe_newsletter">GET NEWSLETTER <i class="glyphicon glyphicon-play"></i></button>
+                                              <div id="newsltter-loader-conatiner">
+                                                <img id="loading-image" src="<?php echo get_template_directory_uri(); ?>/images/loading_blue_small.gif" style="display:none;" />
+                                            </div>
                                         </div>						
                                         </div>
                                         </form>
