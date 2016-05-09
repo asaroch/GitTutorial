@@ -197,6 +197,7 @@
         width: 70%;
         margin: 0 auto;
     }
+    /*benefits*/
     #member_benefit .benefits{
         height: 360px;
     }
@@ -341,6 +342,7 @@
     #all_resources_block .sidebar .post-section:last-child .section-heading {
         float: none;
     }
+    /*benefits*/
     #member_benefit .benefits{
         height: 418px;
     }
