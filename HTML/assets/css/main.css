@@ -1486,10 +1486,9 @@ form.form-section .form-group fieldset {
 }
 form.form-section label.error {
     color: red;
-    text-align: right;
     position: absolute;
     bottom: -2px;
-    right: 10px;
+    left: 10px;
     padding-right: 0;
 }
 form.form-section textarea {
@@ -3112,7 +3111,7 @@ connect-through span {
     top: 12px;
     white-space: nowrap;
 }
-#resource_hero { 
+#resource_hero.resource-post { 
     height: auto;
     min-height: 98px;
   }
