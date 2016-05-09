@@ -30,28 +30,21 @@ if ( $partnerTypes->have_posts() ) :
 					while ( $partnerTypes->have_posts() ) : $partnerTypes->the_post();
 						?>
 						<div class="col-md-3 col-sm-6">
-							<div class="row">
-								<div class="partnership-item">
-									<h3 class="partnership-label"><?php echo get_the_title(); ?></h3>
-									<p class="partnership-description"> <?php  echo get_the_content(); ?> </p>
-                                                                        <?php 
-                                                                        if ( get_the_ID() == 305 ) {
-                                                                            $link = get_post_meta($post->ID, 'wpcf-affiliate-partner-ex', true);
-                                                                            $target = "target=_blank";
-                                                                        }
-                                                                        else {
-                                                                            $link = get_the_permalink($post->ID);
-                                                                            $target = '';
-                                                                        }
-                                                                        ?>
-									<a href="<?php echo $link; ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>" <?php echo $target; ?>> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
-                                                                        <?php 
-                                                                        if ( get_the_ID() == 305 ) { ?>
-                                                                            <p class="network-name">via the CJ Affiliate Network</p>
-                                                                            <?php
-                                                                        } ?>
-								</div>
-							</div>
+                                                    <div class="row">
+                                                            <div class="partnership-item">
+                                                                    <h3 class="partnership-label"><?php echo strlen(get_the_title() ) >= 35 ? substr(get_the_title(), 0, 35) . ' ...' : get_the_title(); ?></h3>
+                                                                    <p class="partnership-description"> <?php echo strlen(get_the_content() ) >= 195 ? substr(get_the_content(), 0, 195) . ' ...' : get_the_content(); ?> </p>
+                                                                    <?php 
+                                                                    $link   = get_the_permalink($post->ID);
+                                                                    ?>
+                                                                    <a href="<?php echo $link; ?>" class="learn-more-btn" title="<?php echo  get_the_title(); ?>"> LEARN MORE <i class="glyphicon glyphicon-play"></i></a>
+                                                                    <?php 
+                                                                    if ( get_the_ID() == 305 ) { ?>
+                                                                        <p class="network-name">via the CJ Affiliate Network</p>
+                                                                        <?php
+                                                                    } ?>
+                                                            </div>
+                                                    </div>
 						</div>
 						<?php
 					endwhile;
@@ -80,8 +73,9 @@ endif;
 // Partner Benefits The Query
 $args = array('post_status' => 'publish',
     'post_type' => 'partner_benefit',
-    'orderby' => 'menu_order date',
-    'order' => 'ASC'
+    'orderby'   => 'menu_order date',
+    'order'     => 'ASC',
+    'posts_per_page' => -1
 );
 $partnerBenefits = new WP_Query($args);
 if ($partnerBenefits->have_posts()) :
@@ -135,7 +129,8 @@ wp_reset_postdata();
 $args = array('post_status' => 'publish',
     'post_type' => 'selected_partner',
     'orderby' => 'menu_order date',
-    'order' => 'ASC'
+    'order' => 'ASC',
+    'posts_per_page' => -1
 );
 $selectedPartners = new WP_Query($args);
 if ($selectedPartners->have_posts()) :
@@ -190,7 +185,8 @@ endif;
 $args = array(	'post_status' => 'publish' , 
 				'post_type'   => 'industry_recognition',
 				'orderby'     => 'menu_order date',
-				'order'       => 'ASC'
+				'order'       => 'ASC',
+                                 'posts_per_page' => -1
 			);
 $awards = new WP_Query( $args );
 if ( $awards->have_posts() ) :
@@ -207,20 +203,24 @@ if ( $awards->have_posts() ) :
                     <ul class="partners-list">
                         <?php 
                         while ( $awards->have_posts() ) : $awards->the_post();
-							$award_resource_mapping_id = get_post_meta( $post->ID, 'resource_id', true );
-							$external_link             = get_post_meta( $post->ID, 'wpcf-awars-external-link', true );
-							$url = 'javascript:void(0)';
-							if ( $award_resource_mapping_id != '' ) {
-								$url = get_permalink($award_resource_mapping_id);
-							}
-							else if( $external_link != '' ) {
-								$url = get_post_meta( $post->ID, 'wpcf-awars-external-link', true );
-							}
-                            ?>
-                            <li class="col-md-3 col-sm-3">
-                                <a href="<?php echo $url; ?>" title="<?php echo get_the_title(); ?>"><?php echo get_the_post_thumbnail(get_the_ID(), 'awards'); ?> </a>
-                            </li> 
-                            <?php
+                            if (has_post_thumbnail($post->ID)) {
+                                $award_resource_mapping_id = get_post_meta( $post->ID, 'resource_id', true );
+                                $external_link             = get_post_meta( $post->ID, 'wpcf-awars-external-link', true );
+                                $url = 'javascript:void(0)';
+                                if ( $award_resource_mapping_id != '' ) {
+                                        $url = get_permalink($award_resource_mapping_id);
+                                        $target = '';
+                                }
+                                else if( $external_link != '' ) {
+                                        $url = get_post_meta( $post->ID, 'wpcf-awars-external-link', true );
+                                        $target = "target=_blank";
+                                }
+                                ?>
+                                <li class="col-md-3 col-sm-3">
+                                    <a href="<?php echo $url; ?>" title="<?php echo get_the_title(); ?>" <?php echo $target; ?>><?php echo get_the_post_thumbnail(get_the_ID(), 'awards'); ?> </a>
+                                </li> 
+                                <?php
+                            }
                         endwhile;
                         ?>
                     </ul>

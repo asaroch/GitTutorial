@@ -70,7 +70,7 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="first_name">First name</label>
+                            <label for="first_name" class="control-label">First name</label>
                             <input type="text" class="form-control" id="first-name" name="first_name" />
                         </fieldset>
                     </div>
@@ -78,7 +78,7 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="last_name">Last name</label>
+                            <label for="last_name" class="control-label">Last name</label>
                             <input type="text" class="form-control" id="last-name" name="last_name">
                         </fieldset>
                     </div>
@@ -86,7 +86,7 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="email_addr">Email address</label>
+                            <label for="email_addr" class="control-label">Email address</label>
                             <input type="text" class="form-control" id="email" name="email">
                         </fieldset>
                     </div>
@@ -94,7 +94,7 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="phone_no">Phone number</label>
+                            <label for="phone_no" class="control-label">Phone number</label>
                             <input type="text" class="form-control" id="phone" name="phone">
                         <fieldset>
                     </div>
@@ -102,7 +102,7 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                             <label for="business_name">Business name</label>
+                             <label for="business_name" class="control-label">Business name</label>
                              <input type="text" class="form-control" id="business-name" name="business_name">
                         </fieldset>
                     </div>
@@ -110,7 +110,7 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                             <label for="title">Title</label>
+                             <label for="title" class="control-label">Title</label>
                              <input type="text" class="form-control" id="title" name="title">
                         </fieldset>
                     </div>
@@ -118,35 +118,43 @@ if ( isset($_POST['join']) ) {
                 <div class="col-sm-12 margin-top">
                     <div class="form-group">
                         <fieldset>
-                            <label for="title">Your message</label>
+                            <label for="title" class="control-label">Your message</label>
                             <textarea class="form-control" rows="10" cols="10" id="message" name="message"></textarea>
                         </fieldset>
                     </div>
                 </div>
             </div>
+            <?php 
+            // Fetch partner types
+            // The Query
+            $args = array('post_status' => 'publish',
+                'post_type'      => 'partner-type',
+                'orderby'        => 'menu_order date',
+                'order'          => 'ASC',
+                'posts_per_page' => -1
+            );
+            $partners = query_posts($args);
+            ?>
             <div class="row">
                 <div class="col-xs-12">
                     <h3 class="heading-parter-type">Partner Type</h3>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-5 col-lg-4 partner-type">
-                    <div class="form-group">
-                        <fieldset>
-                            <input type="radio" class="form-control" id="distribution_sales" name="sales" value="distribution" <?php echo $_GET['partner'] && $_GET['partner'] == 'distribution-sales-partner' ? 'checked=checked' : ''; ?>>
-                           <label for="distribution_sales"><span></span>Distribution Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
-                        </fieldset>   
-                    </div>
-                    <div class="form-group">														
-                        <fieldset>
-                             <input type="radio" class="form-control" id="referral_sales" name="sales" value="referral" <?php echo $_GET['partner'] && $_GET['partner'] == 'referral-sales-partner' ? 'checked=checked' : ''; ?>>
-                             <label for="referral_sales"><span></span>Referral Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
-                        </fieldset>
-                    </div>
-                    <div class="form-group">
-                        <fieldset>
-                            <input type="radio" class="form-control" id="financial_platform" name="sales" value="financial" <?php echo $_GET['partner'] && $_GET['partner'] == 'financial-platforms-sales-partner' ? 'checked=checked' : ''; ?>>
-                             <label for="financial_platform"><span></span>Financial Platform Sales Partner<a href="javascript:void(0);" data-toggle="tooltip" title="Duis id efficitur tortor, sed pharetra nibh!" class="question-mark"></a></label>
-                        </fieldset>
-                    </div>
+                    <?php 
+                    foreach ( $partners as $partner ) {
+                        if ( $partner->post_name != 'affiliate-partner' ) {
+                            $help_text = get_post_meta($partner->ID, 'wpcf-help-text', true);
+                            ?>
+                            <div class="form-group">
+                                <fieldset>
+                                    <input type="radio" class="form-control" id="<?php echo $partner->post_name; ?>" name="sales" value="<?php echo $partner->post_title; ?>" <?php echo $_GET['partner'] && $_GET['partner'] == $partner->post_name ? 'checked=checked' : ''; ?>>
+                                   <label for="<?php echo $partner->post_name; ?>"><span></span><?php echo $partner->post_title; ?><a href="javascript:void(0);" data-toggle="tooltip" title="<?php echo $help_text; ?>" class="question-mark"></a></label>
+                                </fieldset>   
+                            </div>
+                            <?php
+                        }
+                    }
+                    ?>
                     <div class="form-group">
                         <fieldset>
                             <input type="radio" class="form-control" id="not_sure" name="sales" value="none">
