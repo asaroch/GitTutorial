@@ -1990,7 +1990,7 @@ form.form-section h3.heading-beacome-partner {
 /* Right financing */
 #right-financing {
     background: none repeat scroll 0 0 #eeeeee;
-    padding: 58px 0 98px;
+    padding: 78px 0 98px;
 }
 #right-financing .section-heading {
     text-transform: capitalize;
@@ -2507,6 +2507,7 @@ input[type=number] {
     max-width: 100%;
     margin-bottom: 25px;
 }
+
 #social-media-section .content-area .img-container img {
     margin-bottom: 25px;
 }
@@ -3075,4 +3076,19 @@ connect-through span {
     background-color: transparent;
     border-top: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
+}
+/*live chat*/
+.boldchat {    
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 12px;
+    white-space: nowrap;
+}
+#resource_hero { 
+    height: auto;
+    min-height: 98px;
+  }
+#resource_hero .img-block {
+    height: 493px;
 }

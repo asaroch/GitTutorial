@@ -81,6 +81,7 @@
                 <div class="footer-note">
                     <?php
                     wp_reset_postdata();
+                    wp_reset_query();
 
                     echo get_post_meta(get_the_ID(), 'wpcf-footer-text', true);
                     // including Global footer plugin.

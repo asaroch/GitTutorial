@@ -3,7 +3,7 @@
 Template Name: how it works
 */
 get_header();
-$how_it_works_id = get_the_ID();
+//$how_it_works_id = get_the_ID();
 
 // page heading 
 $effortlessHeading = get_post_meta($how_it_works_id, 'wpcf-effortless-applica', true); 
