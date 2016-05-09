@@ -1105,7 +1105,7 @@ class MemberBenefit_Widget extends WP_Widget {
                 if (has_post_thumbnail($post->ID)):
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
                 endif;
-                $listItem = ' <div class="col-md-4 col-sm-4">
+                $listItem = ' <div class="col-md-4 col-sm-4 benefits">
             <div class="category-icon"> <img src="' . $image[0] . '"> </div>
 									 <p class="benefit-name">' . get_the_title() . '</p>
             <p class="success-description">' . get_the_content() . '</p>					

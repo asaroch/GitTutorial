@@ -168,7 +168,7 @@ $twitter_url = get_option('twitter_url');
             while ($our_value_listings->have_posts()):
                 $our_value_listings->the_post();
                 ?>               
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4 benefits">
                         <div class="category-icon">
                             <?php
                             if (has_post_thumbnail($post->ID)):
