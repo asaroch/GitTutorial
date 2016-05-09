@@ -2667,6 +2667,8 @@ input[type=number] {
 #cc-newslette input[type="text"] {
     margin: 0 0 0 auto;
     width: 624px;
+    font-family: "Fort-bold";
+    font-size: 16px;
 }
 #cc-newslette small { 
     color:  #fff;
