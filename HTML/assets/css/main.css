@@ -2854,6 +2854,7 @@ span.top-quest {
     border: none; 
     padding: 0; 
     border-radius: 0;
+    cursor: pointer;
 }
 #our-offices .caption h3, #our-leading-team .caption h3 {
     font-family: Fort-bold;
