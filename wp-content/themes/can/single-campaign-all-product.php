@@ -15,6 +15,7 @@ $landingpage = new WP_Query($args);
 //prx($landingpage);
 ?>
 <!--Financial Products -->
+<div  id="financial_product" class="gradient-one">
 <?php if (is_active_sidebar('financial-product')) : ?>
         <div class="widget-area financial-product" role="complementary">
             <?php dynamic_sidebar('financial-product'); ?>
