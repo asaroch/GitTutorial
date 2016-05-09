@@ -32,6 +32,9 @@
     .testimonial-content.career {
         top: 120px;
     }
+    #testimonial .slider-nav-control {
+        bottom:-85px;
+    }
 }
 /* ipad */
 @media (min-width:1025px){
