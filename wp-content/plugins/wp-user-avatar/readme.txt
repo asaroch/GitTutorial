@@ -405,6 +405,9 @@ This would output:
 
 == Changelog ==
 
+= 2.0.7 =
+* Improvement Fix: Removed languages files to be used from core wordpress language packs.
+
 = 2.0.6 =
 * Improvement Fix: Broken Jquery files from UI is resolved.
 

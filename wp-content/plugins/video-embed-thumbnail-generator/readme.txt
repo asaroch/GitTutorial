@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=kyleg
 Tags: video, video player, video gallery, html5, shortcode, thumbnail, video thumbnail, preview, poster, ffmpeg, libav, embed, oembed, mobile, webm, ogg, h.264, h264, vp9, responsive, mp4, jwplayer, resolution, analytics
 Requires at least: 4.4
 Tested up to: 4.5
-Stable tag: 4.6.1
+Stable tag: 4.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,9 +87,9 @@ I'm not really a software developer. I'm just a film editor with some time on hi
 * `order="ASC/DESC"` sort order.
 * `poster="http://www.example.com/image.jpg"` sets the thumbnail.
 * `endofvideooverlay="http://www.example.com/end_image.jpg` sets the image shown when the video ends.
-* `width="xxx"`
-* `height="xxx"`
-* `fullwidth="true/false"` set video to always expand to fill its container.`
+* `width="xxx"` preferred maximum width in pixels.
+* `height="xxx"` preferred maximum height in pixels.
+* `fullwidth="true/false"` set video to always expand to 100% of its container.
 * `align="left/right/center"`
 * `inline="true/false"` allow other content on the same line as the video
 * `volume="0.x"` pre-sets the volume for unusually loud videos. Value between 0 and 1.
@@ -236,6 +236,21 @@ Enter the username & password in the plugin settings "FFMPEG Settings" tab, or u
 
 == Changelog ==
 
+= 4.6.4 - May 5, 2016 =
+* Fixed bug that caused an error when feed pages were generated, possibly interrupting autosaves.
+
+= 4.6.3 - May 5, 2016 =
+* Updated Video.js to version 5.9.2
+* Changed method for calculating automatic resolution when switching to fullscreen so it's the same as a regular resize event instead of always selecting the highest resolution available.
+* Fixed bug that disabled JW Player selection in the plugin settings page.
+* Fixed bug that always showed text track type selector as "subtitles" in the attachment edit window.
+* Fixed bug that cropped the video title overlay when no sharing icons were enabled.
+
+= 4.6.2 - May 2, 2016 =
+* Fixed bug that disabled subtitles/captions button in the WordPress Default player.
+* Fixed bug that broke Video.js players set to width="100%". This has never worked for the WordPress Default player. Using the plugin setting "Set all videos to expand to 100% of their containers" or the shortcode attribute fullwidth="true" is the recommended method, but players will work again for people using width="100%".
+* Changed description of fullwidth setting to make it more clear.
+
 = 4.6.1 - May 1, 2016 =
 * Fixed bug that changed the way Video.js players were resized when the specified dimensions did not match the video's actual dimensions.
 * Adjusted CSS for video overlay bar and z-index of the Video.js play button.
@@ -252,6 +267,7 @@ Enter the username & password in the plugin settings "FFMPEG Settings" tab, or u
 * Added button to clear the whole video encoding queue.
 * Added option to send an email when there is a video encoding error.
 * Added Google Analytics Event tracking when users watch 25%, 50%, and 75% of a video.
+* Added several filter hooks to facilitate customization of the plugin.
 * Added Twitter and Facebook share buttons.
 * Significantly redesigned video sharing overlay appearance.
 * Moved download link to an icon overlay and stopped inserting unnecessary downloadlink attribute in shortcode for videos in the WordPress database.
@@ -462,23 +478,14 @@ Enter the username & password in the plugin settings "FFMPEG Settings" tab, or u
 
 == Upgrade Notice ==
 
+= 4.6.3 =
+The plugin is still completely free until version 5.0. Video.js users will notice an updated player design if updating from 4.5.5.
+
+= 4.6.2 =
+The plugin is still completely free until version 5.0. Video.js users will notice an updated player design if updating from 4.5.5.
+
 = 4.6.1 =
-It's safe to update. The plugin is still completely free until version 5.0. Video.js users will notice an updated player design.
+The plugin is still completely free until version 5.0. Video.js users will notice an updated player design.
 
 = 4.6 =
-It's safe to update. The plugin is still completely free until version 5.0. Video.js users will notice an updated player design.
-
-= 4.5.2 =
-This is probably the last completely free major release. Some advanced features will be converted to premium add-ons in the future. More info in the support forum.
-
-= 4.5.1 =
-This is probably the last completely free major release. Some advanced features will be converted to premium add-ons in the future. More info in the support forum.
-
-= 4.5 =
-This is probably the last completely free major release. Some advanced features will be converted to premium add-ons in the future. More info in the support forum.
-
-= 3.0 =
-Fixes thumbnails & encodes in WP 3.5. Not compatible with earlier WP versions.
-
-= 2.0 =
-Fixes several security issues.
+The plugin is still completely free until version 5.0. Video.js users will notice an updated player design.
