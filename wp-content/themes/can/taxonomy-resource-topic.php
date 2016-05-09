@@ -62,28 +62,12 @@ if ($resources->have_posts()) {
                             <div class="col-sm-12 resource-list">								
                                 <?php
                                 if (has_post_thumbnail($post->ID)) {
-                                    $featured_image_or_video = get_post_meta($post->ID, 'wpcf-featured_image_video', true);
-                                    $meta = get_post_meta($post->ID, '_fvp_video', true);
-                                    $video = wp_get_attachment_url($meta['id']);
-                                    if ($featured_image_or_video == 'video' && $video != '') { // Fetch video thumbmail
-                                        if ($video != '') {
-                                            $src = video_thumbnail($video, '267x200', $post);
-                                            ?>
-                                            <div class="resource-image">
-                                              <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img src="<?php echo $src; ?>" /></a>
-                                            </div>
-                                            <?php
-                                        }
-                                    } else {    // Fetch image src
-                                        ?>
-                                        <div class="resource-image">
-                                            <a href="<?php get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-                                                <?php echo get_the_post_thumbnail($post->ID); ?>
-                                            </a>
-                                        </div>
-                                        <?php
-                                    }
                                     ?>
+                                    <div class="resource-image">
+                                        <a href="<?php get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+                                            <?php echo get_the_post_thumbnail($post->ID); ?>
+                                        </a>
+                                    </div>
                                     <?php
                                 }
                                 ?>
@@ -204,27 +188,13 @@ $args = array(
                             <div class="thumbnail">
                                 <?php
                                 if (has_post_thumbnail(get_the_ID())) {
-                                    $featured_image_or_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
-                                    if ($featured_image_or_video == 'video') {
-                                        $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
-                                        $video = wp_get_attachment_url($meta['id']);
-                                        if ($video != '') {
-                                            $src = video_thumbnail($video, '360x155', $featured_resources[0]);
-                                            ?>
-                                            <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
-                                                <img src="<?php echo $src; ?>" title="<?php echo get_the_title(); ?>" />
-                                            </a>
-                                            <?php
-                                        }
-                                    } else {
                                         ?>
                                         <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
                                         <?php
                                         echo get_the_post_thumbnail(get_the_ID(), 'related-articles', array('class' => 'img-responsive hidden-xs'));
                                         ?>
                                         </a>
-                                            <?php
-                                        }
+                                         <?php
                                     }
                                     ?>
                                 <div class="caption">

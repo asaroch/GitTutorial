@@ -149,31 +149,17 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
                     endif;
                     ?>
                     <div class="col-xs-12 post-information">
-                        <?php
-                        if ( $featured_image_or_video == 'video' ) {
-                            $meta  = get_post_meta(get_the_ID(), '_fvp_video', true);
-                            $video = wp_get_attachment_url($meta['id']);
-                            if ( $video != '' ) {
-                                $src = video_thumbnail( $video , '70x70', $post );
-                                ?>
-                                <div class="post-image">
-                                    <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title() ?>">
-                                        <img src="<?php echo $src; ?>" width="70" height="70" />
-                                    </a>
-                                </div>
-                                <?php
-                            }
-                        }
-                        else {
+                        <?php 
+                         if (has_post_thumbnail(get_the_ID())) {
                             ?>
                             <div class="post-image">
-                                <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title() ?>">
-                                    <?php echo get_the_post_thumbnail( $post->ID, array( 70, 70) ); ?>
-                                </a>
-                            </div>
-                            <?php
-                        }
-                        ?>
+                                 <a href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title() ?>">
+                                     <?php echo get_the_post_thumbnail( $post->ID, array( 70, 70) ); ?>
+                                 </a>
+                             </div>
+                             <?php
+                         } ?>
+                           
                         <a class="post-content" href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>"><?php if (get_the_title()) the_title();
                 else the_ID();
                 echo $count; ?></a>

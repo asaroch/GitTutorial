@@ -140,43 +140,43 @@ function partners_callback_function() {
 
 function partner_types_heading() {
     ?>
-    <input type="text" name="partner_types_heading" id="partner_types_heading" value="<?php echo get_option('partner_types_heading'); ?>" />
+    <textarea name="partner_types_heading" id="partner_types_heading"><?php echo get_option('partner_types_heading'); ?></textarea>
     <?php
 }
 
 function partner_benefits() {
     ?>
-    <input type="text" name="partner_benefits" id="partner_benefits" value="<?php echo get_option('partner_benefits'); ?>" />
+     <textarea name="partner_benefits" id="partner_benefits"><?php echo get_option('partner_benefits'); ?></textarea>
     <?php
 }
 
 function selected_partners() {
     ?>
-    <input type="text" name="selected_partners" id="selected_partners" value="<?php echo get_option('selected_partners'); ?>" />
+     <textarea name="selected_partners" id="selected_partners"><?php echo get_option('selected_partners'); ?></textarea>
     <?php
 }
 
 function call_to_action_heading() {
     ?>
-    <input type="text" name="call_to_action_heading" id="call_to_action_heading" value="<?php echo get_option('call_to_action_heading'); ?>" />
+    <textarea name="call_to_action_heading" id="call_to_action_heading"><?php echo get_option('call_to_action_heading'); ?></textarea>
     <?php
 }
 
 function call_no() {
     ?>
-    <input type="text" name="call_no" id="call_no" value="<?php echo get_option('call_no'); ?>" />
+    <textarea name="call_no" id="call_no"><?php echo get_option('call_no'); ?></textarea>
     <?php
 }
 
 function call_to_action_email() {
     ?>
-    <input type="text" name="call_to_action_email" id="call_to_action_email" value="<?php echo get_option('call_to_action_email'); ?>" />
+    <textarea name="call_to_action_email" id="call_to_action_email"><?php echo get_option('call_to_action_email'); ?></textarea>
     <?php
 }
 
 function industry_recognition() {
     ?>
-    <input type="text" name="industry_recognition" id="industry_recognition" value="<?php echo get_option('industry_recognition'); ?>" />
+    <textarea name="industry_recognition" id="industry_recognition"><?php echo get_option('industry_recognition'); ?></textarea>
     <?php
 }
 

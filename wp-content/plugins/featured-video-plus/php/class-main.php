@@ -77,7 +77,7 @@ class Featured_Video_Plus {
 			case 'local':
 				$img_meta = wp_get_attachment_metadata( $meta['id'] );
 				$size = self::get_size( $size, array(
-					'width'  => ! empty($img_meta['width']) ? $img_meta['width']  : null,
+					'width'  => ! empty($img_meta['width'] ) ? $img_meta['width']  : null,
 					'height' => ! empty($img_meta['height']) ? $img_meta['height'] : null,
 				) );
 
@@ -149,8 +149,7 @@ class Featured_Video_Plus {
 		$h = isset( $atts['height'] ) ? $atts['height'] : '';
 
 		if ( has_post_video() ) {
-			die("here");
-			//return get_the_post_video( null, array( $w, $h ) );
+			return get_the_post_video( null, array( $w, $h ) );
 		}
 	}
 
@@ -176,24 +175,21 @@ class Featured_Video_Plus {
 		$attr
 	) {
 		$size = self::get_size();
+
 		$options = get_option( 'fvp-settings' );
-		$mode       = ! empty( $options['mode'] ) ? $options['mode'] : null;
+		$mode = ! empty( $options['mode'] ) ? $options['mode'] : null;
 		$conditions = ! empty( $options['conditions'] ) ?
 			$options['conditions'] : null;
 		$single_replace = is_single() &&
 			! empty( $options['single_replace'] ) && $options['single_replace'];
 
-		// Check admin has choosed image or video as featured
-		$featured_image_or_video = get_post_meta( $post_id, 'wpcf-featured_image_video' , true );
-		$featured_image_or_video = isset($featured_image_or_video) && $featured_image_or_video != '' ? $featured_image_or_video : 'image';
-               
 		// Don't show a video.
-		if ( ( 'manual' === $mode ) ||
-		     ( ! self::check_conditions( $conditions ) ) ||
-		     ( $featured_image_or_video == 'image' )
-		) {
+		//if ( ( 'manual' === $mode ) ||
+		   //  ( ! self::check_conditions( $conditions ) ) ||
+		   //  ( ! has_post_video( $post_id ) )
+		//) {
 			return $html;
-		}
+		//}
 
 
 		// On-load JavaScript for initalizing FVP JS functionality.
