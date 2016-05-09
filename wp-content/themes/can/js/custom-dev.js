@@ -530,5 +530,6 @@ $(function () {
             }
         });
     });
+    $("#menu-item-214").append($(".boldchat"));
 
 });

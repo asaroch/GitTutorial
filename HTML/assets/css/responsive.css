@@ -63,8 +63,8 @@
         font-size: 14px;
     }
     #search_resource .select-topic select {
-       padding-right:54px; 
-       padding-left: 15px;
+        padding-right:54px; 
+        padding-left: 15px;
     }    
     .get-Quote-form .action-btn, #search_resource .field-style {
         height: 40px; 
@@ -214,7 +214,7 @@
         width: auto;
         height: auto;
     }
-    
+
 }
 @media (max-width: 991px) and (min-width: 768px) {
     .navbar-brand {
@@ -398,7 +398,7 @@
         padding:0 40px;
     }
     /* Resources Post */
-      #social-media-section .section-heading {
+    #social-media-section .section-heading {
         margin: 0 auto;
         width: 55%;
     }
@@ -1240,7 +1240,7 @@
         font-size: 26px;
     }
     .social-media { 
-        position: inherit; 
+        position: relative; 
         right: 0; 
         width: 100%; 
         display: inline-block; 
@@ -1257,6 +1257,19 @@
     .social-media li { 
         float: left; 
         margin: 0 0 0 20px;
+    }
+   #social-media-section .content-area img {
+        display: inherit;
+        height: auto;
+        margin: 0px;
+        text-align: center;
+        width: auto;
+    }
+    .img-caption, #social-media-section .content-area img {
+      width: auto;
+    }
+    .content-area .sponsored {
+        width: 100%;
     }
     /*  Resources Glossary  */
     .glossary-mob-top-border {  
