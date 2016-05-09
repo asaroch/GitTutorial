@@ -2124,6 +2124,9 @@ form.form-section h3.heading-beacome-partner {
 #compaign_boarding_alt .loan-item {
     margin-top: 16px;
 }
+#compaign_boarding_alt .loan-item p { 
+    overflow: hidden;
+}
 #compaign_boarding_alt .badges-container {
     margin-top: 25px;
 }
