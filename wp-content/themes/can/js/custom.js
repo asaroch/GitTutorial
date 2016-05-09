@@ -427,17 +427,17 @@ $(function () {
             })
             
             // clear all - search resource 
-            //grayscale view                 
-               $("#our-leading-team img, #our-offices img").mouseenter(function(){    
+//grayscale view                 
+               $("#our-leading-team .thumbnail, #our-offices .thumbnail").mouseenter(function(){    
                    var $this = $(this);
-                   $("#our-leading-team img, #our-offices img").addClass("gray-scale");
+                   $("#our-leading-team .thumbnail, #our-offices .thumbnail").addClass("gray-scale");
                    $this.removeClass("gray-scale");
                });
                
-                $("#our-leading-team img, #our-offices img").mouseleave(function(){
-                    $("#our-leading-team img, #our-offices img").removeClass("gray-scale");
+                $("#our-leading-team .thumbnail, #our-offices .thumbnail").mouseleave(function(){
+                    $("#our-leading-team .thumbnail, #our-offices .thumbnail").removeClass("gray-scale");
                 });
-            //grayscale view  end 
+//grayscale view  end 
   
             // Sticky icons on post
             $(window).scroll(function(e){ 
