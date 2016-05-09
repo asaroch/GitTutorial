@@ -11,14 +11,16 @@ RewriteRule . index.php [L]
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /can_capital/cancapital-core-site/
+RewriteBase /cancapital/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /can_capital/cancapital-core-site/index.php [L]
+RewriteRule . /cancapital/index.php [L]
 </IfModule>
 
 php_value upload_max_filesize 64M
 php_value post_max_size 64M
 php_value max_execution_time 300
 php_value max_input_time 300
+
+# END WordPress
