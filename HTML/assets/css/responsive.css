@@ -199,7 +199,6 @@
     }
     #member_benefit.career .benefits{
         height: 262px;
-        border:1px solid red;
     }
 }
 @media (max-width: 991px) {
@@ -341,7 +340,6 @@
     }
     #member_benefit.career .benefits{
         height: 284px;
-        border:1px solid red;
     }
     
 }
