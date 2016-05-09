@@ -1,5 +1,4 @@
 $(function () {
-    //$('#main_navigationbar').tabs( "select" , index );
     if (var_object.search) {
         $('html, body').animate({scrollTop: $('#resource_list_container .featured-content').offset().top}, 'slow');
     }
@@ -90,7 +89,7 @@ $(function () {
         }
     });
 
-    jQuery("#phone").mask("(999) 999-9999");
+    jQuery("#phone").mask("(999) 999-9999",{autoclear: false});
    /*jQuery("#phone").focusout(function() {
         var element = $(this);
         element.unmask();
@@ -534,16 +533,6 @@ $(function () {
         });
     });
     
-
-    $(document).on('keyup',function(evt) {
-    if (evt.keyCode == 9) {
-       $("#tabcontrol").focus();
-        evt.preventDefault();
-        return false;
-    }
-});
-
     $("#menu-item-214").append($(".boldchat"));
-
 
 });

@@ -6,6 +6,9 @@ get_header('landing');
 
 $page_id = get_the_ID();
 global $post;
+// cta_get_fund
+$cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
+$cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 ?>
 
 <!--Financial Products -->
@@ -73,17 +76,65 @@ global $post;
     </div><!-- .widget-area -->
 <?php endif; ?>	
 <!-- video tutorial merchant -->
-<?php if (is_active_sidebar('memberbenefit')) : ?>
-    <div class="widget-area memberbenefit" role="complementary">
-        <?php dynamic_sidebar('memberbenefit'); ?>
-    </div><!-- .widget-area -->
-<?php endif; ?>	
-	
+<?php
+// Partner Benefits The Query
+$args = array('post_status' => 'publish',
+    'post_type' => 'partner_benefit',
+    'orderby' => 'menu_order date',
+    'order' => 'ASC'
+);
+$partnerBenefits = new WP_Query($args);
+if ($partnerBenefits->have_posts()) :
+    ?>
+    <section  id="we_bring_you_best">
+        <div class="tranp-div-two"></div>
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    <h2 class="section-heading"><?php echo get_option('partner_benefits'); ?> </h2>
+                </div>
+            </div>	
+            <div class="col-md-12">
+                <div class="row">
+                    <?php
+                    while ($partnerBenefits->have_posts()) : $partnerBenefits->the_post();
+                        ?>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="row">
+                                <div class="bring-best-item">
+                                    <?php
+                                    if (has_post_thumbnail(get_the_ID())):
+                                        ?>
+                                        <div class="category-icon"> 
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'partners-expertise'); ?>
+                                        </div>
+                                        <?php
+                                    endif;
+                                    ?>
+                                    <h3 class="heading-label"> <?php echo get_the_title(); ?> </h3>
+                                    <p class="description"><?php echo get_the_content(); ?> </p>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    endwhile;
+                    ?>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- we bring you the best section -->
+    <?php
+endif;
+/* Restore original Post Data */
+wp_reset_postdata();
+?>
+<!-- Partners list -->	
 <!-- we bring you the best section -->
 <section  class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> Get Funded </h2>
-        <h3> Smart, Simple & Fast. </h3>
+        <h2 class="section-heading"> <?php echo $cta_cta_title; ?> </h2>
+        <h3><?php echo $cta_cta_desc; ?></h3>
         <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>
