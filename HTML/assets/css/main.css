@@ -2061,17 +2061,26 @@ form.form-section h3.heading-beacome-partner {
 #compaign-header h1 {
     margin-bottom: 34px;
 }
-#compaign-header .btn-blue-bg {
+#compaign-header li.btn-blue-bg, #compaign-header li.btn-blue-bg:hover {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+#compaign-header li.btn-blue-bg a {
+    font-size: 12px; 
+    padding: 6px 12px; 
+    color: #fff;
     background-color: #01aef0;
     border: 2px solid #fff;
     border-radius: 25px;
-    color: #fff;
-    padding: 6px 12px;
 }
-#compaign-header a.btn-blue-bg {
-    font-size: 12px;
+#compaign-header .btn-blue-bg:hover a {
+    background-color: #fff;
+    border: 2px solid #01aef0;
+    box-shadow: none;
+    color: #01aef0;
 }
-#compaign-header  .primary-nav .nav > li a {
+#compaign-header .primary-nav .nav > li a {
     padding: 6px 16px;
     font-family:"Fort-Book";
 }
@@ -2098,11 +2107,11 @@ form.form-section h3.heading-beacome-partner {
     margin-top: 18px;
 }
 /* Compaign-boarding-ALT */
-#compaign_boarding_alt  .financial-product-item {
+#compaign_boarding_alt .financial-product-item {
     padding-top: 7px;
     position: relative;
 }
-#compaign_boarding_alt  .category-icon {
+#compaign_boarding_alt .category-icon {
     height: auto;
 }
 #compaign_boarding_alt .financial-product-item h5 {

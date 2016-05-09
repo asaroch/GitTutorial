@@ -135,7 +135,7 @@ while (have_posts()) : the_post();
                         }
                       
                         ?>
-                        <div class="social-media hidden-lg"><h3>Share</h3><ul>
+                        <div class="social-media hidden-sm hidden-md hidden-lg"><h3>Share</h3><ul>
                                 <li>
                                    <a class="twitter-share-button"
                                         href="https://twitter.com/share"
