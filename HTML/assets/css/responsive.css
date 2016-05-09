@@ -197,6 +197,10 @@
         width: 70%;
         margin: 0 auto;
     }
+    #member_benefit.career .benefits{
+        height: 262px;
+        border:1px solid red;
+    }
 }
 @media (max-width: 991px) {
     .sidebar {
@@ -335,6 +339,10 @@
     #all_resources_block .sidebar .post-section:last-child .section-heading {
         float: none;
     }
+    #member_benefit.career .benefits{
+        height: 284px;
+        border:1px solid red;
+    }
     
 }
 @media (min-width: 768px){	
@@ -423,9 +431,6 @@
     .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
         padding-left: 10px;
         padding-right: 10px;
-    }
-    #member_benefit.career .benefits{
-        height: 262px;
     }
 }
 @media (max-width:767px) {
