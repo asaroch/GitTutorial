@@ -3107,7 +3107,7 @@ connect-through span {
     top: 12px;
     white-space: nowrap;
 }
-#resource_hero { 
+#resource_hero.resource-post { 
     height: auto;
     min-height: 98px;
   }
