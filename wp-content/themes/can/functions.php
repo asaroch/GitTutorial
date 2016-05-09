@@ -1679,9 +1679,6 @@ function ajax_resources_listing_pagination() {
                 $topics = '';
         }
 
-         //Fetch value from admin whether a video is selected or not.
-        $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
-
         // Sponsored By
         $sponsored_by = get_post_meta(get_the_ID(), 'wpcf-sponsored-by', true);
         $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
@@ -1695,17 +1692,9 @@ function ajax_resources_listing_pagination() {
         $return .= '<div class="row">
                 <div class="col-sm-12 resource-list">';
                     if (has_post_thumbnail(get_the_ID())) {
-                        if ( $featured_image_video == 'video' ) {
-                            $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
-                            $video = wp_get_attachment_url($meta['id']);
-                            if ($video != '') {
-                                $src = video_thumbnail($video, '267x200', $post );
-                                $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'"><img src="'.$src.'" /></a></div>';
-                            }
-                        }
-                        else {
+                      
                             $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail(get_the_ID()).'</a></div>'; 
-                        }   
+                        
                     }
                     $return .= '<div class="resource-content">
                         <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b> '.$topics.'</b></p>
@@ -1789,9 +1778,6 @@ function ajax_author_listing_pagination() {
                 $topics = '';
         }
 
-         //Fetch value from admin whether a video is selected or not.
-        $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
-
         // Sponsored By
         $sponsored_by = get_post_meta(get_the_ID(), 'wpcf-sponsored-by', true);
         $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
@@ -1804,17 +1790,9 @@ function ajax_author_listing_pagination() {
         $return .= '<div class="row">
                 <div class="col-sm-12 resource-list">';
                     if (has_post_thumbnail(get_the_ID())) {
-                        if ( $featured_image_video == 'video' ) {
-                            $meta = get_post_meta(get_the_ID(), '_fvp_video', true);
-                            $video = wp_get_attachment_url($meta['id']);
-                            if ($video != '') {
-                                $src = video_thumbnail($video, '267x200', $post );
-                                $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'"><img src="'.$src.'" /></a></div>';
-                            }
-                        }
-                        else {
+                        
                             $return .= '<div class="resource-image"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail(get_the_ID()).'</a></div>'; 
-                        }   
+                       
                     }
                     $return .= '<div class="resource-content">
                         <p class="read-date">'.get_the_date('F j, Y', get_the_ID()).'<b> '.$topics.'</b></p>
@@ -1842,51 +1820,7 @@ function ajax_author_listing_pagination() {
     echo json_encode($response);
     exit;
 }
-        
-/* * ****************************************************************************
- * Function to generate thumbnail of a video
- * ********************************************************* *********************/
-function video_thumbnail( $video , $size, $post) {
-     if ( $video != '') {
-        // Script to generate thumbnail from video* */
-      $ffmpeg = 'ffmpeg';
 
-      // where you'll save the image
-      $upload_url = wp_upload_dir();
-      $image = $upload_url['basedir'] . "/thumbnails/" . $post->ID . ".jpg";
-
-      // default time to get the image
-      $second = 1;
-
-      // get the duration and a random place within that
-      $cmd = "$ffmpeg -i $video 2>&1";
-      if (preg_match('/Duration: ((\d+):(\d+):(\d+))/s', `$cmd`, $time)) {
-          $total = ($time[2] * 3600) + ($time[3] * 60) + $time[4];
-          $second = rand(1, ($total - 1));
-      }
-
-      // get the screenshot
-      $cmd = "$ffmpeg -i $video -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -s $size -vcodec mjpeg -f mjpeg $image 2>&1";
-      $return = `$cmd`;
-      //Script Ends here* */
-      $src = $upload_url['baseurl'] . "/thumbnails/" . $post->ID . ".jpg";
-      return $src;
-    }
-    
-}
-
-/* * ****************************************************************************
- * Fetch count of share of resource article on fb,twitter,linkedin
- * ********************************************************* *********************/
-function resource_social_share_count( $url ) {
-    $url = "https://www.cancapital.com/";
-    $count = 0; 
-    
-    // Fetch fb shares
-    $json  = json_decode(file_get_contents("http://graph.facebook.com/?ids=".$url),true);
-    $count += $json[$url][shares];
-    return $count;
-}
 
 // get the steing length
 
@@ -1969,4 +1903,156 @@ function ajax_glossary_pagination() {
     $response['data'] = $return;
     echo json_encode($response);
     exit;
+}
+
+add_filter( 'tiny_mce_before_init', 'wpse24113_tiny_mce_before_init' );
+function wpse24113_tiny_mce_before_init( $initArray )
+{
+    $initArray['setup'] = <<<JS
+[function(ed) {
+    ed.onKeyDown.add(function(ed, e) {
+        if(tinyMCE.activeEditor.editorId=='content-id') {
+            var content = tinyMCE.activeEditor.getContent();
+            var max = 300;
+            var len = content.length;
+            if (len >= max) {
+              $('#charNum').html('<span class="text-error">You've got more then '+max+' characters!</span>');
+            } else {
+             var charCount = max - len;
+             $('#charNum').html(charCount + ' characters left');
+            }
+         }
+    });
+
+}][0]
+JS;
+    return $initArray;
+}
+
+/* * ****************************************************************************
+ * Function to change post date format
+ * ********************************************************* *********************/
+function dynamictime($post) {
+   $date = get_post_time('G', true, $post);
+   
+    /**
+     * Where you see 'themeblvd' below, you'd
+     * want to replace those with whatever term
+     * you're using in your theme to provide
+     * support for localization.
+     */ 
+
+    // Array of time period chunks
+    $chunks = array(
+            //array( 60 * 60 * 24 * 365 , __( 'year', 'themeblvd' ), __( 'years', 'themeblvd' ) ),
+            array( 60 * 60 * 24 * 30 , __( 'month', 'themeblvd' ), __( 'months', 'themeblvd' ) ),
+            array( 60 * 60 * 24 * 7, __( 'week', 'themeblvd' ), __( 'weeks', 'themeblvd' ) ),
+            array( 60 * 60 * 24 , __( 'day', 'themeblvd' ), __( 'days', 'themeblvd' ) ),
+            array( 60 * 60 , __( 'hour', 'themeblvd' ), __( 'hours', 'themeblvd' ) ),
+            array( 60 , __( 'minute', 'themeblvd' ), __( 'minutes', 'themeblvd' ) ),
+            array( 1, __( 'second', 'themeblvd' ), __( 'seconds', 'themeblvd' ) )
+    );
+
+    if ( !is_numeric( $date ) ) {
+            $time_chunks = explode( ':', str_replace( ' ', ':', $date ) );
+            $date_chunks = explode( '-', str_replace( ' ', '-', $date ) );
+            $date = gmmktime( (int)$time_chunks[1], (int)$time_chunks[2], (int)$time_chunks[3], (int)$date_chunks[1], (int)$date_chunks[2], (int)$date_chunks[0] );
+    }
+
+    $current_time = current_time( 'mysql', $gmt = 0 );
+    $newer_date   = strtotime( $current_time );
+   
+    // Difference in seconds
+    $since = $newer_date - $date;
+   
+    // Something went wrong with date calculation and we ended up with a negative date.
+    if ( 0 > $since )
+            return __( 'sometime', 'themeblvd' );
+
+    /**
+     * We only want to output one chunks of time here, eg:
+     * x years
+     * xx months
+     * so there's only one bit of calculation below:
+     */
+
+    //Step one: the first chunk
+    for ( $i = 0, $j = count($chunks); $i < $j; $i++) {
+            $seconds = $chunks[$i][0];
+
+            // Finding the biggest chunk (if the chunk fits, break)
+            if ( ( $count = floor($since / $seconds) ) != 0 )
+                    break;
+    }
+
+    // Set output var
+    $output = ( 1 == $count ) ? '1 '. $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
+
+
+    if ( !(int)trim($output) ){
+            $output = '0 ' . __( 'seconds', 'themeblvd' );
+    }
+
+    $output .= __(' ago', 'themeblvd');
+
+    return $output;
+ }
+ 
+ add_action('save_post', 'awards_validate_thumbnail');
+
+function awards_validate_thumbnail($post_id)
+{
+    // Only validate post type of post
+    if(get_post_type($post_id) != 'industry_recognition')
+        return;
+
+ 	// Check post has a thumbnail
+    if ( !has_post_thumbnail( $post_id ) ) {
+    	// Confirm validate thumbnail has failed
+        set_transient( "awards_validate_thumbnail_failed", "true" );
+
+        // Remove this action so we can resave the post as a draft and then reattach the post
+        remove_action('save_post', 'awards_validate_thumbnail');
+        wp_update_post(array('ID' => $post_id, 'post_status' => 'draft'));
+	add_action('save_post', 'awards_validate_thumbnail');
+    } else {
+    	// If the post has a thumbnail delete the transient
+        delete_transient( "awards_validate_thumbnail_failed" );
+    }
+}
+
+add_action('admin_notices', 'awards_validate_thumbnail_error');
+function awards_validate_thumbnail_error()
+{
+    // check if the transient is set, and display the error message
+    if ( get_transient( "awards_validate_thumbnail_failed" ) == "true" ) {
+        echo "<div id='message' class='error'><p><strong>A post thumbnail must be set before saving the post.</strong></p></div>";
+        delete_transient( "awards_validate_thumbnail_failed" );
+    }
+}
+
+add_action('nav_menu_css_class', 'add_current_nav_class', 10, 2 );
+	
+function add_current_nav_class($classes, $item) {
+
+        // Getting the current post details
+        global $post;
+
+        // Getting the post type of the current post
+        $current_post_type = get_post_type_object(get_post_type($post->ID));
+        $current_post_type_slug = $current_post_type->rewrite[slug];
+
+        // Getting the URL of the menu item
+        $menu_slug = strtolower(trim($item->url));
+
+        // If the menu item URL contains the current post types slug add the current-menu-item class
+        if (strpos($menu_slug,$current_post_type_slug) !== false) {
+
+           $classes[] = 'current-menu-item';
+
+        }
+
+        // Return the corrected set of classes to be added to the menu item
+        return $classes;
+
 }

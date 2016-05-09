@@ -27,6 +27,10 @@ label.sucess{color: green;margin-bottom: 10px;}
 #loader-conatiner{text-align:center;}
 label.error{    color: red;float: right;margin-right: 10px;}
 .avatar{-webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
+#partner-lead-generation .form-group .control-label:after {
+  content:"*";
+  color:red;
+}
 
 @media (max-width:767px) {
   .primary-nav .nav li.dropdown > a {
