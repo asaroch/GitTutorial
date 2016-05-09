@@ -89,7 +89,20 @@ $(function () {
         }
     });
 
-    jQuery("#phone").mask("(999) 999-9999");
+    jQuery("#phone").mask("(999) 999-9999",{autoclear: false});
+   /*jQuery("#phone").focusout(function() {
+        var element = $(this);
+        element.unmask();
+         phone = element.val().replace(/\D/g, '');
+         alert(phone.length);
+    if(phone.length < 10) {
+         $( '<label id="phone-error" class="error" for="phone" style="display:block;">Phone number is not valid.</label>').insertAfter( "#phone" );
+    }
+    else
+    {
+        $('#phone-error').remove();
+    }
+});*/
 
     $('#newsletter-subscription').validate({
         // Specify the validation rules
@@ -290,8 +303,7 @@ $(function () {
             },
             business_phone_number: {
                 required: true,
-                minlength: 10,
-                //maxlength   : 10 
+                minlength: 10
             },
             annual_revenue: {
                 required: true
@@ -300,22 +312,22 @@ $(function () {
         // Specify the validation error messages
         messages: {
             first_name: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.firstname_required,
                 minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
                 lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
             },
             email_address: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.email_required,
                 email: var_object.quickQuotevalidationsErrs.email,
             },
             business_phone_number: {
-                required: var_object.quickQuotevalidationsErrs.required,
+                required: var_object.quickQuotevalidationsErrs.phone_required,
                 minlength: "Minimum 10 numbers are allowed",
             },
             annual_revenue: {
-                required: var_object.quickQuotevalidationsErrs.required,
-                min : var_object.quickQuotevalidationsErrs.loan_amount,
-                max : var_object.quickQuotevalidationsErrs.loan_amount
+                required: var_object.quickQuotevalidationsErrs.anuualrevenue_required,
+                min: var_object.quickQuotevalidationsErrs.loan_amount,
+                max: var_object.quickQuotevalidationsErrs.loan_amount
             }
         },
         submitHandler: function (form) {
@@ -334,13 +346,13 @@ $(function () {
             });
         }
     });
-   
-    $('#fb-share-button').click(function(e) {
+
+    $('#fb-share-button').click(function (e) {
         e.preventDefault();
         FB.ui({
-            method : 'share',
-            href   :  var_object.resourceURL
-        }, function(response){
+            method: 'share',
+            href: var_object.resourceURL
+        }, function (response) {
         });
     });
 
@@ -409,20 +421,89 @@ $(function () {
             }
         });
     });
-    
+
+    // Contact Us validations
+    $('#contact_form').validate({
+        // Specify the validation rules
+        rules: {
+            first_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            last_name: {
+                required: true,
+                minlength: 2,
+                lettersonly: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            phone: {
+                required: true,
+                minlength: 10,
+                //maxlength   : 10 
+            },
+            business_name: {
+                required: true
+            },
+            title: {
+                required: true
+            },
+            message: {
+                required: true
+            }
+        },
+        // Specify the validation error messages
+        messages: {
+            first_name: {
+                required: var_object.contact_us_validations_error_msg.firstname_required,
+                minlength: var_object.contact_us_validations_error_msg.first_name_min_chars,
+                lettersonly: var_object.contact_us_validations_error_msg.first_name_min_chars
+            },
+            last_name: {
+                required: var_object.contact_us_validations_error_msg.lastname_required,
+                minlength: var_object.contact_us_validations_error_msg.last_name_min_chars,
+                lettersonly: var_object.contact_us_validations_error_msg.last_name_min_chars
+            },
+            email: {
+                required: var_object.contact_us_validations_error_msg.email_required,
+                email: var_object.contact_us_validations_error_msg.email,
+            },
+            phone: {
+                required: var_object.contact_us_validations_error_msg.phone_required,
+                minlength: "Minimum 10 numbers are allowed",
+            },
+            business_name: {
+                required: var_object.contact_us_validations_error_msg.business_required
+            },
+            title: {
+                required: var_object.contact_us_validations_error_msg.title_required
+            },
+            message: {
+                required: var_object.contact_us_validations_error_msg.message_required
+            }
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+    });
+    jQuery("#phone_no").mask("(999) 999-9999",{autoclear: false});
+
     // Glossary show more
-    $('.glossary-filter-paging').click(function(e) {
+    $('.glossary-filter-paging').click(function (e) {
         $this = $(this);
         e.preventDefault();
         var offset = $("#glossary-filtered-resources-offset").val();
-      
+
         $.ajax({
-            url         : var_object.ajax_url,
-            dataType    : 'json',
-            type        : 'post',
+            url: var_object.ajax_url,
+            dataType: 'json',
+            type: 'post',
             data: {
-                action  : 'ajax_glossary_pagination',
-                offset  : offset
+                action: 'ajax_glossary_pagination',
+                offset: offset
             },
             beforeSend: function () {
                 $("#loading-image").show();
@@ -436,18 +517,17 @@ $(function () {
                     $('.show-more-terms').show();
                     $('#glossary-filtered-resources-offset').val(++offset);
                 }
-              
+
                 if ($("#mostRecentGlossary div.row:last").find('.section-heading').html() == $(response.data).find('.section-heading').html()) {
-                     var resource_title = $(response.data).filter("div.row:first");
-                    
+                    var resource_title = $(response.data).filter("div.row:first");
+
                     //var resource_title = $(response.data).find('div').first();
                     var resource = $(resource_title).find('p');
-                    $("#mostRecentGlossary div.row:last .col-sm-12").append(resource);  
-                     var last_element = $(response.data).filter("div.row:not(:first)");
-                      $( last_element ).insertBefore( ".glossary-show-more");
-                }
-                else {
-                    $( response.data ).insertBefore( ".glossary-show-more");
+                    $("#mostRecentGlossary div.row:last .col-sm-12").append(resource);
+                    var last_element = $(response.data).filter("div.row:not(:first)");
+                    $(last_element).insertBefore(".glossary-show-more");
+                } else {
+                    $(response.data).insertBefore(".glossary-show-more");
                 }
             }
         });

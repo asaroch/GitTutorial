@@ -52,6 +52,27 @@
     .dropdown .glyphicon-menu-down {
         right: -3px;
         width: 27px;
+    }    
+    .get-Quote-form input,
+    #search_resource input,
+    .get-Quote-form input[type="number"],
+    #search_resource .select-topic select { 
+        font-family: "Fort-Book";
+        height: 40px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    #search_resource .select-topic select {
+        padding-right:54px; 
+        padding-left: 15px;
+    }    
+    .get-Quote-form .action-btn, #search_resource .field-style {
+        height: 40px; 
+        padding: 10px 15px;
+    }
+    #search_resource span.select-drop {
+        padding: 9px 10px;
+        height: 34px;
     }
 }
 @media (max-width:1199px) and (min-width:992px) {
@@ -108,6 +129,12 @@
     #articles .related-articles .caption h3 {
         font-size: 22px;
         line-height: 26px;
+    }
+    .get-Quote-form input,
+    #search_resource input,
+    .get-Quote-form input[type="number"],
+    #search_resource .select-topic select {
+        font-size: 14px;
     }
 }
 @media (max-width:1199px) and (min-width:768px) {
@@ -182,8 +209,8 @@
     .graph1, .graph2 { 
         width: auto;
         height: auto;
-    }     
-    
+    }
+
 }
 @media (max-width: 991px) and (min-width: 768px) {
     .navbar-brand {
@@ -275,9 +302,6 @@
         position: relative;
         left:0;
     }
-    /*    .resource-content.resource-sm-height {
-            height: 225px;
-        }*/
     #resource_list_container .resource-sm-height,
     #home_resource_list .resource-sm-height {
         float:left;
@@ -290,6 +314,13 @@
     #social-media-section { 
         width: auto;
         left: auto;
+    }
+    .sidebar .post-section:last-child,
+    #all_resources_block .sidebar .post-section:last-child .section-heading  {
+        text-align: center;
+    }
+    #all_resources_block .sidebar .post-section:last-child .section-heading {
+        float: none;
     }
 }
 @media (min-width: 768px){	
@@ -363,7 +394,7 @@
         padding:0 40px;
     }
     /* Resources Post */
-      #social-media-section .section-heading {
+    #social-media-section .section-heading {
         margin: 0 auto;
         width: 55%;
     }
@@ -372,22 +403,12 @@
         margin-bottom: 40px;
     }
     #member_benefit.career .section-heading {
-        width: 41%;
-        margin: 0 auto 45px;
-    }
-    .get-Quote-form input, #search_resource input, .search-resource-center input, form.form-section input,.get-Quote-form input[type="number"] { 
-        font-family: "Fort-Book";
-        height: 40px;
-        padding: 10px 15px;
-        font-size: 14px;
+        width: 48%;
+        margin: 0 auto 54px;
     }
     .get-Quote-col .col-sm-3, .get-Quote-col .col-sm-3 { 
         padding-left: 10px;
         padding-right: 10px;
-    }
-    .get-Quote-form .action-btn {
-        height: 40px; 
-        padding: 3px 5px 0;
     }
 }
 @media (max-width:767px) {
@@ -456,7 +477,9 @@
     .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
         border: none;
     }
-    .navbar a, .primary-nav .nav .dropdown-menu li a, .primary-nav .nav .dropdown-menu li.current-menu-item a {
+    .navbar a,
+    .primary-nav .nav .dropdown-menu li a,
+    .primary-nav .nav .dropdown-menu li.current-menu-item a {
         color: #fff;
     }
     .navbar-nav > li  {
@@ -566,8 +589,10 @@
     .inner-page-arrow {
         bottom: -27px; 
     }
-    .get-Quote-form, .get-Quote-form form, #form_box {
-        background: rgba(1,174,240,.9);		
+    .get-Quote-form,
+    .get-Quote-form form,
+    #form_box {
+        background: rgba(1,174,240,.97);		
     }
     .get-Quote-form {
         padding: 0;
@@ -643,7 +668,10 @@
         top:70px;
         z-index: 0;
     }
-    #about_us p, .get-funded h2, .get-funded h3, #help-log p {
+    #about_us p,
+    .get-funded h2,
+    .get-funded h3,
+    #help-log p {
         font-size: 24px;
     }
     #about_us p {
@@ -689,7 +717,8 @@
     .footer-note {
         margin-top: 45px;
     }
-    .footer-navigation li, .footer-navigation li a {
+    .footer-navigation li,
+    .footer-navigation li a {
         font-size: 16px;
     }
     /*resources*/
@@ -841,7 +870,6 @@
         text-align: left;
 
     }
-
     /*-----------------------------------batch 2 starts--------------------------------------*/
     /*-----------------------------------------------------------------------------------*/
     .average-ratting {
@@ -889,6 +917,9 @@
     }
     #partners, #cta_block {
         padding-bottom: 30px;
+    }
+    .partnership-item {
+        height: auto;
     }
     /* Block Solution Built*/
     #term_loan .loan-nav ul li {
@@ -1205,7 +1236,7 @@
         font-size: 26px;
     }
     .social-media { 
-        position: inherit; 
+        position: relative; 
         right: 0; 
         width: 100%; 
         display: inline-block; 
@@ -1222,6 +1253,19 @@
     .social-media li { 
         float: left; 
         margin: 0 0 0 20px;
+    }
+   #social-media-section .content-area img {
+        display: inherit;
+        height: auto;
+        margin: 0px;
+        text-align: center;
+        width: auto;
+    }
+    .img-caption, #social-media-section .content-area img {
+      width: auto;
+    }
+    .content-area .sponsored {
+        width: 100%;
     }
     /*  Resources Glossary  */
     .glossary-mob-top-border {  
@@ -1310,8 +1354,7 @@
         width: 100%;
         height: auto;
         margin: 0 auto;
-    }
-    
+    }    
     #all_resources_block .select-topic {
         width: 240px;
     }

@@ -23,23 +23,25 @@ while (have_posts()) : the_post();
     $image_src  = $src =  $src[0];
     
     $meta =  get_post_meta($post->ID, '_fvp_video', true);
-    
+   
     $label  = "Image";
-    if ( is_array($meta) ) {
+    if ( is_array($meta) && array_key_exists('id',$meta ) ) {
         $src  = wp_get_attachment_url($meta['id']);
         $label  = "Video";
     }
-    
-    if ( $image_src != NULL || $src != NULL ) {
-        ?>
-         <section id="resource_hero" style="background-image: url('<?php echo $image_src; ?>')" ><!-- Resource banner -->
-            <!-- Button trigger modal -->
-            <a href="<?php echo $src; ?>" data-webm="<?php echo $src; ?>" class="html5lightbox btn btn-default large-size-icon">See Full <?php echo $label; ?> <i class="glyphicon glyphicon-resize-full"></i></a>         
-        </section>
-        <?php
-    }
     ?>
-   
+    <section id="resource_hero"><!-- Resource banner -->
+         <?php
+          if ( $image_src != NULL || $src != NULL ) {
+              ?>
+            <div class="img-block" style="background-image: url('<?php echo $image_src; ?>')"></div>
+              <?php
+          }
+          ?>
+        <!-- Button trigger modal -->
+        <a href="<?php echo $src; ?>" data-webm="<?php echo $src; ?>" class="html5lightbox btn btn-default large-size-icon">See Full <?php echo $label; ?> <i class="glyphicon glyphicon-resize-full"></i></a>         
+    </section>
+       
     <!-- hero banner -->
     <!-- social media section -->
     <div id="social-media-section">
@@ -77,7 +79,7 @@ while (have_posts()) : the_post();
         $resource_topics = wp_get_post_terms($post->ID, 'resource-topic', array("fields" => "names"));
         if (!empty($resource_topics)) {
             $topics = implode(", ", $resource_topics);
-            $topics = strlen($topics) >= 105 ? substr($topics, 0, 105) . ' ...' : $topics;
+            //$topics = strlen($topics) >= 105 ? substr($topics, 0, 105) . ' ...' : $topics;
         } else {
             $topics = '';
         }

@@ -11,7 +11,7 @@
      border-bottom: 4px solid #00B0EB;
 }
 
-.primary-nav .nav li.current-page-ancestor> a {
+.primary-nav .nav li.current-page-ancestor > a {
      border-bottom: 4px solid #00B0EB;
 }
 .primary-nav .nav li.dropdown a {    

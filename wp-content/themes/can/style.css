@@ -590,7 +590,7 @@ i.glyphicon-play {
     font-size: 15px;
 }
 #resource_hero {
-    background: url(images/resources/main_featured_image.jpg) no-repeat center top;
+    
     height: 493px;
     position: relative;
     background-size: cover;
@@ -919,7 +919,7 @@ span.select-drop {
     color: #6d6e71;
     margin-bottom: 25px;
 }
-.details-point li {
+.details-point li , .emp-perks li{
     margin-bottom: 12px;
     font-size: 16px;
     color: #6d6e71;
@@ -968,6 +968,9 @@ span.select-drop {
     font-size: 14px;
     color: #00aeef;
     text-decoration: none;
+}
+#use_termloan_for .show-more-terms {
+   margin-top: 35px; 
 }
 #loan_calculator{
     padding: 68px 0;
@@ -1024,7 +1027,7 @@ span.select-drop {
     font-size: 26px;
     color: #00aeef;
     margin-top: 27px;
-    margin-bottom: 26px;
+    margin-bottom: 5px;
 }
 .tools-block p {
     line-height: 63px;
@@ -1132,7 +1135,7 @@ footer .badges-container {
     border-radius: 20px;
     display: block;
     height: 12px;
-    margin: 5px 7px;
+    margin: 5px 4px;
     opacity: 0.5;
     width: 12px;
 }
@@ -1399,7 +1402,7 @@ footer .badges-container {
     opacity: 1;  
 }
 .info-product-item {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 .info-product-item p {
     color: #6d6e71;
@@ -1442,7 +1445,7 @@ footer .badges-container {
 #termsloan_detail .section-heading {
     margin-bottom: 40px;
 }
-#termsloan_detail .details-point li {
+#termsloan_detail .details-point li, #termsloan_detail .emp-perks li {
     font-size: 16px;
 }
 .inspiration-content .section-heading {
@@ -1471,7 +1474,7 @@ form.form-section label{
     width: 100%;
 }
 form.form-section .form-control {
-    margin-bottom: 45px;
+    margin-bottom: 30px;
 }
 form.form-section .form-group fieldset {
     position:relative;
@@ -1480,8 +1483,9 @@ form.form-section label.error {
     color: red;
     text-align: right;
     position: absolute;
-    bottom: 6px;
+    bottom: -2px;
     right: 10px;
+    padding-right: 0;
 }
 form.form-section textarea {
     border-radius: 20px;
@@ -1678,6 +1682,7 @@ form.form-section h3.heading-beacome-partner {
     margin-bottom: 15px;
     font-family: "Fort-Bold";
     font-size: 22px;
+    padding: 0 10px;
 }
 .partnership-description{
     font-size: 14px;
@@ -1717,11 +1722,11 @@ form.form-section h3.heading-beacome-partner {
 }
 #we_bring_you_best{
     position: relative;
-    padding: 75px auto 104px;
+    padding: 70px 0 4px;
     text-align: center;
 }
 #we_bring_you_best .section-heading {
-    margin: 70px auto 52px;
+    margin-bottom: 52px;
 }
 #we_bring_you_best .tranp-div-two {
     top: 0px;
@@ -1985,7 +1990,7 @@ form.form-section h3.heading-beacome-partner {
 /* Right financing */
 #right-financing {
     background: none repeat scroll 0 0 #eeeeee;
-    padding: 58px 0 98px;
+    padding: 78px 0 98px;
 }
 #right-financing .section-heading {
     text-transform: capitalize;
@@ -2226,32 +2231,16 @@ form.form-section h3.heading-beacome-partner {
 #home_resource_list .see-all-resources{
     background-color: transparent;
 }
-
-/*batch 1 insights section carousal for mobile only end*/
-/* navigation dropdown  */
-
 .dropdown .glyphicon-menu-down {
     position: absolute;
     right: 0;
-    top: 8px;
+    top: 6px;
     width: 29px;
     text-align: center;
     line-height: 27px;
     cursor: pointer;
     z-index: 99;
 }
-
-/*
-.dropdown .glyphicon-menu-down {
-position: absolute;
-right: -4px;
-top: 8px;
-width: 26px;
-text-align: center;
-line-height: 27px;
-cursor: pointer;
-z-index: 99;
-}*/
 .primary-nav .nav li.dropdown > a {
     margin-right: 13px;
 }
@@ -2518,6 +2507,7 @@ input[type=number] {
     max-width: 100%;
     margin-bottom: 25px;
 }
+
 #social-media-section .content-area .img-container img {
     margin-bottom: 25px;
 }
@@ -2983,13 +2973,13 @@ span.top-quest {
 /*career*/
 .connect-with-us {
     text-align: center;
-    padding: 70px 0 30px;
+    padding: 70px 0 10px;
 } 
 .connect-with-us h3 {
     font-size: 22px;
     color: #fff;
     line-height: 30px;
-    margin: 28px 0 65px;
+    margin: 28px 0 50px;
     padding: 0 15px;
 }
 .connect-with-us h5 {
@@ -3086,4 +3076,19 @@ connect-through span {
     background-color: transparent;
     border-top: 1px solid #f5f5f5;
     border-bottom: 1px solid #f5f5f5;
+}
+/*live chat*/
+.boldchat {    
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 12px;
+    white-space: nowrap;
+}
+#resource_hero { 
+    height: auto;
+    min-height: 98px;
+  }
+#resource_hero .img-block {
+    height: 493px;
 }
