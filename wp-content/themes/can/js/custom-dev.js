@@ -1,5 +1,4 @@
 $(function () {
-    //$('#main_navigationbar').tabs( "select" , index );
     if (var_object.search) {
         $('html, body').animate({scrollTop: $('#resource_list_container .featured-content').offset().top}, 'slow');
     }
