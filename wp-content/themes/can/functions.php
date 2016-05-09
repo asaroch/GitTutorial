@@ -784,8 +784,13 @@ class Testimonial_Widget extends WP_Widget {
         global $post;
         //add_image_size( 'financial_widget_size', 85, 45, false );
         $listings = new WP_Query();
+       if ( $post->post_type == 'partner-type' ) {
+           $type = 'partner';
+       }
+        
         $listings->query('post_type=testimonial&testimonial-category=' . $type . '&posts_per_page=' . $numberOfListings.'&orderby=menu_order date&order=ASC');
-        if ($listings->found_posts > 0) {
+        $total_items = $listings->found_posts;
+        if ($total_items > 0) {
             echo '<section  id="testimonial">
 			<div class="tranp-div-two"></div>
 			<div class="tranp-div gradient-one"></div>
@@ -814,15 +819,19 @@ class Testimonial_Widget extends WP_Widget {
 							</div>';
                 echo $listItem;
             }
-            echo '</div><div class="row slider-nav-control customNavigation">
-					<div class="col-md-4">
-						<a title="prev" class=" prev"><i class="glyphicon glyphicon-menu-left"></i></a>
-						<span class="current-slider"> 1 </span>
-						<span class="slider-ratio">/</span> 
-						<span class="total-slider"> ' . $numberOfListings . ' </span>
-						<a title="next" class=" next active"><i class="glyphicon glyphicon-menu-right"></i></a>
-					</div>
-				</div></div></section>';
+            echo '</div><div class="row slider-nav-control customNavigation">';
+            //var_dump($listings->found_posts()); die;
+            if ( $total_items > 1 ) { 
+                echo  '<div class="col-md-4">
+                        <a title="prev" class=" prev"><i class="glyphicon glyphicon-menu-left"></i></a>
+                        <span class="current-slider"> 1 </span>
+                        <span class="slider-ratio">/</span> 
+                        <span class="total-slider"> ' . $total_items . ' </span>
+                        <a title="next" class=" next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+                </div>';
+           }
+
+            echo '</div></div></section>';
             wp_reset_postdata();
         } else {
             echo '<p style="padding:25px;">No listing found</p>';
@@ -1979,7 +1988,6 @@ function title_count_js() {
 
         echo '<script>jQuery(document).ready(function(){
             if(typeof jQuery("#wp-wpcf-page-headline-title-editor-container").html() != "undefined"){
-                jQuery("#wp-wpcf-page-headline-title-editor-container").
   jQuery("#wp-wpcf-page-headline-title-editor-container #qt_wpcf-page-headline-title_toolbar").after("<div style=\"position:relative;color:#666;\"><small>Title length: </small><span id=\"title_counter\"></span><span style=\"font-weight:bold; padding-left:7px;\">/ 60</span><small><span style=\"font-weight:bold; padding-left:7px;\">character(s).</span></small></div>");
     jQuery("span#title_counter").text(jQuery("#wpcf-page-headline-title").val().length);
     jQuery("#wpcf-page-headline-title").keyup( function() {

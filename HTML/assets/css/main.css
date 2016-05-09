@@ -428,7 +428,7 @@ h1 {
 }
 #testimonial {
     position: relative;
-    padding: 0 0px 100px;
+    padding: 0 0px 85px;
 }
 .user-icon {
     width: 358px;
@@ -1021,7 +1021,7 @@ span.select-drop {
     background: #eee;
     text-align: center;
     padding-top: 65px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .benefit-name {
     font-size: 26px;
@@ -1143,7 +1143,7 @@ footer .badges-container {
     text-align: center;
     font-size: 25px;
     position: absolute;
-    left: 20px;
+    left: 10px;
     right: 30px;
     bottom: -100px;
     z-index: 7;
@@ -1439,11 +1439,11 @@ footer .badges-container {
     margin-bottom: 0;
 }
 #termsloan_detail, #termsloan_detail.career {
-    padding: 74px 0 81px;
+    padding: 45px 0 64px;
     background-color: #eee;
 }
 #termsloan_detail .section-heading {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 #termsloan_detail .details-point li, #termsloan_detail .emp-perks li {
     font-size: 16px;
@@ -2061,17 +2061,26 @@ form.form-section h3.heading-beacome-partner {
 #compaign-header h1 {
     margin-bottom: 34px;
 }
-#compaign-header .btn-blue-bg {
+#compaign-header li.btn-blue-bg, #compaign-header li.btn-blue-bg:hover {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+#compaign-header li.btn-blue-bg a {
+    font-size: 12px; 
+    padding: 6px 12px; 
+    color: #fff;
     background-color: #01aef0;
     border: 2px solid #fff;
     border-radius: 25px;
-    color: #fff;
-    padding: 6px 12px;
 }
-#compaign-header a.btn-blue-bg {
-    font-size: 12px;
+#compaign-header .btn-blue-bg:hover a {
+    background-color: #fff;
+    border: 2px solid #01aef0;
+    box-shadow: none;
+    color: #01aef0;
 }
-#compaign-header  .primary-nav .nav > li a {
+#compaign-header .primary-nav .nav > li a {
     padding: 6px 16px;
     font-family:"Fort-Book";
 }
@@ -2098,11 +2107,11 @@ form.form-section h3.heading-beacome-partner {
     margin-top: 18px;
 }
 /* Compaign-boarding-ALT */
-#compaign_boarding_alt  .financial-product-item {
+#compaign_boarding_alt .financial-product-item {
     padding-top: 7px;
     position: relative;
 }
-#compaign_boarding_alt  .category-icon {
+#compaign_boarding_alt .category-icon {
     height: auto;
 }
 #compaign_boarding_alt .financial-product-item h5 {
@@ -2114,6 +2123,9 @@ form.form-section h3.heading-beacome-partner {
 }
 #compaign_boarding_alt .loan-item {
     margin-top: 16px;
+}
+#compaign_boarding_alt .loan-item p { 
+    overflow: hidden;
 }
 #compaign_boarding_alt .badges-container {
     margin-top: 25px;
@@ -2658,6 +2670,8 @@ input[type=number] {
 #cc-newslette input[type="text"] {
     margin: 0 0 0 auto;
     width: 624px;
+    font-family: "Fort-bold";
+    font-size: 16px;
 }
 #cc-newslette small { 
     color:  #fff;
@@ -2840,6 +2854,7 @@ span.top-quest {
     border: none; 
     padding: 0; 
     border-radius: 0;
+    cursor: pointer;
 }
 #our-offices .caption h3, #our-leading-team .caption h3 {
     font-family: Fort-bold;

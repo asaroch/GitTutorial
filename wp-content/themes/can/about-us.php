@@ -97,11 +97,11 @@ $press_featured = new WP_Query($args);
                     <div class="row">
                         <?php while ($leading_team->have_posts()) : $leading_team->the_post(); ?>
                         <div class="col-sm-3 text-center">
-                            <div class="thumbnail">
+                            <div class="thumbnail" data-toggle="modal" data-target="#myModal_<?php echo get_the_ID() ?>">
                                 <?php
                                     if (has_post_thumbnail(get_the_ID())):
                                         ?>
-                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive","data-toggle" => "modal","data-target" => "#myModal_".get_the_ID())); ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive")); ?>
                                         <?php
                                     endif;
                                     ?>
