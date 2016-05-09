@@ -1,11 +1,13 @@
 === Toolset Types ===
-Contributors: adrianosilva, AmirHelzer, bedas, brucepearson, christianglingener, jadpm, jans-1
+Contributors: AmirHelzer, brucepearson, christianglingener, jadpm, zaantar
 Donate link: http://wp-types.com
 Tags: CMS, custom field, custom fields, custom post type, custom post types, field, fields post, post type, post types, taxonomies, taxonomy, toolset
+Text Domain: wpcf
+Domain Path: /embedded/locale
 License: GPLv2
 Requires at least: 3.7
-Tested up to: 4.4.1
-Stable tag: 1.9
+Tested up to: 4.5
+Stable tag: 2.0.1
 
 The complete and reliable plugin for managing custom post types, custom taxonomies and custom fields.
 
@@ -149,6 +151,40 @@ Additionally, Types is the only plugin that lets you define parent/child relatio
 
 == Changelog ==
 
+= 2.0.1 =
+
+* Release date: 2016-04-12
+* Fixed issue with information table and Layouts.
+
+= 2.0 =
+
+* Release date: 2016-04-11
+* Revamped Field Control page for all field domains.
+* Added information table on post, post type and field group edit pages.
+* Added columns with previews of field values in taxonomy term listing pages.
+* Fixed issue with cursor that was moved automatically to the end of the slug input.
+* Fixed issue with slugs that could not be numeric.
+* Fixed disabled buttons when saving a child post in post-relationship table.
+* Fixed upgrade issue from version 1.9 to 1.9.1 that was removing assignment between custom post types and native taxonomies.
+* Fixed issue with initial expression of "Advanced text mode" in data-dependent display conditions for field groups.
+* Fixed issue with special characters when displaying taxonomy names on the Edit Taxonomy page.
+* Fixed issue with special characters when displaying term names on the Edit Post Field Group page.
+
+= 1.9.1 =
+
+* Released date: 2016-03-08
+* Fixed javascript infinite loop in post field group edit page.
+* Fixed conflict between post relationship table and WordPress heartbeat ajax call.
+* Fixed field slug limit of 20 characters.
+* Fixed issue with filtering by multiple checkboxes fields that failed to return results.
+* Fixed custom post type icon on "At a Glance" section.
+* Fixed hidden visibility option of post types that did not work for built-in types.
+* Fixed issue when adding an existing field that was always attached to bottom of the list.
+* Fixed issue with parent custom post type that could not be stored in "Select child fields from Child to be displayed in Post Relationship table"
+* Fixed options of unsaved checkbox / select / radio fields weren't sortable.
+* Fixed an issue when adding a existing field to another group.
+* Fixed an issue with cursor that was moved automatically to the end of slug input.
+
 = 1.9 =
 
 * Release date: 2016-02-17
@@ -172,7 +208,6 @@ Additionally, Types is the only plugin that lets you define parent/child relatio
 * Fix pagination in the Fields Table of a parent post type: it was returning the posts per page setting to its default state of 5.
 * Fix the Next pagination button missing on Fields Tables when the table is set to show N children each time and you have N+1 children assigned to that parent.
 * Fix custom taxonomy export/import when it is attached to a post type whose slug starts with a number.
-
 
 = 1.8.10 =
 

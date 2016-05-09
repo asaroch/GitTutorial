@@ -3,7 +3,7 @@
 Plugin Name: Video Embed & Thumbnail Generator
 Plugin URI: http://www.kylegilman.net/2011/01/18/video-embed-thumbnail-generator-wordpress-plugin/
 Description: Generates thumbnails, HTML5-compliant videos, and embed codes for locally hosted videos. Requires FFMPEG or LIBAV for encoding.
-Version: 4.6.1
+Version: 4.6.4
 Author: Kyle Gilman
 Author URI: http://www.kylegilman.net/
 Text Domain: video-embed-thumbnail-generator
@@ -59,7 +59,7 @@ function kgvid_default_options_fn() {
 	$edit_others_capable = kgvid_check_if_capable('edit_others_posts');
 
 	$options = array(
-		"version" => 4.601,
+		"version" => '4.6.4',
 		"embed_method" => "Video.js",
 		"jw_player_id" => "",
 		"template" => false,
@@ -1560,7 +1560,7 @@ function kgvid_video_embed_enqueue_scripts() {
 
 	//Video.js styles
 	if ( $options['embed_method'] == "Video.js" || $options['embed_method'] == "Strobe Media Playback" ) {
-		wp_enqueue_style( 'video-js', plugins_url("", __FILE__).'/video-js/video-js.css', '', '5.5.3' );
+		wp_enqueue_style( 'video-js', plugins_url("", __FILE__).'/video-js/video-js.css', '', '5.9.2' );
 		if ( $options['js_skin'] == 'kg-video-js-skin' ){ wp_enqueue_style( 'video-js-kg-skin', plugins_url("", __FILE__).'/video-js/kg-video-js-skin.css', '', $options['version'] ); }
 	}
 
@@ -1898,7 +1898,7 @@ function kgvid_enqueue_shortcode_scripts() {
 
 	if ( $options['embed_method'] == "Video.js" || $options['embed_method'] == "Strobe Media Playback" ) {
 			wp_enqueue_script( 'video-quality-selector', plugins_url("", __FILE__).'/video-js/video-quality-selector.js', array('video-js'), $options['version'], true );
-			wp_enqueue_script( 'video-js', plugins_url("", __FILE__).'/video-js/video.js', '', '5.5.3', true );
+			wp_enqueue_script( 'video-js', plugins_url("", __FILE__).'/video-js/video.js', '', '5.9.2', true );
 			add_action('wp_footer', 'kgvid_print_videojs_footer', 99);
 		}
 
@@ -1989,7 +1989,8 @@ function kgvid_gallery_page($page_number, $query_atts, $last_video_id = 0) {
 
 			if ( empty($query_atts['caption']) ) { $query_atts['caption'] = $attachment->post_excerpt; }
 			$below_video = 0;
-			if ( !empty($query_atts['caption']) ) { $below_video = 1; }
+			if ( !empty($query_atts['caption']) || $query_atts['view_count'] == "true" ) { $below_video = 1; }
+
 			$kgvid_postmeta = kgvid_get_attachment_meta( $attachment->ID );
 
 			$play_button_html = '';
@@ -2511,7 +2512,7 @@ function kgvid_single_video_code($query_atts, $atts, $content, $post_id) {
 			}
 			elseif ( $kgvid_video_id === 0 ) {
 				wp_localize_script( 'wp-mediaelement', '_wpmejsSettings', array(
-					'features' => array( 'playpause', 'progress', 'volume', 'fullscreen' ),
+					'features' => array( 'playpause', 'progress', 'volume', 'tracks', 'fullscreen' ),
 					'pluginPath' => includes_url( 'js/mediaelement/', 'relative' ),
 					'success' => 'kgvid_mejs_success'
 				) );
@@ -2523,7 +2524,7 @@ function kgvid_single_video_code($query_atts, $atts, $content, $post_id) {
 			$content_width = $content_width_save;
 
 			if ( $enable_resolutions_plugin ) {
-				$executed_shortcode = preg_replace( '/<source .*<a /', implode(' />', $sources).'<a ', $executed_shortcode );
+				$executed_shortcode = preg_replace( '/<source .*<a /', implode(' />', $sources).' /><a ', $executed_shortcode );
 			}
 			if ( !empty($track_code) ) {
 				$executed_shortcode = preg_replace( '/<a /', $track_code.'<a ', $executed_shortcode );
@@ -2887,6 +2888,8 @@ function kgvid_shortcode_atts($atts) {
 function KGVID_shortcode($atts, $content = ''){
 
 	$code = "";
+	$query_atts = "";
+
 	if ( !is_feed() ) {
 
 		$options = kgvid_get_options();
@@ -2915,6 +2918,7 @@ function KGVID_shortcode($atts, $content = ''){
 				'gallery_exclude',
 				'gallery_thumb',
 				'caption',
+				'view_count',
 				'gallery_end',
 				'gallery_per_page',
 				'gallery_title'
@@ -4028,7 +4032,7 @@ add_action('admin_init', 'kgvid_video_embed_options_init' );
 		//add the JW Player if available
 		$jw_player_select = "";
 		if ( class_exists('JWP6_Shortcode') ) {
-			$players["JW Player"] = "JW Player 6";
+			$players[__("JW Player 6", 'video-embed-thumbnail-generator')] = "JW Player";
 			$jw_players = get_option('jwp6_players');
 			if ( count($jw_players) > 1 ) {
 				$jw_player_select = " <div style='display:none;' id='jw_player_id_select'><select class='affects_player' onchange='kgvid_hide_plugin_settings();' id='jw_player_id' name='kgvid_video_embed_options[jw_player_id]'>";
@@ -4145,7 +4149,7 @@ add_action('admin_init', 'kgvid_video_embed_options_init' );
 		$options = kgvid_get_options();
 		echo __('Width:', 'video-embed-thumbnail-generator')." <input class='small-text affects_player' id='width' name='kgvid_video_embed_options[width]' type='text' value='".$options['width']."' /> ".__('Height:', 'video-embed-thumbnail-generator')." <input class='small-text affects_player' id='height' name='kgvid_video_embed_options[height]' type='text' value='".$options['height']."' /><br />";
 		echo "<input ".checked( $options['minimum_width'], "on", false )." id='minimum_width' name='kgvid_video_embed_options[minimum_width]' type='checkbox' /> <label for='minimum_width'>".__('Enlarge lower resolution videos to max width.', 'video-embed-thumbnail-generator')."</label> <span class='kgvid_tooltip wp-ui-text-highlight'><span class='kgvid_tooltip_classic'>".__('Usually if a video\'s resolution is less than the max width, the video player is set to the actual width of the video. Enabling this will always set the same width regardless of the quality of the video. When necessary you can override by setting the dimensions manually.', 'video-embed-thumbnail-generator')."</span></span><br />";
-		echo "<input ".checked( $options['fullwidth'], "on", false )." id='fullwidth' name='kgvid_video_embed_options[fullwidth]' type='checkbox' /> <label for='fullwidth'>".__('Set all videos to expand to fill their containers.', 'video-embed-thumbnail-generator')."</label> <span class='kgvid_tooltip wp-ui-text-highlight'><span class='kgvid_tooltip_classic'>".__('Enabling this will ignore any other width settings and set the width of the video to the width of the container it\'s in.', 'video-embed-thumbnail-generator')."</span></span><br />";
+		echo "<input ".checked( $options['fullwidth'], "on", false )." id='fullwidth' name='kgvid_video_embed_options[fullwidth]' type='checkbox' /> <label for='fullwidth'>".__('Set all videos to expand to 100% of their containers.', 'video-embed-thumbnail-generator')."</label> <span class='kgvid_tooltip wp-ui-text-highlight'><span class='kgvid_tooltip_classic'>".__('Enabling this will ignore any other width settings and set the width of the video to the width of the container it\'s in.', 'video-embed-thumbnail-generator')."</span></span><br />";
 		echo "<input ".checked( $options['inline'], "on", false )." id='inline' name='kgvid_video_embed_options[inline]' type='checkbox' /> <label for='inline'>".__('Allow other content on the same line as the video.', 'video-embed-thumbnail-generator')."</label>\n\t";
 	}
 
@@ -4949,6 +4953,7 @@ function kgvid_update_settings() {
 			$options['ffmpeg_old_rotation'] = "on";
 			$options['click_download'] = "on";
 		}
+
 		if ( $options['version'] < 4.6 ) {
 			$options['version'] = 4.6;
 			if ( !array_key_exists('nativecontrolsfortouch', $options) ) { $options['nativecontrolsfortouch'] = "on"; }
@@ -4961,7 +4966,6 @@ function kgvid_update_settings() {
 			$options['auto_encode_gif'] = false;
 			$options['pixel_ratio'] = 'on';
 			$options['twitter_username'] = kgvid_get_jetpack_twitter_username();
-
 		}
 
 		if ( $options['version'] != $default_options['version'] ) { $options['version'] = $default_options['version']; }
@@ -5628,8 +5632,8 @@ function kgvid_image_attachment_fields_to_edit($form_fields, $post) {
 						$items = array(__("subtitles", 'video-embed-thumbnail-generator')=>"subtitles", __("captions", 'video-embed-thumbnail-generator')=>"captions", __("chapters", 'video-embed-thumbnail-generator')=>"chapters");
 						$track_type_select = '<select name="attachments['.$post->ID.'][kgflashmediaplayer-track]['.$track.'][kind]" id="attachments-'.$post->ID.'-kgflashmediaplayer-track_'.$track.'_kind]"'.$security_disabled.'>';
 						foreach($items as $name=>$value) {
-							$selected = ($kgvid_postmeta['track'][$track]['kind']==$value) ? 'selected="selected"' : '';
-							$track_type_select .= "<option value='$value'>$name</option>";
+							$selected = ($kgvid_postmeta['track'][$track]['kind']==$value) ? ' selected="selected"' : '';
+							$track_type_select .= "<option value='$value'".$selected.">$name</option>";
 						}
 						$track_type_select .= "</select>";
 
