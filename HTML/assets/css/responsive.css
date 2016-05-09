@@ -38,7 +38,7 @@
     .testimonial-content.career p {
         line-height: 22px;
     }
-    .success-description {
+    #member_benefit .success-description {
         padding:0 30px;
     }
 }
