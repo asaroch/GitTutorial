@@ -131,12 +131,14 @@ $(function () {
                     email: email
                 },
                 beforeSend: function () {
-                    $(form).find('button').prop('disabled', true);
+                    $('.newsletter-button').hide();
+                    $('#loading-image').show();
                 },
                 success: function (response) {
                     if (response.msg == 'Sucess') {
                         $(response.data).insertBefore(".news-letter-heading");
-                        $(form).find('button').prop('disabled', false);
+                        $('.newsletter-button').show();
+                        $('#loading-image').hide();
                     }
                 }
             });
@@ -530,6 +532,7 @@ $(function () {
             }
         });
     });
+    
     $("#menu-item-214").append($(".boldchat"));
 
 });

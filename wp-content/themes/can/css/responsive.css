@@ -184,6 +184,10 @@
     #main_navigationbar .navbar-right {
         margin-top:13px;
     }
+    #social-media-section .featured-title {
+        width: 70%;
+        margin: 0 auto;
+    }
 }
 @media (max-width: 991px) {
     .sidebar {

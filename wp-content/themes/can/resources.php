@@ -59,19 +59,10 @@ if (!empty($featured_resources)) {
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
+   
+    $src = wp_get_attachment_image_src(get_post_thumbnail_id($featured_resources[0]->ID), array(1144, 493), false, '');
+    $src = $src[0];
     
-    $featured_image_or_video = get_post_meta($featured_resources[0]->ID, 'wpcf-featured_image_video', true);
-    if ( $featured_image_or_video == 'video' ) {
-        $meta  = get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
-        $video = wp_get_attachment_url($meta['id']);
-        if ( $video != '' ) {
-            $src = video_thumbnail( $video , '1144x493', $featured_resources[0] );
-        }
-    }
-    else {
-        $src = wp_get_attachment_image_src(get_post_thumbnail_id($featured_resources[0]->ID), array(1144, 493), false, '');
-        $src = $src[0];
-    }
     ?>
     <section id="resource_hero" style="background-image: url('<?php echo $src; ?>')" ><!-- Resource banner -->
         <div class="container">
@@ -135,7 +126,7 @@ if (!empty($featured_resources)) {
                         ?>
                         <div class="col-md-4 featured-article resource-sm-height">
                             <div class="resource-content">
-                                <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
+                                <p class="read-date"> <?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
                                 <p class="featured-content"><?php echo strlen($resource->post_excerpt) >= 170 ? substr($resource->post_excerpt, 0, 170) . ' ...' : $resource->post_excerpt; ?></p>
                                 <?php
@@ -166,26 +157,11 @@ if (!empty($featured_resources)) {
                                     if ( has_post_thumbnail($resource->ID) ) {
                                         
                                         $featured_image_or_video = get_post_meta($resource->ID, 'wpcf-featured_image_video', true);
-                                        // If video has been selected , fetch thumbnail
-                                        if ( $featured_image_or_video == 'video' ) {
-                                            $meta  = get_post_meta($resource->ID, '_fvp_video', true);
-                                            $video = wp_get_attachment_url($meta['id']);
-                                            if ( $video != '' ) {
-                                                $src = video_thumbnail( $video , '272x200', $resource );
-                                                ?>
-                                                <div class="featured-story-image">
-                                                    <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><img src="<?php echo $src; ?>" /><a>
-                                                </div>
-                                                <?php
-                                            }
-                                        }
-                                        else { // Display Image
-                                            ?>
-                                            <div class="featured-story-image">
-                                                <a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo get_the_post_thumbnail($resource->ID, 'large'); ?></a> 
-                                            </div>
-                                            <?php
-                                        }
+                                        ?>
+                                        <div class="featured-story-image">
+                                            <a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo get_the_post_thumbnail($resource->ID, 'large'); ?></a> 
+                                        </div>
+                                        <?php
                                     }
                                     ?>
                                 </div>
@@ -308,26 +284,11 @@ $topics = get_terms('resource-topic', array(
                             <div class="col-sm-12 resource-list">
                                 <?php
                                 if ( has_post_thumbnail($resource->ID) ) {
-                                    // If video has been selected , fetch thumbnail
-                                    if ( $featured_image_video == 'video' ) {
-                                        $meta  = get_post_meta($resource->ID, '_fvp_video', true);
-                                        $video = wp_get_attachment_url($meta['id']);
-                                        if ( $video != '' ) {
-                                            $src = video_thumbnail( $video , '272x200', $resource );
-                                            ?>
-                                            <div class="resource-image">
-                                                <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><img src="<?php echo $src; ?>" /><a>
-                                            </div>
-                                            <?php
-                                        }
-                                    }
-                                    else { // Display Image
-                                        ?>
-                                        <div class="resource-image">
-                                            <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo get_the_post_thumbnail($resource->ID, 'large'); ?></a> 
-                                        </div>
-                                        <?php
-                                    }
+                                    ?>
+                                    <div class="resource-image">
+                                        <a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo get_the_post_thumbnail($resource->ID, 'large'); ?></a> 
+                                    </div>
+                                    <?php
                                 }    
                                 ?>
                                 <div class="resource-content">
