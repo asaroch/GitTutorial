@@ -122,7 +122,7 @@ $press_featured = new WP_Query($args);
                                                <?php
                                     if (has_post_thumbnail(get_the_ID())):
                                         ?>
-                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive","data-toggle" => "modal","data-target" => "#myModal_".get_the_ID())); ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large', array("class" => "img-responsive")); ?>
                                         <?php
                                     endif;
                                     ?>
