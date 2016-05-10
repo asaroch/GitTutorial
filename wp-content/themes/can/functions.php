@@ -1455,6 +1455,7 @@ function can_small_business_fundng_add_pages() {
     add_menu_page('Small Business Funding', 'Small Business Funding', '6', 'edit.php?post_type=hero-banner-slider', '', '', 6);
     add_submenu_page('edit.php?post_type=hero-banner-slider', 'Hero Slider', 'Hero Slider', 5, 'edit.php?post_type=hero-banner-slider');
     add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Charts', 'Business Funding Charts', 5, 'edit.php?post_type=business-funding-cha');
+    add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Headings', 'Business Funding Heading', 5, 'edit-tags.php?taxonomy=business-funding-hea&post_type=business-funding-cha');
     add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Graphs', 'Business Funding Graphs', 5, 'edit.php?post_type=business-funding-gra');
 }
 

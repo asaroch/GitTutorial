@@ -64,7 +64,7 @@ $business_capital_chart = new WP_Query($args);
 								<div class="user-icon"> 
 								 <?php
                                                                 if (has_post_thumbnail($value->ID)):
-                                                                    echo get_the_post_thumbnail($value->ID, 'large');
+                                                                    echo get_the_post_thumbnail($value->ID, array(315,315));
                                                                 endif;
                                                                 ?>
 								</div>
@@ -133,32 +133,32 @@ $business_capital_chart = new WP_Query($args);
                                     ?>
 					<div class="tr headings">
 						<div class="th firstname"><span></span></div>
-						<div class="th term-laon"><span>
+						<div class="th term-laon"><span><a href="<?php echo get_the_permalink(345); ?>">
                                                         <?php if($logo[1] != ""){ ?>
                                                         <img src="<?php echo $logo[1]; ?>" class="img-circle" alt="Testimonial user image">
-                                                        <?php                                                                                                                                                    }
-                                                        if($name[1] != ""){
+                                                        <?php                                                                                                    }
+                                                       if($name[1] != ""){
                                                         ?>
                                                         <br> 
-                                                        <?php echo $name[1];
-                                                        } ?>
-                                                    </span></div>
-						<div class="th trak-laon"><span><?php if($logo[2] != ""){ ?>
+                                                         <?php echo $name[1]; ?>
+                                                     <?php   } ?>
+                                                        </a></span></div>
+						<div class="th trak-laon"><span><a href="<?php echo get_the_permalink(347); ?>"><?php if($logo[2] != ""){ ?>
                                                         <img src="<?php echo $logo[2]; ?>" class="img-circle" alt="Testimonial user image">
                                                         <?php                                                                                                                                                    }
                                                         if($name[2] != ""){
                                                         ?>
                                                         <br> 
                                                         <?php echo $name[2];
-                                                        } ?></span></div>
-						<div class="th installment-loan"><span><?php if($logo[0] != ""){ ?>
+                                                        } ?></a></span></div>
+						<div class="th installment-loan"><span><a href="<?php echo get_the_permalink(346); ?>"><?php if($logo[0] != ""){ ?>
                                                         <img src="<?php echo $logo[0]; ?>" class="img-circle" alt="Testimonial user image">
                                                         <?php                                                                                                                                                    }
                                                         if($name[0] != ""){
                                                         ?>
                                                         <br> 
                                                         <?php echo $name[0];
-                                                        } ?></span></div>
+                                                        } ?></a></span></div>
 					</div>
                                         <?php 
                                         if ( $business_capital_chart->have_posts() ) :

@@ -311,6 +311,8 @@ $(function () {
 		    responsiveClass:true,
 		    pagination : true,
 		    navigation:true,
+                    autoplay: true,
+                    autoplayTimeout: 8000,
 			responsive:{
 			        0:{
 			            items:1,
@@ -446,18 +448,27 @@ $(function () {
                 });
 //grayscale view  end 
   
-            // Sticky icons on post
-            $(window).scroll(function(e){ 
-                var $el = $('.fixedElement'); 
-                var isPositionFixed = ($el.css('position') == 'fixed');
-                if ($(this).scrollTop() > 420 && !isPositionFixed){ 
-                  $('.fixedElement').css({'position': 'fixed', 'top': '220px', 'right': '6.8%'}); 
-                }
-                  if ($(this).scrollTop() < 420 && isPositionFixed)
-                {
-                  $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
-                } 
-            });
-             // Sticky icons on post ends
+//sticky social icon on post
+                    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+                    var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
+
+                    var maxY = footTop - $('#sidebar').outerHeight();
+
+                    $(window).scroll(function (evt) {
+                        var y = $(this).scrollTop();
+                        if (y > top) {
+                            if (y < maxY) {
+                                $('#sidebar').addClass('fixed').removeAttr('style');
+                            } else {
+                                $('#sidebar').removeClass('fixed').css({
+                                    position: 'absolute',
+                                    top: (maxY - top) + 'px'
+                                });
+                            }
+                        } else {
+                            $('#sidebar').removeClass('fixed');
+                        }
+                    });
+//sticky social icon on post ends
 });
 
