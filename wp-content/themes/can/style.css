@@ -53,7 +53,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 * Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 /* import font style with external style css files */
-@import url("css/font-style.css");
+@import url("font-style.css");
 
 /*reset css*/
 div, p, span, h1, h2, h3, h4, h5, section, nav, header, footer, ul, li, a {
@@ -143,7 +143,7 @@ body {
 }
 .water-mark-image {
     position:absolute;
-    background:url(images/home/Cmark.png) no-repeat right top;
+    background:url(../images/home/Cmark.png) no-repeat right top;
     top: 70px; right: 0; width: 678px;
     height: 937px;
 }
@@ -471,7 +471,7 @@ h1 {
     bottom: 0;
 }
 #home_resource_list {
-    background: url(images/home/gradient-03_Cmark.png) repeat left top;
+    background: url(../images/home/gradient-03_Cmark.png) repeat left top;
 }
 .resource-list-bg {
     padding: 36px 0 23px;
@@ -590,7 +590,7 @@ i.glyphicon-play {
     font-size: 15px;
 }
 #resource_hero {
-    background: url(images/resources/main_featured_image.jpg) no-repeat center top;
+    background: url(../images/resources/main_featured_image.jpg) no-repeat center top;
     height: 493px;
     position: relative;
     background-size: cover;
@@ -609,7 +609,7 @@ i.glyphicon-play {
 #resource_list_container {
     padding: 36px 0 33px;
     background-color: #eee;
-    background: url(images/resources/gray_pattern_bg.png) repeat left top;
+    background: url(../images/resources/gray_pattern_bg.png) repeat left top;
 }
 .col-5-overide {
     padding-right: 0;
@@ -663,7 +663,7 @@ i.glyphicon-play {
     font-size: 12px;
 }
 .read-time{
-    background: url(images/home/time_icon.png) no-repeat left top;
+    background: url(../images/home/time_icon.png) no-repeat left top;
     font-family: 'Fort-Medium';
     padding-left: 28px;
     margin-top: 16px;
@@ -743,7 +743,7 @@ span.select-drop {
     border-bottom: none;
 }
 .post-information {
-    margin-bottom: 20px;
+    margin-bottom: 26px;
     float:left;
     padding:0;
 }
@@ -774,6 +774,11 @@ span.select-drop {
 .post-image,
 .post-content {
     float:left;
+}
+.post-content span { 
+    font-family: "Fort-book"; 
+    font-size: 12px;
+    color: #999;  
 }
 #all_resources_block .select-topic {
     float:right;
@@ -844,7 +849,7 @@ span.select-drop {
     padding :70px 0px 67px;
 }
 .get-e-book {
-    background: url(images/resources/newsletter_email_image.jpg) no-repeat center top;
+    background: url(../images/resources/newsletter_email_image.jpg) no-repeat center top;
     background-size: cover;
 }
 .get-e-book input[type="text"]{
@@ -924,7 +929,7 @@ span.select-drop {
     font-size: 16px;
     color: #6d6e71;
     line-height: 30px;
-    background: url('images/termsloan/arrow_bullet.png') no-repeat;
+    background: url('../images/termsloan/arrow_bullet.png') no-repeat;
     padding-left: 50px;
 }
 .paymment-point{
@@ -941,7 +946,7 @@ span.select-drop {
 .termloan-use-point li {
     position: relative;
     font-size: 26px;
-    background:url('images/termsloan/check_bullet.png') no-repeat;
+    background:url('../images/termsloan/check_bullet.png') no-repeat;
     min-height: 67px;
     margin: 0 0px 20px;
     padding: 0 20px 0 80px;
@@ -986,7 +991,7 @@ span.select-drop {
     color: #6d6e71;
 }
 #success_community{
-    padding: 70px 0 30px;
+    padding: 70px 0 39px;
 }
 
 #success_community .term-detail-heading {
@@ -1021,7 +1026,7 @@ span.select-drop {
     background: #eee;
     text-align: center;
     padding-top: 65px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .benefit-name {
     font-size: 26px;
@@ -1269,7 +1274,7 @@ footer .badges-container {
     margin: 11px auto 15px;
 }
 .icon-sprite{
-    background: url(images/can_sprt.png) no-repeat;
+    background: url(../images/can_sprt.png) no-repeat;
 }
 .star-overall li {
     background-position:-16px -310px;
@@ -1481,10 +1486,9 @@ form.form-section .form-group fieldset {
 }
 form.form-section label.error {
     color: red;
-    text-align: right;
     position: absolute;
     bottom: -2px;
-    right: 10px;
+    left: 10px;
     padding-right: 0;
 }
 form.form-section textarea {
@@ -1592,7 +1596,7 @@ form.form-section p a.know-more {
     top:0;
     width:27px;
     height: 27px;
-    background: url(images/partner/QuestionMarkIcon.png) no-repeat;
+    background: url(../images/partner/QuestionMarkIcon.png) no-repeat;
 }
 .margin-top {
     margin: 12px 0 17px;
@@ -1877,7 +1881,7 @@ form.form-section h3.heading-beacome-partner {
     background-position:center top;
 }
 .loan-nav .active {
-     background: url(images/small_bus_arrow.png) no-repeat center -1px;
+     background: url(../images/small_bus_arrow.png) no-repeat center -1px;
 }
 .nav-right-border {
     border-right: 1px solid #e284e0;
@@ -2061,17 +2065,26 @@ form.form-section h3.heading-beacome-partner {
 #compaign-header h1 {
     margin-bottom: 34px;
 }
-#compaign-header .btn-blue-bg {
+#compaign-header li.btn-blue-bg, #compaign-header li.btn-blue-bg:hover {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+#compaign-header li.btn-blue-bg a {
+    font-size: 12px; 
+    padding: 6px 12px; 
+    color: #fff;
     background-color: #01aef0;
     border: 2px solid #fff;
     border-radius: 25px;
-    color: #fff;
-    padding: 6px 12px;
 }
-#compaign-header a.btn-blue-bg {
-    font-size: 12px;
+#compaign-header .btn-blue-bg:hover a {
+    background-color: #fff;
+    border: 2px solid #01aef0;
+    box-shadow: none;
+    color: #01aef0;
 }
-#compaign-header  .primary-nav .nav > li a {
+#compaign-header .primary-nav .nav > li a {
     padding: 6px 16px;
     font-family:"Fort-Book";
 }
@@ -2098,11 +2111,11 @@ form.form-section h3.heading-beacome-partner {
     margin-top: 18px;
 }
 /* Compaign-boarding-ALT */
-#compaign_boarding_alt  .financial-product-item {
+#compaign_boarding_alt .financial-product-item {
     padding-top: 7px;
     position: relative;
 }
-#compaign_boarding_alt  .category-icon {
+#compaign_boarding_alt .category-icon {
     height: auto;
 }
 #compaign_boarding_alt .financial-product-item h5 {
@@ -2114,6 +2127,9 @@ form.form-section h3.heading-beacome-partner {
 }
 #compaign_boarding_alt .loan-item {
     margin-top: 16px;
+}
+#compaign_boarding_alt .loan-item p { 
+    overflow: hidden;
 }
 #compaign_boarding_alt .badges-container {
     margin-top: 25px;
@@ -2658,6 +2674,8 @@ input[type=number] {
 #cc-newslette input[type="text"] {
     margin: 0 0 0 auto;
     width: 624px;
+    font-family: "Fort-bold";
+    font-size: 16px;
 }
 #cc-newslette small { 
     color:  #fff;
@@ -2840,6 +2858,7 @@ span.top-quest {
     border: none; 
     padding: 0; 
     border-radius: 0;
+    cursor: pointer;
 }
 #our-offices .caption h3, #our-leading-team .caption h3 {
     font-family: Fort-bold;
@@ -3092,7 +3111,7 @@ connect-through span {
     top: 12px;
     white-space: nowrap;
 }
-#resource_hero { 
+#resource_hero.resource-post { 
     height: auto;
     min-height: 98px;
   }
