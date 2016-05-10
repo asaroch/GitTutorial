@@ -23,13 +23,13 @@
 define('DB_NAME', 'canstaging');
 
 /** MySQL database username */
-define('DB_USER', 'canstaging');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'can#123$');
+define('DB_PASSWORD', 'eYo4@x$009');
 
 /** MySQL hostname */
-define('DB_HOST', '192.168.176.26');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
