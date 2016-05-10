@@ -743,7 +743,7 @@ span.select-drop {
     border-bottom: none;
 }
 .post-information {
-    margin-bottom: 20px;
+    margin-bottom: 26px;
     float:left;
     padding:0;
 }
@@ -774,6 +774,11 @@ span.select-drop {
 .post-image,
 .post-content {
     float:left;
+}
+.post-content span { 
+    font-family: "Fort-book"; 
+    font-size: 12px;
+    color: #999;  
 }
 #all_resources_block .select-topic {
     float:right;
@@ -986,7 +991,7 @@ span.select-drop {
     color: #6d6e71;
 }
 #success_community{
-    padding: 70px 0 30px;
+    padding: 70px 0 39px;
 }
 
 #success_community .term-detail-heading {
@@ -1021,7 +1026,7 @@ span.select-drop {
     background: #eee;
     text-align: center;
     padding-top: 65px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .benefit-name {
     font-size: 26px;
@@ -1481,10 +1486,9 @@ form.form-section .form-group fieldset {
 }
 form.form-section label.error {
     color: red;
-    text-align: right;
     position: absolute;
     bottom: -2px;
-    right: 10px;
+    left: 10px;
     padding-right: 0;
 }
 form.form-section textarea {
@@ -3107,7 +3111,7 @@ connect-through span {
     top: 12px;
     white-space: nowrap;
 }
-#resource_hero { 
+#resource_hero.resource-post { 
     height: auto;
     min-height: 98px;
   }
