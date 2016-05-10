@@ -18,11 +18,6 @@ $compare_funding_text = get_post_meta(get_the_ID(), 'wpcf-compare-funding-text',
 $compare_funding_button = get_post_meta(get_the_ID(), 'wpcf-compare-funding-butt', true);
 $compare_funding_url = get_post_meta(get_the_ID(), 'wpcf-develop-career-url', true);
 
-// email us block
-$email_us_text = get_post_meta(get_the_ID(), 'wpcf-email-us-text', true);
-$email_us_number = get_post_meta(get_the_ID(), 'wpcf-email-us-number', true);
-$email_us_button = get_post_meta(get_the_ID(), 'wpcf-email-us-button', true);
-
 // Search heading
 $search_heading = get_post_meta(get_the_ID(), 'wpcf-search-heading', true);
 
@@ -205,18 +200,6 @@ endif;
                     <a class="btn btn-purple-style" title="COMPARE FUNDING OPTIONS" href="<?php echo $compare_funding_url; ?>"><?php echo $compare_funding_button; ?></a>
                 </div>
             </section>
-
-            <!-- Email Us -->
-            <section id="email_us" class="gray-bg">
-                <div class="container text-center">
-                    <h2 class="section-heading"> <?php echo $email_us_text; ?> </h2>
-                    <h5 class="call-us"> Call us: </h5>
-                    <h3 class='call-number'> <?php echo $email_us_number; ?> </h3>
-                    <span class='divider-line'>  </span>
-                    <a href="mailto:anirudh.sood@trantorinc.com?subject=Want%20to%20learn%20more&body=Hi%20,Anirudh" title="APPLY NOW" class="btn btn-blue-bg"> <?php echo $email_us_button; ?> <i class="glyphicon glyphicon-play"></i></a>
-                </div>
-            </section>
-            <!-- Email Us -->
             <!-- Related Articles section -->
             <div id="home_resource_list">
                 <section id="articles">
