@@ -308,6 +308,7 @@ h1 {
     margin-bottom: 27px;
     font-family: 'Fort-Light';
     position: relative;
+    pointer-events: none;
 }
 .down-arrow{
     border-top: 33px solid #fff;
@@ -428,7 +429,7 @@ h1 {
 }
 #testimonial {
     position: relative;
-    padding: 0 0px 100px;
+    padding: 0 0px 85px;
 }
 .user-icon {
     width: 358px;
@@ -743,7 +744,7 @@ span.select-drop {
     border-bottom: none;
 }
 .post-information {
-    margin-bottom: 20px;
+    margin-bottom: 26px;
     float:left;
     padding:0;
 }
@@ -774,6 +775,11 @@ span.select-drop {
 .post-image,
 .post-content {
     float:left;
+}
+.post-content span { 
+    font-family: "Fort-book"; 
+    font-size: 12px;
+    color: #999;  
 }
 #all_resources_block .select-topic {
     float:right;
@@ -817,9 +823,9 @@ span.select-drop {
     padding: 7px;
 }
 #social-media-section .content-area .sponsored p { 
-     width: 100%;
-     margin: 0;
- }
+    width: 100%;
+    margin: 0;
+}
 .popular-topics {
     border-top: 1px solid #fff;
     background-color: #eee;
@@ -970,7 +976,7 @@ span.select-drop {
     text-decoration: none;
 }
 #use_termloan_for .show-more-terms {
-   margin-top: 35px; 
+    margin-top: 35px; 
 }
 #loan_calculator{
     padding: 68px 0;
@@ -986,7 +992,7 @@ span.select-drop {
     color: #6d6e71;
 }
 #success_community{
-    padding: 70px 0 30px;
+    padding: 70px 0 39px;
 }
 
 #success_community .term-detail-heading {
@@ -1021,7 +1027,7 @@ span.select-drop {
     background: #eee;
     text-align: center;
     padding-top: 65px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 .benefit-name {
     font-size: 26px;
@@ -1143,7 +1149,7 @@ footer .badges-container {
     text-align: center;
     font-size: 25px;
     position: absolute;
-    left: 20px;
+    left: 10px;
     right: 30px;
     bottom: -100px;
     z-index: 7;
@@ -1439,11 +1445,11 @@ footer .badges-container {
     margin-bottom: 0;
 }
 #termsloan_detail, #termsloan_detail.career {
-    padding: 74px 0 81px;
+    padding: 45px 0 64px;
     background-color: #eee;
 }
 #termsloan_detail .section-heading {
-    margin-bottom: 40px;
+    margin-bottom: 45px;
 }
 #termsloan_detail .details-point li, #termsloan_detail .emp-perks li {
     font-size: 16px;
@@ -1481,11 +1487,12 @@ form.form-section .form-group fieldset {
 }
 form.form-section label.error {
     color: red;
-    text-align: right;
     position: absolute;
-    bottom: -2px;
-    right: 10px;
-    padding-right: 0;
+    bottom: -13px;
+    left: 15px;
+    padding:0 15px 0 0;
+    font-size: 14px;
+    height: 36px;
 }
 form.form-section textarea {
     border-radius: 20px;
@@ -1765,6 +1772,9 @@ form.form-section h3.heading-beacome-partner {
 .partners-list li {
     margin: 6px auto 30px;
 }
+.partners-list li img {
+    display: inline-block;
+}
 #email_us {
     padding-bottom: 70px;
 }
@@ -1877,7 +1887,7 @@ form.form-section h3.heading-beacome-partner {
     background-position:center top;
 }
 .loan-nav .active {
-     background: url(../images/small_bus_arrow.png) no-repeat center -1px;
+    background: url(../images/small_bus_arrow.png) no-repeat center -1px;
 }
 .nav-right-border {
     border-right: 1px solid #e284e0;
@@ -1936,6 +1946,10 @@ form.form-section h3.heading-beacome-partner {
 .divtable .th {
     font-weight: bold;
     text-align: center;
+}
+.divtable .th a, .divtable .th a:hover {
+    color:#fff;
+    text-decoration:none;
 }
 .firstname {
     width: 19%;
@@ -2061,17 +2075,26 @@ form.form-section h3.heading-beacome-partner {
 #compaign-header h1 {
     margin-bottom: 34px;
 }
-#compaign-header .btn-blue-bg {
+#compaign-header li.btn-blue-bg, #compaign-header li.btn-blue-bg:hover {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+#compaign-header li.btn-blue-bg a {
+    font-size: 12px; 
+    padding: 6px 12px; 
+    color: #fff;
     background-color: #01aef0;
     border: 2px solid #fff;
     border-radius: 25px;
-    color: #fff;
-    padding: 6px 12px;
 }
-#compaign-header a.btn-blue-bg {
-    font-size: 12px;
+#compaign-header .btn-blue-bg:hover a {
+    background-color: #fff;
+    border: 2px solid #01aef0;
+    box-shadow: none;
+    color: #01aef0;
 }
-#compaign-header  .primary-nav .nav > li a {
+#compaign-header .primary-nav .nav > li a {
     padding: 6px 16px;
     font-family:"Fort-Book";
 }
@@ -2098,11 +2121,11 @@ form.form-section h3.heading-beacome-partner {
     margin-top: 18px;
 }
 /* Compaign-boarding-ALT */
-#compaign_boarding_alt  .financial-product-item {
+#compaign_boarding_alt .financial-product-item {
     padding-top: 7px;
     position: relative;
 }
-#compaign_boarding_alt  .category-icon {
+#compaign_boarding_alt .category-icon {
     height: auto;
 }
 #compaign_boarding_alt .financial-product-item h5 {
@@ -2114,6 +2137,9 @@ form.form-section h3.heading-beacome-partner {
 }
 #compaign_boarding_alt .loan-item {
     margin-top: 16px;
+}
+#compaign_boarding_alt .loan-item p { 
+    overflow: hidden;
 }
 #compaign_boarding_alt .badges-container {
     margin-top: 25px;
@@ -2424,6 +2450,16 @@ input[type=number] {
     padding-top: 30px;
     left: 5%
 }
+#sidebarWrap {
+    height: 200px;
+    position: absolute;
+    right: 0px;
+}
+#sidebar.fixed {
+    position: fixed;
+    top: 240px;
+    right: 88px;
+}
 .social-media {
     width: 50px;
     position: absolute;
@@ -2596,7 +2632,7 @@ input[type=number] {
 }
 #articles .related-articles {
     background-color: #e9e9e9;
-    padding: 70px 0 67px;
+    padding: 42px 0 67px;
 }
 #articles .related-articles .section-heading {
     margin: 20px 0 40px;
@@ -2658,6 +2694,8 @@ input[type=number] {
 #cc-newslette input[type="text"] {
     margin: 0 0 0 auto;
     width: 624px;
+    font-family: "Fort-bold";
+    font-size: 16px;
 }
 #cc-newslette small { 
     color:  #fff;
@@ -2840,6 +2878,7 @@ span.top-quest {
     border: none; 
     padding: 0; 
     border-radius: 0;
+    cursor: pointer;
 }
 #our-offices .caption h3, #our-leading-team .caption h3 {
     font-family: Fort-bold;
@@ -3031,7 +3070,7 @@ connect-through span {
     text-align: center;
 }
 #faq-block.career .accordion-group a {
-        padding: 24px 30px 36px;
+    padding: 24px 30px 36px;
 }
 #faq-block .job-location > a, #faq-block.career .job-location > a {
     padding:0;
@@ -3092,10 +3131,11 @@ connect-through span {
     top: 12px;
     white-space: nowrap;
 }
-#resource_hero { 
+#resource_hero.resource-post { 
     height: auto;
     min-height: 98px;
-  }
+    background: none;
+}
 #resource_hero .img-block {
     height: 493px;
 }

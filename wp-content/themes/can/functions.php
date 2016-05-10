@@ -344,7 +344,7 @@ function can_scripts() {
     wp_enqueue_script('html5lightbox', get_template_directory_uri() . '/js/html5lightbox.js');
     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 
-    $search = $financialProductSlider = $testimonialSlider = FALSE;
+    $search = $financialProductSlider = $testimonialSlider = $heroSliderTestimonial = FALSE;
     $count_financial_product = wp_count_posts('financial_product');
 
     $count_news_press = wp_count_posts('news')->publish + wp_count_posts('press-releases')->publish;
@@ -358,6 +358,9 @@ function can_scripts() {
         if ($count_news_press > 3) {
             $financialProductSlider = TRUE;
         }
+    }
+    elseif (is_page('small-business-funding')) {
+            $heroSliderTestimonial = TRUE;
     }
     if ($count_video_testimonial->publish > 2) {
         $testimonialSlider = TRUE;
@@ -392,6 +395,7 @@ function can_scripts() {
         'search' => $search,
         'financialProductSlider' => $financialProductSlider,
         'testimonialSlider' => $testimonialSlider,
+        'heroSliderTestimonial' => $heroSliderTestimonial,
         'validationsErrs' => $validationsErrs,
         'resourceFilteredParameters' => $resourceFilteredParameters,
         'quickQuotevalidationsErrs' => $quickQuotevalidationsErrs,
@@ -1106,7 +1110,7 @@ class MemberBenefit_Widget extends WP_Widget {
                 if (has_post_thumbnail($post->ID)):
                     $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail');
                 endif;
-                $listItem = ' <div class="col-md-4 col-sm-4">
+                $listItem = ' <div class="col-md-4 col-sm-4 benefits">
             <div class="category-icon"> <img src="' . $image[0] . '"> </div>
 									 <p class="benefit-name">' . get_the_title() . '</p>
             <p class="success-description">' . get_the_content() . '</p>					
@@ -1453,6 +1457,7 @@ function can_small_business_fundng_add_pages() {
     add_menu_page('Small Business Funding', 'Small Business Funding', '6', 'edit.php?post_type=hero-banner-slider', '', '', 6);
     add_submenu_page('edit.php?post_type=hero-banner-slider', 'Hero Slider', 'Hero Slider', 5, 'edit.php?post_type=hero-banner-slider');
     add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Charts', 'Business Funding Charts', 5, 'edit.php?post_type=business-funding-cha');
+    add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Headings', 'Business Funding Heading', 5, 'edit-tags.php?taxonomy=business-funding-hea&post_type=business-funding-cha');
     add_submenu_page('edit.php?post_type=hero-banner-slider', 'Business Funding Graphs', 'Business Funding Graphs', 5, 'edit.php?post_type=business-funding-gra');
 }
 

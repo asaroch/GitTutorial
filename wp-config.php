@@ -26,7 +26,7 @@ define('DB_NAME', 'canstaging');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'can#123$');
+define('DB_PASSWORD', 'eYo4@x$009');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

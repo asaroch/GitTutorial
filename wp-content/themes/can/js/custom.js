@@ -12,6 +12,12 @@ $(function () {
     else{
         testimonialSlider = false;
     }
+    if(var_object.heroSliderTestimonial){
+        heroSliderTestimonial = true;
+    }
+    else{
+        heroSliderTestimonial = false;
+    }
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function(){
             
@@ -50,8 +56,8 @@ $(function () {
         loop: false,
         margin: 10,
         responsiveClass: true,
-        //autoplay: true,
-        //autoplayTimeout: 8000,
+        autoplay: heroSliderTestimonial,
+        autoplayTimeout: 8000,
         navigation: false,
         mouseDrag : true,
         touchDrag : true,
@@ -72,6 +78,7 @@ $(function () {
 
     function onSlideTranslate(event) {
         var item = event.item.index + 1;
+        console.log(event.item.index);
         $('.current-slider').html(item);
         var current = event.item.index;
         var shownItems = event.page.size
@@ -304,6 +311,8 @@ $(function () {
 		    responsiveClass:true,
 		    pagination : true,
 		    navigation:true,
+                    autoplay: true,
+                    autoplayTimeout: 8000,
 			responsive:{
 			        0:{
 			            items:1,
@@ -427,30 +436,39 @@ $(function () {
             })
             
             // clear all - search resource 
-            //grayscale view                 
-               $("#our-leading-team img, #our-offices img").mouseenter(function(){    
+//grayscale view                 
+               $("#our-leading-team .thumbnail, #our-offices .thumbnail").mouseenter(function(){    
                    var $this = $(this);
-                   $("#our-leading-team img, #our-offices img").addClass("gray-scale");
+                   $("#our-leading-team .thumbnail, #our-offices .thumbnail").addClass("gray-scale");
                    $this.removeClass("gray-scale");
                });
                
-                $("#our-leading-team img, #our-offices img").mouseleave(function(){
-                    $("#our-leading-team img, #our-offices img").removeClass("gray-scale");
+                $("#our-leading-team .thumbnail, #our-offices .thumbnail").mouseleave(function(){
+                    $("#our-leading-team .thumbnail, #our-offices .thumbnail").removeClass("gray-scale");
                 });
-            //grayscale view  end 
+//grayscale view  end 
   
-            // Sticky icons on post
-            $(window).scroll(function(e){ 
-                var $el = $('.fixedElement'); 
-                var isPositionFixed = ($el.css('position') == 'fixed');
-                if ($(this).scrollTop() > 420 && !isPositionFixed){ 
-                  $('.fixedElement').css({'position': 'fixed', 'top': '220px', 'right': '6.8%'}); 
-                }
-                  if ($(this).scrollTop() < 420 && isPositionFixed)
-                {
-                  $('.fixedElement').css({'position': 'absolute', 'top': '30px', 'right': '20px'}); 
-                } 
-            });
-             // Sticky icons on post ends
+//sticky social icon on post
+                    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+                    var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
+
+                    var maxY = footTop - $('#sidebar').outerHeight();
+
+                    $(window).scroll(function (evt) {
+                        var y = $(this).scrollTop();
+                        if (y > top) {
+                            if (y < maxY) {
+                                $('#sidebar').addClass('fixed').removeAttr('style');
+                            } else {
+                                $('#sidebar').removeClass('fixed').css({
+                                    position: 'absolute',
+                                    top: (maxY - top) + 'px'
+                                });
+                            }
+                        } else {
+                            $('#sidebar').removeClass('fixed');
+                        }
+                    });
+//sticky social icon on post ends
 });
 
