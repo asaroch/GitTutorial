@@ -50,7 +50,12 @@ if ( $resources->have_posts() ) {
                         $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                         
                         // Reading time
-                        $reading_time = $estimated_time->estimate_time_shortcode($post);
+                        $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
+                        $meta         =  get_post_meta($post->ID, '_fvp_video', true);
+                        if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                           $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                           $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                       }
                         
                          // Fetch topic of a resource
                         $resource_topics = wp_get_post_terms($post->ID, 'resource-topic', array("fields" => "names"));
@@ -85,7 +90,7 @@ if ( $resources->have_posts() ) {
                                     <?php
                                     if ($reading_time) {
                                         ?>
-                                        <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                        <p class="read-time"><?php echo $reading_time; ?></p>
                                         <?php
                                     }
                                     
@@ -162,7 +167,12 @@ $args = array(
                         }
 
                         // Reading time
-                        $reading_time = $estimated_time->estimate_time_shortcode($post);
+                        $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
+                        $meta         =  get_post_meta($post->ID, '_fvp_video', true);
+                        if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                           $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                           $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                       }
                         ?>
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
@@ -186,7 +196,7 @@ $args = array(
         <?php
         if (isset($reading_time) && $reading_time != '') {
             ?>
-                                        <p class="read-time hidden-xs"><?php echo $reading_time; ?> Min Read</p>
+                                        <p class="read-time hidden-xs"><?php echo $reading_time; ?></p>
                                         <?php }
                                     ?>
                                 </div>

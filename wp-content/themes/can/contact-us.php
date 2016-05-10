@@ -8,7 +8,7 @@ get_header();
  * Fetch Offices list
  */
 $our_offices = new WP_Query();
-$our_offices->query('post_type=our-office&posts_per_page=-1,&order=ASC');
+$our_offices->query('post_type=our-office&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 // Newsletter
 $newsletter = get_option('news_letter_data');
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="first_name">First name</label>
+                            <label for="first_name" class="control-label">First name</label>
                             <input type="text" class="form-control" id="first_name" name="first_name">
                         </fieldset>
                     </div>
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="last_name">Last name</label>
+                            <label for="last_name" class="control-label">Last name</label>
                             <input type="text" class="form-control" id="last_name" name="last_name">
                         </fieldset>
                     </div>
@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="email_addr">Email address</label>
+                            <label for="email_addr" class="control-label">Email address</label>
                             <input type="text" class="form-control" id="email_addr" name="email">
                         </fieldset>
                     </div>
@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="phone_no">Phone number</label>
+                            <label for="phone_no" class="control-label">Phone number</label>
                             <input type="text" class="form-control" id="phone_no" name="phone">
                         </fieldset>
                     </div>
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="business_name">Business name</label>
+                            <label for="business_name" class="control-label">Business name</label>
                             <input type="text" class="form-control" id="business_name" name="business_name">
                         </fieldset>
                     </div>
@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="title">Title</label>
+                            <label for="title" class="control-label">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </fieldset>
                     </div>
@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-12 margin-top">
                     <div class="form-group">
                         <fieldset>
-                            <label for="title">Your message</label>
+                            <label for="title" class="control-label">Your message</label>
                             <textarea class="form-control" rows="10" cols="10" id="message" name="message" ></textarea>
                         </fieldset>
                     </div>
@@ -165,18 +165,18 @@ if (isset($_POST['submit'])) {
 </section>
 <!-- Email Us -->
 <!-- our offices -->
-<section id="our-offices">
-    <div class="container">
-        <div class="row">
-            <h2 class="section-heading">Our Offices</h2>
-            <?php
-            $office_count = wp_count_posts('our-office');
-            if ($office_count->publish == 4):
-                $class = 'col-md-3';
-            else:
-                $class = 'col-md-4';
-            endif;
-            if ($our_offices->found_posts > 0):
+<?php if ($our_offices->found_posts > 0): ?>
+    <section id="our-offices">
+        <div class="container">
+            <div class="row">
+                <h2 class="section-heading">Our Offices</h2>
+                <?php
+                $office_count = wp_count_posts('our-office');
+                if ($office_count->publish == 4):
+                    $class = 'col-md-3';
+                else:
+                    $class = 'col-md-4';
+                endif;
                 while ($our_offices->have_posts()):
                     $our_offices->the_post();
                     ?>
@@ -196,11 +196,11 @@ if (isset($_POST['submit'])) {
                     </div>
                     <?php
                 endwhile;
-            endif;
-            ?>
+                ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <!-- our offices -->
 <!-- CAN Capital Newslette -->
 <section class="gradient-one" id="cc-newslette">

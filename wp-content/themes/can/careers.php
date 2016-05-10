@@ -10,19 +10,19 @@ $meta = get_post_meta(get_the_ID());
 
 global $post;
 $employee_spotlight_listings = new WP_Query();
-$employee_spotlight_listings->query('post_type=employee-spotlight&posts_per_page=-1,&order=ASC');
+$employee_spotlight_listings->query('post_type=employee-spotlight&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 /*
  * Fetch Our Values
  */
 $our_value_listings = new WP_Query();
-$our_value_listings->query('post_type=our-value&posts_per_page=-1,&order=ASC');
+$our_value_listings->query('post_type=our-value&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 /*
  * Fetch Offices list
  */
 $our_offices = new WP_Query();
-$our_offices->query('post_type=our-office&posts_per_page=-1,&order=ASC');
+$our_offices->query('post_type=our-office&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 /*
  * Fetch headline for career section 1
@@ -142,32 +142,37 @@ $twitter_url = get_option('twitter_url');
             endif;
             ?>
         </div>
-        <div class="row slider-nav-control customNavigation">
-            <div class="col-md-4">
-                <a title="prev" class="prev"><i class="glyphicon glyphicon-menu-left"></i></a>
-                <span class="current-slider"> 1 </span>
-                <span class="slider-ratio">/</span> 
-                <span class="total-slider"> <?php echo wp_count_posts('employee-spotlight')->publish; ?> </span>
-                <a title="next" class="next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+        <?php
+        $totalEmployee = wp_count_posts('employee-spotlight')->publish;
+        if ($totalEmployee > 0):
+            ?>
+            <div class="row slider-nav-control customNavigation">
+                <div class="col-md-4">
+                    <a title="prev" class="prev"><i class="glyphicon glyphicon-menu-left"></i></a>
+                    <span class="current-slider"> 1 </span>
+                    <span class="slider-ratio">/</span> 
+                    <span class="total-slider"> <?php echo $totalEmployee; ?> </span>
+                    <a title="next" class="next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+                </div>
             </div>
-        </div>	
+<?php endif; ?>
     </div>
 </section>
 <!-- testimonial -->
 <!-- member benefit -->
-<section id="member_benefit" class="career">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="section-heading"> Our values set the tone for day-to-day life at CAN Capital </h2>
+<?php if ($our_value_listings->found_posts > 0): ?>
+    <section id="member_benefit" class="career">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="section-heading"> Our values set the tone for day-to-day life at CAN Capital </h2>
+                </div>
             </div>
-        </div>
-        <div class="row">
-        <?php
-        if ($our_value_listings->found_posts > 0):
-            while ($our_value_listings->have_posts()):
-                $our_value_listings->the_post();
-                ?>               
+            <div class="row">
+                <?php
+                while ($our_value_listings->have_posts()):
+                    $our_value_listings->the_post();
+                    ?>               
                     <div class="col-md-4 col-sm-4 benefits">
                         <div class="category-icon">
                             <?php
@@ -179,13 +184,12 @@ $twitter_url = get_option('twitter_url');
                         <p class="benefit-name"> <?php echo get_the_title(); ?> </p>
                         <p class="success-description"> <?php echo get_the_content(); ?> </p>					
                     </div>                
-                <?php
-            endwhile;
-        endif;
-        ?>
-     </div>
-    </div>
-</section>
+                    <?php endwhile;
+                ?>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
 <!-- member benefit -->
 <!-- employee perks -->
 <section id="termsloan_detail" class="career">
@@ -196,7 +200,7 @@ $twitter_url = get_option('twitter_url');
                 <ul class="emp-perks">
                     <?php foreach ($emp_perks as $key => $value) { ?>
                         <li><?php echo $value; ?></li>
-                    <?php } ?>
+<?php } ?>
                 </ul>
             </div>
         </div>
@@ -244,18 +248,18 @@ $twitter_url = get_option('twitter_url');
         </div>		
 </section>
 <!-- our offices -->
-<section id="our-offices">
-    <div class="container">
-        <div class="row">
-            <h2 class="section-heading">Join One Of Our Offices</h2>
-            <?php
-            $office_count = wp_count_posts('our-office');
-            if ($office_count->publish == 4):
-                $class = 'col-md-3';
-            else:
-                $class = 'col-md-4';
-            endif;
-            if ($our_offices->found_posts > 0):
+<?php if ($our_offices->found_posts > 0): ?>
+    <section id="our-offices">
+        <div class="container">
+            <div class="row">
+                <h2 class="section-heading">Join One Of Our Offices</h2>
+                <?php
+                $office_count = wp_count_posts('our-office');
+                if ($office_count->publish == 4):
+                    $class = 'col-md-3';
+                else:
+                    $class = 'col-md-4';
+                endif;
                 while ($our_offices->have_posts()):
                     $our_offices->the_post();
                     ?>
@@ -275,10 +279,10 @@ $twitter_url = get_option('twitter_url');
                     </div>
                     <?php
                 endwhile;
-            endif;
-            ?>
+                ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <!-- our offices -->
 <?php get_footer(); ?>

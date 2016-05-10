@@ -1046,6 +1046,9 @@ span.select-drop {
 #member_benefit .section-heading{
     margin-bottom: 55px;
 }
+#financial_product.termloan-section {
+    padding-top: 35px;
+}
 /*term-lon end*/
 /*footer*/
 footer {
@@ -1490,7 +1493,7 @@ form.form-section label.error {
     position: absolute;
     bottom: -13px;
     left: 10px;
-    padding-right: 15px;
+    padding: 0 15px 0 0;
     font-size: 14px;
     height: 36px;
 }
@@ -1946,6 +1949,10 @@ form.form-section h3.heading-beacome-partner {
 .divtable .th {
     font-weight: bold;
     text-align: center;
+}
+.divtable .th a, .divtable .th a:hover {
+    color:#fff;
+    text-decoration:none;
 }
 .firstname {
     width: 19%;

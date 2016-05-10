@@ -80,8 +80,32 @@ function partner_lead_generation() {
         <div class="col-md-8">
             <form role="form" method="post" >
                 <div class="form-group">
-                    <label for="required">Required:</label>
-                    <input type="text" class="form-control" id="required" placeholder="This field is required" name="validations[required]" required value="<?php echo $validationsErr['required']; ?>" />
+                    <label for="first-name-required">First Name Required:</label>
+                    <input type="text" class="form-control" id="first-name-required" placeholder="First name is required" name="validations[first_name_required]" required value="<?php echo $validationsErr['first_name_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="last-name-required">Last Name Required:</label>
+                    <input type="text" class="form-control" id="last-name-required" placeholder="Last name is required" name="validations[last_name_required]" required value="<?php echo $validationsErr['last_name_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="email-required">Email Required:</label>
+                    <input type="text" class="form-control" id="email-required" placeholder="Email is required" name="validations[email_required]" required value="<?php echo $validationsErr['email_required']; ?>" />
+                </div>
+                 <div class="form-group">
+                    <label for="phone-no-required">Phone no Required:</label>
+                    <input type="text" class="form-control" id="phone-no-required" placeholder="Phone no is required" name="validations[phone_no_required]" required value="<?php echo $validationsErr['phone_no_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="business-required">Business Required:</label>
+                    <input type="text" class="form-control" id="business-required" placeholder="Business is required" name="validations[business_required]" required value="<?php echo $validationsErr['phone_no_required']; ?>" />
+                </div>
+                 <div class="form-group">
+                    <label for="title-required">Title Required:</label>
+                    <input type="text" class="form-control" id="title-required" placeholder="Title is required" name="validations[title_required]" required value="<?php echo $validationsErr['title_required']; ?>" />
+                </div>
+                <div class="form-group">
+                    <label for="message-required">Message Required:</label>
+                    <input type="text" class="form-control" id="message-required" placeholder="Message is required" name="validations[msg_required]" required value="<?php echo $validationsErr['msg_required']; ?>" />
                 </div>
                 <div class="form-group">
                     <label for="email-valid">Email valid:</label>
