@@ -3109,6 +3109,7 @@ connect-through span {
 #resource_hero.resource-post { 
     height: auto;
     min-height: 98px;
+    background: none;
   }
 #resource_hero .img-block {
     height: 493px;
