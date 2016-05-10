@@ -10,27 +10,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
-        <style>
-            #sidebarWrap {
-                height: 400px;
-                width: 100px;
-                float: right;
-                position: relative;
-                box-shadow: none;
-                border: none;
-                margin: 0;
-                padding: 0;
-            } 
-            #social-media{  width: 100px;
-                            height: 300px;
-            } 
-            #social-media.fixed {
-                position: fixed;
-                top: 0;
-            }
-        </style>
-    </head>
-
+      </head>
     <body>	
         <div class="wrapper">
             <nav class="navbar" role="navigation">
@@ -206,7 +186,7 @@
 
             <div id="social-media-section">
                 <div id="sidebarWrap">
-                    <div class="social-media hidden-xs"><h3>Share</h3>
+                    <div class="social-media hidden-xs" id="sidebar"><h3>Share</h3>
                         <ul>
                             <li>
                                 <a href="javascript:void(0);" target="_blank" title="twitter">
@@ -399,7 +379,7 @@
             </section>
             <!-- CAN Capital Newslette -->
             <!-- Get Funded -->
-            <section class="get-funded">
+            <section class="get-funded" id="social-icon-remove">
                 <div class="container text-center">
                     <h2 class="section-heading"> Get Funded </h2>
                     <h3> Smart, Simple & Fast. </h3>
@@ -498,31 +478,5 @@
         <script src='assets/js/bootstrap.min.js'></script>
         <script src='assets/js/owl.carousel.min.js'></script>
         <script src='assets/js/custom.js'></script>
-        <script>
-//sticky social icon on post-2
-            $(function () {
-                var top = $('#social-media').offset().top - parseFloat($('#social-media').css('marginTop').replace(/auto/, 0));
-                var footTop = $('#footer').offset().top - parseFloat($('#footer').css('marginTop').replace(/auto/, 0));
-
-                var maxY = footTop - $('#social-media').outerHeight();
-
-                $(window).scroll(function (evt) {
-                    var y = $(this).scrollTop();
-                    if (y > top) {
-                        if (y < maxY) {
-                            $('#social-media').addClass('fixed').removeAttr('style');
-                        } else {
-                            $('#social-media').removeClass('fixed').css({
-                                position: 'absolute',
-                                top: (maxY - top) + 'px'
-                            });
-                        }
-                    } else {
-                        $('#social-media').removeClass('fixed');
-                    }
-                });
-            });
-        </script>
-
-    </body>
+        </body>
 </html>
