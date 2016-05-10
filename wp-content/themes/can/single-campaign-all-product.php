@@ -13,6 +13,9 @@ $args = array('post_status' => 'publish',
     'order' => 'ASC'
 );
 $landingpage = new WP_Query($args);
+// cta_get_fund
+$cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
+$cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
 
 $listings = new WP_Query();
 $listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_order date&order=ASC');
@@ -100,8 +103,8 @@ wp_reset_postdata();
 <!-- we bring you the best section -->
 <section  class="get-funded">
     <div class="container text-center">
-        <h2 class="section-heading"> Get Funded </h2>
-        <h3> Smart, Simple & Fast. </h3>
+        <h2 class="section-heading"> <?php echo $cta_cta_title; ?> </h2>
+        <h3><?php echo $cta_cta_desc; ?></h3>
         <?php dynamic_sidebar('applynow'); ?>
     </div>
 </section>
