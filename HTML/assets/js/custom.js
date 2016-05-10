@@ -421,6 +421,7 @@ $(function () {
 
 
 //sticky social icon on post
+    $(function () {
         var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
         var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
 
@@ -441,6 +442,7 @@ $(function () {
                 $('#sidebar').removeClass('fixed');
             }
         });
+    });
 //sticky social icon on post ends
 });
 
