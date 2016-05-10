@@ -308,6 +308,7 @@ h1 {
     margin-bottom: 27px;
     font-family: 'Fort-Light';
     position: relative;
+    pointer-events: none;
 }
 .down-arrow{
     border-top: 33px solid #fff;
@@ -1487,9 +1488,11 @@ form.form-section .form-group fieldset {
 form.form-section label.error {
     color: red;
     position: absolute;
-    bottom: -2px;
-    left: 10px;
-    padding-right: 0;
+    bottom: -13px;
+    left: 15px;
+    padding:0 15px 0 0;
+    font-size: 14px;
+    height: 36px;
 }
 form.form-section textarea {
     border-radius: 20px;
@@ -1943,6 +1946,10 @@ form.form-section h3.heading-beacome-partner {
 .divtable .th {
     font-weight: bold;
     text-align: center;
+}
+.divtable .th a, .divtable .th a:hover {
+    color:#fff;
+    text-decoration:none;
 }
 .firstname {
     width: 19%;
