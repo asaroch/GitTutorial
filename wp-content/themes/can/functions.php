@@ -344,7 +344,7 @@ function can_scripts() {
     wp_enqueue_script('html5lightbox', get_template_directory_uri() . '/js/html5lightbox.js');
     // in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
 
-    $search = $financialProductSlider = $testimonialSlider = FALSE;
+    $search = $financialProductSlider = $testimonialSlider = $heroSliderTestimonial = FALSE;
     $count_financial_product = wp_count_posts('financial_product');
 
     $count_news_press = wp_count_posts('news')->publish + wp_count_posts('press-releases')->publish;
@@ -358,6 +358,9 @@ function can_scripts() {
         if ($count_news_press > 3) {
             $financialProductSlider = TRUE;
         }
+    }
+    elseif (is_page('small-business-funding')) {
+            $heroSliderTestimonial = TRUE;
     }
     if ($count_video_testimonial->publish > 2) {
         $testimonialSlider = TRUE;
@@ -391,6 +394,7 @@ function can_scripts() {
         'search' => $search,
         'financialProductSlider' => $financialProductSlider,
         'testimonialSlider' => $testimonialSlider,
+        'heroSliderTestimonial' => $heroSliderTestimonial,
         'validationsErrs' => $validationsErrs,
         'resourceFilteredParameters' => $resourceFilteredParameters,
         'quickQuotevalidationsErrs' => $quickQuotevalidationsErrs,
