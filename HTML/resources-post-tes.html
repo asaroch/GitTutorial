@@ -10,7 +10,25 @@
         <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
         <link rel="stylesheet" type="text/css" href="assets/css/main.css">
         <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+        <style>
+            #sidebarWrap {
+                height: 400px;
+                width: 210px;
+                float: right;
+                position: relative;
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                padding: 0;
+            } 
+            #sidebar {
+                width: 200px;
+                height: 300px;
+                position: absolute;
+            }
+        </style>
     </head>
+
     <body>	
         <div class="wrapper">
             <nav class="navbar" role="navigation">
@@ -183,8 +201,9 @@
             </section>
             <!-- hero banner -->
             <!-- social media section -->
+            <div id="sidebarWrap">
             <div id="social-media-section">
-                <div class="social-media hidden-xs fixedElement"><h3>Share</h3>
+                <div class="social-media hidden-xs"><h3>Share</h3>
                     <ul>
                         <li>
                             <a href="javascript:void(0);" target="_blank" title="twitter">
@@ -225,9 +244,9 @@
                                     ligula vitae congue. Proin pulvinar congue est, in pellentesque magna mollis a. Maecenas
                                     eu ante erat. Proin a posuere dolor. Praesent aliquet neque sed libero faucibus, a porttitor
                                     orci venenatis.</p>
-                                
-                                    <img src="assets/images/resources/main_featured_image.jpg" alt="">
-                                    <div class="img-caption">Mauris ultrices velit consequat, imperdiet nisi in, rutrum mi. Morbi viverra vitae ante eu finibus. Photo by Laura Etellie</div>
+
+                                <img src="assets/images/resources/main_featured_image.jpg" alt="">
+                                <div class="img-caption">Mauris ultrices velit consequat, imperdiet nisi in, rutrum mi. Morbi viverra vitae ante eu finibus. Photo by Laura Etellie</div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget lectus sit amet
                                     leo sodales iaculis. Maecenas feugiat vehicula tellus sed mattis. Suspendisse nunc
                                     ipsum, tristique at convallis ac, pretium eu eros. Curabitur nec tortor dui. Nulla facilisi.
@@ -259,8 +278,8 @@
                                     <button type="button" class="btn btn-theme"> Restaurant </button>
                                 </div>  <!-- buttons -->
                                 <div class="sponsored">
-                                            <p>Sponsored By Company</p>
-                                        </div>
+                                    <p>Sponsored By Company</p>
+                                </div>
                                 <div class="social-media hidden-sm hidden-md hidden-lg"><h3>Share</h3><ul>
                                         <li>
                                             <a href="javascript:void(0);" target="_blank" title="twitter">
@@ -275,25 +294,26 @@
                                         </li>
                                     </ul>
                                 </div>                              
-                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
             <div class="client-testimonials">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <a href="#">
-                                                <img class="media-object" src="assets/images/resources/fox_headshot.png" alt="..." width="60" height="60px">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Jen Cadic</h4>
-                                            Jen is a lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum aliquet
-                                            nulla. Phasellus arcu risus, bibendum id porta ut, aliquet eu ante
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="assets/images/resources/fox_headshot.png" alt="..." width="60" height="60px">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Jen Cadic</h4>
+                        Jen is a lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dictum aliquet
+                        nulla. Phasellus arcu risus, bibendum id porta ut, aliquet eu ante
+                    </div>
+                </div>
+            </div>
             <!-- social media section -->
             <!-- Related Articles section -->
             <section id="articles">
