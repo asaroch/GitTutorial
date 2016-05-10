@@ -434,3 +434,26 @@ $(function(){
                 });
 //sticky social icon on post ends
 });
+//sticky social icon on post-2
+$(function() {
+    var top = $('#social-media').offset().top - parseFloat($('#social-media').css('marginTop').replace(/auto/, 0));
+    var footTop = $('#footer').offset().top - parseFloat($('#footer').css('marginTop').replace(/auto/, 0));
+
+    var maxY = footTop - $('#social-media').outerHeight();
+
+    $(window).scroll(function(evt) {
+        var y = $(this).scrollTop();
+        if (y > top) {
+            if (y < maxY) {
+                $('#social-media').addClass('fixed').removeAttr('style');
+            } else {
+                $('#social-media').removeClass('fixed').css({
+                    position: 'absolute',
+                    top: (maxY - top) + 'px'
+                });
+            }
+        } else {
+            $('#social-media').removeClass('fixed');
+        }
+    });
+});
