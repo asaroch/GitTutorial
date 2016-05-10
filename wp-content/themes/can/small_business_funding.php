@@ -97,11 +97,11 @@ $business_capital_chart = new WP_Query($args);
                                     <?php break;
                                     case 1:
                                     ?>
-                                    <li class="col-xs-4"><a id="trak_loan_btn" href="javascript:void(0)" class="navigation-item nav-right-border"> TrakLoan </a></li>                   
+                                    <li class="col-xs-4"><a id="trak_loan_btn" href="javascript:void(0)" class="navigation-item nav-right-border"> <?php echo $value->post_title; ?> </a></li>                   
                                     <?php break;
                                     case 2:
                                     ?>
-                                    <li class="col-xs-4"><a id="installment_btn" href="javascript:void(0)" class="navigation-item"> Installment </a></li>
+                                    <li class="col-xs-4"><a id="installment_btn" href="javascript:void(0)" class="navigation-item"> <?php echo $value->post_title; ?> </a></li>
                                     <?php 
                                     break;
                                     endswitch;

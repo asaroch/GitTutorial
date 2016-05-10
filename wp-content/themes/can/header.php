@@ -153,7 +153,7 @@ ob_start();
             <!-- /.container-fluid -->		  
         </nav>
         <?php
-        if (!is_front_page() && !is_page('partners') && !is_page('become-a-partner') && $post->post_type != "your desired post type") {
+        if (!is_front_page() && !is_page('partners') && !is_page('become-a-partner') && $post->post_type != "your desired post type" && !is_page('careers')) {
             ?>
             <div id="get_quote">
                 <div id="form_box" class="gradient-one get-Quote-form">
