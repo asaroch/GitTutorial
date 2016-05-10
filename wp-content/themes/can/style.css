@@ -1490,7 +1490,7 @@ form.form-section label.error {
     position: absolute;
     bottom: -13px;
     left: 10px;
-    padding-right: 10px;
+    padding-right: 15px;
     font-size: 14px;
     height: 36px;
 }
