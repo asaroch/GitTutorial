@@ -17,7 +17,7 @@ while (have_posts()) : the_post();
     //create a object to show estimated reading time for a post.
     $estimated_time = new EstimatedPostReadingTime();
     // Reading time
-    $reading_time = $estimated_time->estimate_time_shortcode($post);
+    $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
     
     $src        = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
     $image_src  = $src =  $src[0];
@@ -26,7 +26,10 @@ while (have_posts()) : the_post();
    
     $label  = "Image";
     if ( is_array($meta) && array_key_exists('id',$meta ) ) {
-        $src  = wp_get_attachment_url($meta['id']);
+        $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+        $src        = wp_get_attachment_url($meta['id']);
+        
+        $reading_time = $video_attach_data[0]['length_formatted']." minute View";
         $label  = "Video";
     }
     ?>
@@ -96,7 +99,7 @@ while (have_posts()) : the_post();
                     <?php
                     if ($reading_time) {
                         ?>
-                        <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                        <p class="read-time"><?php echo $reading_time; ?></p>
                         <?php
                     }
                     ?>

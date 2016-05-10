@@ -54,7 +54,12 @@ if (!empty($featured_resources)) {
     }
     
     // Reading time
-    $reading_time =  $estimated_time->estimate_time_shortcode($featured_resources[0]);
+    $reading_time =  $estimated_time->estimate_time_shortcode($featured_resources[0])." Read";
+    $meta         =  get_post_meta($featured_resources[0]->ID, '_fvp_video', true);
+    if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+       $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+       $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+   }
    
     // Sponsored By
     $sponsored_by = get_post_meta($featured_resources[0]->ID, 'wpcf-sponsored-by', true);
@@ -74,11 +79,11 @@ if (!empty($featured_resources)) {
                         </div>
                         <p class="read-date"><?php echo get_the_date('F j, Y', $featured_resources[0]->ID); ?> <b><?php echo $topics; ?></b></p>
                         <p class="featured-title"><a href="<?php echo get_the_permalink($featured_resources[0]->ID); ?>" title="<?php echo $featured_resources[0]->post_title; ?>"><?php echo strlen($featured_resources[0]->post_title) >= 60 ? substr($featured_resources[0]->post_title, 0, 60) . ' ...' : $featured_resources[0]->post_title; ?></a></p>
-                        <p><?php echo strlen($featured_resources[0]->post_excerpt) >= 245 ? substr($featured_resources[0]->post_excerpt, 0, 245) . ' ...' : $featured_resources[0]->post_excerpt; ?></p>
+                        <p><?php echo strlen($featured_resources[0]->post_content) >= 245 ? substr($featured_resources[0]->post_content, 0, 245) . ' ...' : $featured_resources[0]->post_content; ?></p>
                         <?php
                         if ( isset($reading_time) && $reading_time != '' ) {
                             ?>
-                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                            <p class="read-time"><?php echo $reading_time; ?></p>
                             <?php
                         }
 
@@ -117,7 +122,12 @@ if (!empty($featured_resources)) {
                     }
 
                     // Reading time
-                    $reading_time = $estimated_time->estimate_time_shortcode($resource);
+                    $reading_time = $estimated_time->estimate_time_shortcode($resource)." Read";
+                    $meta         =  get_post_meta($resource->ID, '_fvp_video', true);
+                     if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                        $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                        $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                    }
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
@@ -128,11 +138,11 @@ if (!empty($featured_resources)) {
                             <div class="resource-content">
                                 <p class="read-date"> <?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
-                                <p class="featured-content"><?php echo strlen($resource->post_excerpt) >= 170 ? substr($resource->post_excerpt, 0, 170) . ' ...' : $resource->post_excerpt; ?></p>
+                                <p class="featured-content"><?php echo strlen($resource->post_content) >= 170 ? substr($resource->post_content, 0, 170) . ' ...' : $resource->post_content; ?></p>
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
-                                    <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                    <p class="read-time"><?php echo $reading_time; ?></p>
                                     <?php
                                 }
 
@@ -169,11 +179,11 @@ if (!empty($featured_resources)) {
                                     <div class="resource-content">
                                         <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 45 ? substr($resource->post_title, 0, 45) . ' ...' : $resource->post_title; ?></a></p>
-                                        <p class="featured-content"><?php echo strlen($resource->post_excerpt) >= 200 ? substr($resource->post_excerpt, 0, 200) . ' ...' : $resource->post_excerpt; ?></p>
+                                        <p class="featured-content"><?php echo strlen($resource->post_content) >= 200 ? substr($resource->post_content, 0, 200) . ' ...' : $resource->post_content; ?></p>
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
-                                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                            <p class="read-time"><?php echo $reading_time; ?></p>
                                             <?php
                                         }
 
@@ -275,7 +285,12 @@ $topics = get_terms('resource-topic', array(
                         $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
 
                         // Reading time
-                        $reading_time = $estimated_time->estimate_time_shortcode($resource);
+                        $reading_time = $estimated_time->estimate_time_shortcode($resource)." Read";
+                        $meta         =  get_post_meta($resource->ID, '_fvp_video', true);
+                        if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                           $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                           $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                       }
 
                         //Fetch value from admin whether a video is selected or not.
                         $featured_image_video = get_post_meta($resource->ID, 'wpcf-featured_image_video', true);
@@ -294,11 +309,11 @@ $topics = get_terms('resource-topic', array(
                                 <div class="resource-content">
                                     <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                     <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>" ><?php echo esc_attr(strlen($resource->post_title) >= 75 ? substr($resource->post_title, 0, 75) . ' ...' : $resource->post_title); ?></a></p>
-                                    <p><?php echo strlen($resource->post_excerpt) >= 145 ? substr($resource->post_excerpt, 0, 145) . ' ...' : $resource->post_excerpt; ?></p>
+                                    <p><?php echo strlen($resource->post_content) >= 145 ? substr($resource->post_content, 0, 145) . ' ...' : $resource->post_content; ?></p>
                                     <?php
                                     if ($reading_time) {
                                         ?>
-                                        <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                        <p class="read-time"><?php echo $reading_time; ?></p>
                                         <?php
                                     }
 

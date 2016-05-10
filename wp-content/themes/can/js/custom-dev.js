@@ -181,31 +181,31 @@ $(function () {
         // Specify the validation error messages
         messages: {
             first_name: {
-                required: var_object.validationsErrs.required,
+                required: var_object.validationsErrs.first_name_required,
                 minlength: var_object.validationsErrs.first_name_min_chars,
                 lettersonly: var_object.validationsErrs.first_name_min_chars
             },
             last_name: {
-                required: var_object.validationsErrs.required,
+                required: var_object.validationsErrs.last_name_required,
                 minlength: var_object.validationsErrs.last_name_min_chars,
                 lettersonly: var_object.validationsErrs.last_name_min_chars
             },
             email: {
-                required: var_object.validationsErrs.required,
+                required: var_object.validationsErrs.email_required,
                 email: var_object.validationsErrs.email,
             },
             phone: {
-                required: var_object.validationsErrs.required,
+                required: var_object.validationsErrs.phone_no_required,
                 minlength: "Minimum 10 numbers are allowed",
             },
             business_name: {
-                required: var_object.validationsErrs.required
+                required: var_object.validationsErrs.business_required
             },
             title: {
-                required: var_object.validationsErrs.required
+                required: var_object.validationsErrs.title_required
             },
             message: {
-                required: var_object.validationsErrs.required
+                required: var_object.validationsErrs.msg_required
             }
         },
         submitHandler: function (form) {
@@ -257,33 +257,41 @@ $(function () {
             }
         }
     });
+    
+    // Get the active tab on resource sorting page
+    var currentTab = "Most Popular";
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
+        currentTab = $(e.target).text(); // get current tab
+    });
 
     $('.resource-filter-paging').on('click', function (e) {
-        $this = $(this);
+        $this   = $(this);
+        $insertbefore = $(this).parent();
         e.preventDefault();
-        var offset = $("#show-more-filtered-resources-offset").val();
+        var offset = $this.next().val();
         $.ajax({
-            url: var_object.ajax_url,
-            dataType: 'json',
-            type: 'post',
+            url      : var_object.ajax_url,
+            dataType : 'json',
+            type     : 'post',
             data: {
-                action: 'ajax_resources_pagination',
-                resourceFilteredParameters: var_object.resourceFilteredParameters,
-                offset: offset
+                action                     : 'ajax_resources_pagination',
+                resourceFilteredParameters : var_object.resourceFilteredParameters,
+                offset                     : offset,
+                currentTab                 : currentTab
             },
             beforeSend: function () {
-                $("#loading-image").show();
-                $('.show-more-terms').hide();
+                $insertbefore.next().find('#loading-image').show();
+                $insertbefore.hide();
             },
             success: function (response) {
-                $("#loading-image").hide();
+                $insertbefore.next().find('#loading-image').hide();
                 if (response.status == 'error') {
-                    $('.show-more-terms').hide();
+                    $insertbefore.hide();
                 } else {
-                    $('.show-more-terms').show();
-                    $('#show-more-filtered-resources-offset').val(++offset);
+                    $insertbefore.show();
+                    $this.next().val(++offset);
                 }
-                $('#mostRecent').append(response.data);
+                $(response.data).insertBefore($insertbefore);
             }
         });
     });

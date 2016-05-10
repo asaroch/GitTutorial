@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="first_name">First name</label>
+                            <label for="first_name" class="control-label">First name</label>
                             <input type="text" class="form-control" id="first_name" name="first_name">
                         </fieldset>
                     </div>
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="last_name">Last name</label>
+                            <label for="last_name" class="control-label">Last name</label>
                             <input type="text" class="form-control" id="last_name" name="last_name">
                         </fieldset>
                     </div>
@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="email_addr">Email address</label>
+                            <label for="email_addr" class="control-label">Email address</label>
                             <input type="text" class="form-control" id="email_addr" name="email">
                         </fieldset>
                     </div>
@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="phone_no">Phone number</label>
+                            <label for="phone_no" class="control-label">Phone number</label>
                             <input type="text" class="form-control" id="phone_no" name="phone">
                         </fieldset>
                     </div>
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="business_name">Business name</label>
+                            <label for="business_name" class="control-label">Business name</label>
                             <input type="text" class="form-control" id="business_name" name="business_name">
                         </fieldset>
                     </div>
@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <label for="title">Title</label>
+                            <label for="title" class="control-label">Title</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </fieldset>
                     </div>
@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-12 margin-top">
                     <div class="form-group">
                         <fieldset>
-                            <label for="title">Your message</label>
+                            <label for="title" class="control-label">Your message</label>
                             <textarea class="form-control" rows="10" cols="10" id="message" name="message" ></textarea>
                         </fieldset>
                     </div>

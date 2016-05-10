@@ -39,13 +39,18 @@ $estimated_time = new EstimatedPostReadingTime();
                 }
 
                 // Reading time
-                $reading_time = $estimated_time->estimate_time_shortcode($top_featured_resource);
+                $reading_time = $estimated_time->estimate_time_shortcode($top_featured_resource)." Read";
+                $meta         =  get_post_meta($top_featured_resource->ID, '_fvp_video', true);
+                 if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                    $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                    $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                }
 
                 // Sponsored By
                 $sponsored_by = get_post_meta($top_featured_resource->ID, 'wpcf-sponsored-by', true);
                 $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                 ?>
-                <div class="col-md-8 clearfix">
+                <div class="col-md-8 clearfix featured-article">
                     <div class="row">
                         <div class="col-sm-5 col-5-overide">
                             <?php
@@ -99,15 +104,21 @@ $estimated_time = new EstimatedPostReadingTime();
                         $topics = '';
                     }
 
+                
                     // Reading time
-                    $reading_time = $estimated_time->estimate_time_shortcode($resource);
-
+                    $reading_time = $estimated_time->estimate_time_shortcode($resource)." Read";
+                    $meta         =  get_post_meta($resource->ID, '_fvp_video', true);
+                     if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                        $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                        $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                    }
+ 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
                     $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
                     if (!has_post_thumbnail($resource->ID)) {
                         ?>
-                        <div class="col-md-4 clearfix resource-sm-height">
+                        <div class="col-md-4 clearfix resource-sm-height featured-article">
                             <div class="resource-content">
                                 <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
@@ -115,7 +126,7 @@ $estimated_time = new EstimatedPostReadingTime();
                                 <?php
                                 if (isset($reading_time) && $reading_time != '') {
                                     ?>
-                                    <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                    <p class="read-time"><?php echo $reading_time; ?></p>
                                     <?php
                                 }
                                 ?>
@@ -124,7 +135,7 @@ $estimated_time = new EstimatedPostReadingTime();
                         <?php
                     } else {
                         ?>
-                        <div class="col-md-8 clearfix">
+                        <div class="col-md-8 clearfix featured-article">
                             <div class="row">
                                 <div class="col-sm-5 col-5-overide">
                                     <?php
@@ -145,7 +156,7 @@ $estimated_time = new EstimatedPostReadingTime();
                                         <?php
                                         if (isset($reading_time) && $reading_time != '') {
                                             ?>
-                                            <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                            <p class="read-time"><?php echo $reading_time; ?></p>
                                             <?php
                                         }
 
@@ -190,8 +201,13 @@ $estimated_time = new EstimatedPostReadingTime();
                         $topics = '';
                     }
 
-                    // Reading time
-                    $reading_time = $estimated_time->estimate_time_shortcode($resource);
+                     // Reading time
+                    $reading_time = $estimated_time->estimate_time_shortcode($resource)." Read";
+                    $meta         =  get_post_meta($resource->ID, '_fvp_video', true);
+                     if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+                        $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+                        $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+                    }
 
                     // Sponsored By
                     $sponsored_by = get_post_meta($resource->ID, 'wpcf-sponsored-by', true);
@@ -206,7 +222,7 @@ $estimated_time = new EstimatedPostReadingTime();
                             <?php
                             if (isset($reading_time) && $reading_time != '') {
                                 ?>
-                                <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                                <p class="read-time"><?php echo $reading_time; ?></p>
                                 <?php
                             }
 

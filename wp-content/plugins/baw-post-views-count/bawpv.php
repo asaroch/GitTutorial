@@ -131,7 +131,7 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
             'post_type' => apply_filters('baw_count_views_widget_post_types', $bawpvc_options['post_types'])
                 )
         );
-        if ($r->have_posts()) :
+        if ($r->have_posts()) {
             ?>
             <?php //echo $before_widget;  ?>
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section hidden-xs">
@@ -171,7 +171,14 @@ class BAW_Widget_Most_Viewed_Posts extends WP_Widget {
             // Reset the global $the_post as this query will have stomped on it
             wp_reset_postdata();
 
-        endif;
+        } 
+        else {
+            ?>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0 post-section hidden-xs">
+                <h2 class="section-heading">No Trending Topics !</h2>
+            </div>
+            <?php
+        }
 
         $cache[$args['widget_id']] = ob_get_flush();
         wp_cache_set('widget_most_viewed_entries', $cache, 'widget');
@@ -568,6 +575,10 @@ function bawpvc_settings_page() {
     add_action('save_post', 'bawpvc_reset_from_meta_box');
 
     function bawpvc_reset_from_meta_box() {
+        $count_all = get_post_meta($_POST['post_ID'], '_count-views_all');
+        if ( empty($count_all) ) {
+            update_post_meta($_POST['post_ID'], '_count-views_all', 0);
+        }
         $capa = apply_filters('baw_count_views_capa_role', 'edit_posts');
         if (isset($_POST['bawpvc_reset_nonce'], $_POST['post_ID']) && current_user_can($capa, (int) $_POST['post_ID']) && (int) $_POST['post_ID'] > 0):
             check_admin_referer('bawpvc-reset_' . $_POST['post_ID'], 'bawpvc_reset_nonce');
