@@ -13,7 +13,6 @@ $args = array('post_status' => 'publish',
     'order' => 'ASC'
 );
 $landingpage = new WP_Query($args);
-//prx($landingpage);
 
 $listings = new WP_Query();
 $listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_order date&order=ASC');
@@ -39,15 +38,19 @@ $listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_ord
     <div class="widget-area trust-badge" role="complementary">
         <?php dynamic_sidebar('can_capital_comparison_chart'); ?>
     </div><!-- .widget-area -->
-<?php endif; ?>	
+<?php endif; 
+wp_reset_postdata();
+                    //wp_reset_query();
+?>	
 <!-- capital_comparison_chart section -->
 <!-- community of success -->
 <section id="success_community">
     <div class="container">
-        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-community-headline', true); ?> </h2>
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-headline', true); ?> </h2>
         <div class="owl-carousel owl-theme">
             <!--Display testimonials for merchants-->
             <?php
+           
             if ($listings->found_posts > 0) {
                 while ($listings->have_posts()) {
                     $listings->the_post();
@@ -55,7 +58,8 @@ $listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_ord
                     <!--Testimonials ends here-->
                     <?php
                     $meta = get_post_meta($post->ID, '_fvp_video', true);
-                    $video = wp_get_attachment_url($meta['id']);
+                    $id = settype($meta['id'],"integer");
+                    $video = wp_get_attachment_url($id);
                     ?>
                     <div class="item">
 

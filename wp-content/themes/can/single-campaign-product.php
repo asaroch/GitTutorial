@@ -9,6 +9,9 @@ global $post;
 // cta_get_fund
 $cta_cta_title = get_post_meta(get_the_ID(), 'wpcf-cta-title', true);
 $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
+
+$listings = new WP_Query();
+$listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_order date&order=ASC');
 ?>
 
 <!--Financial Products -->
@@ -66,16 +69,57 @@ $cta_cta_desc = get_post_meta(get_the_ID(), 'wpcf-cta-description', true);
     <div class="widget-area trust-badge" role="complementary">
         <?php dynamic_sidebar('can_capital_comparison_chart'); ?>
     </div><!-- .widget-area -->
-<?php endif; ?>	
+<?php endif;
+wp_reset_postdata();
+?>	
 <!-- capital_comparison_chart section -->
-<!-- video tutorial merchant -->	
-<!-- we bring you the best section -->
-<?php if (is_active_sidebar('can_capital_video_testimonial')) : ?>
-    <div class="widget-area video_testimonial" role="complementary">
-        <?php dynamic_sidebar('can_capital_video_testimonial'); ?>
-    </div><!-- .widget-area -->
-<?php endif; ?>	
-<!-- video tutorial merchant -->
+<!-- community of success -->
+<section id="success_community">
+    <div class="container">
+        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-headline', true); ?> </h2>
+        <div class="owl-carousel owl-theme">
+            <!--Display testimonials for merchants-->
+            <?php
+           
+            if ($listings->found_posts > 0) {
+                while ($listings->have_posts()) {
+                    $listings->the_post();
+                    ?>
+                    <!--Testimonials ends here-->
+                    <?php
+                    $meta = get_post_meta($post->ID, '_fvp_video', true);
+                    $id = settype($meta['id'],"integer");
+                    $video = wp_get_attachment_url($id);
+                    ?>
+                    <div class="item">
+
+                        <div class="video-player"> 
+
+                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><?php echo get_the_post_thumbnail($post->ID, 'single-post-thumbnail'); ?><div class="video-play-icon"><i></i></div></a>
+
+                        </div>
+
+                        <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
+                        <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business', true); ?> </p>
+                        <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-video_topic', true); ?> </p>
+                        <p class="success-description"> <?php echo get_the_content(); ?> </p>					
+                    </div>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+        <div class="customNavigation visible-xs">
+            <div class="text-center">
+                <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
+                <span class="current-slider"> 1 </span>
+                <span class="slider-ratio">/</span> 
+                <span class="total-slider"> 16 </span>
+                <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
+            </div>
+        </div>
+    </div>			
+</section>
 <?php
 // Partner Benefits The Query
 $args = array('post_status' => 'publish',
