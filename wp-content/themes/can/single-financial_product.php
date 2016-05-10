@@ -30,7 +30,7 @@ $loan_payments = get_post_meta($post->ID, 'wpcf-loan_payments', false);
 $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
 ?>
 <!--Financial Products -->
-<section  id="financial_product" class="gradient-one">
+<section  id="financial_product" class="gradient-one termloan-section">
     <div class="container">
         <div class="financial-product-item">
             <?php

@@ -8,7 +8,7 @@ get_header();
  * Fetch Offices list
  */
 $our_offices = new WP_Query();
-$our_offices->query('post_type=our-office&posts_per_page=-1,&order=ASC');
+$our_offices->query('post_type=our-office&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 // Newsletter
 $newsletter = get_option('news_letter_data');
@@ -165,18 +165,18 @@ if (isset($_POST['submit'])) {
 </section>
 <!-- Email Us -->
 <!-- our offices -->
-<section id="our-offices">
-    <div class="container">
-        <div class="row">
-            <h2 class="section-heading">Our Offices</h2>
-            <?php
-            $office_count = wp_count_posts('our-office');
-            if ($office_count->publish == 4):
-                $class = 'col-md-3';
-            else:
-                $class = 'col-md-4';
-            endif;
-            if ($our_offices->found_posts > 0):
+<?php if ($our_offices->found_posts > 0): ?>
+    <section id="our-offices">
+        <div class="container">
+            <div class="row">
+                <h2 class="section-heading">Our Offices</h2>
+                <?php
+                $office_count = wp_count_posts('our-office');
+                if ($office_count->publish == 4):
+                    $class = 'col-md-3';
+                else:
+                    $class = 'col-md-4';
+                endif;
                 while ($our_offices->have_posts()):
                     $our_offices->the_post();
                     ?>
@@ -196,11 +196,11 @@ if (isset($_POST['submit'])) {
                     </div>
                     <?php
                 endwhile;
-            endif;
-            ?>
+                ?>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 <!-- our offices -->
 <!-- CAN Capital Newslette -->
 <section class="gradient-one" id="cc-newslette">
