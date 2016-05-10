@@ -1769,6 +1769,9 @@ form.form-section h3.heading-beacome-partner {
 .partners-list li {
     margin: 6px auto 30px;
 }
+.partners-list li img {
+    display: inline-block;
+}
 #email_us {
     padding-bottom: 70px;
 }
