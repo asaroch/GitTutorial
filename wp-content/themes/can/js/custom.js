@@ -12,6 +12,12 @@ $(function () {
     else{
         testimonialSlider = false;
     }
+    if(var_object.heroSliderTestimonial){
+        heroSliderTestimonial = true;
+    }
+    else{
+        heroSliderTestimonial = false;
+    }
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function(){
             
@@ -50,8 +56,8 @@ $(function () {
         loop: false,
         margin: 10,
         responsiveClass: true,
-        //autoplay: true,
-        //autoplayTimeout: 8000,
+        autoplay: heroSliderTestimonial,
+        autoplayTimeout: 8000,
         navigation: false,
         mouseDrag : true,
         touchDrag : true,
@@ -72,6 +78,7 @@ $(function () {
 
     function onSlideTranslate(event) {
         var item = event.item.index + 1;
+        console.log(event.item.index);
         $('.current-slider').html(item);
         var current = event.item.index;
         var shownItems = event.page.size

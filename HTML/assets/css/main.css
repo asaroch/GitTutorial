@@ -823,9 +823,9 @@ span.select-drop {
     padding: 7px;
 }
 #social-media-section .content-area .sponsored p { 
-     width: 100%;
-     margin: 0;
- }
+    width: 100%;
+    margin: 0;
+}
 .popular-topics {
     border-top: 1px solid #fff;
     background-color: #eee;
@@ -976,7 +976,7 @@ span.select-drop {
     text-decoration: none;
 }
 #use_termloan_for .show-more-terms {
-   margin-top: 35px; 
+    margin-top: 35px; 
 }
 #loan_calculator{
     padding: 68px 0;
@@ -1885,7 +1885,7 @@ form.form-section h3.heading-beacome-partner {
     background-position:center top;
 }
 .loan-nav .active {
-     background: url(../images/small_bus_arrow.png) no-repeat center -1px;
+    background: url(../images/small_bus_arrow.png) no-repeat center -1px;
 }
 .nav-right-border {
     border-right: 1px solid #e284e0;
@@ -2443,6 +2443,16 @@ input[type=number] {
     width: 90%;
     padding-top: 30px;
     left: 5%
+}
+#sidebarWrap {
+    height: 200px;
+    position: absolute;
+    right: 0px;
+}
+#sidebar.fixed {
+    position: fixed;
+    top: 240px;
+    right: 88px;
 }
 .social-media {
     width: 50px;
@@ -3054,7 +3064,7 @@ connect-through span {
     text-align: center;
 }
 #faq-block.career .accordion-group a {
-        padding: 24px 30px 36px;
+    padding: 24px 30px 36px;
 }
 #faq-block .job-location > a, #faq-block.career .job-location > a {
     padding:0;
@@ -3119,7 +3129,7 @@ connect-through span {
     height: auto;
     min-height: 98px;
     background: none;
-  }
+}
 #resource_hero .img-block {
     height: 493px;
 }
