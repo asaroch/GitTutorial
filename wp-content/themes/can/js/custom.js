@@ -311,6 +311,8 @@ $(function () {
 		    responsiveClass:true,
 		    pagination : true,
 		    navigation:true,
+                    autoplay: true,
+                    autoplayTimeout: 8000,
 			responsive:{
 			        0:{
 			            items:1,
