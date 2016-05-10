@@ -1202,32 +1202,37 @@ class CanCapitalComparison_Widget extends WP_Widget {
             $return .= '<div class="th trak-laon"><span><img alt="" src="' . $logo[2] . '" width="140" height="20"></span></div>';
         }
         $return .= '</div>';
+        
         if ($can_capital_chart->have_posts()) :
+            
+        //echo "<pre>";
             while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
-
+                $data = array();
                 $chart_topics = wp_get_post_terms(get_the_ID(), 'comparison-chart', array("fields" => "all"));
+                foreach($chart_topics as $key => $value){
+                    $data[] = $value->term_id;
+                    
+                }
 
 
 
-
-
-
+//print_r($data);
                 $return .= '			<div class="tr seprate-block">
 						<div class="td firstname accordion-xs-toggle"><span>' . get_the_title() . '</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
 							<div class="inner">
 								<div class="td term-laon"><span>';
-                if (isset($chart_topics[0])) {
+                if (($data[0] == 17) || ($data[1] == 17) || ($data[2] == 17)) {
                     $return .= '<img src="' . get_template_directory_uri() . '/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
                 }
                 $return .= '</span></div>
 <div class="td trak-laon"><span>';
-                if (isset($chart_topics[1])) {
+                if (($data[0] == 18) || ($data[1] == 18) || ($data[2] == 18)) {
                     $return .= '<img src="' . get_template_directory_uri() . '/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
                 }
                 $return .= '</span></div>
 <div class="td installment-loan"><span>';
-                if (isset($chart_topics[2])) {
+                if (($data[0] == 19) || ($data[1] == 19) || ($data[2] == 19)) {
                     $return .= '<img src="' . get_template_directory_uri() . '/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
                 }
                 $return .= '</span></div>								
