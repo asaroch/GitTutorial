@@ -30,11 +30,19 @@
 .show-less-termDetail-loan{display:none;}
 label.sucess{color: green;margin-bottom: 10px;}
 #loader-conatiner{text-align:center;}
-label.error{    color: red;float: right;margin-right: 10px;}
 .avatar{-webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
 .form-group .control-label:after {
   content:"*";
   color:red;
+}
+
+form.search-form-section label.error{
+    color: red;
+    position: absolute;
+    bottom: -13px;
+    padding: 0 15px 0 0;
+    font-size: 14px;
+    left: 28px;
 }
 
 @media (max-width:767px) {

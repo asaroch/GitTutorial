@@ -219,7 +219,14 @@ $(function () {
     
     //Resource search form validations
     $('#resource-search').submit(function(e) {
+        var submit = true;
+        var search_keyword = $('#search-keyword').val();
+        var business_type  = $('#business-type').val();
        
+        if ( search_keyword == '' && business_type == '' ) {
+            $( '<label class="error">Please enter either search keyword or choose business type</label>' ).insertAfter( "#search-keyword" );
+            e.preventDefault();
+        }
     });
   
     // Get the active tab on resource sorting page
