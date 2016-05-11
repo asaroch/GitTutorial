@@ -272,7 +272,8 @@ form.form-section .form-control,
 form.form-section h3,
 .search-resource-center input,
 .connect-through h5,
-.job-post
+.job-post,
+.get-e-book input
 {
     font-family: 'Fort-Bold';
 }
@@ -340,7 +341,7 @@ h1 {
 .get-Quote-form .section-heading {
     color: #fff;
 }
-.get-Quote-form input, .get-Quote-form input[type="number"], #search_resource input, .search-resource-center input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea{
+.get-Quote-form input, .get-Quote-form input[type="number"], #search_resource input, .search-resource-center input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea, .get-e-book input{
     font-size: 16px;
     color: #a1a1a1;
     box-shadow: none;
@@ -853,7 +854,7 @@ span.select-drop {
     background: url(../images/resources/newsletter_email_image.jpg) no-repeat center top;
     background-size: cover;
 }
-.get-e-book input[type="text"]{
+.get-e-book fieldset{
     width: 624px;
     margin: 0 0 0 auto;
 }
@@ -1493,7 +1494,7 @@ form.form-section label.error {
     position: absolute;
     bottom: -13px;
     left: 15px;
-    padding:0 15px 0 0;
+    padding:0 25px 0 0;
     font-size: 14px;
     height: 36px;
 }
@@ -2694,7 +2695,7 @@ input[type=number] {
     font-size: 18px;
     margin-bottom: 40px;
 }
-#cc-newslette input[type="text"] {
+#cc-newslette fieldset {
     margin: 0 0 0 auto;
     width: 624px;
     font-family: "Fort-bold";
