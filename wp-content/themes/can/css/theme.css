@@ -54,6 +54,7 @@ label.error {
     text-align: left;
     padding: 0 15px;
     font-size: 14px;
+    font-family: 'Fort-Book';
 }
 .bawpvc-ajax-counter {
     display:none;
