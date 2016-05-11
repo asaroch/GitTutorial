@@ -213,7 +213,7 @@ $business_types = get_terms('business-type', array(
                 <div class="col-sm-6">
                     <div class="form-group">
                         <fieldset>
-                            <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="keyword">
+                            <input type="text" class="form-control" placeholder="Search Resources by Keyword" name="keyword" id="search-keyword">
                         </fieldset>
                     </div>
                 </div>

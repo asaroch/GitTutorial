@@ -294,7 +294,7 @@ while (have_posts()) : the_post();
     // Newsletter
     $newsletter = get_option('news_letter_data');
     ?>
-    <section class="gradient-one" id="cc-newslette">
+    <section class="gradient-one" id="cc-newsletter">
         <div class="container">					
             <div class="row">
                 <div class="col-sm-12">

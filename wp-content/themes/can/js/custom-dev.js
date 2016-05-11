@@ -140,60 +140,74 @@ $(function () {
             first_name: {
                 required: true,
                 minlength: 2,
-                lettersonly: true
+                lettersonly: true,
+                onlyspaces : true
             },
             last_name: {
                 required: true,
                 minlength: 2,
-                lettersonly: true
+                lettersonly: true,
+                onlyspaces : true
             },
             email: {
                 required: true,
-                validateEmail: true
+                validateEmail: true,
+                onlyspaces : true
             },
             phone: {
                 required: true,
                 minlength: 10,
+                onlyspaces : true
                 //maxlength   : 10 
             },
             business_name: {
-                required: true
+                required: true,
+                onlyspaces : true
             },
             title: {
-                required: true
+                required: true,
+                onlyspaces : true
             },
             message: {
-                required: true
+                required: true,
+                onlyspaces : true
             }
         },
         // Specify the validation error messages
         messages: {
             first_name: {
-                required: var_object.validationsErrs.first_name_required,
-                minlength: var_object.validationsErrs.first_name_min_chars,
-                lettersonly: var_object.validationsErrs.first_name_min_chars
+                required   : var_object.validationsErrs.first_name_required,
+                minlength  : var_object.validationsErrs.first_name_min_chars,
+                lettersonly: var_object.validationsErrs.first_name_min_chars,
+                onlyspaces : var_object.validationsErrs.first_name_required
             },
             last_name: {
                 required: var_object.validationsErrs.last_name_required,
                 minlength: var_object.validationsErrs.last_name_min_chars,
-                lettersonly: var_object.validationsErrs.last_name_min_chars
+                lettersonly: var_object.validationsErrs.last_name_min_chars,
+                onlyspaces : var_object.validationsErrs.last_name_required
             },
             email: {
                 required: var_object.validationsErrs.email_required,
                 validateEmail: var_object.validationsErrs.email,
+                onlyspaces : var_object.validationsErrs.email_required
             },
             phone: {
                 required: var_object.validationsErrs.phone_no_required,
                 minlength: "Minimum 10 numbers are allowed",
+                onlyspaces : var_object.validationsErrs.phone_no_required
             },
             business_name: {
-                required: var_object.validationsErrs.business_required
+                required: var_object.validationsErrs.business_required,
+                onlyspaces : var_object.validationsErrs.business_required
             },
             title: {
-                required: var_object.validationsErrs.title_required
+                required: var_object.validationsErrs.title_required,
+                onlyspaces : var_object.validationsErrs.title_required
             },
             message: {
-                required: var_object.validationsErrs.msg_required
+                required: var_object.validationsErrs.msg_required,
+                onlyspaces : var_object.validationsErrs.msg_required
             }
         },
         submitHandler: function (form) {
@@ -209,6 +223,15 @@ $(function () {
          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(value);
     }, "Invalid Email")
+    
+    jQuery.validator.addMethod("onlyspaces", function (value, element) {
+        if ( $.trim( value ).length == 0 ) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }, "Required")
 
     $('.refine-by-topic-checkbox').on('change', function () {
         $('#refine-by-topic-form').submit();
@@ -219,8 +242,15 @@ $(function () {
     }
     
     //Resource search form validations
-    $('#resource-search').submit(function() {
-        alert('here');
+    $('#resource-search').submit(function(e) {
+        var submit = true;
+        var search_keyword = $('#search-keyword').val();
+        var business_type  = $('#business-type').val();
+       
+        if ( search_keyword == '' && business_type == '' ) {
+            $( '<label class="error">Please enter either search keyword or choose business type</label>' ).insertAfter( "#search-keyword" );
+            e.preventDefault();
+        }
     });
   
     // Get the active tab on resource sorting page
