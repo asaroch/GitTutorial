@@ -13,7 +13,7 @@ $business_types = get_terms('business-type', array(
 $args = array(
     'post_type' => 'resource',
     'post_status' => 'publish',
-    'posts_per_page' => 3,
+    'posts_per_page' => 20,
     'orderby' => 'post_title',
     'order' => 'asc'
 );
