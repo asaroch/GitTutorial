@@ -226,7 +226,7 @@ $(function () {
         pagination: true,
         navigation: true,
         autoplay: false,
-       // autoplayTimeout: 8000,
+        autoplayTimeout: 8000,
         responsive: {
             0: {
                 items: 1,
