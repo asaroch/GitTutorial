@@ -1,6 +1,13 @@
-.featured-article{margin-bottom:10px;}
-.show-less-articles{display:none;}
-.static-design-content{font-weight: bold;font-size: 20px;}
+.featured-article {
+    margin-bottom:10px;
+}
+.show-less-articles {
+    display:none;
+}
+.static-design-content { 
+    font-weight: bold;
+    font-size: 20px;
+}
 /*ul.nav li.current-menu-item  a {
     border-bottom: 4px solid #00B0EB;
 }*/
@@ -10,7 +17,6 @@
 .primary-nav .nav li.current-menu-item > a {
      border-bottom: 4px solid #00B0EB;
 }
-
 .primary-nav .nav li.dropdown a {    
     padding: 9px 0;
 }
@@ -18,11 +24,9 @@
     color: #00aeef;
     border-bottom: none;
 }
-
 .primary-nav .nav li.current_page_parent > a {
      border-bottom: 4px solid #00B0EB;
 }
-
 .primary-nav .nav li.current-page-ancestor > a {
      border-bottom: 4px solid #00B0EB;
 }
