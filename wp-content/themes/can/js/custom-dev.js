@@ -298,18 +298,22 @@ $(function () {
             first_name: {
                 required: true,
                 minlength: 2,
-                lettersonly: true
+                lettersonly: true,
+                onlyspaces : true
             },
             email_address: {
                 required: true,
-                email: true
+                validateEmail: true,
+                onlyspaces : true
             },
             business_phone_number: {
                 required: true,
-                minlength: 10
+                minlength: 10,
+                onlyspaces : true
             },
             annual_revenue: {
-                required: true
+                required: true,
+                onlyspaces : true
             }
         },
         // Specify the validation error messages
@@ -317,20 +321,24 @@ $(function () {
             first_name: {
                 required: var_object.quickQuotevalidationsErrs.firstname_required,
                 minlength: var_object.quickQuotevalidationsErrs.first_name_min_chars,
-                lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars
+                lettersonly: var_object.quickQuotevalidationsErrs.first_name_min_chars,
+                onlyspaces : var_object.quickQuotevalidationsErrs.firstname_required,
             },
             email_address: {
                 required: var_object.quickQuotevalidationsErrs.email_required,
                 email: var_object.quickQuotevalidationsErrs.email,
+                onlyspaces : var_object.quickQuotevalidationsErrs.email_required,
             },
             business_phone_number: {
                 required: var_object.quickQuotevalidationsErrs.phone_required,
                 minlength: "Minimum 10 numbers are allowed",
+                onlyspaces : var_object.quickQuotevalidationsErrs.phone_required,
             },
             annual_revenue: {
                 required: var_object.quickQuotevalidationsErrs.anuualrevenue_required,
                 min: var_object.quickQuotevalidationsErrs.loan_amount,
-                max: var_object.quickQuotevalidationsErrs.loan_amount
+                max: var_object.quickQuotevalidationsErrs.loan_amount,
+                onlyspaces : var_object.quickQuotevalidationsErrs.anuualrevenue_required,
             }
         },
         submitHandler: function (form) {
@@ -432,30 +440,36 @@ $(function () {
             first_name: {
                 required: true,
                 minlength: 2,
-                lettersonly: true
+                lettersonly: true,
+                onlyspaces : true
             },
             last_name: {
                 required: true,
                 minlength: 2,
-                lettersonly: true
+                lettersonly: true,
+                onlyspaces : true
             },
             email: {
                 required: true,
-                email: true
+                validateEmail: true,
+                onlyspaces : true
             },
             phone: {
                 required: true,
                 minlength: 10,
-                //maxlength   : 10 
+                onlyspaces : true 
             },
             business_name: {
-                required: true
+                required: true,
+                onlyspaces : true
             },
             title: {
-                required: true
+                required: true,
+                onlyspaces : true
             },
             message: {
-                required: true
+                required: true,
+                onlyspaces : true
             }
         },
         // Specify the validation error messages
@@ -463,29 +477,36 @@ $(function () {
             first_name: {
                 required: var_object.contact_us_validations_error_msg.firstname_required,
                 minlength: var_object.contact_us_validations_error_msg.first_name_min_chars,
-                lettersonly: var_object.contact_us_validations_error_msg.first_name_min_chars
+                lettersonly: var_object.contact_us_validations_error_msg.first_name_min_chars,
+                onlyspaces : var_object.contact_us_validations_error_msg.firstname_required
             },
             last_name: {
                 required: var_object.contact_us_validations_error_msg.lastname_required,
                 minlength: var_object.contact_us_validations_error_msg.last_name_min_chars,
-                lettersonly: var_object.contact_us_validations_error_msg.last_name_min_chars
+                lettersonly: var_object.contact_us_validations_error_msg.last_name_min_chars,
+                onlyspaces : var_object.contact_us_validations_error_msg.lastname_required
             },
             email: {
                 required: var_object.contact_us_validations_error_msg.email_required,
                 email: var_object.contact_us_validations_error_msg.email,
+                onlyspaces : var_object.contact_us_validations_error_msg.email_required
             },
             phone: {
                 required: var_object.contact_us_validations_error_msg.phone_required,
                 minlength: "Minimum 10 numbers are allowed",
+                onlyspaces : var_object.contact_us_validations_error_msg.phone_required
             },
             business_name: {
-                required: var_object.contact_us_validations_error_msg.business_required
+                required: var_object.contact_us_validations_error_msg.business_required,
+                onlyspaces : var_object.contact_us_validations_error_msg.business_required
             },
             title: {
-                required: var_object.contact_us_validations_error_msg.title_required
+                required: var_object.contact_us_validations_error_msg.title_required,
+                onlyspaces : var_object.contact_us_validations_error_msg.title_required
             },
             message: {
-                required: var_object.contact_us_validations_error_msg.message_required
+                required: var_object.contact_us_validations_error_msg.message_required,
+                onlyspaces : var_object.contact_us_validations_error_msg.message_required
             }
         },
         submitHandler: function (form) {
