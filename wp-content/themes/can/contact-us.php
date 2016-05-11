@@ -150,7 +150,7 @@ if (isset($_POST['submit'])) {
 <section  id="about_us" class="gradient-two">
     <div class="container text-center">
         <p>Still having questions? <b>Find Out More.</b></p>
-        <a href="help-center" title="ABOUT US"  class="btn btn-purple-style">HELP CENTER</a>
+        <a href="<?php echo site_url(); ?>/help-center" title="ABOUT US"  class="btn btn-purple-style">HELP CENTER</a>
     </div>
 </section>
 <!-- Email Us -->
