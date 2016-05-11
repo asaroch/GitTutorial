@@ -238,7 +238,7 @@ $(function () {
         pagination: true,
         navigation: true,
         autoplay: false,
-       // autoplayTimeout: 8000,
+        autoplayTimeout: 8000,
         responsive: {
             0: {
                 items: 1,
@@ -466,10 +466,13 @@ $(function () {
 //grayscale view  end 
   
 //sticky social icon on post
-                    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
-                    var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
+                    if ( $('#sidebar').length ) {
+                        var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+                        var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
 
-                    var maxY = footTop - $('#sidebar').outerHeight();
+                        var maxY = footTop - $('#sidebar').outerHeight();
+                    }
+                
 
                     $(window).scroll(function (evt) {
                         var y = $(this).scrollTop();
