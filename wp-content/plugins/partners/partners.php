@@ -1,7 +1,11 @@
 <?php
 /**
  * Plugin Name: Partners
+ * Plugin URI: --
  * Description: Plugin displays error messages
+ * Version: 4.1.0
+ * Author: Trantor
+ * Author URI: 
  */
 add_action('admin_menu', 'can_partners_add_pages');
 

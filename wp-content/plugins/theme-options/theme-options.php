@@ -3,6 +3,8 @@
 /**
  * Plugin Name: Theme Options
  * Description: This plugin add global badges through out the site and clicking on any badge would redirect to external page
+ * Version: 4.1.0
+ * Author URI: 
  */
 function theme_settings_page() {
     ?>
