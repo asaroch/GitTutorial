@@ -50,6 +50,7 @@ form.search-form-section label.error{
 }
 
 label.error{color:red;}
+.bawpvc-ajax-counter{display:none;}
 @media (max-width:767px) {
   .primary-nav .nav li.dropdown > a {
         padding-right:32px;
