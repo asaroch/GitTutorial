@@ -18,6 +18,18 @@ $(function () {
     else{
         heroSliderTestimonial = false;
     }
+    if(var_object.infoGraphSlider){
+        graphSlider = true;
+    }
+    else{
+        graphSlider = false;
+    }
+    if(var_object.sliderNav){
+        sliderNav = true;
+    }
+    else{
+        sliderNav = false;
+    }
 //var getQuoteHieght = $(window).innerWidth();
     $('.get-Quote-form .section-heading').on('click', function(){
             
@@ -311,12 +323,12 @@ $(function () {
 		    responsiveClass:true,
 		    pagination : true,
 		    navigation:true,
-                    autoplay: true,
+                    autoplay: graphSlider,
                     autoplayTimeout: 8000,
 			responsive:{
 			        0:{
 			            items:1,
-			            nav:true,
+			            nav:sliderNav,
 			            navText: ["<span class='icon-sprite feature-left-icon'></span>","<span class='icon-sprite feature-right-icon active'></span>"],
 			            dots: true
 			        }
