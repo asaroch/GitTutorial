@@ -435,7 +435,12 @@ $(function () {
                 $(".clear-all").hide("slow");
             })
             
-            // clear all - search resource 
+    // custom checkbox end    
+    //    help center accordion
+    $(".accordion a").on("click", function () {
+        $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
+    });
+
 //grayscale view                 
                $("#our-leading-team .thumbnail, #our-offices .thumbnail").mouseenter(function(){    
                    var $this = $(this);
@@ -449,10 +454,13 @@ $(function () {
 //grayscale view  end 
   
 //sticky social icon on post
-                    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
-                    var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
+                    if ( $('#sidebar').length ) {
+                        var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+                        var footTop = $('#social-icon-remove').offset().top - parseFloat($('#social-icon-remove').css('marginTop').replace(/auto/, 0));
 
-                    var maxY = footTop - $('#sidebar').outerHeight();
+                        var maxY = footTop - $('#sidebar').outerHeight();
+                    }
+                
 
                     $(window).scroll(function (evt) {
                         var y = $(this).scrollTop();

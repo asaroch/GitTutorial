@@ -370,6 +370,7 @@ function can_scripts() {
 
     // Fetch partner lead validation error messages
     $validationsErrs = get_option('partners_lead_generations_validations_error_msg');
+    
 
     // Fetch Quick Quote validation error messages
     $quickQuotevalidationsErrs = get_option('quick_quote_generations_validations_error_msg');
@@ -1201,32 +1202,37 @@ class CanCapitalComparison_Widget extends WP_Widget {
             $return .= '<div class="th trak-laon"><span><img alt="" src="' . $logo[2] . '" width="140" height="20"></span></div>';
         }
         $return .= '</div>';
+        
         if ($can_capital_chart->have_posts()) :
+            
+        //echo "<pre>";
             while ($can_capital_chart->have_posts()) : $can_capital_chart->the_post();
-
+                $data = array();
                 $chart_topics = wp_get_post_terms(get_the_ID(), 'comparison-chart', array("fields" => "all"));
+                foreach($chart_topics as $key => $value){
+                    $data[] = $value->term_id;
+                    
+                }
 
 
 
-
-
-
+//print_r($data);
                 $return .= '			<div class="tr seprate-block">
 						<div class="td firstname accordion-xs-toggle"><span>' . get_the_title() . '</span></div>
 						<div class="accordion-xs-collapse" aria-expanded="false">
 							<div class="inner">
 								<div class="td term-laon"><span>';
-                if (isset($chart_topics[0])) {
+                if (($data[0] == 17) || ($data[1] == 17) || ($data[2] == 17)) {
                     $return .= '<img src="' . get_template_directory_uri() . '/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
                 }
                 $return .= '</span></div>
 <div class="td trak-laon"><span>';
-                if (isset($chart_topics[1])) {
+                if (($data[0] == 18) || ($data[1] == 18) || ($data[2] == 18)) {
                     $return .= '<img src="' . get_template_directory_uri() . '/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
                 }
                 $return .= '</span></div>
 <div class="td installment-loan"><span>';
-                if (isset($chart_topics[2])) {
+                if (($data[0] == 19) || ($data[1] == 19) || ($data[2] == 19)) {
                     $return .= '<img src="' . get_template_directory_uri() . '/images/termsloan/check_bullet.png" alt="TRUSTe link" />';
                 }
                 $return .= '</span></div>								
@@ -1492,27 +1498,45 @@ add_action('wp_ajax_ajax_resources_pagination', 'ajax_resources_pagination');
  * ********************************************************* ******************** */
 
 function ajax_resources_pagination() {
+    global $post;
     $filteredParameters = $_POST['resourceFilteredParameters'];
     $prevOffset = $_POST['offset'];
     $itemsPerPage = get_option('posts_per_page');
     $offset = ($prevOffset - 1) * $itemsPerPage;
-
-    $args = array(
-        'post_type' => 'resource',
-        'post_status' => 'publish',
-        'offset' => $offset,
-        'showposts' => $itemsPerPage,
-        'orderby' => 'menu_order date',
-        'order' => 'DESC'
-    );
+    
+    if ( $_POST['currentTab'] == 'Most Popular' ) {
+        $most_popular_args = array(
+            'post_status'         => 'publish',
+            'meta_key'            => '_count-views_all', 
+            'meta_value_num'      => '0',
+            'meta_compare'        => '>',
+            'orderby'             => 'meta_value_num',
+            'order'               => 'DESC',
+            'offset'              => $offset,
+            'showposts'           => $itemsPerPage,
+            'post_type'           => 'resource'
+        );
+    }
+    else {
+         $args = array(
+            'post_type'   => 'resource',
+            'post_status' => 'publish',
+            'offset'      => $offset,
+            'showposts'   => $itemsPerPage,
+            'orderby'     => 'menu_order date',
+            'order'       => 'DESC'
+         );
+    }
+    
+   
 
     if ($filteredParameters['searchKeyword']) {
-        $args['s'] = $filteredParameters['searchKeyword'];
+        $most_popular_args['s'] = $args['s'] = $filteredParameters['searchKeyword'];
     }
 
     // If only business type selected
     if ($filteredParameters['businessTypes'] != 'false') {
-        $args['tax_query'] = array(array(
+        $most_popular_args['tax_query'] = $args['tax_query'] = array(array(
                 'taxonomy' => 'business-type',
                 'field' => 'id',
                 'terms' => $filteredParameters['businessTypes']
@@ -1521,7 +1545,7 @@ function ajax_resources_pagination() {
 
     // If only topics are selected	
     if ($filteredParameters['filteredTopics'] != 'false') {
-        $args['tax_query'] = array(array(
+        $most_popular_args['tax_query'] = $args['tax_query'] = array(array(
                 'taxonomy' => 'resource-topic',
                 'field' => 'id',
                 'terms' => $filteredParameters['filteredTopics']
@@ -1529,7 +1553,7 @@ function ajax_resources_pagination() {
     }
 
     if ($filteredParameters['businessTypes'] != 'false' && $filteredParameters['filteredTopics'] != 'false') {
-        $args['tax_query'] = array(
+        $most_popular_args['tax_query'] = $args['tax_query'] = array(
             'relation' => 'AND',
             array(
                 'taxonomy' => 'business-type',
@@ -1544,57 +1568,25 @@ function ajax_resources_pagination() {
         );
     }
 
-    $resources = new WP_Query($args);
+    if ( $_POST['currentTab'] == 'Most Popular' ) {
+        $resources = new WP_Query($most_popular_args);
+    }
+    else {
+        $resources = new WP_Query($args);
+    }
+  
     $return = '';
 
+     //create a object to show estimated reading time for a post.
+    $estimated_time = new EstimatedPostReadingTime();
     if ($resources->have_posts()) {
         $response['status'] = 'success';
         while ($resources->have_posts()) : $resources->the_post();
-            // Fetch topic of a resource
-            $resource_topics = wp_get_post_terms(get_the_ID(), 'resource-topic', array("fields" => "names"));
-            if (!empty($resource_topics)) {
-                $topics = 'in ' . implode(", ", $resource_topics);
-                $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
-            } else {
-                $topics = '';
-            }
-
-            //Fetch value from admin whether a video is selected or not.
-            $featured_image_video = get_post_meta(get_the_ID(), 'wpcf-featured_image_video', true);
-
-            // Sponsored By
-            $sponsored_by = get_post_meta(get_the_ID(), 'wpcf-sponsored-by', true);
-            $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
-
-            // Reading time
-            $reading_time = get_post_meta(get_the_ID(), 'wpcf-reading-minutes', true);
-            $title = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
-            $excerpt = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
-            $return .= '<div class="row">
-							<div class="col-sm-12 resource-list">';
-            if ((has_post_video($post->ID) && $featured_image_video == 'video') || (has_post_thumbnail($post->ID) && $featured_image_video == 'image')) {
-                $return .= '<div class="resource-image">' . get_the_post_thumbnail($post->ID) . '</div>';
-            }
-            $return .= '<div class="resource-content">
-										<p class="read-date">' . get_the_date('F j, Y', $post->ID) . '<b>' . $topics . '</b></p>
-										<p class="featured-title"><a href="' . get_the_permalink(get_the_ID()) . '">' . $title . '</a></p>
-										<p>' . $excerpt . '</p>';
-            if ($reading_time) {
-                $return .= '<p class="read-time">' . $reading_time . ' Min Read</p>';
-            }
-
-            if ($sponsored_by != '') {
-                $return .= '<div class="sponsored">
-															<p>Sponsored By ' . $sponsored_by . '</p>
-														</div>';
-            }
-            $return .= '</div>
-							</div>
-						</div>';
+            $return .= search_sort_resources_array( $post );
         endwhile;
     } else {
         $response['status'] = 'error';
-        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No Resource found!</h3></div></div>';
+        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No more Resource found!</h3></div></div>';
     }
 
     $response['data'] = $return;
@@ -1709,7 +1701,13 @@ function ajax_resources_listing_pagination() {
             $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
 
             // Reading time
-            $reading_time = $estimated_time->estimate_time_shortcode($post);
+            $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
+            $meta         =  get_post_meta($post->ID, '_fvp_video', true);
+            if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+               $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+               $reading_time       = $video_attach_data[0]['length_formatted']." minute View";
+           }
+            
             $title = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
             $excerpt = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
             $author_description = get_user_meta(get_the_author_id(), 'description', true);
@@ -1726,7 +1724,7 @@ function ajax_resources_listing_pagination() {
                         <p class="featured-title"><a href="' . get_the_permalink(get_the_ID()) . '">' . $title . '</a></p>
                         <p>' . $excerpt . '</p>';
             if ($reading_time) {
-                $return .= '<p class="read-time">' . $reading_time . ' Read</p>';
+                $return .= '<p class="read-time">' . $reading_time . '</p>';
             }
 
             if ($sponsored_by != '') {
@@ -1809,7 +1807,12 @@ function ajax_author_listing_pagination() {
 
 
             // Reading time
-            $reading_time = $estimated_time->estimate_time_shortcode($post);
+            $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
+            $meta         =  get_post_meta($post->ID, '_fvp_video', true);
+            if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+               $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+               $reading_time = $video_attach_data[0]['length_formatted']." minute View";
+           }
             $title = esc_attr(strlen(get_the_title()) >= 75 ? substr(get_the_title(), 0, 75) . ' ...' : get_the_title());
             $excerpt = strlen(get_the_excerpt()) >= 145 ? substr(get_the_excerpt(), 0, 145) . ' ...' : get_the_excerpt();
             $author_description = get_user_meta(get_the_author_id(), 'description', true);
@@ -1824,7 +1827,7 @@ function ajax_author_listing_pagination() {
                         <p class="featured-title"><a href="' . get_the_permalink(get_the_ID()) . '">' . $title . '</a></p>
                         <p>' . $excerpt . '</p>';
             if ($reading_time) {
-                $return .= '<p class="read-time">' . $reading_time . ' Read</p>';
+                $return .= '<p class="read-time">' . $reading_time . '</p>';
             }
 
             if ($sponsored_by != '') {
@@ -1838,7 +1841,7 @@ function ajax_author_listing_pagination() {
         endwhile;
     } else {
         $response['status'] = 'error';
-        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No Resource found!</h3></div></div>';
+        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No more Resource found!</h3></div></div>';
     }
     $response['data'] = $return;
     echo json_encode($response);
@@ -1912,7 +1915,7 @@ function ajax_glossary_pagination() {
                     <div class="col-sm-12">
                         <h2 class="section-heading">' . $key . '</h2>';
             foreach ($value as $innrkey => $innervalue) {
-                $return .= '<p>' . $innervalue . '</p>';
+                $return .= '<p class="featured-title"><a href="'.get_the_permalink($innervalue->ID).'">' . $innervalue . '</a></p>';
             }
 
             $return .= '</div>
@@ -1920,7 +1923,7 @@ function ajax_glossary_pagination() {
         }
     } else {
         $response['status'] = 'error';
-        $return = '';
+        $return = '<div class="row"><div class="col-sm-12 resource-list"><h3 class="section-heading">No more Resource found!</h3></div></div>';
     }
     $response['data'] = $return;
     echo json_encode($response);
@@ -2002,6 +2005,58 @@ function title_count_js() {
 add_action('admin_head-post.php', 'title_count_js');
 add_action('admin_head-post-new.php', 'title_count_js');
 
+
+function search_sort_resources_array( $post ) {
+    
+    //create a object to show estimated reading time for a post.
+    $estimated_time = new EstimatedPostReadingTime();
+    $return = '';
+    $resource_topics = wp_get_post_terms($post->ID, 'resource-topic', array("fields" => "names"));
+    if (!empty($resource_topics)) {
+        $topics = 'in ' . implode(", ", $resource_topics);
+        $topics = strlen($topics) >= 35 ? substr($topics, 0, 35) . ' ...' : $topics;
+    } else {
+        $topics = '';
+    }
+    
+    // Sponsored By
+    $sponsored_by = get_post_meta($post->ID, 'wpcf-sponsored-by', true);
+    $sponsored_by = strlen($sponsored_by) >= 15 ? substr($sponsored_by, 0, 15) . ' ...' : $sponsored_by;
+    
+    $title = esc_attr(strlen($post->post_title) >= 75 ? substr($post->post_title, 0, 75) . ' ...' : $post->post_title);
+
+    // Reading time
+    $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
+    $meta         =  get_post_meta($post->ID, '_fvp_video', true);
+    if ( is_array($meta) && array_key_exists('id',$meta ) ) {
+        $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+        $reading_time       = $video_attach_data[0]['length_formatted']." minute View";
+    }
+    
+    $excerpt = strlen($post->post_content) >= 145 ? substr($post->post_content, 0, 145) . ' ...' : $post->post_content;
+    $title   = esc_attr(strlen($post->post_title) >= 75 ? substr($post->post_title, 0, 75) . ' ...' : $post->post_title);
+    
+    $return .= '<div class="row">
+                <div class="col-sm-12 resource-list">';
+                if ( has_post_thumbnail( $post->ID) ) {
+                    $return .= '<div class="resource-image">'.get_the_post_thumbnail( $post->ID ).'</div>';
+                }
+             
+                $return .=  '<div class="resource-content">
+                <p class="read-date">'.get_the_date('F j, Y', $post->ID).' <b>'.$topics.'</b></p>
+                <p class="featured-title"><a href="'.get_the_permalink($post->ID).'">'.$title.'</a></p>
+                <p>'.$excerpt.'</p>';
+                if ( $reading_time ) {
+                    $return .= ' <p class="read-time">'.$reading_time.'</p>';
+                }
+                if ( $sponsored_by != '' ) {
+                    $return .= '<div class="sponsored">
+                            <p>Sponsored By '.$sponsored_by.'</p>
+                        </div>'; 
+                }        
+                $return .= '</div></div></div>';
+    return $return;
+}
 /* * ************************************************************************
  * Making featured image as a required field for Employee Spotlight section
  * ************************************************************************ */

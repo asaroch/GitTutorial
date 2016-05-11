@@ -17,7 +17,7 @@ while (have_posts()) : the_post();
     //create a object to show estimated reading time for a post.
     $estimated_time = new EstimatedPostReadingTime();
     // Reading time
-    $reading_time = $estimated_time->estimate_time_shortcode($post);
+    $reading_time = $estimated_time->estimate_time_shortcode($post)." Read";
     
     $src        = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), array(1144, 493), false, '');
     $image_src  = $src =  $src[0];
@@ -26,7 +26,10 @@ while (have_posts()) : the_post();
    
     $label  = "Image";
     if ( is_array($meta) && array_key_exists('id',$meta ) ) {
-        $src  = wp_get_attachment_url($meta['id']);
+        $video_attach_data  =  get_post_meta($meta['id'], '_wp_attachment_metadata');
+        $src        = wp_get_attachment_url($meta['id']);
+        
+        $reading_time = $video_attach_data[0]['length_formatted']." minute View";
         $label  = "Video";
     }
     ?>
@@ -45,7 +48,8 @@ while (have_posts()) : the_post();
     <!-- hero banner -->
     <!-- social media section -->
     <div id="social-media-section">
-        <div class="social-media hidden-xs fixedElement">
+        <div id="sidebarWrap">
+            <div class="social-media hidden-xs fixedElement" id="sidebar">
             <h3>Share</h3>
             <ul>
                 <li>
@@ -74,6 +78,7 @@ while (have_posts()) : the_post();
                 </li>
             </ul>
         </div>
+        </div>
         <?php
         // Fetch topic of a resource
         $resource_topics = wp_get_post_terms($post->ID, 'resource-topic', array("fields" => "names"));
@@ -96,7 +101,7 @@ while (have_posts()) : the_post();
                     <?php
                     if ($reading_time) {
                         ?>
-                        <p class="read-time"><?php echo $reading_time; ?> Read</p>
+                        <p class="read-time"><?php echo $reading_time; ?></p>
                         <?php
                     }
                     ?>
@@ -332,7 +337,7 @@ while (have_posts()) : the_post();
                                         </section>
                                         <!-- CAN Capital Newslette -->
                                         <!-- Get Funded -->
-                                        <section class="get-funded">
+                                        <section class="get-funded" id="social-icon-remove">
                                             <div class="container text-center">
                                                <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
                                                 <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></h3>

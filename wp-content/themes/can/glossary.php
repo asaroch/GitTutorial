@@ -42,7 +42,7 @@ endif;
                         <div class="col-sm-12">
                             <h2 class="section-heading"><?php echo $index; ?></h2>
                             <?php foreach ($valueArr as $key => $value) { ?>
-                                <p><?php echo(strlen($value) > 50) ? substr($value, 0, 49) . "..." : $value; ?></p>
+                            <p class="featured-title"><a href="<?php echo get_the_permalink($value->ID); ?>"><?php echo(strlen($value) > 50) ? substr($value, 0, 49) . "..." : $value; ?></a></p>
                             <?php } ?>
                         </div>
                     </div>   

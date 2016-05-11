@@ -127,7 +127,7 @@ ob_start();
                         <?php
                     }
                     ?>
-                        <h1 tabindex="1"><?php
+                    <h1 tabindex="1"><?php
                         echo $top_headline;
 
 

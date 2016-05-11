@@ -6,8 +6,8 @@ Plugin Name: Partner Name
 Plugin URI: --
 Description: Display partner name in post type by calling custom field partner name value in listing.
 Version: 4.1.0
-Author: Anirudh Sood
-Author URI: http://wppress.net
+Author: Trantor
+Author URI: 
 
 **************************************************************************
 
