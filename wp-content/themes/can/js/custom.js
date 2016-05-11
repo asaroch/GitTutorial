@@ -435,7 +435,12 @@ $(function () {
                 $(".clear-all").hide("slow");
             })
             
-            // clear all - search resource           
+    // custom checkbox end    
+    //    help center accordion
+    $(".accordion a").on("click", function () {
+        $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
+    });
+
 //grayscale view                 
                $("#our-leading-team .thumbnail, #our-offices .thumbnail").mouseenter(function(){    
                    var $this = $(this);
@@ -470,9 +475,5 @@ $(function () {
                         }
                     });
 //sticky social icon on post ends
-            //    help center accordion
-               $(".accordion a").on("click", function () {
-                   $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
-               });
 });
 
