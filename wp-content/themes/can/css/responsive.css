@@ -350,6 +350,9 @@
     .get-e-book fieldset, #cc-newsletter fieldset {
         width: 440px;
     }    
+    #cc-newsletter small {
+        padding-left: 12px;
+    }
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
