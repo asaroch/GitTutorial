@@ -48,9 +48,15 @@ form.search-form-section label.error{
     font-size: 14px;
     left: 28px;
 }
-
-label.error{color:red;}
-.bawpvc-ajax-counter{display:none;}
+label.error {
+    color:red; 
+    display: block;
+    text-align: left;
+    padding: 0 15px;
+}
+.bawpvc-ajax-counter {
+    display:none;
+}
 @media (max-width:767px) {
   .primary-nav .nav li.dropdown > a {
         padding-right:32px;
