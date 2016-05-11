@@ -404,7 +404,7 @@ form.form-section textarea,
     margin: 0 auto;
 }
 .learn-more-btn {
-    display: block;
+    display: inline-block;
     text-transform: uppercase;
     color: #fff;
     margin-top: 20px;
@@ -2711,6 +2711,7 @@ input[type=number] {
 #cc-newsletter small { 
     color:  #fff;
     float: left;
+    padding-left: 112px;
 }
 #cc-newsletter .btn-left { text-align: left}
 .large-size-icon {
