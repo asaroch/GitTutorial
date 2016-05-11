@@ -414,7 +414,7 @@ $ebook_desc    = get_post_meta($post->ID, 'wpcf-ebook-description', true);
                             </fieldset>
                         </div>
                     </div>
-                    <div class="col-sm-4 text-left">
+                    <div class="col-sm-4 text-align">
                         <button type="submit" class="btn btn-blue-bg field-style">GET E-BOOK <i class="glyphicon glyphicon-play"></i></button>
                     </div>						
                 </div>
