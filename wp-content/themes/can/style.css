@@ -404,7 +404,7 @@ form.form-section textarea,
     margin: 0 auto;
 }
 .learn-more-btn {
-    display: block;
+    display: inline-block;
     text-transform: uppercase;
     color: #fff;
     margin-top: 20px;
