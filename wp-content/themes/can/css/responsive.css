@@ -153,7 +153,7 @@
     .option-text {
         padding: 0;
     }
-    .get-e-book fieldset {
+    .get-e-book fieldset, #cc-newsletter fieldset {
         width: 100%;
     }
     footer .badges-container {
@@ -907,10 +907,14 @@
     .news-letter-field {
         text-align: center;
     }
-    .news-letter-field fieldset, .get-e-book fieldset {
-        width:272px;
+    .news-letter-field fieldset,
+    .get-e-book fieldset ,
+    #cc-newsletter fieldset {
         margin: 0 auto;  
     }
+    .news-letter-field fieldset,
+    .get-e-book fieldset,
+    #cc-newsletter fieldset,
     .news-letter-field button[type="submit"] {
         width: 227px;
     }   
@@ -1216,10 +1220,10 @@
     .client-testimonials { 
         width: 100%
     }
-    #cc-newslette fieldset { 
+    #cc-newsletter fieldset { 
         width: 100%;
     }
-    #cc-newslette .btn-left { 
+    #cc-newsletter .btn-left { 
         text-align: center;
     }
     #articles .related-articles { 
@@ -1248,7 +1252,7 @@
     #articles .related-articles .col-sm-6:last-child .thumbnail { 
         border: none;
     }
-    #cc-newslette small {
+    #cc-newsletter small {
         bottom: -95px;
         float: none;
         left: 0;
