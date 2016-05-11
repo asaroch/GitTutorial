@@ -53,6 +53,7 @@ label.error {
     display: block;
     text-align: left;
     padding: 0 15px;
+    font-size: 14px;
 }
 .bawpvc-ajax-counter {
     display:none;
