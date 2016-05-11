@@ -142,6 +142,9 @@
     #search_resource .select-topic select {
         font-size: 14px;
     }
+    .get-e-book fieldset, #cc-newsletter fieldset {
+        width: 490px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
@@ -153,9 +156,7 @@
     .option-text {
         padding: 0;
     }
-    .get-e-book fieldset, #cc-newsletter fieldset {
-        width: 100%;
-    }
+    
     footer .badges-container {
         padding: 25px 0 0;
     }
@@ -346,7 +347,9 @@
     #member_benefit.career .benefits{
         height: 284px;
     }
-    
+    .get-e-book fieldset, #cc-newsletter fieldset {
+        width: 440px;
+    }    
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
