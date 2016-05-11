@@ -366,16 +366,32 @@ $(function () {
     });
 
     /* Small business funding slider */
-    var sbfSlider = $("#slider_testimonial");
+    var sbfSlider = $("#sbf_hero #slider_testimonial");
     $("#installment_btn").click(function () {
         sbfSlider.trigger("to.owl.carousel", [2, 500, true]);
     });
     $("#trak_loan_btn").click(function () {
         sbfSlider.trigger("to.owl.carousel", [1, 500, true]);
-
     });
     $("#term_loan_btn").click(function () {
         sbfSlider.trigger("to.owl.carousel", [0, 500, true]);
+    });
+    sbfSlider.on('changed.owl.carousel', function(event) {
+        console.log('in changed event', event);
+        switch(event.item.index) {
+            case 0:
+                var anchorParent = $("#term_loan_btn").parent();
+                break;
+            case 1:
+                var anchorParent = $("#trak_loan_btn").parent();
+                break;
+            case 2:
+                var anchorParent = $("#installment_btn").parent();
+        }
+        console.log(anchorParent);
+        var parentSiblings = anchorParent.siblings("li.active");
+        parentSiblings.removeClass("active");
+        anchorParent.addClass("active");
     });
     /* Small business funding slider state */
     $(".navigation-item").click(function () {
