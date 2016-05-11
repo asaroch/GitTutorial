@@ -228,7 +228,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-12">
                     <div class="col-sm-8">
                         <div class="form-group">
-                            <input type="text" class="form-control field-style" placeholder="Email" name="email">
+                            <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
                         </div>
                         <small>We never share your information</small>
                     </div>

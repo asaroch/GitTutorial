@@ -218,8 +218,8 @@ $(function () {
     }
     
     //Resource search form validations
-    $('#resource-search').submit(function() {
-        alert('here');
+    $('#resource-search').submit(function(e) {
+       
     });
   
     // Get the active tab on resource sorting page
