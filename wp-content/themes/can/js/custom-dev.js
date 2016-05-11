@@ -123,6 +123,7 @@ $(function () {
                 },
                 success: function (response) {
                     if (response.msg == 'Sucess') {
+                        $('#cc-newslette').find('label:first').remove();
                         $(response.data).insertBefore(".news-letter-heading");
                         $('.newsletter-button').show();
                         $('#loading-image').hide();
@@ -491,7 +492,7 @@ $(function () {
             form.submit();
         }
     });
-    jQuery("#phone_no").mask("(999) 999-9999",{autoclear: false});
+    jQuery("#phone_no").mask("(999) 999-9999");
 
     // Glossary show more
     $('.glossary-filter-paging').click(function (e) {
