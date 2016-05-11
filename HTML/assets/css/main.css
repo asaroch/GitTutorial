@@ -273,8 +273,8 @@ form.form-section h3,
 .search-resource-center input,
 .connect-through h5,
 .job-post,
-.get-e-book input
-{
+.get-e-book input,
+#cc-newsletter input {
     font-family: 'Fort-Bold';
 }
 sup {
@@ -341,7 +341,16 @@ h1 {
 .get-Quote-form .section-heading {
     color: #fff;
 }
-.get-Quote-form input, .get-Quote-form input[type="number"], #search_resource input, .search-resource-center input, .select-topic select, .news-letter-field input, form.form-section input, form.form-section textarea, .get-e-book input{
+.get-Quote-form input,
+.get-Quote-form input[type="number"],
+#search_resource input,
+.search-resource-center input,
+.select-topic select,
+.news-letter-field input,
+form.form-section input,
+form.form-section textarea,
+.get-e-book input,
+#cc-newsletter input {
     font-size: 16px;
     color: #a1a1a1;
     box-shadow: none;
@@ -2681,32 +2690,30 @@ input[type=number] {
     color: #6d6e71; 
     padding-top: 10px;
 }
-#cc-newslette { 
+#cc-newsletter { 
     padding: 70px 0 67px;
     text-align: center;
 }
-#cc-newslette .section-heading {
+#cc-newsletter .section-heading {
     color: #fff;
     margin-bottom: 4px;
     text-align: center;
 }
-#cc-newslette p {
+#cc-newsletter p {
     color: #fff;
     font-size: 18px;
     margin-bottom: 40px;
 }
-#cc-newslette fieldset {
+#cc-newsletter fieldset {
     margin: 0 0 0 auto;
     width: 624px;
-    font-family: "Fort-bold";
-    font-size: 16px;
 }
-#cc-newslette small { 
+#cc-newsletter small { 
     color:  #fff;
     float: left;
     padding-left: 15%;
 }
-#cc-newslette .btn-left { text-align: left}
+#cc-newsletter .btn-left { text-align: left}
 .large-size-icon {
     background-color: rgba(0, 0, 0, 0.4);
     border: none;
