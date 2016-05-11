@@ -2,10 +2,8 @@
 /* Plugin Name: BAW Post Views Count
  * Plugin URI: http://www.boiteaweb.fr
  * Description: Count views for post and pages, shortcode [post_view] and [most_view] available, widget "Most Viewed Posts" available.
- * Version: 3.0.2
- * Author: Juliobox
- * Author URI: http://www.boiteaweb.fr
- * License: GPLv2
+ * Version: 4.1.0
+ * Author URI:  
  * */
 DEFINE('BAWPVC_FULLNAME', 'Post Views Count');
 DEFINE('BAWPVC_VERSION', '3.0.2');

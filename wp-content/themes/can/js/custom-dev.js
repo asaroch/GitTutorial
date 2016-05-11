@@ -56,15 +56,6 @@ $(function () {
     });
 
     $('#filter_by_business_type select').change(function (e) {
-        //e.preventDefault();
-//        var data = {
-//		'action' : 'resource_filter_callback',
-//		'data'   : {}
-//	};
-        // We can also pass the url value separately from ajaxurl for front end AJAX implementations
-//	jQuery.post(var_object.ajax_url, data, function(response) {
-//		alert('Got this from the server: ' + response);
-//	});
         $("#filter_by_business_type").submit();
     });
 
@@ -157,7 +148,7 @@ $(function () {
             },
             email: {
                 required: true,
-                email: true
+                validateEmail: true
             },
             phone: {
                 required: true,
@@ -188,7 +179,7 @@ $(function () {
             },
             email: {
                 required: var_object.validationsErrs.email_required,
-                email: var_object.validationsErrs.email,
+                validateEmail: var_object.validationsErrs.email,
             },
             phone: {
                 required: var_object.validationsErrs.phone_no_required,
@@ -213,6 +204,10 @@ $(function () {
         return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
     }, "No number or special character allowed")
 
+    jQuery.validator.addMethod("validateEmail", function (value, element) {
+         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(value);
+    }, "Invalid Email")
 
     $('.refine-by-topic-checkbox').on('change', function () {
         $('#refine-by-topic-form').submit();
@@ -221,39 +216,12 @@ $(function () {
     if (var_object.resourceFilteredParameters.filteredTopics) {
         $(".clear-all").show("slow");
     }
-
-    // Disable go button on page load
-    if (var_object.resourceFilteredParameters.businessTypes || var_object.resourceFilteredParameters.searchKeyword) {
-        $('.btn-go').prop('disabled', false);
-    } else {
-        $('.btn-go').prop('disabled', true);
-    }
-
-    // Enable go button if user has entered text
-    $('#resource-search input[type="text"]').keyup(function () {
-        if ($(this).val() != '') {
-            $('.btn-go').prop('disabled', false);
-        } else {
-            if ($('#business-type').val() == '') {
-                $('.btn-go').prop('disabled', true);
-            } else {
-                $('.btn-go').prop('disabled', false);
-            }
-        }
-    });
-
-    $('#business-type').change(function () {
-        if ($(this).val() != '') {
-            $('.btn-go').prop('disabled', false);
-        } else {
-            if ($('#resource-search input[type="text"]').val() == '') {
-                $('.btn-go').prop('disabled', true);
-            } else {
-                $('.btn-go').prop('disabled', false);
-            }
-        }
-    });
     
+    //Resource search form validations
+    $('#resource-search').submit(function(e) {
+       
+    });
+  
     // Get the active tab on resource sorting page
     var currentTab = "Most Popular";
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
@@ -537,15 +505,6 @@ $(function () {
         });
     });
     
-
-   /* $(document).on('keyup',function(evt) {
-    if (evt.keyCode == 9) {
-       $("#tabcontrol").focus();
-        evt.preventDefault();
-        return false;
-    }
-});*/
-
     $("#menu-item-214").append($(".boldchat"));
 
 

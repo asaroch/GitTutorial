@@ -150,7 +150,7 @@ if (isset($_POST['submit'])) {
 <section  id="about_us" class="gradient-two">
     <div class="container text-center">
         <p>Still having questions? <b>Find Out More.</b></p>
-        <a href="help-center" title="ABOUT US"  class="btn btn-purple-style">HELP CENTER</a>
+        <a href="<?php echo site_url(); ?>/help-center" title="ABOUT US"  class="btn btn-purple-style">HELP CENTER</a>
     </div>
 </section>
 <!-- Email Us -->
@@ -228,7 +228,7 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-12">
                     <div class="col-sm-8">
                         <div class="form-group">
-                            <input type="text" class="form-control field-style" placeholder="Email" name="email">
+                            <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
                         </div>
                         <small>We never share your information</small>
                     </div>

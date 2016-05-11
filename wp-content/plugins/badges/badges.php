@@ -3,6 +3,9 @@
 /**
  * Plugin Name: Badges
  * Description: This plugin add global badges through out the site and clicking on any badge would redirect to external page
+ * * Version: 4.1.0
+ * Author URI: 
+ 
  */
 class TRUST_BADGES_Widget extends WP_Widget {
 

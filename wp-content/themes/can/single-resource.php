@@ -48,7 +48,8 @@ while (have_posts()) : the_post();
     <!-- hero banner -->
     <!-- social media section -->
     <div id="social-media-section">
-        <div class="social-media hidden-xs fixedElement">
+        <div id="sidebarWrap">
+            <div class="social-media hidden-xs fixedElement" id="sidebar">
             <h3>Share</h3>
             <ul>
                 <li>
@@ -76,6 +77,7 @@ while (have_posts()) : the_post();
                     </a>
                 </li>
             </ul>
+        </div>
         </div>
         <?php
         // Fetch topic of a resource
@@ -335,7 +337,7 @@ while (have_posts()) : the_post();
                                         </section>
                                         <!-- CAN Capital Newslette -->
                                         <!-- Get Funded -->
-                                        <section class="get-funded">
+                                        <section class="get-funded" id="social-icon-remove">
                                             <div class="container text-center">
                                                <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-cta-title', true); ?></h2>
                                                 <h3> <?php echo get_post_meta($post->ID, 'wpcf-cta-description', true); ?></h3>
