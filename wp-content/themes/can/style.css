@@ -1492,8 +1492,8 @@ form.form-section label.error {
     color: red;
     position: absolute;
     bottom: -13px;
-    left: 10px;
-    padding: 0 15px 0 0;
+    left: 15px;
+    padding:0 15px 0 0;
     font-size: 14px;
     height: 36px;
 }
@@ -2947,6 +2947,10 @@ span.top-quest {
     margin-top: 12px;
 }
 /* Video icon wp */
+.video-player a {
+    display: block;
+    position: relative;
+}
 .video-play-icon { 
     border: 3px solid #fff; 
     border-radius: 85px;
@@ -2954,8 +2958,9 @@ span.top-quest {
     display: inline-block;
     box-shadow: 1px 1px 2px #333;
     position: absolute;
-    left: 42%;
-    top: 18%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
     z-index: 1;
 }
 .video-play-icon i {
