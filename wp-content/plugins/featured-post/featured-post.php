@@ -5,10 +5,9 @@
 Plugin Name: Featured Post
 Plugin URI: http://ssovit.com/featured-post-wordpress-plugin/
 Description: Featured Post Plugin For Wordpress.
-Version: 3.2.1
-Author: Sovit Tamrakar
-Author URI: http://wppress.net
-
+ * Version: 4.1.0
+ * Author URI: 
+ 
 **************************************************************************
 
 Copyright (C) 2010 Sovit Tamrakar(http://ssovit.com)
