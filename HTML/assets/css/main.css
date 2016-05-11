@@ -308,7 +308,7 @@ h1 {
     margin-bottom: 27px;
     font-family: 'Fort-Light';
     position: relative;
-    pointer-events: none;
+    outline: none;
 }
 .down-arrow{
     border-top: 33px solid #fff;
