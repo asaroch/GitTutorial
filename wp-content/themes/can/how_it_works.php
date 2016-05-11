@@ -66,7 +66,7 @@ if ($howItWorksProcess->have_posts()) :
                                     if (has_post_thumbnail(get_the_ID())):
                                         ?>
                                         <div class="category-icon"> 
-                                            <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
+                                            <?php echo get_the_post_thumbnail(get_the_ID(), array(119,139)); ?>
                                         </div>
                                         <?php
                                     endif;
