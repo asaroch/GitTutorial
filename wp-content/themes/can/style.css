@@ -3155,4 +3155,7 @@ connect-through span {
 }
 #resource_hero .img-block {
     height: 493px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

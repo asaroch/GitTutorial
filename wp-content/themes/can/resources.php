@@ -77,7 +77,7 @@ if (!empty($featured_resources)) {
                         <div class="featured-tag gradient-one">
                             <p>FEATURED</p>
                         </div>
-                        <p class="read-date"><?php echo get_the_date('F j, Y', $featured_resources[0]->ID); ?> <b><?php echo $topics; ?></b></p>
+                        <p class="read-date"><?php echo themeblvd_time_ago($featured_resources[0]); ?> <b><?php echo $topics; ?></b></p>
                         <p class="featured-title"><a href="<?php echo get_the_permalink($featured_resources[0]->ID); ?>" title="<?php echo $featured_resources[0]->post_title; ?>"><?php echo strlen($featured_resources[0]->post_title) >= 60 ? substr($featured_resources[0]->post_title, 0, 60) . ' ...' : $featured_resources[0]->post_title; ?></a></p>
                         <p><?php echo strlen($featured_resources[0]->post_content) >= 245 ? substr($featured_resources[0]->post_content, 0, 245) . ' ...' : $featured_resources[0]->post_content; ?></p>
                         <?php
@@ -136,7 +136,7 @@ if (!empty($featured_resources)) {
                         ?>
                         <div class="col-md-4 featured-article resource-sm-height">
                             <div class="resource-content">
-                                <p class="read-date"> <?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
+                                <p class="read-date"> <?php echo themeblvd_time_ago($resource); ?> <b><?php echo $topics; ?></b></p>
                                 <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 40 ? substr($resource->post_title, 0, 40) . ' ...' : $resource->post_title; ?></a></p>
                                 <p class="featured-content"><?php echo strlen($resource->post_content) >= 170 ? substr($resource->post_content, 0, 170) . ' ...' : $resource->post_content; ?></p>
                                 <?php
@@ -177,7 +177,7 @@ if (!empty($featured_resources)) {
                                 </div>
                                 <div class="col-sm-7 col-7-overide">
                                     <div class="resource-content">
-                                        <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
+                                        <p class="read-date"><?php echo themeblvd_time_ago($resource); ?> <b><?php echo $topics; ?></b></p>
                                         <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>"><?php echo strlen($resource->post_title) >= 45 ? substr($resource->post_title, 0, 45) . ' ...' : $resource->post_title; ?></a></p>
                                         <p class="featured-content"><?php echo strlen($resource->post_content) >= 200 ? substr($resource->post_content, 0, 200) . ' ...' : $resource->post_content; ?></p>
                                         <?php
@@ -307,7 +307,7 @@ $topics = get_terms('resource-topic', array(
                                 }    
                                 ?>
                                 <div class="resource-content">
-                                    <p class="read-date"><?php echo get_the_date('F j, Y', $resource->ID); ?> <b><?php echo $topics; ?></b></p>
+                                    <p class="read-date"><?php echo themeblvd_time_ago($resource); ?> <b><?php echo $topics; ?></b></p>
                                     <p class="featured-title"><a href="<?php echo get_the_permalink($resource->ID); ?>" title="<?php echo $resource->post_title; ?>" ><?php echo esc_attr(strlen($resource->post_title) >= 75 ? substr($resource->post_title, 0, 75) . ' ...' : $resource->post_title); ?></a></p>
                                     <p><?php echo strlen($resource->post_content) >= 145 ? substr($resource->post_content, 0, 145) . ' ...' : $resource->post_content; ?></p>
                                     <?php
@@ -410,7 +410,7 @@ $ebook_desc    = get_post_meta($post->ID, 'wpcf-ebook-description', true);
                     <div class="col-sm-8">
                         <div class="form-group">
                             <fieldset>
-                                <input type="text" class="form-control field-style" placeholder="Email Address">
+                                <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
                             </fieldset>
                         </div>
                     </div>

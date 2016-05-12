@@ -325,6 +325,7 @@ add_action('wp_head', 'twentysixteen_javascript_detection', 0);
  * @since Twenty Sixteen 1.0
  */
 function can_scripts() {
+    global $post;
     // Theme stylesheet.
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
     wp_enqueue_style('owl.carousel', get_template_directory_uri() . '/css/owl.carousel.css');
@@ -351,8 +352,8 @@ function can_scripts() {
     $count_video_testimonial = wp_count_posts('video-testimonial');
     $count_funding_graph = wp_count_posts('business-funding-gra');
     $count_getting_funds = wp_count_posts('how_getting_fund');
-   
-    if (is_front_page()) {
+ 
+    if (is_front_page() || ($post->post_type == "campaign-all-product")) {
         if ($count_financial_product->publish > 3) {
             $financialProductSlider = TRUE;
         }
@@ -391,7 +392,7 @@ function can_scripts() {
     $contact_us_validations_error_msg = get_option('contact_us_validations_error_msg');
 
 
-    global $post;
+    
     // Search parameters of resource
     $resourceFilteredParameters = array();
     $resourceFilteredParameters['searchKeyword'] = ( isset($_GET['keyword']) && $_GET['keyword'] != '' ) ? $_GET['keyword'] : FALSE;
@@ -1502,7 +1503,6 @@ add_action('admin_menu', 'can_small_business_fundng_add_pages');
 function myextensionTinyMCE($init) {
     // Command separated string of extended elements
     $ext = 'span[id|name|class|style]';
-
     // Add to extended_valid_elements if it alreay exists
     if (isset($init['extended_valid_elements'])) {
         $init['extended_valid_elements'] .= ',' . $ext;
@@ -1748,7 +1748,7 @@ function ajax_resources_listing_pagination() {
                 $return .= '<div class="resource-image"><a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_post_thumbnail(get_the_ID()) . '</a></div>';
             }
             $return .= '<div class="resource-content">
-                        <p class="read-date">' . get_the_date('F j, Y', get_the_ID()) . '<b> ' . $topics . '</b></p>
+                        <p class="read-date">' . themeblvd_time_ago($post) . '<b> ' . $topics . '</b></p>
                         <p class="featured-title"><a href="' . get_the_permalink(get_the_ID()) . '">' . $title . '</a></p>
                         <p>' . $excerpt . '</p>';
             if ($reading_time) {
@@ -1851,7 +1851,7 @@ function ajax_author_listing_pagination() {
                 $return .= '<div class="resource-image"><a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_post_thumbnail(get_the_ID()) . '</a></div>';
             }
             $return .= '<div class="resource-content">
-                        <p class="read-date">' . get_the_date('F j, Y', get_the_ID()) . '<b> ' . $topics . '</b></p>
+                        <p class="read-date">' .themeblvd_time_ago($post). '<b> ' . $topics . '</b></p>
                         <p class="featured-title"><a href="' . get_the_permalink(get_the_ID()) . '">' . $title . '</a></p>
                         <p>' . $excerpt . '</p>';
             if ($reading_time) {
@@ -1926,10 +1926,11 @@ function ajax_glossary_pagination() {
 
     if ($resources->have_posts()) :
         while ($resources->have_posts()) : $resources->the_post();
+            $id = $post->ID;
             if (preg_match("/^[a-zA-Z]+$/", substr(strtoupper(get_the_title()), 0, 1))) {
-                $glossary[substr(strtoupper(get_the_title()), 0, 1)][] = get_the_title();
+                $glossary[substr(strtoupper(get_the_title()), 0, 1)][$id] = get_the_title();
             } else {
-                $glossary["#"][] = get_the_title();
+                $glossary["#"][$id] = get_the_title();
             }
 
         endwhile;
@@ -1943,7 +1944,7 @@ function ajax_glossary_pagination() {
                     <div class="col-sm-12">
                         <h2 class="section-heading">' . $key . '</h2>';
             foreach ($value as $innrkey => $innervalue) {
-                $return .= '<p class="featured-title"><a href="'.get_the_permalink($innervalue->ID).'">' . $innervalue . '</a></p>';
+                $return .= '<p class="featured-title"><a href="'.get_the_permalink($innrkey).'">' . $innervalue . '</a></p>';
             }
 
             $return .= '</div>
@@ -2071,7 +2072,7 @@ function search_sort_resources_array( $post ) {
                 }
              
                 $return .=  '<div class="resource-content">
-                <p class="read-date">'.get_the_date('F j, Y', $post->ID).' <b>'.$topics.'</b></p>
+                <p class="read-date">'.themeblvd_time_ago($post).' <b>'.$topics.'</b></p>
                 <p class="featured-title"><a href="'.get_the_permalink($post->ID).'">'.$title.'</a></p>
                 <p>'.$excerpt.'</p>';
                 if ( $reading_time ) {
@@ -2099,3 +2100,82 @@ function featured_image_requirement() {
 }
 
 add_action('pre_post_update', 'featured_image_requirement');
+
+function themeblvd_time_ago( $post ) {
+ 
+	$date         = get_post_time('G', true, $post);
+        $month_ago    = strtotime("now"); //A month from today
+        $date1 = date('Y-m-d',$date);
+        $date2 = date('Y-m-d',$month_ago);
+   
+        $date1 = date_create($date1);
+        $date2 = date_create($date2);
+        $diff = date_diff($date2,$date1); 
+       
+        if ( $diff->days > 30 ) {
+            $output = get_the_date('F j, Y', $post->ID);
+            return $output;
+        }
+     
+	/**
+	 * Where you see 'themeblvd' below, you'd
+	 * want to replace those with whatever term
+	 * you're using in your theme to provide
+	 * support for localization.
+	 */ 
+ 
+	// Array of time period chunks
+	$chunks = array(
+		array( 60 * 60 * 24 * 365 , __( 'year', 'themeblvd' ), __( 'years', 'themeblvd' ) ),
+		array( 60 * 60 * 24 * 30 , __( 'month', 'themeblvd' ), __( 'months', 'themeblvd' ) ),
+		array( 60 * 60 * 24 * 7, __( 'week', 'themeblvd' ), __( 'weeks', 'themeblvd' ) ),
+		array( 60 * 60 * 24 , __( 'day', 'themeblvd' ), __( 'days', 'themeblvd' ) ),
+		array( 60 * 60 , __( 'hour', 'themeblvd' ), __( 'hours', 'themeblvd' ) ),
+		array( 60 , __( 'minute', 'themeblvd' ), __( 'minutes', 'themeblvd' ) ),
+		array( 1, __( 'second', 'themeblvd' ), __( 'seconds', 'themeblvd' ) )
+	);
+ 
+	if ( !is_numeric( $date ) ) {
+		$time_chunks = explode( ':', str_replace( ' ', ':', $date ) );
+		$date_chunks = explode( '-', str_replace( ' ', '-', $date ) );
+		$date = gmmktime( (int)$time_chunks[1], (int)$time_chunks[2], (int)$time_chunks[3], (int)$date_chunks[1], (int)$date_chunks[2], (int)$date_chunks[0] );
+	}
+ 
+	$current_time = current_time( 'mysql', $gmt = 0 );
+	$newer_date   = strtotime( $current_time );
+     
+	// Difference in seconds
+	$since = $newer_date - $date;
+       
+	// Something went wrong with date calculation and we ended up with a negative date.
+	if ( 0 > $since )
+		return __( 'sometime', 'themeblvd' );
+ 
+	/**
+	 * We only want to output one chunks of time here, eg:
+	 * x years
+	 * xx months
+	 * so there's only one bit of calculation below:
+	 */
+ 
+	//Step one: the first chunk
+	for ( $i = 0, $j = count($chunks); $i < $j; $i++) {
+		$seconds = $chunks[$i][0];
+ 
+		// Finding the biggest chunk (if the chunk fits, break)
+		if ( ( $count = floor($since / $seconds) ) != 0 )
+			break;
+	}
+ 
+	// Set output var
+	$output = ( 1 == $count ) ? '1 '. $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
+ 
+ 
+	if ( !(int)trim($output) ){
+		$output = '0 ' . __( 'seconds', 'themeblvd' );
+	}
+ 
+	$output .= __(' ago', 'themeblvd');
+ 
+	return $output;
+}
