@@ -410,7 +410,7 @@ $ebook_desc    = get_post_meta($post->ID, 'wpcf-ebook-description', true);
                     <div class="col-sm-8">
                         <div class="form-group">
                             <fieldset>
-                                <input type="text" class="form-control field-style" placeholder="Email Address">
+                                <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
                             </fieldset>
                         </div>
                     </div>

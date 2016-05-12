@@ -3,11 +3,6 @@
   Template Name: glossary
  */
 get_header();
-// Fetch Business types to populate filter business type drop down
-$business_types = get_terms('business-type', array(
-    'parent' => '0',
-    'hide_empty' => 0
-        ));
 
 // Resources
 $args = array(

@@ -132,7 +132,25 @@ $(function () {
             });
         }
     });
-
+    
+    
+     $('#ebook-form').validate({
+        // Specify the validation rules
+        rules: {
+            email: {
+                required: true,
+                validateEmail: true
+            }
+        },
+        // Specify the validation error messages
+        messages: {
+            email: {
+                required      : "This field is required",
+                validateEmail : "Invalid Email",
+            }
+        }
+    });
+    
     // Partner lead generation validations
     $('#partner-lead-generation').validate({
         // Specify the validation rules
