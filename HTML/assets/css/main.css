@@ -1534,7 +1534,7 @@ form.form-section h3 {
 .search-result .sidebar input[type="checkbox"] + label span {
     margin-top: 0px;    
 }
-.search-result .sidebar label{
+.search-result .sidebar label b{
     display: table-cell;
     vertical-align: middle;
 }
