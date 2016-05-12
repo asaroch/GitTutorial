@@ -3169,7 +3169,8 @@ connect-through span {
 .resource-image .gardiant-bg img { 
     position: relative;
 }
-.resource-image .gardiant-bg span, #all_resources_block .thumbnail .gardiant-bg {
+.resource-image .gardiant-bg span,
+#all_resources_block .thumbnail .gardiant-bg {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a24f9d+100 */
     background: #6c2976; /* Old browsers */
     background: -moz-linear-gradient(left, #6c2976 0%, #a24f9d 100%); /* FF3.6-15 */
