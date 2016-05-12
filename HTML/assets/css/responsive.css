@@ -1092,7 +1092,7 @@
         background-color: #e69500; 
     }
     .accordion-xs .accordion-xs-toggle:after {
-        content: "?";
+        content: "";
         float: right;
         color: rgba(1, 174, 240, 0.9);
     }
