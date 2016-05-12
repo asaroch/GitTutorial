@@ -418,7 +418,7 @@ $(function () {
 
     // custom checkbox end    
     //    help center accordion
-    $(".accordion a").on("click", function () {
+    $("#faq-block .accordion a").on("click", function () {
         $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
     });
 
