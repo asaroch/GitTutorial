@@ -3226,3 +3226,6 @@ connect-through span {
     line-height: 32px;
 }
 
+body.modal-open #main_navigationbar, body.modal-open .get-Quote-form{
+    margin-right: 17px !important;
+}
