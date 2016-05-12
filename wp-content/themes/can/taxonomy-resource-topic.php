@@ -77,7 +77,7 @@ if ($resources->have_posts()) {
                                 }
                                 ?>
                                 <div class="resource-content">
-                                    <p class="read-date"><?php echo get_the_date('F j, Y', $post->ID); ?> in <b><?php echo $term->name; ?></b></p>
+                                    <p class="read-date"><?php echo themeblvd_time_ago($post); ?> in <b><?php echo $term->name; ?></b></p>
                                     <p class="featured-title">
                                         <a href="<?php echo esc_url(get_the_permalink($post->ID)); ?>"><?php echo esc_attr(strlen($post->post_title) >= 75 ? substr($post->post_title, 0, 75) . ' ...' : $post->post_title); ?></a>
                                     </p>
@@ -208,7 +208,7 @@ $args = array(
                                     }
                                     ?>
                                 <div class="caption">
-                                    <p class="read-date"><span><?php echo $topics; ?></span> • <?php echo get_the_date('F j, Y', $post->ID); ?></p>
+                                    <p class="read-date"><span><?php echo $topics; ?></span> • <?php echo themeblvd_time_ago($post); ?></p>
                                     <h3><a href="<?php echo get_the_permalink(); ?>"><?php echo esc_attr(strlen(get_the_title()) >= 40 ? substr(get_the_title(), 0, 40) . ' ...' : get_the_title()); ?></a></h3>
                                     <p class="hidden-xs"><?php echo strlen(get_the_content()) >= 145 ? substr(get_the_content(), 0, 145) . ' ...' : get_the_content(); ?></p>
         <?php

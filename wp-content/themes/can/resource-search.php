@@ -82,7 +82,7 @@ $most_popular_resources = new WP_Query($most_popular_args);
     <div class="container">
         <div class="row">
             <?php
-            if (count($topics)) {
+            if (count( $topics )) {
                 ?>
                 <div class="col-sm-12 col-md-3 hidden-xs">
                     <div class="sidebar">

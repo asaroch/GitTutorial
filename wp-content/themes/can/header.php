@@ -20,6 +20,7 @@ ob_start();
             <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
         <?php endif; ?>
         <?php wp_head(); ?>
+        <script src="http://malsup.github.com/jquery.form.js"></script>
     <div id="fb-root"></div>
     <script>
         window.fbAsyncInit = function () {
