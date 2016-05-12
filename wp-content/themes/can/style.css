@@ -1970,6 +1970,11 @@ form.form-section h3.heading-beacome-partner {
 .term-laon {
     width: 27%;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .term-laon, .trak-laon, .installment-loan {
+        width: 27.2%;
+    }
+}
 .trak-laon {
     width: 27%;
 }
