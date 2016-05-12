@@ -3142,10 +3142,11 @@ connect-through span {
 /*live chat*/
 .boldchat {    
     left: 0;
-    position: absolute;
+    position: relative;
     text-align: center;
-    top: 12px;
+    top: 5px;
     white-space: nowrap;
+    float: left;
 }
 #resource_hero.resource-post { 
     height: auto;

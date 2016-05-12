@@ -956,6 +956,22 @@ function change_submenu_class($menu) {
 
 add_filter('wp_nav_menu', 'change_submenu_class');
 
+/* * *****************************************************************
+  Description : Hook to add class on anchor tag for specific menu item
+  Params      : $atts, $item, $args
+  return      : $atts
+ * ********************************************************************/
+
+function add_specific_menu_atts( $atts, $item, $args ) {
+	if ($item->ID == 879) {
+	  $atts['class'] = 'pull-left';
+	}
+	
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'add_specific_menu_atts', 10, 3 );
+
+
 // Add custom image size
 add_image_size('trending-resources', 70, 100);
 add_image_size('partners-expertise', 92, 92);

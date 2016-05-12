@@ -557,7 +557,11 @@ $(function () {
         });
     });
     
-    $("#menu-item-214").append($(".boldchat"));
+        $(".boldchat").hide();
+        var livechat = $('#menu-item-879').is(":visible");
+        if(livechat == true){
+          $("#menu-item-879").append($(".boldchat").show());
+        }
 
 
 });
