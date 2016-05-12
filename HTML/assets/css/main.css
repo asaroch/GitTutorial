@@ -1528,6 +1528,16 @@ form.form-section h3 {
 }
 
 /*custom radio and label*/
+.search-result .sidebar label { 
+    display: table;
+}
+.search-result .sidebar input[type="checkbox"] + label span {
+    margin-top: 0px;    
+}
+.search-result .sidebar label{
+    display: table-cell;
+    vertical-align: middle;
+}
 #partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
     height: 20px;
     display: inline-block;
@@ -3215,3 +3225,4 @@ connect-through span {
     width: auto;
     line-height: 32px;
 }
+
