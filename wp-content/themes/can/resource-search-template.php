@@ -7,7 +7,7 @@ $business_types = get_terms('business-type', array(
 ?>
 <section id="search_resource"><!-- Search Resource -->
     <div class="container">
-        <form method="get" action="<?php echo get_the_permalink('597'); ?>" id="resource-search">
+        <form method="get" action="<?php echo get_the_permalink('597'); ?>" id="resource-search" class="search-form-section">
             <div class="row"> 
                 <div class="col-sm-5 col-md-6">
                     <div class="form-group"> 

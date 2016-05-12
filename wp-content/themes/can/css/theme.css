@@ -1,6 +1,13 @@
-.featured-article{margin-bottom:10px;}
-.show-less-articles{display:none;}
-.static-design-content{font-weight: bold;font-size: 20px;}
+.featured-article {
+    margin-bottom:10px;
+}
+.show-less-articles {
+    display:none;
+}
+.static-design-content { 
+    font-weight: bold;
+    font-size: 20px;
+}
 /*ul.nav li.current-menu-item  a {
     border-bottom: 4px solid #00B0EB;
 }*/
@@ -10,7 +17,6 @@
 .primary-nav .nav li.current-menu-item > a {
      border-bottom: 4px solid #00B0EB;
 }
-
 .primary-nav .nav li.dropdown a {    
     padding: 9px 0;
 }
@@ -18,11 +24,9 @@
     color: #00aeef;
     border-bottom: none;
 }
-
 .primary-nav .nav li.current_page_parent > a {
      border-bottom: 4px solid #00B0EB;
 }
-
 .primary-nav .nav li.current-page-ancestor > a {
      border-bottom: 4px solid #00B0EB;
 }
@@ -30,13 +34,31 @@
 .show-less-termDetail-loan{display:none;}
 label.sucess{color: green;margin-bottom: 10px;}
 #loader-conatiner{text-align:center;}
-label.error{    color: red;float: right;margin-right: 10px;}
 .avatar{-webkit-border-radius: 50%; -moz-border-radius: 50%; -ms-border-radius: 50%; -o-border-radius: 50%; border-radius: 50%; }
 .form-group .control-label:after {
   content:"*";
   color:red;
 }
 
+form.search-form-section label.error{
+    color: red;
+    position: absolute;
+    bottom: -13px;
+    padding: 0 25px 0 0;
+    font-size: 14px;
+    left: 28px;
+}
+label.error {
+    color:red; 
+    display: block;
+    text-align: left;
+    padding: 0 15px;
+    font-size: 14px;
+    font-family: 'Fort-Book';
+}
+.bawpvc-ajax-counter {
+    display:none;
+}
 @media (max-width:767px) {
   .primary-nav .nav li.dropdown > a {
         padding-right:32px;

@@ -101,9 +101,6 @@
     .col-7-overide {
         width: 44.733333%;
     }
-    .get-e-book input[type="text"] {
-        width: 595px;
-    }
     .resource-container {
         width: 70%;
     }
@@ -145,6 +142,9 @@
     #search_resource .select-topic select {
         font-size: 14px;
     }
+    .get-e-book fieldset, #cc-newsletter fieldset {
+        width: 490px;
+    }
 }
 @media (max-width:1199px) and (min-width:768px) {
     .testimonial-heading  {
@@ -156,9 +156,7 @@
     .option-text {
         padding: 0;
     }
-    .get-e-book input[type="text"] {
-        width: 100%;
-    }
+    
     footer .badges-container {
         padding: 25px 0 0;
     }
@@ -349,7 +347,12 @@
     #member_benefit.career .benefits{
         height: 284px;
     }
-    
+    .get-e-book fieldset, #cc-newsletter fieldset {
+        width: 440px;
+    }    
+    #cc-newsletter small {
+        padding-left: 12px;
+    }
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -910,10 +913,14 @@
     .news-letter-field {
         text-align: center;
     }
-    .news-letter-field input, .get-e-book input[type="text"] {
-        width:272px;
+    .news-letter-field fieldset,
+    .get-e-book fieldset ,
+    #cc-newsletter fieldset {
         margin: 0 auto;  
     }
+    .news-letter-field fieldset,
+    .get-e-book fieldset,
+    #cc-newsletter fieldset,
     .news-letter-field button[type="submit"] {
         width: 227px;
     }   
@@ -1219,10 +1226,7 @@
     .client-testimonials { 
         width: 100%
     }
-    #cc-newslette input[type="text"] { 
-        width: 100%;
-    }
-    #cc-newslette .btn-left { 
+    #cc-newsletter .btn-left { 
         text-align: center;
     }
     #articles .related-articles { 
@@ -1251,7 +1255,7 @@
     #articles .related-articles .col-sm-6:last-child .thumbnail { 
         border: none;
     }
-    #cc-newslette small {
+    #cc-newsletter small {
         bottom: -95px;
         float: none;
         left: 0;

@@ -1893,7 +1893,7 @@ add_action('wp_ajax_ajax_glossary_pagination', 'ajax_glossary_pagination');
 
 function ajax_glossary_pagination() {
     global $post;
-    $itemsPerPage = get_option('posts_per_page');
+    $itemsPerPage = 20;
     $offset = ($_POST['offset'] - 1) * $itemsPerPage;
 
     $args = array(
