@@ -325,6 +325,7 @@ add_action('wp_head', 'twentysixteen_javascript_detection', 0);
  * @since Twenty Sixteen 1.0
  */
 function can_scripts() {
+    global $post;
     // Theme stylesheet.
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
     wp_enqueue_style('owl.carousel', get_template_directory_uri() . '/css/owl.carousel.css');
@@ -351,8 +352,8 @@ function can_scripts() {
     $count_video_testimonial = wp_count_posts('video-testimonial');
     $count_funding_graph = wp_count_posts('business-funding-gra');
     $count_getting_funds = wp_count_posts('how_getting_fund');
-   
-    if (is_front_page()) {
+ 
+    if (is_front_page() || ($post->post_type == "campaign-all-product")) {
         if ($count_financial_product->publish > 3) {
             $financialProductSlider = TRUE;
         }
@@ -391,7 +392,7 @@ function can_scripts() {
     $contact_us_validations_error_msg = get_option('contact_us_validations_error_msg');
 
 
-    global $post;
+    
     // Search parameters of resource
     $resourceFilteredParameters = array();
     $resourceFilteredParameters['searchKeyword'] = ( isset($_GET['keyword']) && $_GET['keyword'] != '' ) ? $_GET['keyword'] : FALSE;
@@ -1486,7 +1487,6 @@ add_action('admin_menu', 'can_small_business_fundng_add_pages');
 function myextensionTinyMCE($init) {
     // Command separated string of extended elements
     $ext = 'span[id|name|class|style]';
-
     // Add to extended_valid_elements if it alreay exists
     if (isset($init['extended_valid_elements'])) {
         $init['extended_valid_elements'] .= ',' . $ext;
@@ -2083,3 +2083,6 @@ function featured_image_requirement() {
 }
 
 add_action('pre_post_update', 'featured_image_requirement');
+
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
