@@ -1910,10 +1910,11 @@ function ajax_glossary_pagination() {
 
     if ($resources->have_posts()) :
         while ($resources->have_posts()) : $resources->the_post();
+            $id = $post->ID;
             if (preg_match("/^[a-zA-Z]+$/", substr(strtoupper(get_the_title()), 0, 1))) {
-                $glossary[substr(strtoupper(get_the_title()), 0, 1)][] = get_the_title();
+                $glossary[substr(strtoupper(get_the_title()), 0, 1)][$id] = get_the_title();
             } else {
-                $glossary["#"][] = get_the_title();
+                $glossary["#"][$id] = get_the_title();
             }
 
         endwhile;
@@ -1927,7 +1928,7 @@ function ajax_glossary_pagination() {
                     <div class="col-sm-12">
                         <h2 class="section-heading">' . $key . '</h2>';
             foreach ($value as $innrkey => $innervalue) {
-                $return .= '<p class="featured-title"><a href="'.get_the_permalink($innervalue->ID).'">' . $innervalue . '</a></p>';
+                $return .= '<p class="featured-title"><a href="'.get_the_permalink($innrkey).'">' . $innervalue . '</a></p>';
             }
 
             $return .= '</div>
