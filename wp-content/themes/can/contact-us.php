@@ -203,7 +203,7 @@ if (isset($_POST['submit'])) {
 <?php endif; ?>
 <!-- our offices -->
 <!-- CAN Capital Newslette -->
-<section class="gradient-one" id="cc-newslette">
+<section class="gradient-one" id="cc-newsletter">
     <div class="container">					
         <div class="row">
             <div class="col-sm-12">
@@ -228,7 +228,9 @@ if (isset($_POST['submit'])) {
                 <div class="col-sm-12">
                     <div class="col-sm-8">
                         <div class="form-group">
+                            <fieldset>
                             <input type="text" class="form-control field-style" placeholder="Email Address" name="email">
+                            </fieldset>
                         </div>
                         <small>We never share your information</small>
                     </div>

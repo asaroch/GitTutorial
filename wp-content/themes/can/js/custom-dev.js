@@ -123,7 +123,7 @@ $(function () {
                 },
                 success: function (response) {
                     if (response.msg == 'Sucess') {
-                        $('#cc-newslette').find('label:first').remove();
+                        $('#cc-newsletter').find('label:first').remove();
                         $(response.data).insertBefore(".news-letter-heading");
                         $('.newsletter-button').show();
                         $('#loading-image').hide();
