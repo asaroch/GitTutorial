@@ -6,8 +6,6 @@ $meta = get_post_meta(get_the_ID());
  */
 
 global $post;
-$listings = new WP_Query();
-$listings->query('post_type=video-testimonial&posts_per_page=-1&orderby=menu_order date&order=ASC');
 
 /*
  * Fetch loan keypoints
@@ -145,52 +143,7 @@ $loan_uses = get_post_meta($post->ID, 'wpcf-loan_uses', false);
     </div>
 </section>
 <!-- Loan calculator -->
-<!-- community of success -->
-<section id="success_community">
-    <div class="container">
-        <h2 class="section-heading"> <?php echo get_post_meta($post->ID, 'wpcf-community-headline', true); ?> </h2>
-        <div class="owl-carousel owl-theme">
-            <!--Display testimonials for merchants-->
-            <?php
-            if ($listings->found_posts > 0) {
-                while ($listings->have_posts()) {
-                    $listings->the_post();
-                    ?>
-                    <!--Testimonials ends here-->
-                    <?php
-                    $meta = get_post_meta($post->ID, '_fvp_video', true);
-                    $video = wp_get_attachment_url($meta['id']);
-                    ?>
-                    <div class="item">
-
-                        <div class="video-player"> 
-
-                            <a href="<?php echo $video; ?>" data-webm="<?php echo $video; ?>" class="html5lightbox"><?php echo get_the_post_thumbnail($post->ID, array(515,307)); ?><div class="video-play-icon"><i></i></div></a>
-
-                        </div>
-
-                        <p class="marchent-name"> <?php echo get_the_title(); ?> </p>
-                        <p class="business-label"> <?php echo get_post_meta($post->ID, 'wpcf-business', true); ?> </p>
-                        <p class="business-name"> <?php echo get_post_meta($post->ID, 'wpcf-video_topic', true); ?> </p>
-                        <p class="success-description"> <?php echo get_the_content(); ?> </p>					
-                    </div>
-                    <?php
-                }
-            }
-            ?>
-        </div>
-        <div class="customNavigation visible-xs">
-            <div class="text-center">
-                <a title="prev" class="slide-prev"> <i class="glyphicon glyphicon-menu-left"></i></a>
-                <span class="current-slider"> 1 </span>
-                <span class="slider-ratio">/</span> 
-                <span class="total-slider"> 16 </span>
-                <a title="next" class="slide-next active"><i class="glyphicon glyphicon-menu-right"></i></a>
-            </div>
-        </div>
-    </div>			
-</section>
-<!-- community of success -->
+<?php get_template_part('community_of_success'); ?>
 <!-- member benefit -->
 <?php if (is_active_sidebar('memberbenefit')) : ?>
     <div class="widget-area memberbenefit" role="complementary">

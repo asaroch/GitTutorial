@@ -6,8 +6,6 @@ get_header();
 
 // heading block.
 $about_us_heading = get_post_meta(get_the_ID(), 'wpcf-about-us-heading', true);
-$about_us_desc = get_post_meta(get_the_ID(), 'wpcf-about-us-description', true);
-
 //develop career block
 $develop_career_text = get_post_meta(get_the_ID(), 'wpcf-develop-career-text', true);
 $develop_career_button = get_post_meta(get_the_ID(), 'wpcf-develop-career-butto', true);
@@ -67,7 +65,7 @@ $args = array(
 $press_featured = new WP_Query($args);
 //create a object to show estimated reading time for a post.
             $estimated_time = new EstimatedPostReadingTime();
-
+ wp_reset_query();
 ?>
 
 <section class="sales-program gradient-one">
@@ -75,7 +73,7 @@ $press_featured = new WP_Query($args);
                     <div class="row">
 
                         <div class="col-md-12"><div class="section-heading"><?php echo $about_us_heading; ?></div>
-                            <?php echo $about_us_desc; ?>
+                            <?php echo the_content(); ?>
                         </div>
 
                     </div>	
