@@ -352,7 +352,19 @@
     }
     #cc-newsletter small {
         padding-left: 12px;
-    }    
+    }
+    /*search resource page*/
+    .search-result-list {
+        float: left;
+        margin-top:20px;
+    }
+    #all_resources_block.search-result .sidebar {
+        width: 100%;
+    }
+    #all_resources_block.search-result .sidebar fieldset {
+        float:left;
+        margin-right: 12px;
+    }
 }
 @media (min-width: 768px){	
     .navbar-collapse2.collapse {
@@ -1409,4 +1421,9 @@
 }
 @media (max-width:360px){
     #social-media-section .btn-block .btn:last-child { margin-top: 10px;}
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .term-laon, .trak-laon, .installment-loan {
+        width: 27.2%;
+    }
 }

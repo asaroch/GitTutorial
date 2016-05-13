@@ -1,4 +1,9 @@
 $(function () {
+    $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
+        window.clearInterval(this.interval);
+        this.core.settings.autoplay = false;
+    };
+    
     var clickActive = false;
 
     $('.get-Quote-form .section-heading').on('click', function () {
@@ -68,6 +73,8 @@ $(function () {
         margin: 10,
         responsiveClass: true,
         navigation: false,
+        autoplay: true,
+        autoplayTimeout: 2000,
         responsive: {
             0: {
                 items: 1,
@@ -377,8 +384,11 @@ $(function () {
         sbfSlider.trigger("to.owl.carousel", [0, 500, true]);
     });
     sbfSlider.on('changed.owl.carousel', function(event) {
-        console.log('in changed event', event);
-        switch(event.item.index) {
+        var itemIndex = event.item.index;
+        if(itemIndex >= 3){
+            itemIndex += 1
+        }
+        switch(itemIndex % 3) {
             case 0:
                 var anchorParent = $("#term_loan_btn").parent();
                 break;
@@ -400,6 +410,7 @@ $(function () {
         var parentSiblings = anchorParent.siblings("li.active");
         parentSiblings.removeClass("active");
         anchorParent.addClass("active");
+        sbfSlider.trigger("stop.owl.autoplay");
     });
 // custom checkbox
 
