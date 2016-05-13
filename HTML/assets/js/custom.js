@@ -1,9 +1,10 @@
 $(function () {
-    $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
+    /*sbf slider stop autoplay*/
+        $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
         window.clearInterval(this.interval);
         this.core.settings.autoplay = false;
-    };
-    
+        };
+    /*sbf slider stop autoplay*/
     var clickActive = false;
 
     $('.get-Quote-form .section-heading').on('click', function () {
@@ -403,7 +404,7 @@ $(function () {
         parentSiblings.removeClass("active");
         anchorParent.addClass("active");
     });
-    /* Small business funding slider state */
+    /*active state of slider buttons*/
     $(".navigation-item").click(function () {
         var $this = $(this);
         var anchorParent = $this.parent();
@@ -412,8 +413,9 @@ $(function () {
         anchorParent.addClass("active");
         sbfSlider.trigger("stop.owl.autoplay");
     });
+    /* Small business funding slider state */
+    
 // custom checkbox
-
     var checkbox = $(".search-result .sidebar input[type='checkbox']");
     $(checkbox).click(function () {
         if (checkbox.is(":checked")) {

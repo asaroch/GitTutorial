@@ -1059,7 +1059,7 @@ span.select-drop {
 #financial_product.termloan-section {
     padding-top: 35px;
 }
-/*term-lon end*/
+/*term-loan end*/
 /*footer*/
 footer {
     padding: 42px 0px;
@@ -1528,6 +1528,14 @@ form.form-section h3 {
 }
 
 /*custom radio and label*/
+.search-result .sidebar label { 
+    display: table;
+}
+.search-result .sidebar label b{
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: normal;
+}
 #partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
     height: 20px;
     display: inline-block;
@@ -1587,7 +1595,9 @@ form.form-section h3 {
 .search-result .sidebar input[type="checkbox"]:checked + label {
     font-family: "Fort-Medium";
 }
-
+.search-result .sidebar input[type="checkbox"] + label span {
+    margin-top: 0px;    
+}
 /*custom radio and label end*/
 
 form.form-section p a.know-more {
@@ -1969,11 +1979,6 @@ form.form-section h3.heading-beacome-partner {
 }
 .term-laon {
     width: 27%;
-}
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    .term-laon, .trak-laon, .installment-loan {
-        width: 27.2%;
-    }
 }
 .trak-laon {
     width: 27%;
@@ -3219,4 +3224,8 @@ connect-through span {
 .news-pres-contacts {
     width: auto;
     line-height: 32px;
+}
+body.modal-open #main_navigationbar,
+body.modal-open .get-Quote-form {
+    right: 17px !important;
 }
