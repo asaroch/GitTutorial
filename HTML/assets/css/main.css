@@ -1059,7 +1059,7 @@ span.select-drop {
 #financial_product.termloan-section {
     padding-top: 35px;
 }
-/*term-lon end*/
+/*term-loan end*/
 /*footer*/
 footer {
     padding: 42px 0px;
@@ -3225,7 +3225,6 @@ connect-through span {
     width: auto;
     line-height: 32px;
 }
-
 body.modal-open #main_navigationbar,
 body.modal-open .get-Quote-form {
     right: 17px !important;
