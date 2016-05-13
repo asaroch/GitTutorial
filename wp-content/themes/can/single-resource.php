@@ -33,7 +33,7 @@ while (have_posts()) : the_post();
         $label  = "Video";
     }
     ?>
-    <section id="resource_hero"><!-- Resource banner -->
+    <section id="resource_hero" class="resource-post"><!-- Resource banner -->
          <?php
           if ( $image_src != NULL || $src != NULL ) {
               ?>

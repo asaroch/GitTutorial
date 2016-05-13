@@ -1059,7 +1059,7 @@ span.select-drop {
 #financial_product.termloan-section {
     padding-top: 35px;
 }
-/*term-lon end*/
+/*term-loan end*/
 /*footer*/
 footer {
     padding: 42px 0px;
@@ -1528,6 +1528,14 @@ form.form-section h3 {
 }
 
 /*custom radio and label*/
+.search-result .sidebar label { 
+    display: table;
+}
+.search-result .sidebar label b{
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: normal;
+}
 #partner_lead_form .partner-type input[type="radio"], .search-result .sidebar input[type="checkbox"] {
     height: 20px;
     display: inline-block;
@@ -1587,7 +1595,9 @@ form.form-section h3 {
 .search-result .sidebar input[type="checkbox"]:checked + label {
     font-family: "Fort-Medium";
 }
-
+.search-result .sidebar input[type="checkbox"] + label span {
+    margin-top: 0px;    
+}
 /*custom radio and label end*/
 
 form.form-section p a.know-more {
@@ -3157,4 +3167,65 @@ connect-through span {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: inline-block;
+}
+/*-------------------news landing--------------------*/
+.resource-image .gardiant-bg {
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(-0%, -0%);
+}
+.resource-image .gardiant-bg img { 
+    position: relative;
+}
+.resource-image .gardiant-bg span,
+#all_resources_block .thumbnail .gardiant-bg {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6c2976+0,a24f9d+100 */
+    background: #6c2976; /* Old browsers */
+    background: -moz-linear-gradient(left, #6c2976 0%, #a24f9d 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #6c2976 0%,#a24f9d 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #6c2976 0%,#a24f9d 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c2976', endColorstr='#a24f9d',GradientType=0 ); IE6-9 */
+    font-family: "Fort-bold";
+    font-size: 13px;
+    padding: 5px 15px;
+    display: block;
+    color: #fff;
+}
+#all_resources_block .thumbnail .gardiant-bg { 
+    display: inline-block;
+    margin-right: 20px;
+}
+#all_resources_block .thumbnail {
+    width: 90%;
+    border: none;
+    margin-top: 50px;
+}
+#all_resources_block .thumbnail a {
+    color: #01aef0;
+    font-family: Fort-bold;
+    font-size: 26px;
+    line-height: 30px;
+    padding-bottom: 8px;
+    text-decoration: none;
+}
+#all_resources_block .thumbnail p {
+    margin-top: 15px;
+    color: #a1a1a1;
+}
+#all_resources_block .thumbnail .read-time {
+    margin-top: 25px;
+    position: inherit;
+}
+.width-auto {
+    width: auto;
+}
+.news-pres-contacts {
+    width: auto;
+    line-height: 32px;
+}
+body.modal-open #main_navigationbar,
+body.modal-open .get-Quote-form {
+    right: 17px !important;
 }

@@ -83,9 +83,9 @@
                     wp_reset_postdata();
                     wp_reset_query();
 
-                    echo get_post_meta(get_the_ID(), 'wpcf-footer-text', true);
+                    echo "<p>".get_post_meta(get_the_ID(), 'wpcf-footer-text', true)."</p>";
                     // including Global footer plugin.
-                    echo footer_text();
+                    echo "<p>".footer_text()."</p>";
                     ?>
                 </div>	
             </div>

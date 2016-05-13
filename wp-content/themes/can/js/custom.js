@@ -1,4 +1,11 @@
 $(function () {
+    /*sbf slider stop autoplay*/
+        $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
+        window.clearInterval(this.interval);
+        this.core.settings.autoplay = false;
+        };
+    /*sbf slider stop autoplay*/
+    
     var clickActive = false;
     if (var_object.financialProductSlider) {
         financialProductSlider = true;
@@ -410,42 +417,46 @@ $(function () {
                     }
 
         });
-        
-        /* Small business funding slider */
-                var sbfSlider = $("#sbf_hero #slider_testimonial");
-                $("#installment_btn").click(function () {
-                    sbfSlider.trigger("to.owl.carousel", [2, 500, true]);
-                });
-                $("#trak_loan_btn").click(function () {
-                    sbfSlider.trigger("to.owl.carousel", [1, 500, true]);
-                });
-                $("#term_loan_btn").click(function () {
-                    sbfSlider.trigger("to.owl.carousel", [0, 500, true]);
-                });
-                sbfSlider.on('changed.owl.carousel', function(event) {
-                    console.log('in changed event', event);
-                    switch(event.item.index) {
-                        case 0:
-                            var anchorParent = $("#term_loan_btn").parent();
-                            break;
-                        case 1:
-                            var anchorParent = $("#trak_loan_btn").parent();
-                            break;
-                        case 2:
-                            var anchorParent = $("#installment_btn").parent();
-                    }
-                    console.log(anchorParent);
-                    var parentSiblings = anchorParent.siblings("li.active");
-                    parentSiblings.removeClass("active");
-                    anchorParent.addClass("active");
-                });    
-                $(".navigation-item").click(function () {
-                    var $this = $(this);
-                    var anchorParent = $this.parent();
-                    var parentSiblings = anchorParent.siblings("li.active");
-                    parentSiblings.removeClass("active");
-                    anchorParent.addClass("active");
-                });
+    /* Small business funding slider */
+            var sbfSlider = $("#sbf_hero #slider_testimonial");
+            $("#installment_btn").click(function () {
+                sbfSlider.trigger("to.owl.carousel", [2, 500, true]);
+            });
+            $("#trak_loan_btn").click(function () {
+                sbfSlider.trigger("to.owl.carousel", [1, 500, true]);
+            });
+            $("#term_loan_btn").click(function () {
+                sbfSlider.trigger("to.owl.carousel", [0, 500, true]);
+            });
+            sbfSlider.on('changed.owl.carousel', function(event) {
+                var itemIndex = event.item.index;
+                if(itemIndex >= 3){
+                    itemIndex += 1
+                }
+                switch(itemIndex % 3) {
+                    case 0:
+                        var anchorParent = $("#term_loan_btn").parent();
+                        break;
+                    case 1:
+                        var anchorParent = $("#trak_loan_btn").parent();
+                        break;
+                    case 2:
+                        var anchorParent = $("#installment_btn").parent();
+                }
+                console.log(anchorParent);
+                var parentSiblings = anchorParent.siblings("li.active");
+                parentSiblings.removeClass("active");
+                anchorParent.addClass("active");
+            });
+            /*active state of slider buttons*/
+            $(".navigation-item").click(function () {
+                var $this = $(this);
+                var anchorParent = $this.parent();
+                var parentSiblings = anchorParent.siblings("li.active");
+                parentSiblings.removeClass("active");
+                anchorParent.addClass("active");
+                sbfSlider.trigger("stop.owl.autoplay");
+            });
     /* Small business funding slider state */
             
             // clear all - search resource
@@ -465,7 +476,7 @@ $(function () {
             
     // custom checkbox end    
     //    help center accordion
-    $(".accordion a").on("click", function () {
+    $("#faq-block .accordion a").on("click", function () {
         $(this).children(".glyphicon-menu-down, .glyphicon-menu-up").toggleClass("glyphicon-menu-down glyphicon-menu-up");
     });
 
