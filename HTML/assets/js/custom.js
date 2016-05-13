@@ -403,7 +403,7 @@ $(function () {
         parentSiblings.removeClass("active");
         anchorParent.addClass("active");
     });
-    /* Small business funding slider state */
+    /*active state of slider buttons*/
     $(".navigation-item").click(function () {
         var $this = $(this);
         var anchorParent = $this.parent();
@@ -412,8 +412,9 @@ $(function () {
         anchorParent.addClass("active");
         sbfSlider.trigger("stop.owl.autoplay");
     });
+    /* Small business funding slider state */
+    
 // custom checkbox
-
     var checkbox = $(".search-result .sidebar input[type='checkbox']");
     $(checkbox).click(function () {
         if (checkbox.is(":checked")) {
