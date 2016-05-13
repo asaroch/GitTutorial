@@ -1,4 +1,11 @@
 $(function () {
+    /*sbf slider stop autoplay*/
+        $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
+        window.clearInterval(this.interval);
+        this.core.settings.autoplay = false;
+        };
+    /*sbf slider stop autoplay*/
+    
     var clickActive = false;
     if (var_object.financialProductSlider) {
         financialProductSlider = true;
