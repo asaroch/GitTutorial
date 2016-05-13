@@ -1,9 +1,10 @@
 $(function () {
-    $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
+    /*sbf slider stop autoplay*/
+        $.fn.owlCarousel.Constructor.Plugins.autoplay.prototype.stop = function() {
         window.clearInterval(this.interval);
         this.core.settings.autoplay = false;
-    };
-    
+        };
+    /*sbf slider stop autoplay*/
     var clickActive = false;
 
     $('.get-Quote-form .section-heading').on('click', function () {
