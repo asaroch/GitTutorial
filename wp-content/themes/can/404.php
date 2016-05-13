@@ -34,15 +34,10 @@ get_header();
             <div class="col-sm-2">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/lightbulb_404.png">
             </div>
-            <div class="col-sm-10">
-                <p>This might be because:</p>
+            <div class="col-sm-10">                
                 <ul>
-                    <li>You typed the web address incorrectly</li>
-
-
-                    <li>The page may have been moved, updated or deleted</li>
-
-
+                    <li>Select a link from menu above</li>                    
+                    <li>Select a link from the our site footer below</li>
                 </ul>
             </div></div>
     </div>
